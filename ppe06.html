@@ -1,0 +1,600 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+	
+		<title>Entropiya | Power Plant Engineering 6</title> <!-- need to be updated per test -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		
+		<link rel="stylesheet" href="css/index.css" />
+		<script src="js/index.js"></script>
+		<link rel="stylesheet" href="assets/css/main.css" />
+
+		<!-- FontAwesome, jQuery and jQuery Mobile -->
+		<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css">
+		<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+		<script type="text/javascript" src="jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script> 
+		
+		<!-- jqmath -->
+		<link rel="stylesheet" href="mathscribe/jqmath-0.4.3.css">
+		<script src="mathscribe/jquery-1.4.3.min.js"></script>
+		<script src="mathscribe/jqmath-etc-0.4.5.min.js" charset="utf-8"></script>
+		
+		<script>
+			$(document).ready(function() {
+				solutionIsVisible = true;
+				
+				//mga nadagdag for view_solution
+				
+				$('.for_view_solution').hide();
+				$('#view_solution').css('visibility', 'hidden');
+				
+				for(i=0; i<quiz.length; i++) {
+					$('#solution_' + (i+1)).hide();
+				}
+				
+				$('#view_solution').click(function() {
+					for(i=0; i<quiz.length; i++) {
+						$('#solution_' + (i+1)).hide();
+					}
+						
+					$('#solution_' + (questionNumber + 1)).fadeToggle('slow');
+					$('.for_view_solution').fadeToggle('slow');
+					
+					if(solutionIsVisible) {
+						document.getElementById('view_solution').textContent = 'Hide Solution';
+						solutionIsVisible = false;
+					}else if(!solutionIsVisible){
+						document.getElementById('view_solution').textContent = 'View Solution';
+						solutionIsVisible = true;
+					}
+					
+				});
+
+				
+				// Image factory
+				var createImage = function(src, title, id) {
+				  var img   = new Image();
+				  img.src   = src;
+				  img.id = id;
+				  img.alt   = title;
+				  img.title = title;
+				  return img; 
+				};
+
+				// array of images dun dineclare sa main script para global
+				//var images = [];
+
+				// push two images to the array
+				//images.push(createImage("images/for_q_1.png", "pic01 title", "for_q_1"));
+				//images.push(createImage("images/for_q_2.png", "pic03 title", "for_q_2"));
+				
+				// mga nadagdag quiz with images
+				if((questionNumber+1) === 1) {
+					$('#question').after(images[0]);
+				} else if((questionNumber+1) === 2) {
+					$('#question').after(images[1]);
+				}
+				
+			});
+		</script>
+	
+	</head>
+	
+	<body>
+		<div data-role="panel" data-position="right" data-display="overlay" data-theme="a" id="panel">
+			<div class="nav_in_panel_container"> 
+				<ul data-role="listview" data-inset="true" data-theme="b" data-dividertheme="f">
+					<li data-icon="false"><a class="nav_in_panel" href="index.html" rel="external"><i class="fa fa-home" aria-hidden="true" ></i>  Home  </a> </li>
+					<li data-icon="false"><a class="nav_in_panel" href="about.html" rel="external"><i class="fa fa-user-o" aria-hidden="true" ></i>  About  </a> </li>
+					<li data-icon="false"><a class="nav_in_panel" href="references.html" rel="external"><i class="fa fa-book" aria-hidden="true" ></i>  References  </a>
+					<li data-icon="false"><a class="nav_in_panel" href="https://www.facebook.com/vilmar.empino?__nodl" rel="external" ><i class="fa fa-facebook-square" aria-hidden="true"></i>  Like us on facebook!  </a></li>
+				</ul>
+			</div>
+		</div>
+		<div id="header_container">
+			<figure class="logo" id="logo">
+				<a href="index.html" rel="external"><img src="images/logo.png" alt="image"/></a>
+			</figure>
+			<ul class="home_nav_quiz"> 
+				<a href="#panel" class="right_panel"> <i class="fa fa-bars" id="icon_for_right_panel" aria-hidden="true"></i> </a>
+				<div class="toBeHidden">
+				<li class="li"><a class="a" href="references.html" rel="external">References</a></li>
+				<li class="li"><a class="a" href="about.html" rel="external">About</a></li>
+				<!-- <li class="li" id="dropdown">
+					<a class="a" href="javascript:void(0)" class="dropbtn">MCQs <i class="fa fa-caret-down" aria-hidden="true"></i></a>
+					<div class="dropdown-content">
+					<a class="a" href="home-me.html" rel="external">Mechanical Engineering</a>
+					<a class="a" href="home-ece.html" rel="external">Electronics Engineering</a> 
+					</div>
+				</li> -->
+				<li class="li"><a class="a" href="index.html" rel="external">Home</a></li>
+				</div>
+			</ul>
+		</div>
+		<div id="body_container"> 
+			
+			<div id="for_contents_quiz">
+				
+				<div id="for_left_content_quiz">
+					<div id="for_title">
+						<strong class="for_h2">Power Plant Engineering - Test 6 Diesel Power Plant (1-20)</strong> <!-- need to be updated per test -->
+					</div>
+					<br>
+					<div id="for_top_ads_quiz">
+						<span> FTA  </span>
+					</div>
+					<div id="for_left_navbar"> <!-- need to be updated per test -->
+						<div data-role="collapsible">
+							<h3>Problems</h3>
+							<ul data-role="listview" id="left_nav" data-inset="true" data-theme="c" data-dividertheme="f">
+								<li><a href="ppe01.html"  rel="external">Test 1</a></li>
+								<li><a href="ppe02.html"  rel="external">Test 2</a></li>
+								<li><a href="ppe03.html"  rel="external">Test 3</a></li>
+								<li><a href="ppe04.html"  rel="external">Test 4</a></li>
+								<li><a href="ppe05.html"  rel="external">Test 5</a></li>
+								<li><a href="ppe06.html"  rel="external">Test 6</a></li>
+								<li><a href="ppe07.html"  rel="external">Test 7</a></li>
+								<li><a href="ppe08.html"  rel="external">Test 8</a></li>
+								<li><a href="ppe09.html"  rel="external">Test 9</a></li>
+								<li><a href="ppe10.html"  rel="external">Test 10</a></li>
+								<li><a href="ppe11.html"  rel="external">Test 11</a></li>
+								<li><a href="ppe12.html"  rel="external">Test 12</a></li>
+								<li><a href="ppe13.html"  rel="external">Test 13</a></li>
+								<li><a href="ppe14.html"  rel="external">Test 14</a></li>
+								<li><a href="ppe15.html"  rel="external">Test 15</a></li>
+								<li><a href="ppe16.html"  rel="external">Test 16</a></li>
+								<li><a href="ppe17.html"  rel="external">Test 17</a></li>
+								<li><a href="ppe18.html"  rel="external">Test 18</a></li>
+								<li><a href="ppe19.html"  rel="external">Test 19</a></li>
+								<li><a href="ppe20.html"  rel="external">Test 20</a></li>
+								<li><a href="ppe21.html"  rel="external">Test 21</a></li>
+								<li><a href="ppe22.html"  rel="external">Test 22</a></li>
+								<li><a href="ppe23.html"  rel="external">Test 23</a></li>
+								<li><a href="ppe24.html"  rel="external">Test 24</a></li>
+								<li><a href="ppe25.html"  rel="external">Test 25</a></li>
+								<li><a href="ppe26.html"  rel="external">Test 26</a></li>
+								<li><a href="ppe27.html"  rel="external">Test 27</a></li>
+							</ul>
+						</div>
+					</div>
+					<div id="for_right_navbar"> <!-- need to be updated per test -->
+						<div data-role="collapsible">
+							<h3>Elements</h3>
+							<ul data-role="listview" id="right_nav" data-inset="true" data-theme="c" data-dividertheme="f">
+								<li><a href="#"  rel="external">Test I</a></li>
+								
+							</ul>
+						</div>
+					</div>
+					<br>
+					<div class="for_quiz">
+						<div id="content">
+							<strong id="timerContinue"><time>00:00:00</time></strong>
+							<strong id="score">Score: 0/50</strong> <br><br>
+							<div class="for_question"><span id="question"></span> </div> 
+							<div id="choices"></div> 
+							<button id="submit" class="button"> Submit Answer</button>
+						</div>
+					</div>
+					<br>
+					<!-- //mga nadagdag for view_solution -->
+					<!-- <div class="for_view_solution">
+						<p id="solution_1">
+							<span>Solution 1</span><br>Data: <br>
+							<span class="eq">$m_1 = 500 g_m$ $/frac{F}{A} \sqrt{\pi}$ </span><br>
+							<span class="eq">$m_2 = 800 g_f$ </span><br>
+							<span class="eq">$m_3 = 15 poundals$ </span><br>
+							<span class="eq">$m_4 = 3 lb_f$ </span><br>
+							<span class="eq">$m_5 = 0.10slug$ </span><br>
+							<span class="eq">$g = 30.5 ft/s^2$ </span><br>
+							Unknown: <br>
+							<span class="eq">a) Total mass, $m_T$ in $g_m$ </span><br>
+							<span class="eq">b) $m_T$ in $lb_m$ </span><br>
+							<span class="eq">c) $m_T$ in $slugs$ </span><br>
+							Solution: <br>
+							<span class="eq"> $m_T = m_1 + m_2 +$ $m_3 + m_4 + m_5 \longrightarrow (eq. 1)$</span> <br>
+							
+							<span class="eq"> </span> <br>
+						</p>
+						
+						<p id="solution_2"><span>Solution 2</span><br>Data: <br> 
+							<span class="eq"> $g_{sea} = 32.088 fps^2 $ </span> <br>
+							<span class="eq"> $\Delta g = -0.003 fps^2 $ per 1000 ft </span> <br>
+							Unknown: <br>
+							<span class="eq"> a) Height, $h$ if g is 30.504 $fps^2$ </span> <br>
+							<span class="eq"> b) $h$ if $F_g$ is 95% of original </span> <br>
+							<span class="eq"> c) $F_g$ if $h$ is 29,131 ft and $m$ is 180 $lb_m$</span> <br>
+							Solution: <br>
+							<span class="eq">a) $h = (30.504 - 32.088)fps^2$ x $\frac{1000ft}{-0.003 fps^2}$ $= 528,000ft$ $= \underline{100mi}$ </span> <br>
+							<span class="eq"> b) $h = (32.088)(0.95 - 1)$ $fps^2$ x $\frac{1000ft}{-0.003 fps^2}$ $= 534,800$ ft or $\underline{101.29 mi}$</span> <br>
+							<span class="eq"> c) $F_g = mg \longrightarrow (eq. 1)$ </span> <br>
+							But <br>
+							<span class="eq"> $m = 180 lb_m$ x $\frac{1 slug}{32.2 lb_m}$ $=5.59 slugs$ </span> <br>
+							<span class="eq"> $g = 29,131ft$ x $\frac{-0.003 fps^2}{1000 ft}$ $+ 32.088 fps^2$ $32.00 fps^2$</span> <br>
+							Then from $(eq. 1)$ <br>
+							<span class="eq"> $F_g = 5.59 slugs$ x $32.00 fps^2$ $=\underline{178.88 lb_f}$</span> <br>
+						</p> 
+						
+						<p id="solution_3"><span>Solution 3</span><br>Data: <br> 
+							<span class="eq"> $g_{sea} = 32.088 fps^2 $ </span> <br>
+							<span class="eq"> $\Delta g = -0.003 fps^2 $ per 1000 ft </span> <br>
+							Unknown: <br>
+							<span class="eq"> a) Height, $h$ if g is 30.504 $fps^2$ </span> <br>
+							<span class="eq"> b) $h$ if $F_g$ is 95% of original </span> <br>
+							<span class="eq"> c) $F_g$ if $h$ is 29,131 ft and $m$ is 180 $lb_m$</span> <br>
+							Solution: <br>
+							<span class="eq">a) $h = (30.504 - 32.088)fps^2$ x $\frac{1000ft}{-0.003 fps^2}$ $= 528,000ft$ $= \underline{100mi}$ </span> <br>
+							<span class="eq"> b) $h = (32.088)(0.95 - 1)$ $fps^2$ x $\frac{1000ft}{-0.003 fps^2}$ $= 534,800$ ft or $\underline{101.29 mi}$</span> <br>
+							<span class="eq"> c) $F_g = mg \longrightarrow (eq. 1)$ </span> <br>
+							But <br>
+							<span class="eq"> $m = 180 lb_m$ x $\frac{1 slug}{32.2 lb_m}$ $=5.59 slugs$ </span> <br>
+							<span class="eq"> $g = 29,131ft$ x $\frac{-0.003 fps^2}{1000 ft}$ $+ 32.088 fps^2$ $32.00 fps^2$</span> <br>
+							Then from $(eq. 1)$ <br>
+							<span class="eq"> $F_g = 5.59 slugs$ x $32.00 fps^2$ $=\underline{178.88 lb_f}$</span> <br>
+						</p>
+						
+						<p id="solution_4"><span>Solution 4</span><br>Data: <br> 
+							<span class="eq"> $g_{sea} = 32.088 fps^2 $ </span> <br>
+							<span class="eq"> $\Delta g = -0.003 fps^2 $ per 1000 ft </span> <br>
+							Unknown: <br>
+							<span class="eq"> a) Height, $h$ if g is 30.504 $fps^2$ </span> <br>
+							<span class="eq"> b) $h$ if $F_g$ is 95% of original </span> <br>
+							<span class="eq"> c) $F_g$ if $h$ is 29,131 ft and $m$ is 180 $lb_m$</span> <br>
+							Solution: <br>
+							<span class="eq">a) $h = (30.504 - 32.088)fps^2$ x $\frac{1000ft}{-0.003 fps^2}$ $= 528,000ft$ $= \underline{100mi}$ </span> <br>
+							<span class="eq"> b) $h = (32.088)(0.95 - 1)$ $fps^2$ x $\frac{1000ft}{-0.003 fps^2}$ $= 534,800$ ft or $\underline{101.29 mi}$</span> <br>
+							<span class="eq"> c) $F_g = mg \longrightarrow (eq. 1)$ </span> <br>
+							But <br>
+							<span class="eq"> $m = 180 lb_m$ x $\frac{1 slug}{32.2 lb_m}$ $=5.59 slugs$ </span> <br>
+							<span class="eq"> $g = 29,131ft$ x $\frac{-0.003 fps^2}{1000 ft}$ $+ 32.088 fps^2$ $32.00 fps^2$</span> <br>
+							Then from $(eq. 1)$ <br>
+							<span class="eq"> $F_g = 5.59 slugs$ x $32.00 fps^2$ $=\underline{178.88 lb_f}$</span> <br>
+						</p>
+					
+					</div> -->
+					
+					<button id="view_solution" class="button small"> View Solution</button>
+
+										
+				</div>
+				
+								
+				
+				<div class="for_right_ads_quiz">
+					<span> FRA   </span>
+				</div>
+			</div>
+		</div>
+			
+			<script>
+	
+ //star timer
+  var timeElapsed = "";
+	var h1 = document.getElementById('timerContinue'),
+		start = document.getElementById('start'),
+		stop = document.getElementById('stop'),
+		clear = document.getElementById('clear'),
+		seconds = 0, minutes = 0, hours = 0,
+		t;
+
+	function add() {
+		seconds++;
+		if (seconds >= 60) {
+			seconds = 0;
+			minutes++;
+			if (minutes >= 60) {
+				minutes = 0;
+				hours++;
+			}
+		}
+		
+		h1.textContent = (hours ? (hours > 9 ? hours : "0" + hours) : "00") + ":" + (minutes ? (minutes > 9 ? minutes : "0" + minutes) : "00") + ":" + (seconds > 9 ? seconds : "0" + seconds);
+		timeElapsed =(hours ? (hours > 9 ? hours : "0" + hours) : "00") + ":" +  (minutes ? (minutes > 9 ? minutes : "0" + minutes) : "00") + ":" + (seconds > 9 ? seconds : "0" + seconds);
+
+		timer();
+	}
+	function timer() {
+		t = setTimeout(add, 1000);
+	}
+	timer();
+
+	//end timer
+	
+var quiz = [{
+	"question": "What is the heat that can be supplied by 39 kg/hr diesel fuel whose heating value is 43,912 kJ/kg?",
+	"choices": ["475.71 kW", "485.71 kW", "495.71 kW", "465.71 kW"],
+	"correct": "475.71 kW"
+}, {
+	"question": "The density of air entering the engine is 1.19 kg/m^3 whose volume flow rate is 0.51 m^3/s. If the mass flow rate of fuel 121.38 kg/hr, what is the air-fuel ratio?",
+	"choices": ["17", "18", "19", "20"],
+	"correct": "18"
+}, {
+	"question": "Determine the piston displacement of 35 cm x 45 cm, 4 - stroke, 1200 rpm, 8-cylinder diesel engine? ",
+	"choices": ["1.46 m3/s", "2.46 m3/s", "3.46 m3/s", "4.46 m3/s"],
+	"correct": "3.46 m3/s"
+}, {
+	"question": "What is the piston speed of a 30 cm x 35 cm diesel engine running at 1100 rpm?",
+	"choices": ["11.83 m/s", "12.83 m/s", "13.83 m/s", "14.83 m/s"],
+	"correct": "12.83 m/s"
+}, {
+	"question": "The cylinder diameters of an eight-cylinder, single acting, four-stroke diesel engine are 750 mm and the stroke is 1125 mm. The indicated mean effective pressure in the cylinders is 586 kPa when the engine is running at 110 rpm. Calculate the indicated power.",
+	"choices": ["2135.82 kW", "2145.82 kW", "2155.82 kW", "2165.82 kW"],
+	"correct": "2135.82 kW"
+}, {
+	"question": "The area of an indicator diagram taken off a four-cylinder, single acting, four-stroke engine when running at 5.5 rev/s is 390 mm^2, length is 70 mm and the scale of the indicator spring is 1 mm = 80 kPa. The diameter of the cylinders is 150 mm and the stroke is 200 mm. Calculate the indicated power of the engine assuming all cylinders develop equal power.",
+	"choices": ["14.376 kW", "15.376 kW", "16.376 kW", "17.376 kW"],
+	"correct": "17.376 kW"
+}, {
+	"question": "The flywheel of a rope brake is 1.22 m diameter and the rope is 24 mm diameter. When the engine is running at 250 rev/min the load on the brake is 480 N on one end of the rope and 84 N on the other end. Calculate the brake power.",
+	"choices": ["3.45 kW", "4.45 kW", "5.45 kW", "6.45 kW"],
+	"correct": "6.45 kW"
+}, {
+	"question": "A single acting, 8-cylinder, 4 stroke cycle diesel engine with a bore to stroke of 142.10 mm x 210.45 mm operates at 1200 rpm. The load on the brake arm at 1 m is 150 kg. What is the brake mean effective pressure in kPa?",
+	"choices": ["392.55 kPa", "492.55 kPa", "592.55 kPa", "692.55 kPa"],
+	"correct": "692.55 kPa"
+}, {
+	"question": "A six cylinder, four stroke diesel engine with 76 mm bore x 89 mm stroke was run in the laboratory at 200 rpm, when it was found that the egine torque was 153.5 N-m with all cylinders firing but 123 N-m when one cylinder was out. The engine consumed 12.2 kg of fuel per hour with a heating value of 54,120 kJ/kg of air at 15.6˚C. Determine the indicated power.",
+	"choices": ["38.33 kW", "48.33 kW", "58.33 kW", "68.33 kW"],
+	"correct": "38.33 kW"
+}, {
+	"question": "What is the mechanical efficiency of a 0.5 MW diesel engine if the friction power is 70 kW?",
+	"choices": ["87.72", "88.72", "89.72", "90.72"],
+	"correct": "87.72"
+}, {
+	"question": "A 16-cylinder V-type diesel engine is directly coupled to 3/4 MW AC generator. Calculate the generator efficiency of the engine if the brake power is 833.33 kW.",
+	"choices": ["89", "90", "91", "92"],
+	"correct": "90"
+}, {
+	"question": "A 3.5 MW diesel electric power plant uses 3500 gallons in 24 hrs period. What is the indicated thermal efficiency of the engine if the generator and mechanical efficiencies are 90% and 92% respectively. Oil is 28˚API.",
+	"choices": ["56", "57", "58", "59"],
+	"correct": "57"
+}, {
+	"question": "A supercharged six cylinder, four stroke cycle diesel engine of 10.48 cm bore and 12.7 cm stroke has a compression ratio of 15. When it is tested on a dynamometer with a 53.34 cm arm at 2500 rpm, the scale reads 81.65 kg, 2.86 kg of fuel of 45822.20 kJ/kg heating value are burned during a 6 min. test and air metered to the cylinders at the rate of 0.182 kg/s. Find the brake thermal efficiency.",
+	"choices": ["30.7", "31.7", "32.7", "33.7"],
+	"correct": "30.7"
+}, {
+	"question": "A 16-cylinder V-type diesel engine is directly coupled to 1 MW AC generator. Calculate the combined thermal efficiency if the heat supplied by the fuel is 2.5 MW.",
+	"choices": ["40", "41", "42", "43"],
+	"correct": "40"
+}, {
+	"question": "What is the indicated engine efficiency of diesel engine if the indicated thermal efficiency is 35% and the cycle efficiency is 45%?",
+	"choices": ["76.78", "77.78", "78.78", "79.78"],
+	"correct": "77.78"
+}, {
+	"question": "A 500 kW diesel has a heat rate of 12,000 kJ/kW-hr. The compression ratio is 16:1, cut-off ratio of 2.3. Assume k=1.32. Calculate the engine efficiency based on the output of 500 kW.",
+	"choices": ["50", "52", "54", "56"],
+	"correct": "52"
+}, {
+	"question": "If the over-all thermal efficiency of a diesel engine is 33% and the diesel cycle efficiency is 49%, what is the combined engine efficiency?",
+	"choices": ["64.35%", "65.35%", "66.35%", "67.35%"],
+	"correct": "67.35%"
+}, {
+	"question": "Determine the volumetric efficiency of 35 cm x 45 cm, 4 stroke 1200 rpm, 8 cylinder diesel engine if the air drawn in the engine is 3 m^3/s.",
+	"choices": ["87", "88", "89", "90"],
+	"correct": "87"
+}, {
+	"question": "What is the indicated specific fuel consumption of a six cylinder, four stroke diesel engine with 76 mm bore x 89 mm stroke and indicated power of 38.33 kW if the engine consumed 12.2 kg/hr of fuel?",
+	"choices": ["0.22 kg/kW-hr", "0.32 kg/kW-hr", "0.42 kg/kW-hr", "0.52 kg/kW-hr"],
+	"correct": "0.32 kg/kW-hr"
+}, {
+	"question": "A four-stroke, 8 cylinder diesel engine with bore and stroke of 9 inches and 12 inches respectively and speed of 950 rpm has a brake mean effective pressure of 164 psi. What is the brake specific fue consumption in lb per hp-hr if the engine consumed 468.55 lbs of fuel per hour?",
+	"choices": ["0.39", "0.49", "0.59", "0.69"],
+	"correct": "0.39"
+}]; 
+
+
+
+	
+// mga nadagdag quiz with images
+// array of images  
+	var images = [];
+	var solutionIsVisible;
+
+// define elements
+var content = $("content"),
+  questionContainer = $("question"),
+  choicesContainer = $("choices"),
+  scoreContainer = $("score"), //nabago
+  submitBtn = $("submit");
+  
+  var resultPage = "";
+  
+// init vars
+var currentQuestion = 0,
+	score = 0,
+  askingQuestion = true,
+  questionNumber = 0,
+   maxQ = quiz.length, 
+  questionNumber;
+  
+  wrongAnswerQ = "",
+  wrongAnswerNo=0;
+  var yourAnswer = "You did not pick any answer.";
+  var choicesMistakesG = "";
+  if(maxQ > quiz.length) {
+	maxQ = quiz.length;
+  }
+  var isOnReviewWrongPage = false;
+  var duplicates  =[];
+
+function $(id) { // shortcut for document.getElementById
+  return document.getElementById(id);
+}
+
+function askQuestion() {
+  var choices = quiz[questionNumber].choices,
+    choicesHtml = "", choicesMistakes="" ;
+
+
+  // loop through choices, and create radio buttons
+  for (var i = 0; i < choices.length; i++) {
+  //alert(get_rand(nums));
+    choicesHtml += "<input type='radio' name='quiz" + questionNumber +
+      "' id='choice" + ( i + 1) +
+      "' value='" + choices[i] + "'>" +
+      " <label for='choice" + (i + 1) + "'>" + choices[i] + "</label> <br>";
+	  
+	  choicesMistakes += "<span name='quiz" + questionNumber +
+      "' id='choice" + (i + 1) +
+      "' value='" + choices[i] + "'>"+ (i+1) + ". " + choices[i] + "</span><br>";
+	   if(choices[i] === quiz[questionNumber].correct) {
+			correctAnswer = choices[i];
+			correctAnswerIndex = i;
+	  }
+	  
+	  choicesMistakesG = choicesMistakes;
+  }
+
+  
+  // load the question
+  questionContainer.textContent = (questionNumber + 1) + ". " +
+    quiz[questionNumber].question;
+	
+	
+  // load the choices
+  choicesContainer.innerHTML = choicesHtml;
+
+  // setup for the first time
+  if (questionNumber === 0) {
+  scoreContainer.textContent = "Score: " + score + "/" + maxQ; //nabago
+    submitBtn.textContent = "Submit Answer";
+	//alert(quiz.length);
+  }
+  
+	
+
+}
+
+function checkAnswer() {
+	var yourAnswer = "You did not pick any answer.";
+  // are we asking a question, or proceeding to next question?
+  if (askingQuestion) {
+	
+	//mga nadagdag for view_solution
+	if($('#solution_' + (questionNumber+1)).length > 0) {
+		$('#view_solution').css('visibility', 'visible');
+	}
+    submitBtn.textContent = "Next Question";
+    askingQuestion = false;
+
+    // determine which radio button they clicked
+    var userpick,
+      correctIndex,
+      radios = document.getElementsByName("quiz" + questionNumber);
+    for (var i = 0; i < radios.length; i++) {
+      if (radios[i].checked) { // if this radio button is checked
+        userpick = radios[i].value;
+		yourAnswer = userpick;
+      }
+
+      // get index of correct answer
+      if (radios[i].value == quiz[questionNumber].correct) {
+        correctIndex = i;
+      }
+    }
+
+    // setup if they got it right, or wrong
+    var labelStyle = document.getElementsByTagName("label")[correctIndex].style;
+    labelStyle.fontWeight = "bold";
+    if (userpick == quiz[questionNumber].correct) {
+      labelStyle.color = "green";
+	  score++; 
+    } else {
+		wrongAnswerNo++;
+      labelStyle.color = "red";
+	  wrongAnswerQ += "<br> <span id='question'> " + wrongAnswerNo+". " + quiz[questionNumber].question + "</span><br> " + "<div id='choices'>" + choicesMistakesG + " <strong>Your answer: "+ yourAnswer + "</strong><br> <strong id='answer'>" + "Correct answer: " + correctAnswer  + "</strong></div> ";//  + 
+
+    }
+	
+	
+  } else { // move to next question
+    // setting up so user can ask a question
+    askingQuestion = true;
+    // change button text back to "Submit Answer"
+    submitBtn.textContent = "Submit Answer";
+	scoreContainer.textContent = "Score: " + score + "/" + maxQ;; //nabago
+    // if we're not on last question, increase question number
+    if (questionNumber < maxQ - 1) {
+      //currentQuestion++;
+	  questionNumber++;
+      askQuestion();
+    } else {
+      clearTimeout(t);
+      showFinalResults();
+    }
+	
+	//mga nadagdag quiz with images
+	for(i=0; i<quiz.length; i++) { 
+		$('#for_q_' + (i+1)).hide();
+	}
+	
+	// mga nadagdag quiz with images
+	if((questionNumber+1) === 1) {
+		$('#question').after(images[0]);
+	} else if((questionNumber+1) === 2) {
+		$('#question').after(images[1]);
+	}
+	
+	//mga nadagdag for view_solution
+	for(i=0; i<quiz.length; i++) { 
+		$('#solution_' + (i+1)).hide();
+	}
+	
+	$('.for_view_solution').hide();
+	$('#view_solution').css('visibility', 'hidden');
+	
+	solutionIsVisible = false;
+	if(solutionIsVisible) {
+		document.getElementById('view_solution').textContent = 'Hide Solution';
+		solutionIsVisible = false;
+	}else if(!solutionIsVisible){
+		document.getElementById('view_solution').textContent = 'View Solution';
+		solutionIsVisible = true;
+	}
+  }
+}
+
+function showFinalResults() {
+	//resultPage = "<center><strong class='for_h'>You Passed!</strong></center>";
+	if(score/maxQ >= 0.7){
+		resultPage = "<center><strong class='for_h'>You Passed!</strong></center> <br> <center><strong>Score: " + score + " out of " + maxQ + " </strong></center><center><strong> Equivalent Percentage: " + Math.floor(score/maxQ*100) + "%</strong></center><center><strong>Total time: " + timeElapsed + "</strong></center> <br> <br><button id='restart' class='button fit' onclick='reloadCurrentPage();'> Restart the Test</button><button id='reviewMistakes' class='button fit' onclick='reviewMistakes();'> Review Mistakes</button> <button id='proceedToNext' class='button fit' onclick='proceedToNext();'> Proceed to next Test</button> ";
+	} else {
+		resultPage = "<center><strong class='for_h'>You Failed!</strong></center> <br> <center><strong>Score: " + score + " out of " + maxQ + " </strong></center><center><strong> Equivalent Percentage: " + Math.floor(score/maxQ*100) + "%</strong></center><center><strong>Total time: " + timeElapsed + "</strong></center> <br> <br><button id='restart' class='button fit' onclick='reloadCurrentPage();'> Restart the Test</button><button id='reviewMistakes' class='button fit' onclick='reviewMistakes();'> Review Mistakes</button> <button id='proceedToNext' class='button fit' onclick='proceedToNext();'> Proceed to next Test</button> ";
+	}
+	content.innerHTML = resultPage;
+}
+
+function reviewMistakes() {
+	content.innerHTML = wrongAnswerQ + " <br><br> <center><button id='restart' class='button fit' onclick='reloadCurrentPage();'> Restart the Test</button></center> <button id='proceedToNext' class='button fit' onclick='proceedToNext();'> Proceed to next Test</button>";
+}
+
+function proceedToNext() {
+	document.location.href = "ppe07.html"; //need to be updated per test 
+}
+
+function reloadCurrentPage() {
+	document.location.href = "ppe06.html"; //need to be updated per test 
+}
+
+window.addEventListener("load", askQuestion, false);
+submitBtn.addEventListener("click", checkAnswer, false);
+
+
+
+</script>
+
+
+
+
+			<!-- Scripts for Phantom -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+	</body>
+
+</html>

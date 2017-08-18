@@ -1,0 +1,576 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+	
+		<title>Entropiya | Pumps 1</title> <!-- need to be updated per test -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		
+		<link rel="stylesheet" href="css/index.css" />
+		<script src="js/index.js"></script>
+		<link rel="stylesheet" href="assets/css/main.css" />
+
+		<!-- FontAwesome, jQuery and jQuery Mobile -->
+		<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css">
+		<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+		<script type="text/javascript" src="jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script> 
+		
+		<!-- jqmath -->
+		<link rel="stylesheet" href="mathscribe/jqmath-0.4.3.css">
+		<script src="mathscribe/jquery-1.4.3.min.js"></script>
+		<script src="mathscribe/jqmath-etc-0.4.5.min.js" charset="utf-8"></script>
+		
+		<script>
+			$(document).ready(function() {
+				solutionIsVisible = true;
+				
+				//mga nadagdag for view_solution
+				
+				$('.for_view_solution').hide();
+				$('#view_solution').css('visibility', 'hidden');
+				
+				for(i=0; i<quiz.length; i++) {
+					$('#solution_' + (i+1)).hide();
+				}
+				
+				$('#view_solution').click(function() {
+					for(i=0; i<quiz.length; i++) {
+						$('#solution_' + (i+1)).hide();
+					}
+						
+					$('#solution_' + (questionNumber + 1)).fadeToggle('slow');
+					$('.for_view_solution').fadeToggle('slow');
+					
+					if(solutionIsVisible) {
+						document.getElementById('view_solution').textContent = 'Hide Solution';
+						solutionIsVisible = false;
+					}else if(!solutionIsVisible){
+						document.getElementById('view_solution').textContent = 'View Solution';
+						solutionIsVisible = true;
+					}
+					
+				});
+
+				
+				// Image factory
+				var createImage = function(src, title, id) {
+				  var img   = new Image();
+				  img.src   = src;
+				  img.id = id;
+				  img.alt   = title;
+				  img.title = title;
+				  return img; 
+				};
+
+				// array of images dun dineclare sa main script para global
+				//var images = [];
+
+				// push two images to the array
+				//images.push(createImage("images/for_q_1.png", "pic01 title", "for_q_1"));
+				//images.push(createImage("images/for_q_2.png", "pic03 title", "for_q_2"));
+				
+				// mga nadagdag quiz with images
+				if((questionNumber+1) === 1) {
+					$('#question').after(images[0]);
+				} else if((questionNumber+1) === 2) {
+					$('#question').after(images[1]);
+				}
+				
+			});
+		</script>
+	
+	</head>
+	
+	<body>
+		<div data-role="panel" data-position="right" data-display="overlay" data-theme="a" id="panel">
+			<div class="nav_in_panel_container"> 
+				<ul data-role="listview" data-inset="true" data-theme="b" data-dividertheme="f">
+					<li data-icon="false"><a class="nav_in_panel" href="index.html" rel="external"><i class="fa fa-home" aria-hidden="true" ></i>  Home  </a> </li>
+					<li data-icon="false"><a class="nav_in_panel" href="about.html" rel="external"><i class="fa fa-user-o" aria-hidden="true" ></i>  About  </a> </li>
+					<li data-icon="false"><a class="nav_in_panel" href="references.html" rel="external"><i class="fa fa-book" aria-hidden="true" ></i>  References  </a>
+					<li data-icon="false"><a class="nav_in_panel" href="https://www.facebook.com/vilmar.empino?__nodl" rel="external" ><i class="fa fa-facebook-square" aria-hidden="true"></i>  Like us on facebook!  </a></li>
+				</ul>
+			</div>
+		</div>
+		<div id="header_container">
+			<figure class="logo" id="logo">
+				<a href="index.html" rel="external"><img src="images/logo.png" alt="image"/></a>
+			</figure>
+			<ul class="home_nav_quiz"> 
+				<a href="#panel" class="right_panel"> <i class="fa fa-bars" id="icon_for_right_panel" aria-hidden="true"></i> </a>
+				<div class="toBeHidden">
+				<li class="li"><a class="a" href="references.html" rel="external">References</a></li>
+				<li class="li"><a class="a" href="about.html" rel="external">About</a></li>
+				<!-- <li class="li" id="dropdown">
+					<a class="a" href="javascript:void(0)" class="dropbtn">MCQs <i class="fa fa-caret-down" aria-hidden="true"></i></a>
+					<div class="dropdown-content">
+					<a class="a" href="home-me.html" rel="external">Mechanical Engineering</a>
+					<a class="a" href="home-ece.html" rel="external">Electronics Engineering</a> 
+					</div>
+				</li> -->
+				<li class="li"><a class="a" href="index.html" rel="external">Home</a></li>
+				</div>
+			</ul>
+		</div>
+		<div id="body_container"> 
+			
+			<div id="for_contents_quiz">
+				
+				<div id="for_left_content_quiz">
+					<div id="for_title">
+						<strong class="for_h2">Pumps - Test 1 (1-20)</strong> <!-- need to be updated per test -->
+					</div>
+					<br>
+					<div id="for_top_ads_quiz">
+						<span> FTA  </span>
+					</div>
+					<div id="for_left_navbar"> <!-- need to be updated per test -->
+						<div data-role="collapsible">
+							<h3>Problems</h3>
+							<ul data-role="listview" id="left_nav" data-inset="true" data-theme="c" data-dividertheme="f">
+								<li><a href="pumps01.html"  rel="external">Test 1</a></li>
+								<li><a href="pumps02.html"  rel="external">Test 2</a></li>
+								<li><a href="pumps03.html"  rel="external">Test 3</a></li>
+							</ul>
+						</div>
+					</div>
+					<div id="for_right_navbar"> <!-- need to be updated per test -->
+						<div data-role="collapsible">
+							<h3>Elements</h3>
+							<ul data-role="listview" id="right_nav" data-inset="true" data-theme="c" data-dividertheme="f">
+								<li><a href="#"  rel="external">Test I</a></li>
+								
+							</ul>
+						</div>
+					</div>
+					<br>
+					<div class="for_quiz">
+						<div id="content">
+							<strong id="timerContinue"><time>00:00:00</time></strong>
+							<strong id="score">Score: 0/50</strong> <br><br>
+							<div class="for_question"><span id="question"></span> </div> 
+							<div id="choices"></div> 
+							<button id="submit" class="button"> Submit Answer</button>
+						</div>
+					</div>
+					<br>
+					<!-- //mga nadagdag for view_solution -->
+					<!-- <div class="for_view_solution">
+						<p id="solution_1">
+							<span>Solution 1</span><br>Data: <br>
+							<span class="eq">$m_1 = 500 g_m$ $/frac{F}{A} \sqrt{\pi}$ </span><br>
+							<span class="eq">$m_2 = 800 g_f$ </span><br>
+							<span class="eq">$m_3 = 15 poundals$ </span><br>
+							<span class="eq">$m_4 = 3 lb_f$ </span><br>
+							<span class="eq">$m_5 = 0.10slug$ </span><br>
+							<span class="eq">$g = 30.5 ft/s^2$ </span><br>
+							Unknown: <br>
+							<span class="eq">a) Total mass, $m_T$ in $g_m$ </span><br>
+							<span class="eq">b) $m_T$ in $lb_m$ </span><br>
+							<span class="eq">c) $m_T$ in $slugs$ </span><br>
+							Solution: <br>
+							<span class="eq"> $m_T = m_1 + m_2 +$ $m_3 + m_4 + m_5 \longrightarrow (eq. 1)$</span> <br>
+							
+							<span class="eq"> </span> <br>
+						</p>
+						
+						<p id="solution_2"><span>Solution 2</span><br>Data: <br> 
+							<span class="eq"> $g_{sea} = 32.088 fps^2 $ </span> <br>
+							<span class="eq"> $\Delta g = -0.003 fps^2 $ per 1000 ft </span> <br>
+							Unknown: <br>
+							<span class="eq"> a) Height, $h$ if g is 30.504 $fps^2$ </span> <br>
+							<span class="eq"> b) $h$ if $F_g$ is 95% of original </span> <br>
+							<span class="eq"> c) $F_g$ if $h$ is 29,131 ft and $m$ is 180 $lb_m$</span> <br>
+							Solution: <br>
+							<span class="eq">a) $h = (30.504 - 32.088)fps^2$ x $\frac{1000ft}{-0.003 fps^2}$ $= 528,000ft$ $= \underline{100mi}$ </span> <br>
+							<span class="eq"> b) $h = (32.088)(0.95 - 1)$ $fps^2$ x $\frac{1000ft}{-0.003 fps^2}$ $= 534,800$ ft or $\underline{101.29 mi}$</span> <br>
+							<span class="eq"> c) $F_g = mg \longrightarrow (eq. 1)$ </span> <br>
+							But <br>
+							<span class="eq"> $m = 180 lb_m$ x $\frac{1 slug}{32.2 lb_m}$ $=5.59 slugs$ </span> <br>
+							<span class="eq"> $g = 29,131ft$ x $\frac{-0.003 fps^2}{1000 ft}$ $+ 32.088 fps^2$ $32.00 fps^2$</span> <br>
+							Then from $(eq. 1)$ <br>
+							<span class="eq"> $F_g = 5.59 slugs$ x $32.00 fps^2$ $=\underline{178.88 lb_f}$</span> <br>
+						</p> 
+						
+						<p id="solution_3"><span>Solution 3</span><br>Data: <br> 
+							<span class="eq"> $g_{sea} = 32.088 fps^2 $ </span> <br>
+							<span class="eq"> $\Delta g = -0.003 fps^2 $ per 1000 ft </span> <br>
+							Unknown: <br>
+							<span class="eq"> a) Height, $h$ if g is 30.504 $fps^2$ </span> <br>
+							<span class="eq"> b) $h$ if $F_g$ is 95% of original </span> <br>
+							<span class="eq"> c) $F_g$ if $h$ is 29,131 ft and $m$ is 180 $lb_m$</span> <br>
+							Solution: <br>
+							<span class="eq">a) $h = (30.504 - 32.088)fps^2$ x $\frac{1000ft}{-0.003 fps^2}$ $= 528,000ft$ $= \underline{100mi}$ </span> <br>
+							<span class="eq"> b) $h = (32.088)(0.95 - 1)$ $fps^2$ x $\frac{1000ft}{-0.003 fps^2}$ $= 534,800$ ft or $\underline{101.29 mi}$</span> <br>
+							<span class="eq"> c) $F_g = mg \longrightarrow (eq. 1)$ </span> <br>
+							But <br>
+							<span class="eq"> $m = 180 lb_m$ x $\frac{1 slug}{32.2 lb_m}$ $=5.59 slugs$ </span> <br>
+							<span class="eq"> $g = 29,131ft$ x $\frac{-0.003 fps^2}{1000 ft}$ $+ 32.088 fps^2$ $32.00 fps^2$</span> <br>
+							Then from $(eq. 1)$ <br>
+							<span class="eq"> $F_g = 5.59 slugs$ x $32.00 fps^2$ $=\underline{178.88 lb_f}$</span> <br>
+						</p>
+						
+						<p id="solution_4"><span>Solution 4</span><br>Data: <br> 
+							<span class="eq"> $g_{sea} = 32.088 fps^2 $ </span> <br>
+							<span class="eq"> $\Delta g = -0.003 fps^2 $ per 1000 ft </span> <br>
+							Unknown: <br>
+							<span class="eq"> a) Height, $h$ if g is 30.504 $fps^2$ </span> <br>
+							<span class="eq"> b) $h$ if $F_g$ is 95% of original </span> <br>
+							<span class="eq"> c) $F_g$ if $h$ is 29,131 ft and $m$ is 180 $lb_m$</span> <br>
+							Solution: <br>
+							<span class="eq">a) $h = (30.504 - 32.088)fps^2$ x $\frac{1000ft}{-0.003 fps^2}$ $= 528,000ft$ $= \underline{100mi}$ </span> <br>
+							<span class="eq"> b) $h = (32.088)(0.95 - 1)$ $fps^2$ x $\frac{1000ft}{-0.003 fps^2}$ $= 534,800$ ft or $\underline{101.29 mi}$</span> <br>
+							<span class="eq"> c) $F_g = mg \longrightarrow (eq. 1)$ </span> <br>
+							But <br>
+							<span class="eq"> $m = 180 lb_m$ x $\frac{1 slug}{32.2 lb_m}$ $=5.59 slugs$ </span> <br>
+							<span class="eq"> $g = 29,131ft$ x $\frac{-0.003 fps^2}{1000 ft}$ $+ 32.088 fps^2$ $32.00 fps^2$</span> <br>
+							Then from $(eq. 1)$ <br>
+							<span class="eq"> $F_g = 5.59 slugs$ x $32.00 fps^2$ $=\underline{178.88 lb_f}$</span> <br>
+						</p>
+					
+					</div> -->
+					
+					<button id="view_solution" class="button small"> View Solution</button>
+
+										
+				</div>
+				
+								
+				
+				<div class="for_right_ads_quiz">
+					<span> FRA   </span>
+				</div>
+			</div>
+		</div>
+			
+			<script>
+	
+ //star timer
+  var timeElapsed = "";
+	var h1 = document.getElementById('timerContinue'),
+		start = document.getElementById('start'),
+		stop = document.getElementById('stop'),
+		clear = document.getElementById('clear'),
+		seconds = 0, minutes = 0, hours = 0,
+		t;
+
+	function add() {
+		seconds++;
+		if (seconds >= 60) {
+			seconds = 0;
+			minutes++;
+			if (minutes >= 60) {
+				minutes = 0;
+				hours++;
+			}
+		}
+		
+		h1.textContent = (hours ? (hours > 9 ? hours : "0" + hours) : "00") + ":" + (minutes ? (minutes > 9 ? minutes : "0" + minutes) : "00") + ":" + (seconds > 9 ? seconds : "0" + seconds);
+		timeElapsed =(hours ? (hours > 9 ? hours : "0" + hours) : "00") + ":" +  (minutes ? (minutes > 9 ? minutes : "0" + minutes) : "00") + ":" + (seconds > 9 ? seconds : "0" + seconds);
+
+		timer();
+	}
+	function timer() {
+		t = setTimeout(add, 1000);
+	}
+	timer();
+
+	//end timer
+	
+
+var quiz = [{
+	"question": "A fuel pump is delivering 10 gallons per minute of oil with a specific  gravity of 0.83. The total head is 9.14 m, find how much energy does the pump consumes in kJ per hour.",
+	"choices": ["169", "199", "189", "279"],
+	"correct": "169"
+},{
+	"question": "A pump receives 8 kgs of water at 220 kPa and 110 ºC and discharges it at 1100 kPa. Compute the power required in kW.",
+	"choices": ["8.126", "5.082", "7.014", "6. 104"],
+	"correct": "7.014"
+},{
+	"question": "A pump lifts water at a rate of  283 liters per second from a lake and force it into a tank 8 m above the level of the water at a pressure of 137 kPa. What is the power required in kW?",
+	"choices": ["71", "41", "61", "51"],
+	"correct": "61"
+},{
+	"question": "A pump discharges 150 liters per second of water to a height of 75 m. If the efficiency is 75 % and the speed of the pump is 1800 rpm, what is the torque in N-m to which the drive shaft is subjected?",
+	"choices": ["771", "781", "791", "681"],
+	"correct": "781"
+},{
+	"question": "A centrifugal pump delivers 80 liters per second of water on test suction gauge reads  10 mm Hg vacuum and  1.2 m below pump centerline. Power input is 70 kW. Find the total dynamic head in meters.",
+	"choices": ["66", "60", "62", "64"],
+	"correct": "66"
+},{
+	"question": "A pump with a 400 mm diameter suction pipe and a  350 mm diameter discharge pipe is to deliver 20,000 liters per minute of 15.6 ºC water. Calculate the pump head in meters if suction gage is 7.5 cm below pump centerline and reads 127 mm Hg vacuum and discharge gage is 45 cm above the pump center line and reads 75 kPa.",
+	"choices": ["15 m", "5 m", "20 m", "10 m"],
+	"correct": "10 m"
+},{
+	"question": "A centrifugal pump delivers 300,000 liters per hour of water to a pressurized tank whose pressure is 280 kPa. The source of water is 5 m below the pump. The diameter of the suction pipe is 300 mm and the discharge pipe is 250 mm. Calculate the kW rating of the driving motor assuming the pump efficiency to be 72%.",
+	"choices": ["41.75 kW", "35.23 kW", "43.28 kW", "38.16 kW"],
+	"correct": "38.16 kW"
+},{
+	"question": "A pump delivers 500 gpm of water against a total head of 200 ft and operating at 1770 rpm. Changes have increased the total head to 375 ft. At what rpm should the pump be operated to achieve the new head at the same efficiency?",
+	"choices": ["2800 rpm", "3600 rpm", "3424 rpm", "2424 rpm"],
+	"correct": "2424 rpm"
+},{
+	"question": "The rate of flow of water in a pump installation is 60.6 kg/s. The intake static gage is 1.22 m below the pump centerline and reads 68.95 kPa gage; the discharge stactic gage is 0.61 m below the pump centerline and reads 344. 75 kPa gage. The gages are located close to the pump as much as possible. The area of the intake and discharge pipes are 0.093 m^2 and 0.069 m^2.The pump efficiency is 74%. Take density of water equal 1000 kg/m^3. What is the hydraulic power in kW?",
+	"choices": ["17", "24.5", "31.9", "15.2"],
+	"correct": "17"
+},{
+	"question": "It is desired to deliver 5 gpm at a head of 640 ft in a single stage pump having a specific  speed not to exceed 40. If the speed is not to exceed 1352 rpm, how many stages are required?",
+	"choices": ["3", "4", "5", "2"],
+	"correct": "2"
+},{
+	"question": "The power output is 30 hp to a centrifugal pump that is discharging 900 gpm and which operates at 1800 rpm against a head H=120 ft, 220 V, 3phase, 60 Hz. If this pump is modified to operate 1200 rpm, assuming its efficiency remains constant, determine its discharge in gpm, the theoretical head it imparts to the liquid and the power input to the pump.",
+	"choices": ["600 gpm, 53.33 ft, 8.89 hp", "700 gpm, 63.33 ft, 9.89 hp", "500 gpm, 50.33 ft, 7.89 hp", "650 gpm, 53.33 ft, 8.95 hp"],
+	"correct": "600 gpm, 53.33 ft, 8.89 hp"
+},{
+	"question": "A pump operating at 1750 rpm delivering 500 gal/min against a total head of 150 ft. Changes in the piping system have increased the total head to 360 ft. At what rpm should the pump be operated to achieve this new head at the same eff.",
+	"choices": ["2730 rpm", "2740 rpm", "2711 rpm", "2600 rpm"],
+	"correct": "2711 rpm"
+},{
+	"question": "Water in the rural areas is often extracted from underground water source whose free surface is  60 m below ground level. The water is to be raised 5 m above the ground by a pump. The diameter of the pipe is 10 cm at the inlet and 15 cm at the exit. Neglecting any heat interaction with the surroundings and frictional heating effects, what is the necessary power input to the pump in kW for a steady flow of water at the rate of 15 L/s? Assume pump efficiency of 74%. ",
+	"choices": ["9.54", "5.54", "7.82 ", "12.90"],
+	"correct": "12.90"
+},{
+	"question": "Find the hydraulic horsepower and the mechanical efficiency of a rotary pump directly connected to a 5 hp motor operating at full load under the following conditions: Fluid handled - oil; Temperature - 21 ºC; Specific gravity - 0.85; Volume flow rate - 20 L/s; Total Head - 175 kPa.",
+	"choices": ["4.69 hp, 94%", "3.69 hp, 84 %", "5.69 hp, 74%", "6.69 hp, 78%"],
+	"correct": "4.69 hp, 94%"
+},{
+	"question": "Water from an open reservoir A at 8 m elevation is drawn by a motor driven pump to an open reservoir B at 70 m elevation. The inside diameter of the suction pipe is 200 mm and 150 mm for the discharge pipe.  The suction line has a loss of head three times that of the velocity head in the 200 mm pipe. The discharge line has a loss of head twenty times that of the velocity head in the discharge pipe line. The pump centerline is at 4 m. Over all efficiency of the system is 78%. For a discharge rate of 10 L/s, find the power input to the motor and the pressure gage readings installed just at the outlet and inlet of the pump in kPag.",
+	"choices": ["7.82 kW, 39 kPa, 650 kPa", "8.82 kW, 40 kPa, 680 kPa", "6.82 kW, 35 kPa, 550 kPa", "5.82 kW, 30 kPa, 500 kPa"],
+	"correct": "7.82 kW, 39 kPa, 650 kPa"
+},{
+	"question": "A pump adds 167.6 m of pressure head to 45.43 kg/s of water. What is the hydraulic power in kW?",
+	"choices": ["64.69", "74.69", "66.54", "76.54"],
+	"correct": "74.69"
+},{
+	"question": "A pump driven by an electrical motor moves 25 gal/min of water from a reservoir A to B, lifting the water to a total head of 245 ft. The efficiency of the pump is 64%. Neglecting velocity head, friction, and minor losses, what size of motor is required?",
+	"choices": ["2.64 Hp", "2.55 Hp", "1.55 Hp", "1.64 Hp"],
+	"correct": "1.55 Hp"
+},{
+	"question": "A centrifugal pump powered by a direct drive induction motor is needed to discharge 150 gal/min against a total head of 180 ft when turning at fully loaded speed of 3500 rpm. What type of pump should be selected?",
+	"choices": ["Radial", "Francis", "Mixed Flow", "Propeller"],
+	"correct": "Radial"
+},{
+	"question": "A boiler feed pump receives 40 L/s at 4 Mpa and 180˚C. It operates against a  total head of 900 m with an efficiency of 60%. Determine the power output of the driving motor. From steam table: At 4 MPa and 180у, v = 0.00112484 m3/kg.",
+	"choices":  ["450.21 kW", "459.64 kW", "500.21 kW", "523.26 kW"],
+	"correct": "523.26 kW"
+},{
+	"question": "A submersible , multi-stage, centrifugal deep well pump 260 gpm capacity is installed in a well 27 ft below the static water level. Drawdown when pumping at rated capacity is 10 ft. The pump delivers that water into a 25,000 gal. capacity overhead storage tank. Total discharge head developed by pump including friction in piping is 243 ft. Calculate the brake power required to drive the pump if pump efficiency is 70%",
+	"choices": ["15.86 Hp", "21.22 Hp", "30.16 Hp", "10.52 Hp"],
+	"correct": "21.22 Hp"
+}
+];
+
+	
+// mga nadagdag quiz with images
+// array of images  
+	var images = [];
+	var solutionIsVisible;
+
+// define elements
+var content = $("content"),
+  questionContainer = $("question"),
+  choicesContainer = $("choices"),
+  scoreContainer = $("score"), //nabago
+  submitBtn = $("submit");
+  
+  var resultPage = "";
+  
+// init vars
+var currentQuestion = 0,
+	score = 0,
+  askingQuestion = true,
+  questionNumber = 0,
+   maxQ = quiz.length, 
+  questionNumber;
+  
+  wrongAnswerQ = "",
+  wrongAnswerNo=0;
+  var yourAnswer = "You did not pick any answer.";
+  var choicesMistakesG = "";
+  if(maxQ > quiz.length) {
+	maxQ = quiz.length;
+  }
+  var isOnReviewWrongPage = false;
+  var duplicates  =[];
+
+function $(id) { // shortcut for document.getElementById
+  return document.getElementById(id);
+}
+
+function askQuestion() {
+  var choices = quiz[questionNumber].choices,
+    choicesHtml = "", choicesMistakes="" ;
+
+
+  // loop through choices, and create radio buttons
+  for (var i = 0; i < choices.length; i++) {
+  //alert(get_rand(nums));
+    choicesHtml += "<input type='radio' name='quiz" + questionNumber +
+      "' id='choice" + ( i + 1) +
+      "' value='" + choices[i] + "'>" +
+      " <label for='choice" + (i + 1) + "'>" + choices[i] + "</label> <br>";
+	  
+	  choicesMistakes += "<span name='quiz" + questionNumber +
+      "' id='choice" + (i + 1) +
+      "' value='" + choices[i] + "'>"+ (i+1) + ". " + choices[i] + "</span><br>";
+	   if(choices[i] === quiz[questionNumber].correct) {
+			correctAnswer = choices[i];
+			correctAnswerIndex = i;
+	  }
+	  
+	  choicesMistakesG = choicesMistakes;
+  }
+
+  
+  // load the question
+  questionContainer.textContent = (questionNumber + 1) + ". " +
+    quiz[questionNumber].question;
+	
+	
+  // load the choices
+  choicesContainer.innerHTML = choicesHtml;
+
+  // setup for the first time
+  if (questionNumber === 0) {
+  scoreContainer.textContent = "Score: " + score + "/" + maxQ; //nabago
+    submitBtn.textContent = "Submit Answer";
+	//alert(quiz.length);
+  }
+  
+	
+
+}
+
+function checkAnswer() {
+	var yourAnswer = "You did not pick any answer.";
+  // are we asking a question, or proceeding to next question?
+  if (askingQuestion) {
+	
+	//mga nadagdag for view_solution
+	if($('#solution_' + (questionNumber+1)).length > 0) {
+		$('#view_solution').css('visibility', 'visible');
+	}
+    submitBtn.textContent = "Next Question";
+    askingQuestion = false;
+
+    // determine which radio button they clicked
+    var userpick,
+      correctIndex,
+      radios = document.getElementsByName("quiz" + questionNumber);
+    for (var i = 0; i < radios.length; i++) {
+      if (radios[i].checked) { // if this radio button is checked
+        userpick = radios[i].value;
+		yourAnswer = userpick;
+      }
+
+      // get index of correct answer
+      if (radios[i].value == quiz[questionNumber].correct) {
+        correctIndex = i;
+      }
+    }
+
+    // setup if they got it right, or wrong
+    var labelStyle = document.getElementsByTagName("label")[correctIndex].style;
+    labelStyle.fontWeight = "bold";
+    if (userpick == quiz[questionNumber].correct) {
+      labelStyle.color = "green";
+	  score++; 
+    } else {
+		wrongAnswerNo++;
+      labelStyle.color = "red";
+	  wrongAnswerQ += "<br> <span id='question'> " + wrongAnswerNo+". " + quiz[questionNumber].question + "</span><br> " + "<div id='choices'>" + choicesMistakesG + " <strong>Your answer: "+ yourAnswer + "</strong><br> <strong id='answer'>" + "Correct answer: " + correctAnswer  + "</strong></div> ";//  + 
+
+    }
+	
+	
+  } else { // move to next question
+    // setting up so user can ask a question
+    askingQuestion = true;
+    // change button text back to "Submit Answer"
+    submitBtn.textContent = "Submit Answer";
+	scoreContainer.textContent = "Score: " + score + "/" + maxQ;; //nabago
+    // if we're not on last question, increase question number
+    if (questionNumber < maxQ - 1) {
+      //currentQuestion++;
+	  questionNumber++;
+      askQuestion();
+    } else {
+      clearTimeout(t);
+      showFinalResults();
+    }
+	
+	//mga nadagdag quiz with images
+	for(i=0; i<quiz.length; i++) { 
+		$('#for_q_' + (i+1)).hide();
+	}
+	
+	// mga nadagdag quiz with images
+	if((questionNumber+1) === 1) {
+		$('#question').after(images[0]);
+	} else if((questionNumber+1) === 2) {
+		$('#question').after(images[1]);
+	}
+	
+	//mga nadagdag for view_solution
+	for(i=0; i<quiz.length; i++) { 
+		$('#solution_' + (i+1)).hide();
+	}
+	
+	$('.for_view_solution').hide();
+	$('#view_solution').css('visibility', 'hidden');
+	
+	solutionIsVisible = false;
+	if(solutionIsVisible) {
+		document.getElementById('view_solution').textContent = 'Hide Solution';
+		solutionIsVisible = false;
+	}else if(!solutionIsVisible){
+		document.getElementById('view_solution').textContent = 'View Solution';
+		solutionIsVisible = true;
+	}
+  }
+}
+
+function showFinalResults() {
+	//resultPage = "<center><strong class='for_h'>You Passed!</strong></center>";
+	if(score/maxQ >= 0.7){
+		resultPage = "<center><strong class='for_h'>You Passed!</strong></center> <br> <center><strong>Score: " + score + " out of " + maxQ + " </strong></center><center><strong> Equivalent Percentage: " + Math.floor(score/maxQ*100) + "%</strong></center><center><strong>Total time: " + timeElapsed + "</strong></center> <br> <br><button id='restart' class='button fit' onclick='reloadCurrentPage();'> Restart the Test</button><button id='reviewMistakes' class='button fit' onclick='reviewMistakes();'> Review Mistakes</button> <button id='proceedToNext' class='button fit' onclick='proceedToNext();'> Proceed to next Test</button> ";
+	} else {
+		resultPage = "<center><strong class='for_h'>You Failed!</strong></center> <br> <center><strong>Score: " + score + " out of " + maxQ + " </strong></center><center><strong> Equivalent Percentage: " + Math.floor(score/maxQ*100) + "%</strong></center><center><strong>Total time: " + timeElapsed + "</strong></center> <br> <br><button id='restart' class='button fit' onclick='reloadCurrentPage();'> Restart the Test</button><button id='reviewMistakes' class='button fit' onclick='reviewMistakes();'> Review Mistakes</button> <button id='proceedToNext' class='button fit' onclick='proceedToNext();'> Proceed to next Test</button> ";
+	}
+	content.innerHTML = resultPage;
+}
+
+function reviewMistakes() {
+	content.innerHTML = wrongAnswerQ + " <br><br> <center><button id='restart' class='button fit' onclick='reloadCurrentPage();'> Restart the Test</button></center> <button id='proceedToNext' class='button fit' onclick='proceedToNext();'> Proceed to next Test</button>";
+}
+
+function proceedToNext() {
+	document.location.href = "pumps02.html"; //need to be updated per test 
+}
+
+function reloadCurrentPage() {
+	document.location.href = "pumps01.html"; //need to be updated per test 
+}
+
+window.addEventListener("load", askQuestion, false);
+submitBtn.addEventListener("click", checkAnswer, false);
+
+
+
+</script>
+
+
+
+
+			<!-- Scripts for Phantom -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+	</body>
+
+</html>

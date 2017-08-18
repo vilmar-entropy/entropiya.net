@@ -1,0 +1,576 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+	
+		<title>Entropiya | Heat Transfer 4</title> <!-- need to be updated per test -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		
+		<link rel="stylesheet" href="css/index.css" />
+		<script src="js/index.js"></script>
+		<link rel="stylesheet" href="assets/css/main.css" />
+
+		<!-- FontAwesome, jQuery and jQuery Mobile -->
+		<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css">
+		<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+		<script type="text/javascript" src="jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script> 
+		
+		<!-- jqmath -->
+		<link rel="stylesheet" href="mathscribe/jqmath-0.4.3.css">
+		<script src="mathscribe/jquery-1.4.3.min.js"></script>
+		<script src="mathscribe/jqmath-etc-0.4.5.min.js" charset="utf-8"></script>
+		
+		<script>
+			$(document).ready(function() {
+				solutionIsVisible = true;
+				
+				//mga nadagdag for view_solution
+				
+				$('.for_view_solution').hide();
+				$('#view_solution').css('visibility', 'hidden');
+				
+				for(i=0; i<quiz.length; i++) {
+					$('#solution_' + (i+1)).hide();
+				}
+				
+				$('#view_solution').click(function() {
+					for(i=0; i<quiz.length; i++) {
+						$('#solution_' + (i+1)).hide();
+					}
+						
+					$('#solution_' + (questionNumber + 1)).fadeToggle('slow');
+					$('.for_view_solution').fadeToggle('slow');
+					
+					if(solutionIsVisible) {
+						document.getElementById('view_solution').textContent = 'Hide Solution';
+						solutionIsVisible = false;
+					}else if(!solutionIsVisible){
+						document.getElementById('view_solution').textContent = 'View Solution';
+						solutionIsVisible = true;
+					}
+					
+				});
+
+				
+				// Image factory
+				var createImage = function(src, title, id) {
+				  var img   = new Image();
+				  img.src   = src;
+				  img.id = id;
+				  img.alt   = title;
+				  img.title = title;
+				  return img; 
+				};
+
+				// array of images dun dineclare sa main script para global
+				//var images = [];
+
+				// push two images to the array
+				//images.push(createImage("images/for_q_1.png", "pic01 title", "for_q_1"));
+				//images.push(createImage("images/for_q_2.png", "pic03 title", "for_q_2"));
+				
+				// mga nadagdag quiz with images
+				if((questionNumber+1) === 1) {
+					$('#question').after(images[0]);
+				} else if((questionNumber+1) === 2) {
+					$('#question').after(images[1]);
+				}
+				
+			});
+		</script>
+	
+	</head>
+	
+	<body>
+		<div data-role="panel" data-position="right" data-display="overlay" data-theme="a" id="panel">
+			<div class="nav_in_panel_container"> 
+				<ul data-role="listview" data-inset="true" data-theme="b" data-dividertheme="f">
+					<li data-icon="false"><a class="nav_in_panel" href="index.html" rel="external"><i class="fa fa-home" aria-hidden="true" ></i>  Home  </a> </li>
+					<li data-icon="false"><a class="nav_in_panel" href="about.html" rel="external"><i class="fa fa-user-o" aria-hidden="true" ></i>  About  </a> </li>
+					<li data-icon="false"><a class="nav_in_panel" href="references.html" rel="external"><i class="fa fa-book" aria-hidden="true" ></i>  References  </a>
+					<li data-icon="false"><a class="nav_in_panel" href="https://www.facebook.com/vilmar.empino?__nodl" rel="external" ><i class="fa fa-facebook-square" aria-hidden="true"></i>  Like us on facebook!  </a></li>
+				</ul>
+			</div>
+		</div>
+		<div id="header_container">
+			<figure class="logo" id="logo">
+				<a href="index.html" rel="external"><img src="images/logo.png" alt="image"/></a>
+			</figure>
+			<ul class="home_nav_quiz"> 
+				<a href="#panel" class="right_panel"> <i class="fa fa-bars" id="icon_for_right_panel" aria-hidden="true"></i> </a>
+				<div class="toBeHidden">
+				<li class="li"><a class="a" href="references.html" rel="external">References</a></li>
+				<li class="li"><a class="a" href="about.html" rel="external">About</a></li>
+				<!-- <li class="li" id="dropdown">
+					<a class="a" href="javascript:void(0)" class="dropbtn">MCQs <i class="fa fa-caret-down" aria-hidden="true"></i></a>
+					<div class="dropdown-content">
+					<a class="a" href="home-me.html" rel="external">Mechanical Engineering</a>
+					<a class="a" href="home-ece.html" rel="external">Electronics Engineering</a> 
+					</div>
+				</li> -->
+				<li class="li"><a class="a" href="index.html" rel="external">Home</a></li>
+				</div>
+			</ul>
+		</div>
+		<div id="body_container"> 
+			
+			<div id="for_contents_quiz">
+				
+				<div id="for_left_content_quiz">
+					<div id="for_title">
+						<strong class="for_h2">Heat Transfer - Test 4 (61-80)</strong> <!-- need to be updated per test -->
+					</div>
+					<br>
+					<div id="for_top_ads_quiz">
+						<span> FTA  </span>
+					</div>
+					<div id="for_left_navbar"> <!-- need to be updated per test -->
+						<div data-role="collapsible">
+							<h3>Problems</h3>
+							<ul data-role="listview" id="left_nav" data-inset="true" data-theme="c" data-dividertheme="f">
+								<li><a href="heat01.html"  rel="external">Test 1</a></li>
+								<li><a href="heat02.html"  rel="external">Test 2</a></li>
+								<li><a href="heat03.html"  rel="external">Test 3</a></li>
+								<li><a href="heat04.html"  rel="external">Test 4</a></li>
+								<li><a href="heat05.html"  rel="external">Test 5</a></li>
+							</ul>
+						</div>
+					</div>
+					<div id="for_right_navbar"> <!-- need to be updated per test -->
+						<div data-role="collapsible">
+							<h3>Elements</h3>
+							<ul data-role="listview" id="right_nav" data-inset="true" data-theme="c" data-dividertheme="f">
+								<li><a href="#"  rel="external">Test I</a></li>
+								
+							</ul>
+						</div>
+					</div>
+					<br>
+					<div class="for_quiz">
+						<div id="content">
+							<strong id="timerContinue"><time>00:00:00</time></strong>
+							<strong id="score">Score: 0/50</strong> <br><br>
+							<div class="for_question"><span id="question"></span> </div> 
+							<div id="choices"></div> 
+							<button id="submit" class="button"> Submit Answer</button>
+						</div>
+					</div>
+					<br>
+					<!-- //mga nadagdag for view_solution -->
+					<!-- <div class="for_view_solution">
+						<p id="solution_1">
+							<span>Solution 1</span><br>Data: <br>
+							<span class="eq">$m_1 = 500 g_m$ $/frac{F}{A} \sqrt{\pi}$ </span><br>
+							<span class="eq">$m_2 = 800 g_f$ </span><br>
+							<span class="eq">$m_3 = 15 poundals$ </span><br>
+							<span class="eq">$m_4 = 3 lb_f$ </span><br>
+							<span class="eq">$m_5 = 0.10slug$ </span><br>
+							<span class="eq">$g = 30.5 ft/s^2$ </span><br>
+							Unknown: <br>
+							<span class="eq">a) Total mass, $m_T$ in $g_m$ </span><br>
+							<span class="eq">b) $m_T$ in $lb_m$ </span><br>
+							<span class="eq">c) $m_T$ in $slugs$ </span><br>
+							Solution: <br>
+							<span class="eq"> $m_T = m_1 + m_2 +$ $m_3 + m_4 + m_5 \longrightarrow (eq. 1)$</span> <br>
+							
+							<span class="eq"> </span> <br>
+						</p>
+						
+						<p id="solution_2"><span>Solution 2</span><br>Data: <br> 
+							<span class="eq"> $g_{sea} = 32.088 fps^2 $ </span> <br>
+							<span class="eq"> $\Delta g = -0.003 fps^2 $ per 1000 ft </span> <br>
+							Unknown: <br>
+							<span class="eq"> a) Height, $h$ if g is 30.504 $fps^2$ </span> <br>
+							<span class="eq"> b) $h$ if $F_g$ is 95% of original </span> <br>
+							<span class="eq"> c) $F_g$ if $h$ is 29,131 ft and $m$ is 180 $lb_m$</span> <br>
+							Solution: <br>
+							<span class="eq">a) $h = (30.504 - 32.088)fps^2$ x $\frac{1000ft}{-0.003 fps^2}$ $= 528,000ft$ $= \underline{100mi}$ </span> <br>
+							<span class="eq"> b) $h = (32.088)(0.95 - 1)$ $fps^2$ x $\frac{1000ft}{-0.003 fps^2}$ $= 534,800$ ft or $\underline{101.29 mi}$</span> <br>
+							<span class="eq"> c) $F_g = mg \longrightarrow (eq. 1)$ </span> <br>
+							But <br>
+							<span class="eq"> $m = 180 lb_m$ x $\frac{1 slug}{32.2 lb_m}$ $=5.59 slugs$ </span> <br>
+							<span class="eq"> $g = 29,131ft$ x $\frac{-0.003 fps^2}{1000 ft}$ $+ 32.088 fps^2$ $32.00 fps^2$</span> <br>
+							Then from $(eq. 1)$ <br>
+							<span class="eq"> $F_g = 5.59 slugs$ x $32.00 fps^2$ $=\underline{178.88 lb_f}$</span> <br>
+						</p> 
+						
+						<p id="solution_3"><span>Solution 3</span><br>Data: <br> 
+							<span class="eq"> $g_{sea} = 32.088 fps^2 $ </span> <br>
+							<span class="eq"> $\Delta g = -0.003 fps^2 $ per 1000 ft </span> <br>
+							Unknown: <br>
+							<span class="eq"> a) Height, $h$ if g is 30.504 $fps^2$ </span> <br>
+							<span class="eq"> b) $h$ if $F_g$ is 95% of original </span> <br>
+							<span class="eq"> c) $F_g$ if $h$ is 29,131 ft and $m$ is 180 $lb_m$</span> <br>
+							Solution: <br>
+							<span class="eq">a) $h = (30.504 - 32.088)fps^2$ x $\frac{1000ft}{-0.003 fps^2}$ $= 528,000ft$ $= \underline{100mi}$ </span> <br>
+							<span class="eq"> b) $h = (32.088)(0.95 - 1)$ $fps^2$ x $\frac{1000ft}{-0.003 fps^2}$ $= 534,800$ ft or $\underline{101.29 mi}$</span> <br>
+							<span class="eq"> c) $F_g = mg \longrightarrow (eq. 1)$ </span> <br>
+							But <br>
+							<span class="eq"> $m = 180 lb_m$ x $\frac{1 slug}{32.2 lb_m}$ $=5.59 slugs$ </span> <br>
+							<span class="eq"> $g = 29,131ft$ x $\frac{-0.003 fps^2}{1000 ft}$ $+ 32.088 fps^2$ $32.00 fps^2$</span> <br>
+							Then from $(eq. 1)$ <br>
+							<span class="eq"> $F_g = 5.59 slugs$ x $32.00 fps^2$ $=\underline{178.88 lb_f}$</span> <br>
+						</p>
+						
+						<p id="solution_4"><span>Solution 4</span><br>Data: <br> 
+							<span class="eq"> $g_{sea} = 32.088 fps^2 $ </span> <br>
+							<span class="eq"> $\Delta g = -0.003 fps^2 $ per 1000 ft </span> <br>
+							Unknown: <br>
+							<span class="eq"> a) Height, $h$ if g is 30.504 $fps^2$ </span> <br>
+							<span class="eq"> b) $h$ if $F_g$ is 95% of original </span> <br>
+							<span class="eq"> c) $F_g$ if $h$ is 29,131 ft and $m$ is 180 $lb_m$</span> <br>
+							Solution: <br>
+							<span class="eq">a) $h = (30.504 - 32.088)fps^2$ x $\frac{1000ft}{-0.003 fps^2}$ $= 528,000ft$ $= \underline{100mi}$ </span> <br>
+							<span class="eq"> b) $h = (32.088)(0.95 - 1)$ $fps^2$ x $\frac{1000ft}{-0.003 fps^2}$ $= 534,800$ ft or $\underline{101.29 mi}$</span> <br>
+							<span class="eq"> c) $F_g = mg \longrightarrow (eq. 1)$ </span> <br>
+							But <br>
+							<span class="eq"> $m = 180 lb_m$ x $\frac{1 slug}{32.2 lb_m}$ $=5.59 slugs$ </span> <br>
+							<span class="eq"> $g = 29,131ft$ x $\frac{-0.003 fps^2}{1000 ft}$ $+ 32.088 fps^2$ $32.00 fps^2$</span> <br>
+							Then from $(eq. 1)$ <br>
+							<span class="eq"> $F_g = 5.59 slugs$ x $32.00 fps^2$ $=\underline{178.88 lb_f}$</span> <br>
+						</p>
+					
+					</div> -->
+					
+					<button id="view_solution" class="button small"> View Solution</button>
+
+										
+				</div>
+				
+								
+				
+				<div class="for_right_ads_quiz">
+					<span> FRA   </span>
+				</div>
+			</div>
+		</div>
+			
+			<script>
+	
+ //star timer
+  var timeElapsed = "";
+	var h1 = document.getElementById('timerContinue'),
+		start = document.getElementById('start'),
+		stop = document.getElementById('stop'),
+		clear = document.getElementById('clear'),
+		seconds = 0, minutes = 0, hours = 0,
+		t;
+
+	function add() {
+		seconds++;
+		if (seconds >= 60) {
+			seconds = 0;
+			minutes++;
+			if (minutes >= 60) {
+				minutes = 0;
+				hours++;
+			}
+		}
+		
+		h1.textContent = (hours ? (hours > 9 ? hours : "0" + hours) : "00") + ":" + (minutes ? (minutes > 9 ? minutes : "0" + minutes) : "00") + ":" + (seconds > 9 ? seconds : "0" + seconds);
+		timeElapsed =(hours ? (hours > 9 ? hours : "0" + hours) : "00") + ":" +  (minutes ? (minutes > 9 ? minutes : "0" + minutes) : "00") + ":" + (seconds > 9 ? seconds : "0" + seconds);
+
+		timer();
+	}
+	function timer() {
+		t = setTimeout(add, 1000);
+	}
+	timer();
+
+	//end timer
+	
+
+var quiz = [{
+	"question": "A wall with an area of 10 m^2 is made of  a 2 cm thickness of white pine ( k= 0.113 W/m˚C) followed by 10 cm of brick ( k=0.649 W/m˚C). The pine is in the inside where the temperature is 30˚C while the outside temperature is 10˚C. Assuming equilibrium conditions exist, what is the temperature at the interface between the two metals? ",
+	"choices": ["15. 65˚C", "17.64˚C", "18.21˚C", "19.31˚C "],
+	"correct": "19.31˚C "
+}, {
+	"question": "In  a hot air heating system, the furnace heats air from 60˚F to 160˚F. If the air is then circulated at the rate of 330 ft^3/min by the blower, how much thermal energy is transferred per hour. Note: The specific heat of air at constant pressure is 0.250 BTU/lb˚F, the density of air is 0.0806 lb/ft^3 at atmospheric pressure. ",
+	"choices": ["39,000 BTU/hr", "46,800 BTU/hr", "36,805 BTU/hr", "39,900 BTU/hr"],
+	"correct": "39,900 BTU/hr"
+}, {
+	"question": "If air at 27˚C and pressure of 1 atm has a mass of 1.115 kg and a specific heat at constant pressure of 1 x 10^3 J/kg-K, how much heat is required to raise the temperature of this gas from 27˚C to 177˚C at constant pressure? ",
+	"choices": ["176.25 kJ", "157 kJ", "167.25 kJ	", "175 kJ "],
+	"correct": "167.25 kJ	"
+}, {
+	"question": "Calculate the amount of energy required to heat the air in a house 30 by 50 by 40 ft from 10 to 70˚F. The density of air is about 0.08 lb/ft^3, and its specific heat at constant pressure 0.24 BTU/lb˚F.",
+	"choices": ["49,120 BTU", "59,120 BTU", "69,120 BTU", "79,120 BTU"],
+	"correct": "69,120 BTU"
+}, {
+	"question": "Water enters the condenser at 20˚C and leaves at 35˚C. What is the log mean temperature difference if the condenser temperature is 45˚C.",
+	"choices": ["16.37˚C", "13.37˚C", "15.37˚C", "17.37˚C "],
+	"correct": "16.37˚C"
+}, {
+	"question": "When 200 grams of aluminum at 100˚C is dropped into an aluminum calorimeter (c = 0.909 x 10^3 J/kg-K) of mass 120 g and containing 150 g of kerosene at 15˚C the mixture reaches a temperature of 50˚C, what is the specific heat of kerosene?  ",
+	"choices": ["1004 J/kg-K", "1050 J/kg-K", " 1110 J/kg-K", "1080 J/kg-K"],
+	"correct": "1004 J/kg-K"
+}, {
+	"question": "A calorimeter contains 660 g of turpentine at 10.6˚C. When 0.147 kg of alcohol at 75˚C is added, the temperature rises to 25.2˚C. The specific heat of turpentine is 1.95 x 10^3 J/kg-˚C and the calorimeter is thermally equivalent to 30 g of water. Find the specific heat of alcohol. ",
+	"choices": ["2.81745 kJ/kg˚C", " 3.81745 kJ/kg˚C", " 0.81745 kJ/kg˚C", "1.81745 kJ/kg˚C"],
+	"correct": "2.81745 kJ/kg˚C"
+}, {
+	"question": "The temperature of a sample of molten lead near its temperature of solidification is falling at the rate of 6 K/min. If the lead continues to lose heat at this same rate and takes 35 min. to solidify completely, what is the heat of fusion of the lead? The specific heat of molten lead is 0.126 kJ/kg-K.",
+	"choices": ["16.46 kJ/kg", "26.46 kJ/kg", "36.46 kJ/kg	", "46.46 kJ/kg "],
+	"correct": "26.46 kJ/kg"
+}, {
+	"question": "A counter flow heat exchanger is designed to heat fuel oil from 45˚C to 100˚C while the heating fluid enters at 150˚C and leaves at 115˚C. Calculate the arithmetic mean temperature difference.",
+	"choices": ["40˚C", "50˚C", "60˚C", "70˚C "],
+	"correct": "60˚C"
+}, {
+	"question": "A fuel of 20˚API is to be heated in a heater which makes two passes thru heater tubes and the heating fluid makes one pass but the flow is cross flow through the heater due to baffles inside the shell. Quantity of oil to be heated		3000 L/hr, Temp of oil entering heater tubes	 21˚C, Temp of oil leaving the heater tubes 	95˚C, Heating fluid, steam enters at 105˚C and leaves as condensate at 85˚C. Assume specific heat of oil 2.093 kJ/kg-K. Find the heating surface area if the over-all coef. of heat transfer is taken as 140 W/ m^2˚C.  ",
+	"choices": ["29.6 m^2", "30.75  m^2", "23.75 m^2", "32.54 m^2 "],
+	"correct": "29.6 m^2"
+}, {
+	"question": "A 30 cm thick wall has an inside and outside surface temperature of 300˚C and 50˚C respectively. If the thermal conductivity of the wall is 8 W/m-K, calculate the heat transferred in kW/m^2.",
+	"choices": ["6.67 ", "5.67	", " 7.67 ", "8.67 "],
+	"correct": "6.67 "
+}, {
+	"question": "A 4-pass low pressure surface type feed water heater is designed to heat 92,730 kg/hr of feed water from 40˚C initial to 80˚C final temperature using steam bleed at 70 kPa, 2,645 kJ/kg enthalpy. Assume no sub-cooling of condensate, determine the effective length of 19 mm O.D x 2 mm thick Muntz metal tubes to be installed, if the water velocity inside the tubes is 1.22 m/s and U= 3000 W/m^2 K based on the external surface of the tubes. Steam properties: At 70 kPa, tsat = 90˚C.",
+	"choices": ["2 m", "4 m ", "3 m	", "5 m"],
+	"correct": "2 m"
+}, {
+	"question": "Find the thermal conductivity of the 500 mm thick material with an area of 10,000 cm^2 and a temperature difference of 10 K if the heat transmitted during 2 hours test is 2000 J. ",
+	"choices": ["0.014 W/m-K", "0.025 W/m-K", "0.126 W/m-K", "0.214 W/m-K"],
+	"correct": "0.014 W/m-K"
+}, {
+	"question": "A pipe with an outside diameter of 2.5 in is insulated with a 2 in layer of asbestos ( ka =0.396 BTU-in/hr-ft^2-˚F) followed by a layer of cork 1.5 in. thick  ( kc=0.30 BTU-in/hr-ft^2-˚F). If the temperature of the outer surface of the cork is 90˚F and inner temperature of 290˚F, calculate the heat lost per 100 ft of insulated pipe.",
+	"choices": ["847.64 BTU/hr", "3847.51 Btu/hr", "2847.42 BTU/hr", "1847.14 Btu/hr"],
+	"correct": "2847.42 BTU/hr"
+}, {
+	"question": "At $ 0.25 per kW-hr, how much will it cost to maintain a temp of 96˚F for 24 hours in a box 2 ft square on each side if the outside temp is 72˚F and the overall heat transfer coefficient for  the box is 0.10 BTU/hr-ft^2-˚F?",
+	"choices": ["$0.10", "$ 0.20", "$ 0.15", " $  0.25"],
+	"correct": "$0.10"
+}, {
+	"question": "A steam pipe having a  surface temp of 300˚C passes through a room where the temp is 25˚C. The outside diameter of pipe is 100 mm and emissivity factor is 0.60. Determine the radiated heat loss for a 5 m pipe length.",
+	"choices": ["5.34 kW", "4.34 kW", "3.34 kW", "6.34 kW"],
+	"correct": "5.34 kW"
+}, {
+	"question": "An air cooled condenser has an expected U value of 30 W/m^2-K based on the air side area. The condenser is to transfer 60 kW with an airflow rate of 15 kg/s entering at 35˚C. If the condensing temp is to be 48˚C, what is the required air-side area? ",
+	"choices": ["184 m^2", "194 m^2", "174 m^2", "164 m^2"],
+	"correct": "184 m^2"
+}, {
+	"question": "An air cooled condenser is to reject 70 kW of heat from a condensing refrigerant to air. The condenser has an air side area of 210 m^2 and a U value based on this area of 0.037 kW/m^2-K; it is applied with 6.6 m^3/s of air which has a density of 1.15 kg/m^3. If the condensing temperature is to be limited to 55˚C, what is the maximum allowable temp of the inlet air?",
+	"choices": ["30.7˚C", "40.7˚C", "50.7˚C", "20.7˚C"],
+	"correct": "40.7˚C"
+}, {
+	"question": "Two walls are composed of 150 mm thick insulating material at the outer layer ( k=0.139 W/m-K) and 300 mm thick material at the inner layer ( k= 1.111 W/m-K). Calculate the heat transmitted per m^2 if the surface temp of the cold side and hot side are 25˚C and 300˚C respectively. ",
+	"choices": ["203.79 W/m^2", "303. 79  W/m^2", "254. 65 W/m^2", "354.65 W/m^2"],
+	"correct": "203.79 W/m^2"
+}, {
+	"question": "The temp of the flame in  a furnace is 1277˚C and the temp of its surrounding surface area is 277˚C. Calculate the max. theoretical quantity of heat energy radiated per minute per square meter to the surrounding surface area.",
+	"choices": ["19,325 kJ", "18,321 kJ", "17,321 kJ", "16,321.65 kJ"],
+	"correct": "19,325 kJ"
+}];
+
+// mga nadagdag quiz with images
+// array of images  
+	var images = [];
+	var solutionIsVisible;
+
+// define elements
+var content = $("content"),
+  questionContainer = $("question"),
+  choicesContainer = $("choices"),
+  scoreContainer = $("score"), //nabago
+  submitBtn = $("submit");
+  
+  var resultPage = "";
+  
+// init vars
+var currentQuestion = 0,
+	score = 0,
+  askingQuestion = true,
+  questionNumber = 0,
+   maxQ = quiz.length, 
+  questionNumber;
+  
+  wrongAnswerQ = "",
+  wrongAnswerNo=0;
+  var yourAnswer = "You did not pick any answer.";
+  var choicesMistakesG = "";
+  if(maxQ > quiz.length) {
+	maxQ = quiz.length;
+  }
+  var isOnReviewWrongPage = false;
+  var duplicates  =[];
+
+function $(id) { // shortcut for document.getElementById
+  return document.getElementById(id);
+}
+
+function askQuestion() {
+  var choices = quiz[questionNumber].choices,
+    choicesHtml = "", choicesMistakes="" ;
+
+
+  // loop through choices, and create radio buttons
+  for (var i = 0; i < choices.length; i++) {
+  //alert(get_rand(nums));
+    choicesHtml += "<input type='radio' name='quiz" + questionNumber +
+      "' id='choice" + ( i + 1) +
+      "' value='" + choices[i] + "'>" +
+      " <label for='choice" + (i + 1) + "'>" + choices[i] + "</label> <br>";
+	  
+	  choicesMistakes += "<span name='quiz" + questionNumber +
+      "' id='choice" + (i + 1) +
+      "' value='" + choices[i] + "'>"+ (i+1) + ". " + choices[i] + "</span><br>";
+	   if(choices[i] === quiz[questionNumber].correct) {
+			correctAnswer = choices[i];
+			correctAnswerIndex = i;
+	  }
+	  
+	  choicesMistakesG = choicesMistakes;
+  }
+
+  
+  // load the question
+  questionContainer.textContent = (questionNumber + 1) + ". " +
+    quiz[questionNumber].question;
+	
+	
+  // load the choices
+  choicesContainer.innerHTML = choicesHtml;
+
+  // setup for the first time
+  if (questionNumber === 0) {
+  scoreContainer.textContent = "Score: " + score + "/" + maxQ; //nabago
+    submitBtn.textContent = "Submit Answer";
+	//alert(quiz.length);
+  }
+  
+	
+
+}
+
+function checkAnswer() {
+	var yourAnswer = "You did not pick any answer.";
+  // are we asking a question, or proceeding to next question?
+  if (askingQuestion) {
+	
+	//mga nadagdag for view_solution
+	if($('#solution_' + (questionNumber+1)).length > 0) {
+		$('#view_solution').css('visibility', 'visible');
+	}
+    submitBtn.textContent = "Next Question";
+    askingQuestion = false;
+
+    // determine which radio button they clicked
+    var userpick,
+      correctIndex,
+      radios = document.getElementsByName("quiz" + questionNumber);
+    for (var i = 0; i < radios.length; i++) {
+      if (radios[i].checked) { // if this radio button is checked
+        userpick = radios[i].value;
+		yourAnswer = userpick;
+      }
+
+      // get index of correct answer
+      if (radios[i].value == quiz[questionNumber].correct) {
+        correctIndex = i;
+      }
+    }
+
+    // setup if they got it right, or wrong
+    var labelStyle = document.getElementsByTagName("label")[correctIndex].style;
+    labelStyle.fontWeight = "bold";
+    if (userpick == quiz[questionNumber].correct) {
+      labelStyle.color = "green";
+	  score++; 
+    } else {
+		wrongAnswerNo++;
+      labelStyle.color = "red";
+	  wrongAnswerQ += "<br> <span id='question'> " + wrongAnswerNo+". " + quiz[questionNumber].question + "</span><br> " + "<div id='choices'>" + choicesMistakesG + " <strong>Your answer: "+ yourAnswer + "</strong><br> <strong id='answer'>" + "Correct answer: " + correctAnswer  + "</strong></div> ";//  + 
+
+    }
+	
+	
+  } else { // move to next question
+    // setting up so user can ask a question
+    askingQuestion = true;
+    // change button text back to "Submit Answer"
+    submitBtn.textContent = "Submit Answer";
+	scoreContainer.textContent = "Score: " + score + "/" + maxQ;; //nabago
+    // if we're not on last question, increase question number
+    if (questionNumber < maxQ - 1) {
+      //currentQuestion++;
+	  questionNumber++;
+      askQuestion();
+    } else {
+      clearTimeout(t);
+      showFinalResults();
+    }
+	
+	//mga nadagdag quiz with images
+	for(i=0; i<quiz.length; i++) { 
+		$('#for_q_' + (i+1)).hide();
+	}
+	
+	// mga nadagdag quiz with images
+	if((questionNumber+1) === 1) {
+		$('#question').after(images[0]);
+	} else if((questionNumber+1) === 2) {
+		$('#question').after(images[1]);
+	}
+	
+	//mga nadagdag for view_solution
+	for(i=0; i<quiz.length; i++) { 
+		$('#solution_' + (i+1)).hide();
+	}
+	
+	$('.for_view_solution').hide();
+	$('#view_solution').css('visibility', 'hidden');
+	
+	solutionIsVisible = false;
+	if(solutionIsVisible) {
+		document.getElementById('view_solution').textContent = 'Hide Solution';
+		solutionIsVisible = false;
+	}else if(!solutionIsVisible){
+		document.getElementById('view_solution').textContent = 'View Solution';
+		solutionIsVisible = true;
+	}
+  }
+}
+
+function showFinalResults() {
+	//resultPage = "<center><strong class='for_h'>You Passed!</strong></center>";
+	if(score/maxQ >= 0.7){
+		resultPage = "<center><strong class='for_h'>You Passed!</strong></center> <br> <center><strong>Score: " + score + " out of " + maxQ + " </strong></center><center><strong> Equivalent Percentage: " + Math.floor(score/maxQ*100) + "%</strong></center><center><strong>Total time: " + timeElapsed + "</strong></center> <br> <br><button id='restart' class='button fit' onclick='reloadCurrentPage();'> Restart the Test</button><button id='reviewMistakes' class='button fit' onclick='reviewMistakes();'> Review Mistakes</button> <button id='proceedToNext' class='button fit' onclick='proceedToNext();'> Proceed to next Test</button> ";
+	} else {
+		resultPage = "<center><strong class='for_h'>You Failed!</strong></center> <br> <center><strong>Score: " + score + " out of " + maxQ + " </strong></center><center><strong> Equivalent Percentage: " + Math.floor(score/maxQ*100) + "%</strong></center><center><strong>Total time: " + timeElapsed + "</strong></center> <br> <br><button id='restart' class='button fit' onclick='reloadCurrentPage();'> Restart the Test</button><button id='reviewMistakes' class='button fit' onclick='reviewMistakes();'> Review Mistakes</button> <button id='proceedToNext' class='button fit' onclick='proceedToNext();'> Proceed to next Test</button> ";
+	}
+	content.innerHTML = resultPage;
+}
+
+function reviewMistakes() {
+	content.innerHTML = wrongAnswerQ + " <br><br> <center><button id='restart' class='button fit' onclick='reloadCurrentPage();'> Restart the Test</button></center> <button id='proceedToNext' class='button fit' onclick='proceedToNext();'> Proceed to next Test</button>";
+}
+
+function proceedToNext() {
+	document.location.href = "heat05.html"; //need to be updated per test 
+}
+
+function reloadCurrentPage() {
+	document.location.href = "heat04.html"; //need to be updated per test 
+}
+
+window.addEventListener("load", askQuestion, false);
+submitBtn.addEventListener("click", checkAnswer, false);
+
+
+
+</script>
+
+
+
+
+			<!-- Scripts for Phantom -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+	</body>
+
+</html>

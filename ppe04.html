@@ -1,0 +1,598 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+	
+		<title>Entropiya | Power Plant Engineering 4</title> <!-- need to be updated per test -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		
+		<link rel="stylesheet" href="css/index.css" />
+		<script src="js/index.js"></script>
+		<link rel="stylesheet" href="assets/css/main.css" />
+
+		<!-- FontAwesome, jQuery and jQuery Mobile -->
+		<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css">
+		<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+		<script type="text/javascript" src="jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script> 
+		
+		<!-- jqmath -->
+		<link rel="stylesheet" href="mathscribe/jqmath-0.4.3.css">
+		<script src="mathscribe/jquery-1.4.3.min.js"></script>
+		<script src="mathscribe/jqmath-etc-0.4.5.min.js" charset="utf-8"></script>
+		
+		<script>
+			$(document).ready(function() {
+				solutionIsVisible = true;
+				
+				//mga nadagdag for view_solution
+				
+				$('.for_view_solution').hide();
+				$('#view_solution').css('visibility', 'hidden');
+				
+				for(i=0; i<quiz.length; i++) {
+					$('#solution_' + (i+1)).hide();
+				}
+				
+				$('#view_solution').click(function() {
+					for(i=0; i<quiz.length; i++) {
+						$('#solution_' + (i+1)).hide();
+					}
+						
+					$('#solution_' + (questionNumber + 1)).fadeToggle('slow');
+					$('.for_view_solution').fadeToggle('slow');
+					
+					if(solutionIsVisible) {
+						document.getElementById('view_solution').textContent = 'Hide Solution';
+						solutionIsVisible = false;
+					}else if(!solutionIsVisible){
+						document.getElementById('view_solution').textContent = 'View Solution';
+						solutionIsVisible = true;
+					}
+					
+				});
+
+				
+				// Image factory
+				var createImage = function(src, title, id) {
+				  var img   = new Image();
+				  img.src   = src;
+				  img.id = id;
+				  img.alt   = title;
+				  img.title = title;
+				  return img; 
+				};
+
+				// array of images dun dineclare sa main script para global
+				//var images = [];
+
+				// push two images to the array
+				//images.push(createImage("images/for_q_1.png", "pic01 title", "for_q_1"));
+				//images.push(createImage("images/for_q_2.png", "pic03 title", "for_q_2"));
+				
+				// mga nadagdag quiz with images
+				if((questionNumber+1) === 1) {
+					$('#question').after(images[0]);
+				} else if((questionNumber+1) === 2) {
+					$('#question').after(images[1]);
+				}
+				
+			});
+		</script>
+	
+	</head>
+	
+	<body>
+		<div data-role="panel" data-position="right" data-display="overlay" data-theme="a" id="panel">
+			<div class="nav_in_panel_container"> 
+				<ul data-role="listview" data-inset="true" data-theme="b" data-dividertheme="f">
+					<li data-icon="false"><a class="nav_in_panel" href="index.html" rel="external"><i class="fa fa-home" aria-hidden="true" ></i>  Home  </a> </li>
+					<li data-icon="false"><a class="nav_in_panel" href="about.html" rel="external"><i class="fa fa-user-o" aria-hidden="true" ></i>  About  </a> </li>
+					<li data-icon="false"><a class="nav_in_panel" href="references.html" rel="external"><i class="fa fa-book" aria-hidden="true" ></i>  References  </a>
+					<li data-icon="false"><a class="nav_in_panel" href="https://www.facebook.com/vilmar.empino?__nodl" rel="external" ><i class="fa fa-facebook-square" aria-hidden="true"></i>  Like us on facebook!  </a></li>
+				</ul>
+			</div>
+		</div>
+		<div id="header_container">
+			<figure class="logo" id="logo">
+				<a href="index.html" rel="external"><img src="images/logo.png" alt="image"/></a>
+			</figure>
+			<ul class="home_nav_quiz"> 
+				<a href="#panel" class="right_panel"> <i class="fa fa-bars" id="icon_for_right_panel" aria-hidden="true"></i> </a>
+				<div class="toBeHidden">
+				<li class="li"><a class="a" href="references.html" rel="external">References</a></li>
+				<li class="li"><a class="a" href="about.html" rel="external">About</a></li>
+				<!-- <li class="li" id="dropdown">
+					<a class="a" href="javascript:void(0)" class="dropbtn">MCQs <i class="fa fa-caret-down" aria-hidden="true"></i></a>
+					<div class="dropdown-content">
+					<a class="a" href="home-me.html" rel="external">Mechanical Engineering</a>
+					<a class="a" href="home-ece.html" rel="external">Electronics Engineering</a> 
+					</div>
+				</li> -->
+				<li class="li"><a class="a" href="index.html" rel="external">Home</a></li>
+				</div>
+			</ul>
+		</div>
+		<div id="body_container"> 
+			
+			<div id="for_contents_quiz">
+				
+				<div id="for_left_content_quiz">
+					<div id="for_title">
+						<strong class="for_h2">Power Plant Engineering - Test 4 Fuels & Combustion (1-20)</strong> <!-- need to be updated per test -->
+					</div>
+					<br>
+					<div id="for_top_ads_quiz">
+						<span> FTA  </span>
+					</div>
+					<div id="for_left_navbar"> <!-- need to be updated per test -->
+						<div data-role="collapsible">
+							<h3>Problems</h3>
+							<ul data-role="listview" id="left_nav" data-inset="true" data-theme="c" data-dividertheme="f">
+								<li><a href="ppe01.html"  rel="external">Test 1</a></li>
+								<li><a href="ppe02.html"  rel="external">Test 2</a></li>
+								<li><a href="ppe03.html"  rel="external">Test 3</a></li>
+								<li><a href="ppe04.html"  rel="external">Test 4</a></li>
+								<li><a href="ppe05.html"  rel="external">Test 5</a></li>
+								<li><a href="ppe06.html"  rel="external">Test 6</a></li>
+								<li><a href="ppe07.html"  rel="external">Test 7</a></li>
+								<li><a href="ppe08.html"  rel="external">Test 8</a></li>
+								<li><a href="ppe09.html"  rel="external">Test 9</a></li>
+								<li><a href="ppe10.html"  rel="external">Test 10</a></li>
+								<li><a href="ppe11.html"  rel="external">Test 11</a></li>
+								<li><a href="ppe12.html"  rel="external">Test 12</a></li>
+								<li><a href="ppe13.html"  rel="external">Test 13</a></li>
+								<li><a href="ppe14.html"  rel="external">Test 14</a></li>
+								<li><a href="ppe15.html"  rel="external">Test 15</a></li>
+								<li><a href="ppe16.html"  rel="external">Test 16</a></li>
+								<li><a href="ppe17.html"  rel="external">Test 17</a></li>
+								<li><a href="ppe18.html"  rel="external">Test 18</a></li>
+								<li><a href="ppe19.html"  rel="external">Test 19</a></li>
+								<li><a href="ppe20.html"  rel="external">Test 20</a></li>
+								<li><a href="ppe21.html"  rel="external">Test 21</a></li>
+								<li><a href="ppe22.html"  rel="external">Test 22</a></li>
+								<li><a href="ppe23.html"  rel="external">Test 23</a></li>
+								<li><a href="ppe24.html"  rel="external">Test 24</a></li>
+								<li><a href="ppe25.html"  rel="external">Test 25</a></li>
+								<li><a href="ppe26.html"  rel="external">Test 26</a></li>
+								<li><a href="ppe27.html"  rel="external">Test 27</a></li>
+							</ul>
+						</div>
+					</div>
+					<div id="for_right_navbar"> <!-- need to be updated per test -->
+						<div data-role="collapsible">
+							<h3>Elements</h3>
+							<ul data-role="listview" id="right_nav" data-inset="true" data-theme="c" data-dividertheme="f">
+								<li><a href="#"  rel="external">Test I</a></li>
+								
+							</ul>
+						</div>
+					</div>
+					<br>
+					<div class="for_quiz">
+						<div id="content">
+							<strong id="timerContinue"><time>00:00:00</time></strong>
+							<strong id="score">Score: 0/50</strong> <br><br>
+							<div class="for_question"><span id="question"></span> </div> 
+							<div id="choices"></div> 
+							<button id="submit" class="button"> Submit Answer</button>
+						</div>
+					</div>
+					<br>
+					<!-- //mga nadagdag for view_solution -->
+					<!-- <div class="for_view_solution">
+						<p id="solution_1">
+							<span>Solution 1</span><br>Data: <br>
+							<span class="eq">$m_1 = 500 g_m$ $/frac{F}{A} \sqrt{\pi}$ </span><br>
+							<span class="eq">$m_2 = 800 g_f$ </span><br>
+							<span class="eq">$m_3 = 15 poundals$ </span><br>
+							<span class="eq">$m_4 = 3 lb_f$ </span><br>
+							<span class="eq">$m_5 = 0.10slug$ </span><br>
+							<span class="eq">$g = 30.5 ft/s^2$ </span><br>
+							Unknown: <br>
+							<span class="eq">a) Total mass, $m_T$ in $g_m$ </span><br>
+							<span class="eq">b) $m_T$ in $lb_m$ </span><br>
+							<span class="eq">c) $m_T$ in $slugs$ </span><br>
+							Solution: <br>
+							<span class="eq"> $m_T = m_1 + m_2 +$ $m_3 + m_4 + m_5 \longrightarrow (eq. 1)$</span> <br>
+							
+							<span class="eq"> </span> <br>
+						</p>
+						
+						<p id="solution_2"><span>Solution 2</span><br>Data: <br> 
+							<span class="eq"> $g_{sea} = 32.088 fps^2 $ </span> <br>
+							<span class="eq"> $\Delta g = -0.003 fps^2 $ per 1000 ft </span> <br>
+							Unknown: <br>
+							<span class="eq"> a) Height, $h$ if g is 30.504 $fps^2$ </span> <br>
+							<span class="eq"> b) $h$ if $F_g$ is 95% of original </span> <br>
+							<span class="eq"> c) $F_g$ if $h$ is 29,131 ft and $m$ is 180 $lb_m$</span> <br>
+							Solution: <br>
+							<span class="eq">a) $h = (30.504 - 32.088)fps^2$ x $\frac{1000ft}{-0.003 fps^2}$ $= 528,000ft$ $= \underline{100mi}$ </span> <br>
+							<span class="eq"> b) $h = (32.088)(0.95 - 1)$ $fps^2$ x $\frac{1000ft}{-0.003 fps^2}$ $= 534,800$ ft or $\underline{101.29 mi}$</span> <br>
+							<span class="eq"> c) $F_g = mg \longrightarrow (eq. 1)$ </span> <br>
+							But <br>
+							<span class="eq"> $m = 180 lb_m$ x $\frac{1 slug}{32.2 lb_m}$ $=5.59 slugs$ </span> <br>
+							<span class="eq"> $g = 29,131ft$ x $\frac{-0.003 fps^2}{1000 ft}$ $+ 32.088 fps^2$ $32.00 fps^2$</span> <br>
+							Then from $(eq. 1)$ <br>
+							<span class="eq"> $F_g = 5.59 slugs$ x $32.00 fps^2$ $=\underline{178.88 lb_f}$</span> <br>
+						</p> 
+						
+						<p id="solution_3"><span>Solution 3</span><br>Data: <br> 
+							<span class="eq"> $g_{sea} = 32.088 fps^2 $ </span> <br>
+							<span class="eq"> $\Delta g = -0.003 fps^2 $ per 1000 ft </span> <br>
+							Unknown: <br>
+							<span class="eq"> a) Height, $h$ if g is 30.504 $fps^2$ </span> <br>
+							<span class="eq"> b) $h$ if $F_g$ is 95% of original </span> <br>
+							<span class="eq"> c) $F_g$ if $h$ is 29,131 ft and $m$ is 180 $lb_m$</span> <br>
+							Solution: <br>
+							<span class="eq">a) $h = (30.504 - 32.088)fps^2$ x $\frac{1000ft}{-0.003 fps^2}$ $= 528,000ft$ $= \underline{100mi}$ </span> <br>
+							<span class="eq"> b) $h = (32.088)(0.95 - 1)$ $fps^2$ x $\frac{1000ft}{-0.003 fps^2}$ $= 534,800$ ft or $\underline{101.29 mi}$</span> <br>
+							<span class="eq"> c) $F_g = mg \longrightarrow (eq. 1)$ </span> <br>
+							But <br>
+							<span class="eq"> $m = 180 lb_m$ x $\frac{1 slug}{32.2 lb_m}$ $=5.59 slugs$ </span> <br>
+							<span class="eq"> $g = 29,131ft$ x $\frac{-0.003 fps^2}{1000 ft}$ $+ 32.088 fps^2$ $32.00 fps^2$</span> <br>
+							Then from $(eq. 1)$ <br>
+							<span class="eq"> $F_g = 5.59 slugs$ x $32.00 fps^2$ $=\underline{178.88 lb_f}$</span> <br>
+						</p>
+						
+						<p id="solution_4"><span>Solution 4</span><br>Data: <br> 
+							<span class="eq"> $g_{sea} = 32.088 fps^2 $ </span> <br>
+							<span class="eq"> $\Delta g = -0.003 fps^2 $ per 1000 ft </span> <br>
+							Unknown: <br>
+							<span class="eq"> a) Height, $h$ if g is 30.504 $fps^2$ </span> <br>
+							<span class="eq"> b) $h$ if $F_g$ is 95% of original </span> <br>
+							<span class="eq"> c) $F_g$ if $h$ is 29,131 ft and $m$ is 180 $lb_m$</span> <br>
+							Solution: <br>
+							<span class="eq">a) $h = (30.504 - 32.088)fps^2$ x $\frac{1000ft}{-0.003 fps^2}$ $= 528,000ft$ $= \underline{100mi}$ </span> <br>
+							<span class="eq"> b) $h = (32.088)(0.95 - 1)$ $fps^2$ x $\frac{1000ft}{-0.003 fps^2}$ $= 534,800$ ft or $\underline{101.29 mi}$</span> <br>
+							<span class="eq"> c) $F_g = mg \longrightarrow (eq. 1)$ </span> <br>
+							But <br>
+							<span class="eq"> $m = 180 lb_m$ x $\frac{1 slug}{32.2 lb_m}$ $=5.59 slugs$ </span> <br>
+							<span class="eq"> $g = 29,131ft$ x $\frac{-0.003 fps^2}{1000 ft}$ $+ 32.088 fps^2$ $32.00 fps^2$</span> <br>
+							Then from $(eq. 1)$ <br>
+							<span class="eq"> $F_g = 5.59 slugs$ x $32.00 fps^2$ $=\underline{178.88 lb_f}$</span> <br>
+						</p>
+					
+					</div> -->
+					
+					<button id="view_solution" class="button small"> View Solution</button>
+
+										
+				</div>
+				
+								
+				
+				<div class="for_right_ads_quiz">
+					<span> FRA   </span>
+				</div>
+			</div>
+		</div>
+			
+			<script>
+	
+ //star timer
+  var timeElapsed = "";
+	var h1 = document.getElementById('timerContinue'),
+		start = document.getElementById('start'),
+		stop = document.getElementById('stop'),
+		clear = document.getElementById('clear'),
+		seconds = 0, minutes = 0, hours = 0,
+		t;
+
+	function add() {
+		seconds++;
+		if (seconds >= 60) {
+			seconds = 0;
+			minutes++;
+			if (minutes >= 60) {
+				minutes = 0;
+				hours++;
+			}
+		}
+		
+		h1.textContent = (hours ? (hours > 9 ? hours : "0" + hours) : "00") + ":" + (minutes ? (minutes > 9 ? minutes : "0" + minutes) : "00") + ":" + (seconds > 9 ? seconds : "0" + seconds);
+		timeElapsed =(hours ? (hours > 9 ? hours : "0" + hours) : "00") + ":" +  (minutes ? (minutes > 9 ? minutes : "0" + minutes) : "00") + ":" + (seconds > 9 ? seconds : "0" + seconds);
+
+		timer();
+	}
+	function timer() {
+		t = setTimeout(add, 1000);
+	}
+	timer();
+
+	//end timer
+	
+var quiz = [{
+	"question": "A bituminous coal has the following compositions: C = 71.5%, H = 5.0%, O = 7.0%, N = 1.3%, S = 3.6%, Ash = 8.2%, M = 3.4%. Calculate for complete combustion the theoretical weight of air required in kgair/kgcoal.",
+	"choices": ["9.80", "8.80", "7.80", "6.80"],
+	"correct": "9.80"
+}, {
+	"question": "Calculate the higher heating value of liquid dodecane fuel. The chemical formula of dodecane is C12H26.",
+	"choices": ["48,255 kJ/kg", "55,641 kJ/kg", "60,221 kJ/kg", "35,245 kJ/kg"],
+	"correct": "48,255 kJ/kg"
+}, {
+	"question": "Calculate the minimum volume of day tank of 28˚API fuel having a fuel consumption of 1 kg/s. ",
+	"choices": ["94.71 m^3", "97.41 m^3", "91.74 m^3", "79.41 m^3"],
+	"correct": "97.41 m^3"
+}, {
+	"question": "Find the theoretical volume of air at 20˚C and 100 kPa absolute pressure to burn one kilogram of Franklin County coal. The ultimate analysis of coal-as-fired is as follows: C = 65.65%, H = 5.87%, O = 18.61%, S = 1.51%, Mois. = 3%, Ash = 5.36%.",
+	"choices": ["9.43 m^3 of air per kg of coal", "7.43 m^3 of air per kg of coal", "8.43 m^3 of air per kg of coal", "6.43 m^3 of air per kg of coal"],
+	"correct": "7.43 m^3 of air per kg of coal"
+}, {
+	"question": "A 650 BHP diesel engine uses fuel oil of 28˚API gravity, fuel consumption is 0.65 lb/BHP-hr. Cost of fuel is P7.95 per liter. For continuous operation, determine the minimum volume of cubical day tank in cm^3, ambient temperature is 45˚C.",
+	"choices": ["4,372,890", "5,987,909", "5,291,880", "7,352,789"],
+	"correct": "5,291,880"
+}, {
+	"question": "A logging firm in Isabela operates a Diesel Electric plant to supply its electric energy requirements. During a 24 hr period, the plant consumed 250 gallons of fuel at 80˚F and produced 2700 kW-hrs. Industrial fuel used is 30˚API and was purchased at P3.00 per liter at 60˚F. Determine the over-all efficiency of the plant. ",
+	"choices": ["26.08%", "25.06%", "29.07%", "30.01%"],
+	"correct": "26.08%"
+}, {
+	"question": "A circular fuel tank 45 ft long and 5.5 ft diameter is used for oil storage. Calculate the number of days the supply tank can hold for continuous operation at the following conditions: Steam flow = 2000 lb/hr, Steam dry and saturated at 200 psia (h = 2789.6 kJ/kg), Feedwater temperature = 230˚F (h = 461.3 kJ/kg), Boiler efficiency = 75%, Fuel Oil = 34˚API.",
+	"choices": ["15.21", "16.23", "17.57", "19.26"],
+	"correct": "17.57"
+}, {
+	"question": "Liquid Octane (C8H18) fuel is burned with ideal proportion of air. Calculate the ideal air-fuel ratio by weight.",
+	"choices": ["13.72 kg air/kg fuel", "14.56 kg air/kg fuel", "15.05 kg air/kg fuel", "10.69 kg air/kg fuel"],
+	"correct": "15.05 kg air/kg fuel"
+}, {
+	"question": "A typical industrial fuel oil, C16H32 with 20% excess air by weight. Assuming complete oxidation of the fuel, calculate the actual air-fuel ratio by weight.",
+	"choices": ["17.56 kgair/kgfuel", "15.76 kgair/kgfuel", "16.75 kgair/kgfuel", "17.65 kgair/kgfuel"],
+	"correct": "17.65 kgair/kgfuel"
+}, {
+	"question": "The ultimate analysis of coal is given below: C = 68.5%, H = 2.5%, S = 1.5%, O = 3.5%, Ash = 12.0%. Calculate the higher heating value of coal.",
+	"choices": ["25,300 kJ/kg", "28,300 kJ/kg", "27,300 kJ/kg", "26,300 kJ/kg"],
+	"correct": "26,300 kJ/kg"
+}, {
+	"question": "Fuel oil in a day tank for use of an idustrial boiler is tested with hydrometer. The hydrometer reading indicates S.G. = 0.924 when the temperature of the oil in the tank is 35˚C. Calculate the higher heating value of the fuel. ",
+	"choices": ["43,852.13 kJ/kg", "53,852.13 kJ/kg", "58,352.13 kJ/kg", "48,352.13 kJ/kg"],
+	"correct": "43,852.13 kJ/kg"
+}, {
+	"question": "A steam generator burns fuel oil with 20% excess air. The fuel oil may be represented by C14H30. The flue gas leave the preheater at 0.31 MPa. Find the minimum stack tamperature to avoid condensation. Note: At 36 kPa, tsat = 73˚C; at 23 kPa, tsat = 63˚C; at 53 kPa, tsat = 83˚C; at 14 kPa, tsat = 53˚C.",
+	"choices": ["73˚C", "63˚C", "83˚C", "53˚C"],
+	"correct": "73˚C"
+}, {
+	"question": "A gaseous fuel mixture has a molal analysis: H2 = 14%, O2 = 0.6% CH4 = 3%, CO2 = 4.5%, CO = 27%, N2 = 50.9%. Determine the air-fuel ratio for complete combustion on molal basis.",
+	"choices": ["2.130", "3.230", "1.233", "1.130"],
+	"correct": "1.233"
+}, {
+	"question": "In a boiler design, it is desirable to have the flue gas exit temperature above the dewpoint. Estimate the dew point temperature of the flue gas produced by combustion having the gravimetric analysis of: N2 = 71.84%, CO2 = 20.35%, O2 = 3.61%, H20 = 4.20%. Assume that air infiltration and leakage are negligible. Note: At 7 kPa, tsat = 39˚C; at 7.8 kPa, tsat = 41˚C; at 8.2 kPa, tsat = 42˚C; at 8.7 kPa, tsat = 43˚C.",
+	"choices": ["39˚C", "41˚C", "42˚C", "43˚C"],
+	"correct": "39˚C"
+}, {
+	"question": "If the theoretical air-fuel ratio is 15, what is the approximate higher heating value in kJ/kgfuel?",
+	"choices": ["46755 kJ/kg", "56755 kJ/kg", "45765 kJ/kg", "55765 kJ/kg"],
+	"correct": "46755 kJ/kg"
+}, {
+	"question": "There are 20 kg of flue gases formed per kg of fuel oil burned in the combustion of a fuel oil C12H26. What is the excess air in percent?",
+	"choices": ["20.17%", "16.56%", "27.175%", "8.21%"],
+	"correct": "27.175%"
+}, {
+	"question": "A diesel electric plant supplies energy for Meralco. During a 24 hr period, the plant consumed 200 gallons of fuel at 28˚C and produced 3930 kW-hr. Industrial fuel used is 28˚API and was purchased at P5.50 per liter at 15.6˚C. What should the cost of fuel be to produce one kW-hr?",
+	"choices": ["P1.06", "P1.16", "P1.26", "P1.36"],
+	"correct": "P1.06"
+}, {
+	"question": "A fuel oil is burned with 50% excess air. What is the volume rate of flow in m^3/min of the wet products at a pressure of 102 kPa and a temperature of 350˚C when the fuel is burned at the rate of 45 kg/min? Assume that the combustion requirements of the fuel oil are similar to those of C12H26.",
+	"choices": ["1865", "3526", "2462", "4563"],
+	"correct": "1865"
+}, {
+	"question": "A fuel gas has the following volumetric analysis: CH4 = 68%, C2H6 = 32%. Assume complete combustion with 15% excess air at 101.325 kPa, 21˚C wet bulb and 27˚C dry bulb. What is the partial pressure of the water vapor in kPa?",
+	"choices": ["9.62", "12.81", "17.28", "15.94"],
+	"correct": "15.94"
+}, {
+	"question": "The following is an analysis of coal in percent: C = 74, H2 = 6, O2 = 8, N2 = 1.6, S = 1, Ash = 9.4. If burned in boiler, the coal produces the following Orsat analysis in percent: CO2 = 12, CO = 0.1, O2 = 6.5. The refuse contains 0.008 kg of carbon per kg of coal burned. Determine the percentage of excess air used. ",
+	"choices": ["45.6%", "46.5%", "54.6%", "56.4%"],
+	"correct": "45.6%"
+}]; 
+
+	
+// mga nadagdag quiz with images
+// array of images  
+	var images = [];
+	var solutionIsVisible;
+
+// define elements
+var content = $("content"),
+  questionContainer = $("question"),
+  choicesContainer = $("choices"),
+  scoreContainer = $("score"), //nabago
+  submitBtn = $("submit");
+  
+  var resultPage = "";
+  
+// init vars
+var currentQuestion = 0,
+	score = 0,
+  askingQuestion = true,
+  questionNumber = 0,
+   maxQ = quiz.length, 
+  questionNumber;
+  
+  wrongAnswerQ = "",
+  wrongAnswerNo=0;
+  var yourAnswer = "You did not pick any answer.";
+  var choicesMistakesG = "";
+  if(maxQ > quiz.length) {
+	maxQ = quiz.length;
+  }
+  var isOnReviewWrongPage = false;
+  var duplicates  =[];
+
+function $(id) { // shortcut for document.getElementById
+  return document.getElementById(id);
+}
+
+function askQuestion() {
+  var choices = quiz[questionNumber].choices,
+    choicesHtml = "", choicesMistakes="" ;
+
+
+  // loop through choices, and create radio buttons
+  for (var i = 0; i < choices.length; i++) {
+  //alert(get_rand(nums));
+    choicesHtml += "<input type='radio' name='quiz" + questionNumber +
+      "' id='choice" + ( i + 1) +
+      "' value='" + choices[i] + "'>" +
+      " <label for='choice" + (i + 1) + "'>" + choices[i] + "</label> <br>";
+	  
+	  choicesMistakes += "<span name='quiz" + questionNumber +
+      "' id='choice" + (i + 1) +
+      "' value='" + choices[i] + "'>"+ (i+1) + ". " + choices[i] + "</span><br>";
+	   if(choices[i] === quiz[questionNumber].correct) {
+			correctAnswer = choices[i];
+			correctAnswerIndex = i;
+	  }
+	  
+	  choicesMistakesG = choicesMistakes;
+  }
+
+  
+  // load the question
+  questionContainer.textContent = (questionNumber + 1) + ". " +
+    quiz[questionNumber].question;
+	
+	
+  // load the choices
+  choicesContainer.innerHTML = choicesHtml;
+
+  // setup for the first time
+  if (questionNumber === 0) {
+  scoreContainer.textContent = "Score: " + score + "/" + maxQ; //nabago
+    submitBtn.textContent = "Submit Answer";
+	//alert(quiz.length);
+  }
+  
+	
+
+}
+
+function checkAnswer() {
+	var yourAnswer = "You did not pick any answer.";
+  // are we asking a question, or proceeding to next question?
+  if (askingQuestion) {
+	
+	//mga nadagdag for view_solution
+	if($('#solution_' + (questionNumber+1)).length > 0) {
+		$('#view_solution').css('visibility', 'visible');
+	}
+    submitBtn.textContent = "Next Question";
+    askingQuestion = false;
+
+    // determine which radio button they clicked
+    var userpick,
+      correctIndex,
+      radios = document.getElementsByName("quiz" + questionNumber);
+    for (var i = 0; i < radios.length; i++) {
+      if (radios[i].checked) { // if this radio button is checked
+        userpick = radios[i].value;
+		yourAnswer = userpick;
+      }
+
+      // get index of correct answer
+      if (radios[i].value == quiz[questionNumber].correct) {
+        correctIndex = i;
+      }
+    }
+
+    // setup if they got it right, or wrong
+    var labelStyle = document.getElementsByTagName("label")[correctIndex].style;
+    labelStyle.fontWeight = "bold";
+    if (userpick == quiz[questionNumber].correct) {
+      labelStyle.color = "green";
+	  score++; 
+    } else {
+		wrongAnswerNo++;
+      labelStyle.color = "red";
+	  wrongAnswerQ += "<br> <span id='question'> " + wrongAnswerNo+". " + quiz[questionNumber].question + "</span><br> " + "<div id='choices'>" + choicesMistakesG + " <strong>Your answer: "+ yourAnswer + "</strong><br> <strong id='answer'>" + "Correct answer: " + correctAnswer  + "</strong></div> ";//  + 
+
+    }
+	
+	
+  } else { // move to next question
+    // setting up so user can ask a question
+    askingQuestion = true;
+    // change button text back to "Submit Answer"
+    submitBtn.textContent = "Submit Answer";
+	scoreContainer.textContent = "Score: " + score + "/" + maxQ;; //nabago
+    // if we're not on last question, increase question number
+    if (questionNumber < maxQ - 1) {
+      //currentQuestion++;
+	  questionNumber++;
+      askQuestion();
+    } else {
+      clearTimeout(t);
+      showFinalResults();
+    }
+	
+	//mga nadagdag quiz with images
+	for(i=0; i<quiz.length; i++) { 
+		$('#for_q_' + (i+1)).hide();
+	}
+	
+	// mga nadagdag quiz with images
+	if((questionNumber+1) === 1) {
+		$('#question').after(images[0]);
+	} else if((questionNumber+1) === 2) {
+		$('#question').after(images[1]);
+	}
+	
+	//mga nadagdag for view_solution
+	for(i=0; i<quiz.length; i++) { 
+		$('#solution_' + (i+1)).hide();
+	}
+	
+	$('.for_view_solution').hide();
+	$('#view_solution').css('visibility', 'hidden');
+	
+	solutionIsVisible = false;
+	if(solutionIsVisible) {
+		document.getElementById('view_solution').textContent = 'Hide Solution';
+		solutionIsVisible = false;
+	}else if(!solutionIsVisible){
+		document.getElementById('view_solution').textContent = 'View Solution';
+		solutionIsVisible = true;
+	}
+  }
+}
+
+function showFinalResults() {
+	//resultPage = "<center><strong class='for_h'>You Passed!</strong></center>";
+	if(score/maxQ >= 0.7){
+		resultPage = "<center><strong class='for_h'>You Passed!</strong></center> <br> <center><strong>Score: " + score + " out of " + maxQ + " </strong></center><center><strong> Equivalent Percentage: " + Math.floor(score/maxQ*100) + "%</strong></center><center><strong>Total time: " + timeElapsed + "</strong></center> <br> <br><button id='restart' class='button fit' onclick='reloadCurrentPage();'> Restart the Test</button><button id='reviewMistakes' class='button fit' onclick='reviewMistakes();'> Review Mistakes</button> <button id='proceedToNext' class='button fit' onclick='proceedToNext();'> Proceed to next Test</button> ";
+	} else {
+		resultPage = "<center><strong class='for_h'>You Failed!</strong></center> <br> <center><strong>Score: " + score + " out of " + maxQ + " </strong></center><center><strong> Equivalent Percentage: " + Math.floor(score/maxQ*100) + "%</strong></center><center><strong>Total time: " + timeElapsed + "</strong></center> <br> <br><button id='restart' class='button fit' onclick='reloadCurrentPage();'> Restart the Test</button><button id='reviewMistakes' class='button fit' onclick='reviewMistakes();'> Review Mistakes</button> <button id='proceedToNext' class='button fit' onclick='proceedToNext();'> Proceed to next Test</button> ";
+	}
+	content.innerHTML = resultPage;
+}
+
+function reviewMistakes() {
+	content.innerHTML = wrongAnswerQ + " <br><br> <center><button id='restart' class='button fit' onclick='reloadCurrentPage();'> Restart the Test</button></center> <button id='proceedToNext' class='button fit' onclick='proceedToNext();'> Proceed to next Test</button>";
+}
+
+function proceedToNext() {
+	document.location.href = "ppe05.html"; //need to be updated per test 
+}
+
+function reloadCurrentPage() {
+	document.location.href = "ppe04.html"; //need to be updated per test 
+}
+
+window.addEventListener("load", askQuestion, false);
+submitBtn.addEventListener("click", checkAnswer, false);
+
+
+
+</script>
+
+
+
+
+			<!-- Scripts for Phantom -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+	</body>
+
+</html>

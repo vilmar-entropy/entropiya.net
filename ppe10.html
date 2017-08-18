@@ -1,0 +1,612 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+	
+		<title>Entropiya | Power Plant Engineering 10</title> <!-- need to be updated per test -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		
+		<link rel="stylesheet" href="css/index.css" />
+		<script src="js/index.js"></script>
+		<link rel="stylesheet" href="assets/css/main.css" />
+
+		<!-- FontAwesome, jQuery and jQuery Mobile -->
+		<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css">
+		<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+		<script type="text/javascript" src="jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script> 
+		
+		<!-- jqmath -->
+		<link rel="stylesheet" href="mathscribe/jqmath-0.4.3.css">
+		<script src="mathscribe/jquery-1.4.3.min.js"></script>
+		<script src="mathscribe/jqmath-etc-0.4.5.min.js" charset="utf-8"></script>
+		
+		<script>
+			$(document).ready(function() {
+				solutionIsVisible = true;
+				
+				//mga nadagdag for view_solution
+				
+				$('.for_view_solution').hide();
+				$('#view_solution').css('visibility', 'hidden');
+				
+				for(i=0; i<quiz.length; i++) {
+					$('#solution_' + (i+1)).hide();
+				}
+				
+				$('#view_solution').click(function() {
+					for(i=0; i<quiz.length; i++) {
+						$('#solution_' + (i+1)).hide();
+					}
+						
+					$('#solution_' + (questionNumber + 1)).fadeToggle('slow');
+					$('.for_view_solution').fadeToggle('slow');
+					
+					if(solutionIsVisible) {
+						document.getElementById('view_solution').textContent = 'Hide Solution';
+						solutionIsVisible = false;
+					}else if(!solutionIsVisible){
+						document.getElementById('view_solution').textContent = 'View Solution';
+						solutionIsVisible = true;
+					}
+					
+				});
+
+				
+				// Image factory
+				var createImage = function(src, title, id) {
+				  var img   = new Image();
+				  img.src   = src;
+				  img.id = id;
+				  img.alt   = title;
+				  img.title = title;
+				  return img; 
+				};
+
+				// array of images dun dineclare sa main script para global
+				//var images = [];
+
+				// push two images to the array
+				//images.push(createImage("images/for_q_1.png", "pic01 title", "for_q_1"));
+				//images.push(createImage("images/for_q_2.png", "pic03 title", "for_q_2"));
+				
+				// mga nadagdag quiz with images
+				if((questionNumber+1) === 1) {
+					$('#question').after(images[0]);
+				} else if((questionNumber+1) === 2) {
+					$('#question').after(images[1]);
+				}
+				
+			});
+		</script>
+	
+	</head>
+	
+	<body>
+		<div data-role="panel" data-position="right" data-display="overlay" data-theme="a" id="panel">
+			<div class="nav_in_panel_container"> 
+				<ul data-role="listview" data-inset="true" data-theme="b" data-dividertheme="f">
+					<li data-icon="false"><a class="nav_in_panel" href="index.html" rel="external"><i class="fa fa-home" aria-hidden="true" ></i>  Home  </a> </li>
+					<li data-icon="false"><a class="nav_in_panel" href="about.html" rel="external"><i class="fa fa-user-o" aria-hidden="true" ></i>  About  </a> </li>
+					<li data-icon="false"><a class="nav_in_panel" href="references.html" rel="external"><i class="fa fa-book" aria-hidden="true" ></i>  References  </a>
+					<li data-icon="false"><a class="nav_in_panel" href="https://www.facebook.com/vilmar.empino?__nodl" rel="external" ><i class="fa fa-facebook-square" aria-hidden="true"></i>  Like us on facebook!  </a></li>
+				</ul>
+			</div>
+		</div>
+		<div id="header_container">
+			<figure class="logo" id="logo">
+				<a href="index.html" rel="external"><img src="images/logo.png" alt="image"/></a>
+			</figure>
+			<ul class="home_nav_quiz"> 
+				<a href="#panel" class="right_panel"> <i class="fa fa-bars" id="icon_for_right_panel" aria-hidden="true"></i> </a>
+				<div class="toBeHidden">
+				<li class="li"><a class="a" href="references.html" rel="external">References</a></li>
+				<li class="li"><a class="a" href="about.html" rel="external">About</a></li>
+				<!-- <li class="li" id="dropdown">
+					<a class="a" href="javascript:void(0)" class="dropbtn">MCQs <i class="fa fa-caret-down" aria-hidden="true"></i></a>
+					<div class="dropdown-content">
+					<a class="a" href="home-me.html" rel="external">Mechanical Engineering</a>
+					<a class="a" href="home-ece.html" rel="external">Electronics Engineering</a> 
+					</div>
+				</li> -->
+				<li class="li"><a class="a" href="index.html" rel="external">Home</a></li>
+				</div>
+			</ul>
+		</div>
+		<div id="body_container"> 
+			
+			<div id="for_contents_quiz">
+				
+				<div id="for_left_content_quiz">
+					<div id="for_title">
+						<strong class="for_h2">Power Plant Engineering - Test 10 Steam Power Plant (21-43)</strong> <!-- need to be updated per test -->
+					</div>
+					<br>
+					<div id="for_top_ads_quiz">
+						<span> FTA  </span>
+					</div>
+					<div id="for_left_navbar"> <!-- need to be updated per test -->
+						<div data-role="collapsible">
+							<h3>Problems</h3>
+							<ul data-role="listview" id="left_nav" data-inset="true" data-theme="c" data-dividertheme="f">
+								<li><a href="ppe01.html"  rel="external">Test 1</a></li>
+								<li><a href="ppe02.html"  rel="external">Test 2</a></li>
+								<li><a href="ppe03.html"  rel="external">Test 3</a></li>
+								<li><a href="ppe04.html"  rel="external">Test 4</a></li>
+								<li><a href="ppe05.html"  rel="external">Test 5</a></li>
+								<li><a href="ppe06.html"  rel="external">Test 6</a></li>
+								<li><a href="ppe07.html"  rel="external">Test 7</a></li>
+								<li><a href="ppe08.html"  rel="external">Test 8</a></li>
+								<li><a href="ppe09.html"  rel="external">Test 9</a></li>
+								<li><a href="ppe10.html"  rel="external">Test 10</a></li>
+								<li><a href="ppe11.html"  rel="external">Test 11</a></li>
+								<li><a href="ppe12.html"  rel="external">Test 12</a></li>
+								<li><a href="ppe13.html"  rel="external">Test 13</a></li>
+								<li><a href="ppe14.html"  rel="external">Test 14</a></li>
+								<li><a href="ppe15.html"  rel="external">Test 15</a></li>
+								<li><a href="ppe16.html"  rel="external">Test 16</a></li>
+								<li><a href="ppe17.html"  rel="external">Test 17</a></li>
+								<li><a href="ppe18.html"  rel="external">Test 18</a></li>
+								<li><a href="ppe19.html"  rel="external">Test 19</a></li>
+								<li><a href="ppe20.html"  rel="external">Test 20</a></li>
+								<li><a href="ppe21.html"  rel="external">Test 21</a></li>
+								<li><a href="ppe22.html"  rel="external">Test 22</a></li>
+								<li><a href="ppe23.html"  rel="external">Test 23</a></li>
+								<li><a href="ppe24.html"  rel="external">Test 24</a></li>
+								<li><a href="ppe25.html"  rel="external">Test 25</a></li>
+								<li><a href="ppe26.html"  rel="external">Test 26</a></li>
+								<li><a href="ppe27.html"  rel="external">Test 27</a></li>
+							</ul>
+						</div>
+					</div>
+					<div id="for_right_navbar"> <!-- need to be updated per test -->
+						<div data-role="collapsible">
+							<h3>Elements</h3>
+							<ul data-role="listview" id="right_nav" data-inset="true" data-theme="c" data-dividertheme="f">
+								<li><a href="#"  rel="external">Test I</a></li>
+								
+							</ul>
+						</div>
+					</div>
+					<br>
+					<div class="for_quiz">
+						<div id="content">
+							<strong id="timerContinue"><time>00:00:00</time></strong>
+							<strong id="score">Score: 0/50</strong> <br><br>
+							<div class="for_question"><span id="question"></span> </div> 
+							<div id="choices"></div> 
+							<button id="submit" class="button"> Submit Answer</button>
+						</div>
+					</div>
+					<br>
+					<!-- //mga nadagdag for view_solution -->
+					<!-- <div class="for_view_solution">
+						<p id="solution_1">
+							<span>Solution 1</span><br>Data: <br>
+							<span class="eq">$m_1 = 500 g_m$ $/frac{F}{A} \sqrt{\pi}$ </span><br>
+							<span class="eq">$m_2 = 800 g_f$ </span><br>
+							<span class="eq">$m_3 = 15 poundals$ </span><br>
+							<span class="eq">$m_4 = 3 lb_f$ </span><br>
+							<span class="eq">$m_5 = 0.10slug$ </span><br>
+							<span class="eq">$g = 30.5 ft/s^2$ </span><br>
+							Unknown: <br>
+							<span class="eq">a) Total mass, $m_T$ in $g_m$ </span><br>
+							<span class="eq">b) $m_T$ in $lb_m$ </span><br>
+							<span class="eq">c) $m_T$ in $slugs$ </span><br>
+							Solution: <br>
+							<span class="eq"> $m_T = m_1 + m_2 +$ $m_3 + m_4 + m_5 \longrightarrow (eq. 1)$</span> <br>
+							
+							<span class="eq"> </span> <br>
+						</p>
+						
+						<p id="solution_2"><span>Solution 2</span><br>Data: <br> 
+							<span class="eq"> $g_{sea} = 32.088 fps^2 $ </span> <br>
+							<span class="eq"> $\Delta g = -0.003 fps^2 $ per 1000 ft </span> <br>
+							Unknown: <br>
+							<span class="eq"> a) Height, $h$ if g is 30.504 $fps^2$ </span> <br>
+							<span class="eq"> b) $h$ if $F_g$ is 95% of original </span> <br>
+							<span class="eq"> c) $F_g$ if $h$ is 29,131 ft and $m$ is 180 $lb_m$</span> <br>
+							Solution: <br>
+							<span class="eq">a) $h = (30.504 - 32.088)fps^2$ x $\frac{1000ft}{-0.003 fps^2}$ $= 528,000ft$ $= \underline{100mi}$ </span> <br>
+							<span class="eq"> b) $h = (32.088)(0.95 - 1)$ $fps^2$ x $\frac{1000ft}{-0.003 fps^2}$ $= 534,800$ ft or $\underline{101.29 mi}$</span> <br>
+							<span class="eq"> c) $F_g = mg \longrightarrow (eq. 1)$ </span> <br>
+							But <br>
+							<span class="eq"> $m = 180 lb_m$ x $\frac{1 slug}{32.2 lb_m}$ $=5.59 slugs$ </span> <br>
+							<span class="eq"> $g = 29,131ft$ x $\frac{-0.003 fps^2}{1000 ft}$ $+ 32.088 fps^2$ $32.00 fps^2$</span> <br>
+							Then from $(eq. 1)$ <br>
+							<span class="eq"> $F_g = 5.59 slugs$ x $32.00 fps^2$ $=\underline{178.88 lb_f}$</span> <br>
+						</p> 
+						
+						<p id="solution_3"><span>Solution 3</span><br>Data: <br> 
+							<span class="eq"> $g_{sea} = 32.088 fps^2 $ </span> <br>
+							<span class="eq"> $\Delta g = -0.003 fps^2 $ per 1000 ft </span> <br>
+							Unknown: <br>
+							<span class="eq"> a) Height, $h$ if g is 30.504 $fps^2$ </span> <br>
+							<span class="eq"> b) $h$ if $F_g$ is 95% of original </span> <br>
+							<span class="eq"> c) $F_g$ if $h$ is 29,131 ft and $m$ is 180 $lb_m$</span> <br>
+							Solution: <br>
+							<span class="eq">a) $h = (30.504 - 32.088)fps^2$ x $\frac{1000ft}{-0.003 fps^2}$ $= 528,000ft$ $= \underline{100mi}$ </span> <br>
+							<span class="eq"> b) $h = (32.088)(0.95 - 1)$ $fps^2$ x $\frac{1000ft}{-0.003 fps^2}$ $= 534,800$ ft or $\underline{101.29 mi}$</span> <br>
+							<span class="eq"> c) $F_g = mg \longrightarrow (eq. 1)$ </span> <br>
+							But <br>
+							<span class="eq"> $m = 180 lb_m$ x $\frac{1 slug}{32.2 lb_m}$ $=5.59 slugs$ </span> <br>
+							<span class="eq"> $g = 29,131ft$ x $\frac{-0.003 fps^2}{1000 ft}$ $+ 32.088 fps^2$ $32.00 fps^2$</span> <br>
+							Then from $(eq. 1)$ <br>
+							<span class="eq"> $F_g = 5.59 slugs$ x $32.00 fps^2$ $=\underline{178.88 lb_f}$</span> <br>
+						</p>
+						
+						<p id="solution_4"><span>Solution 4</span><br>Data: <br> 
+							<span class="eq"> $g_{sea} = 32.088 fps^2 $ </span> <br>
+							<span class="eq"> $\Delta g = -0.003 fps^2 $ per 1000 ft </span> <br>
+							Unknown: <br>
+							<span class="eq"> a) Height, $h$ if g is 30.504 $fps^2$ </span> <br>
+							<span class="eq"> b) $h$ if $F_g$ is 95% of original </span> <br>
+							<span class="eq"> c) $F_g$ if $h$ is 29,131 ft and $m$ is 180 $lb_m$</span> <br>
+							Solution: <br>
+							<span class="eq">a) $h = (30.504 - 32.088)fps^2$ x $\frac{1000ft}{-0.003 fps^2}$ $= 528,000ft$ $= \underline{100mi}$ </span> <br>
+							<span class="eq"> b) $h = (32.088)(0.95 - 1)$ $fps^2$ x $\frac{1000ft}{-0.003 fps^2}$ $= 534,800$ ft or $\underline{101.29 mi}$</span> <br>
+							<span class="eq"> c) $F_g = mg \longrightarrow (eq. 1)$ </span> <br>
+							But <br>
+							<span class="eq"> $m = 180 lb_m$ x $\frac{1 slug}{32.2 lb_m}$ $=5.59 slugs$ </span> <br>
+							<span class="eq"> $g = 29,131ft$ x $\frac{-0.003 fps^2}{1000 ft}$ $+ 32.088 fps^2$ $32.00 fps^2$</span> <br>
+							Then from $(eq. 1)$ <br>
+							<span class="eq"> $F_g = 5.59 slugs$ x $32.00 fps^2$ $=\underline{178.88 lb_f}$</span> <br>
+						</p>
+					
+					</div> -->
+					
+					<button id="view_solution" class="button small"> View Solution</button>
+
+										
+				</div>
+				
+								
+				
+				<div class="for_right_ads_quiz">
+					<span> FRA   </span>
+				</div>
+			</div>
+		</div>
+			
+			<script>
+	
+ //star timer
+  var timeElapsed = "";
+	var h1 = document.getElementById('timerContinue'),
+		start = document.getElementById('start'),
+		stop = document.getElementById('stop'),
+		clear = document.getElementById('clear'),
+		seconds = 0, minutes = 0, hours = 0,
+		t;
+
+	function add() {
+		seconds++;
+		if (seconds >= 60) {
+			seconds = 0;
+			minutes++;
+			if (minutes >= 60) {
+				minutes = 0;
+				hours++;
+			}
+		}
+		
+		h1.textContent = (hours ? (hours > 9 ? hours : "0" + hours) : "00") + ":" + (minutes ? (minutes > 9 ? minutes : "0" + minutes) : "00") + ":" + (seconds > 9 ? seconds : "0" + seconds);
+		timeElapsed =(hours ? (hours > 9 ? hours : "0" + hours) : "00") + ":" +  (minutes ? (minutes > 9 ? minutes : "0" + minutes) : "00") + ":" + (seconds > 9 ? seconds : "0" + seconds);
+
+		timer();
+	}
+	function timer() {
+		t = setTimeout(add, 1000);
+	}
+	timer();
+
+	//end timer
+	
+var quiz = [{
+	"question": "A steam generating plant has 20 MW turbo-generators. Steam is supplied at 1.7 MPa and 320˚C. Exhaust is at 0.006 MPa. Daily average load factor is 80%. The steam generating units operate at 70% efficiency when using bunker fuel having a heating value of 31150 kJ/kg and an average steam rate of 5 kg steam per kW-hr. Calculate the tons of Mtons of fuel required per 24 hours. Steam properties: At 1.7 MPa and 320˚C, h = 3077 kJ/kg; Enthalpy volume of water leaving the condenser, h = 151.53 kJ/kg, v = 0.0010064 m3/kg.",
+	"choices": ["414.849 Mtons", "5278.496 Mtons", "514.894 Mtons", "428.496 Mtons"],
+	"correct": "514.894 Mtons"
+}, {
+	"question": "Find the specific entropy of wet steam of temperature 195˚C and dryness of 0.90. Steam properties: At 195˚C, sf = 2.284 kJ/kg-K, sfg = 4.185 kJ/kg-K.",
+	"choices": ["6.05 kJ/kg-K", "7.04 kJ/kg-K", "5.268 kJ/kg-K", "3.575 kJ/kg-K"],
+	"correct": "6.05 kJ/kg-K"
+}, {
+	"question": "Using the following formula S = (cw) ln(Tsat/273) + (hfg / Tsat) + (csup) ln(T/Tsat), where cw = mean specific heat of water, csup = mean specific heat of superheated steam, Tsat = absolute saturation temperature, T = absolute superheated steam temperature, calculate the the entropy per kg of superheated steam at 15 bar and 300˚C, taking the mean specific heats of water and superheated steam as 4.24 kJ/kg-K and 2.43 kJ/kg-K respectively. Steam properties: At 15 bar, Tsat = 471.3 K, hfg = 1947 kJ/kg.",
+	"choices": ["6.9196 kJ/kg-K", "5.4972 kJ/kg-K", "4.5769 kJ/kg-K", "5.4672 kJ/kg-K"],
+	"correct": "6.9196 kJ/kg-K"
+}, {
+	"question": "Dry saturated steam at 5.5 bar is expanded isentropically to 0.2 bar. Find the dryness fraction of the steam at the end of the expansion. Steam properties: At 5.5 bar, sg = 6.790 kJ/kg-K; At 0.20 bar, sf = 0.832 kJ/kg-K, sfg = 7.075 kJ/kg-K.",
+	"choices": ["74.58%", "87.58%", "84.22%", "74.54%"],
+	"correct": "84.22%"
+}, {
+	"question": "Superheated steam at 17 bar and 350˚C is expanded in an engine and the final pressure is 1.7 bar. If the expansion is isentropic, find the dryness fraction of the expanded steam. Steam properties: At 17 bar and 350˚C, s = 7.044 kJ/kg-K; At 1.7 bar, sf = 1.475 kJ/kg-K, sfg = 5.707 kJ/kg-K.",
+	"choices": ["97.59%", "89.54%", "94.54%", "93.54%"],
+	"correct": "97.59%"
+}, {
+	"question": "Two boilers of equal evaporative capacities generate steam at the same pressure of 15 bar to a common pipe line. One boiler produces superheated steam at 150˚C and the other produces wet steam. If the mixture is just dry and saturated, find the dryness fraction of the wet steam from the second boiler. Steam properties: At 15 bar and 250˚C, h = 2925 kJ/kg; At 15 bar, hf = 845 kJ/kg, hfg = 1947 kJ/kg, hg = 2792 kJ/kg.",
+	"choices": ["0.9315", "0.8425", "0.7142", "0.6573"],
+	"correct": "0.9315"
+}, {
+	"question": "A 0.2 m^3 steam at 7 bar and 0.95 dry is expanded to a pressure of 4.5 bar. Calculate the dryness fraction of the expanded steam if the expansion follows the law PV = C. Steam properties: At 7 bar, vg = 0.2728 m^3/kg; At 4.5 bar, vg = 0.4139 m^3/kg.",
+	"choices": ["0.974", "0.846", "0.765", "0.667"],
+	"correct": "0.974"
+}, {
+	"question": "A closed system consisting of 1 kg of superheated steam at 20 bar and 400˚C is cooled at constant volume until the pressure is 12 bar. Find the dryness fraction of the steam at the lower pressure. Steam properties: At 20 bar and 400˚C h = 3248 kJ/kg, v = 0.1511 kJ/kg; At 12 bar, hf = 798 kJ/kg, hfg = 1986 kJ/kg, vg = 0.1632 m^3/kg.",
+	"choices": ["0.8258", "0.9258", "0.7258", "0.6258"],
+	"correct": "0.9258"
+}, {
+	"question": "The turbine work and the pump work in a Rankine cycle are 1200 kJ/kg and 20 kJ/kg respectively. What is the efficiency of the cycle if the heat generated by the generator is 3000 kJ/kg?",
+	"choices": ["36.77%", "39.33%", "35.45%", "38.32%"],
+	"correct": "39.33%"
+}, {
+	"question": "In a Rankine cycle, what is the entrance pressure of the turbine if the condenser pressure is 105 kPa and the pump work is 20 kJ/kg. Use density of water entering the pump, 950 kg/m^3.",
+	"choices": ["17.916 MPa", "15.601 MPa", "19.105 MPa", "18.432 MPa"],
+	"correct": "19.105 MPa"
+}, {
+	"question": "Exhaust steam from an engine passes into a condenser at a pressure of 0.12 bar and dryness 0.88. The temperature of the condensate from the condenser is 40˚C. The circulating water enters the condenser at 12˚C and leaves at 29˚C. Calculate the mass of circulating water per kg steam condensed. Steam properties: At 0.12 bar, hf = 207 kJ/kg, 2383 kJ/kg; Water Properties: At 40˚C, h = 167.5 kJ/kg; At 29˚C, h = 121.5 kJ/kg; At 12˚C, h = 50.4 kJ/kg.",
+	"choices": ["26.71 kg", "28.05 kg", "30.04 kg", "32.86 kg"],
+	"correct": "30.04 kg"
+}, {
+	"question": "In an experiment to determine the dryness fraction of steam, a sample at a pressure of 1.1 bar was blown into a vessel containing 10 kg of water at 15˚C. The final mass of water in the vessel was 10.75 kg and the final temperature 55˚C. Find the dryness fraction of steam, taking the water equivalent of the vessel as 0.45 kg. Steam properties: At 1.1 bar, hf = 429 kJ/kg, hfg = 2251 kJ/kg; Water properties: At 55˚C, h = 230.2 kJ/kg; At 15˚C, h = 62.9 kJ/kg.",
+	"choices": ["0.9472", "0.8945", "0.9156", "0.8797"],
+	"correct": "0.9472"
+}, {
+	"question": "The difference in enthalpy at the entrance and exit in the first and second stage of a reheat power plant are 500 kJ/kg and 900 kJ/kg respectively. Determine the plant cycle efficiency if both stages has an efficiency of 90% and the heat added to the boiler is 3500 kJ/kg. Neglect pump work.",
+	"choices": ["42%", "34%", "40%", "36%"],
+	"correct": "36%"
+}, {
+	"question": "A throttling calorimeter was fitted to pipe carrying steam at 1.2 MPa in order to measure the dryness fraction. The pressure in the calorimeter was 0.12 MPa and its temperature was 116˚C. Taking the specific heat of the superheated steam in the calorimeter as 2.0 kJ/kg-K, find the dryness fraction of the main steam. Steam properties: At 1.2 MPa, hf = 798 kJ/kg, hfg = 1986 kJ/kg; At 0.12 MPa, tsat = 104.8˚C, hg = 2683 kJ/kg.",
+	"choices": ["0.6952", "0.8960", "0.9603", "0.7563"],
+	"correct": "0.9603"
+}, {
+	"question": "A combined separating and throttling calorimeter was connected to a main steam pipe carrying steam at 15 bar and the following data are recorded: Mass of water collected in a separator = 0.55 kg, mass of condensate after throttling = 10 kg, pressure of steam in throttling calorimeter = 1.1 bar, temperature of steam in throttling calorimeter = 111˚C. Taking the specific heat of the throttled superheated steam ad 2.0 kJ/kg-K, find the dryness fraction of the main steam. Steam properties: At 15 bar, hf = 845 kJ/kg, hfg = 1947 kJ/kg; At 1.1 bar, tsat = 102.3˚C, hg = 2680 kJ/kg.",
+	"choices": ["0.7890", "0.8954", "0.9018", "0.9872"],
+	"correct": "0.9018"
+}, {
+	"question": "A steam generator has an exit enthalpy of 3500 kJ/kg at the rate of 15 kg/s. Calculate the heat lost between boiler outlet and turbine inlet if the enthalpy available at the turbine inlet is 3200 kJ/kg.",
+	"choices": ["-4500 kW", "-2500 kW", "-5700 kW", "-7650 kW"],
+	"correct": "-4500 kW"
+}, {
+	"question": "Dry saturated steam at a pressure of 2.4 bar is tapped off the inlet branch of a low pressure turbine to supply heating steam in a contact feed heater. The temperature of the feedwater inlet to the heater is 42˚C and the outlet is 99.6˚C. Find the percentage mass of steam tapped off. Steam properties: At 2.4 bar, hg = 2715 kJ/kg; Water properties: At 42˚C, h = 175.8 kJ/kg; At 99.6˚C, h = 417 kJ/kg.",
+	"choices": ["10.5%", "7.5%", "8.5%", "9.5%"],
+	"correct": "9.5%"
+}, {
+	"question": "Ten percent of the mass of steam supplied to an engine is bled off at an intermediate stage and led to a surface feedwater heater. The pressure of the steam to the heater is 2.9 bar and the drain from the heater passes as water to the hotwell. The temperature of the condensate from the condenser is 40˚C and the temperature of the feedwater to the boilers is 100˚C. Calculate the dryness fraction of the steam supplied to the heater. Steam properties: At 2.9 bar, hf = 556 kJ/kg, hfg =  2168 kJ/kg; Water properties: At 40˚C, h = 167.5 kJ/kg; At 100˚C, h = 419.1 kJ/kg.",
+	"choices": ["0.9813", "0.7089", "0.8908", "0.8498"],
+	"correct": "0.9813"
+}, {
+	"question": "A turbine in a Rankine cycle has an available enthalpy of 1000 kJ/kg. Determine the net cycle output if the mass flow rate is 6 kg/s and the pump work is 150 kJ/kg.",
+	"choices": ["6.8 MW", "3.7 MW", "4.6 MW", "5.1 MW"],
+	"correct": "5.1 MW"
+}, {
+	"question": "During the process of raising steam in a boiler, when the pressure was 1.9 bar gauge the temperature inside the boiler was 130˚C and when the pressure was 6.25 bar gauge the temperature was 165˚C. If the volume of the steam space is constant at 4.25 m^3, calculate the mass of steam. Steam properties: At 130˚C, psat = 2.7 bar, vg = 0.6686 m^3/kg.",
+	"choices": ["3.356 kg", "4.356 kg", "5.356 kg", "6.356 kg"],
+	"correct": "6.356 kg"
+}, {
+	"question": "A heat engine has the following specifications: power developed = 50 kW, fuel burned per hour = 3 kg, heating value of fuel = 75,000 kJ/kg, temperature limits = 627˚C and 27˚C. This engine is",
+	"choices": ["possible", "costly", "impossible", "cheap"],
+	"correct": "impossible"
+}, {
+	"question": "A 50 MW thermal plant has a thermal efficiency of 32% based on its combined output. If the plant operates continuously (24 hr/day), how many tons of coal is burned per day at 30,000 kJ/kg to produce the desired output. Take boiler efficiency as 85%. And how many m^3 per hr sea water (SG = 1.05) is required in the condenser if cpw = 4.2 kJ/kg-K and Δtw = 10˚C. ",
+	"choices": ["529.41, 8673.47", "321.45, 5770.57", "457.98, 7890.97", "476.75, 4577.54"],
+	"correct": "529.41, 8673.47"
+}, {
+	"question": "A boiler operates at 1.24 MPa abs and delivers dry and saturated steam, which is expanded to 100 kPa atmospheric pressure in a steam engine having a steam rate of 12 kg per horsepower hr. Temperature of feedwater is 93˚C. Find the Rankine vapor cycle efficiency. Steam properties: Enthalpy of steam leaving the boiler = 2786 kJ/kg, Enthalpy of steam leaving the steam engine = 2359.34 kJ/kg, Enthalpy of steam leaving the condenser = 417.46 kJ/kg, sp. volume of water leaving the condenser = 0.0010432 m3/kg. ",
+	"choices": ["18%", "19%", "24%", "32%"],
+	"correct": "18%"
+}]; 
+
+
+
+	
+// mga nadagdag quiz with images
+// array of images  
+	var images = [];
+	var solutionIsVisible;
+
+// define elements
+var content = $("content"),
+  questionContainer = $("question"),
+  choicesContainer = $("choices"),
+  scoreContainer = $("score"), //nabago
+  submitBtn = $("submit");
+  
+  var resultPage = "";
+  
+// init vars
+var currentQuestion = 0,
+	score = 0,
+  askingQuestion = true,
+  questionNumber = 0,
+   maxQ = quiz.length, 
+  questionNumber;
+  
+  wrongAnswerQ = "",
+  wrongAnswerNo=0;
+  var yourAnswer = "You did not pick any answer.";
+  var choicesMistakesG = "";
+  if(maxQ > quiz.length) {
+	maxQ = quiz.length;
+  }
+  var isOnReviewWrongPage = false;
+  var duplicates  =[];
+
+function $(id) { // shortcut for document.getElementById
+  return document.getElementById(id);
+}
+
+function askQuestion() {
+  var choices = quiz[questionNumber].choices,
+    choicesHtml = "", choicesMistakes="" ;
+
+
+  // loop through choices, and create radio buttons
+  for (var i = 0; i < choices.length; i++) {
+  //alert(get_rand(nums));
+    choicesHtml += "<input type='radio' name='quiz" + questionNumber +
+      "' id='choice" + ( i + 1) +
+      "' value='" + choices[i] + "'>" +
+      " <label for='choice" + (i + 1) + "'>" + choices[i] + "</label> <br>";
+	  
+	  choicesMistakes += "<span name='quiz" + questionNumber +
+      "' id='choice" + (i + 1) +
+      "' value='" + choices[i] + "'>"+ (i+1) + ". " + choices[i] + "</span><br>";
+	   if(choices[i] === quiz[questionNumber].correct) {
+			correctAnswer = choices[i];
+			correctAnswerIndex = i;
+	  }
+	  
+	  choicesMistakesG = choicesMistakes;
+  }
+
+  
+  // load the question
+  questionContainer.textContent = (questionNumber + 1) + ". " +
+    quiz[questionNumber].question;
+	
+	
+  // load the choices
+  choicesContainer.innerHTML = choicesHtml;
+
+  // setup for the first time
+  if (questionNumber === 0) {
+  scoreContainer.textContent = "Score: " + score + "/" + maxQ; //nabago
+    submitBtn.textContent = "Submit Answer";
+	//alert(quiz.length);
+  }
+  
+	
+
+}
+
+function checkAnswer() {
+	var yourAnswer = "You did not pick any answer.";
+  // are we asking a question, or proceeding to next question?
+  if (askingQuestion) {
+	
+	//mga nadagdag for view_solution
+	if($('#solution_' + (questionNumber+1)).length > 0) {
+		$('#view_solution').css('visibility', 'visible');
+	}
+    submitBtn.textContent = "Next Question";
+    askingQuestion = false;
+
+    // determine which radio button they clicked
+    var userpick,
+      correctIndex,
+      radios = document.getElementsByName("quiz" + questionNumber);
+    for (var i = 0; i < radios.length; i++) {
+      if (radios[i].checked) { // if this radio button is checked
+        userpick = radios[i].value;
+		yourAnswer = userpick;
+      }
+
+      // get index of correct answer
+      if (radios[i].value == quiz[questionNumber].correct) {
+        correctIndex = i;
+      }
+    }
+
+    // setup if they got it right, or wrong
+    var labelStyle = document.getElementsByTagName("label")[correctIndex].style;
+    labelStyle.fontWeight = "bold";
+    if (userpick == quiz[questionNumber].correct) {
+      labelStyle.color = "green";
+	  score++; 
+    } else {
+		wrongAnswerNo++;
+      labelStyle.color = "red";
+	  wrongAnswerQ += "<br> <span id='question'> " + wrongAnswerNo+". " + quiz[questionNumber].question + "</span><br> " + "<div id='choices'>" + choicesMistakesG + " <strong>Your answer: "+ yourAnswer + "</strong><br> <strong id='answer'>" + "Correct answer: " + correctAnswer  + "</strong></div> ";//  + 
+
+    }
+	
+	
+  } else { // move to next question
+    // setting up so user can ask a question
+    askingQuestion = true;
+    // change button text back to "Submit Answer"
+    submitBtn.textContent = "Submit Answer";
+	scoreContainer.textContent = "Score: " + score + "/" + maxQ;; //nabago
+    // if we're not on last question, increase question number
+    if (questionNumber < maxQ - 1) {
+      //currentQuestion++;
+	  questionNumber++;
+      askQuestion();
+    } else {
+      clearTimeout(t);
+      showFinalResults();
+    }
+	
+	//mga nadagdag quiz with images
+	for(i=0; i<quiz.length; i++) { 
+		$('#for_q_' + (i+1)).hide();
+	}
+	
+	// mga nadagdag quiz with images
+	if((questionNumber+1) === 1) {
+		$('#question').after(images[0]);
+	} else if((questionNumber+1) === 2) {
+		$('#question').after(images[1]);
+	}
+	
+	//mga nadagdag for view_solution
+	for(i=0; i<quiz.length; i++) { 
+		$('#solution_' + (i+1)).hide();
+	}
+	
+	$('.for_view_solution').hide();
+	$('#view_solution').css('visibility', 'hidden');
+	
+	solutionIsVisible = false;
+	if(solutionIsVisible) {
+		document.getElementById('view_solution').textContent = 'Hide Solution';
+		solutionIsVisible = false;
+	}else if(!solutionIsVisible){
+		document.getElementById('view_solution').textContent = 'View Solution';
+		solutionIsVisible = true;
+	}
+  }
+}
+
+function showFinalResults() {
+	//resultPage = "<center><strong class='for_h'>You Passed!</strong></center>";
+	if(score/maxQ >= 0.7){
+		resultPage = "<center><strong class='for_h'>You Passed!</strong></center> <br> <center><strong>Score: " + score + " out of " + maxQ + " </strong></center><center><strong> Equivalent Percentage: " + Math.floor(score/maxQ*100) + "%</strong></center><center><strong>Total time: " + timeElapsed + "</strong></center> <br> <br><button id='restart' class='button fit' onclick='reloadCurrentPage();'> Restart the Test</button><button id='reviewMistakes' class='button fit' onclick='reviewMistakes();'> Review Mistakes</button> <button id='proceedToNext' class='button fit' onclick='proceedToNext();'> Proceed to next Test</button> ";
+	} else {
+		resultPage = "<center><strong class='for_h'>You Failed!</strong></center> <br> <center><strong>Score: " + score + " out of " + maxQ + " </strong></center><center><strong> Equivalent Percentage: " + Math.floor(score/maxQ*100) + "%</strong></center><center><strong>Total time: " + timeElapsed + "</strong></center> <br> <br><button id='restart' class='button fit' onclick='reloadCurrentPage();'> Restart the Test</button><button id='reviewMistakes' class='button fit' onclick='reviewMistakes();'> Review Mistakes</button> <button id='proceedToNext' class='button fit' onclick='proceedToNext();'> Proceed to next Test</button> ";
+	}
+	content.innerHTML = resultPage;
+}
+
+function reviewMistakes() {
+	content.innerHTML = wrongAnswerQ + " <br><br> <center><button id='restart' class='button fit' onclick='reloadCurrentPage();'> Restart the Test</button></center> <button id='proceedToNext' class='button fit' onclick='proceedToNext();'> Proceed to next Test</button>";
+}
+
+function proceedToNext() {
+	document.location.href = "ppe11.html"; //need to be updated per test 
+}
+
+function reloadCurrentPage() {
+	document.location.href = "ppe10.html"; //need to be updated per test 
+}
+
+window.addEventListener("load", askQuestion, false);
+submitBtn.addEventListener("click", checkAnswer, false);
+
+
+
+</script>
+
+
+
+
+			<!-- Scripts for Phantom -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+	</body>
+
+</html>

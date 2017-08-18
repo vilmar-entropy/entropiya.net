@@ -1,0 +1,600 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+	
+		<title>Entropiya | Power Plant Engineering 11</title> <!-- need to be updated per test -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		
+		<link rel="stylesheet" href="css/index.css" />
+		<script src="js/index.js"></script>
+		<link rel="stylesheet" href="assets/css/main.css" />
+
+		<!-- FontAwesome, jQuery and jQuery Mobile -->
+		<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css">
+		<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+		<script type="text/javascript" src="jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script> 
+		
+		<!-- jqmath -->
+		<link rel="stylesheet" href="mathscribe/jqmath-0.4.3.css">
+		<script src="mathscribe/jquery-1.4.3.min.js"></script>
+		<script src="mathscribe/jqmath-etc-0.4.5.min.js" charset="utf-8"></script>
+		
+		<script>
+			$(document).ready(function() {
+				solutionIsVisible = true;
+				
+				//mga nadagdag for view_solution
+				
+				$('.for_view_solution').hide();
+				$('#view_solution').css('visibility', 'hidden');
+				
+				for(i=0; i<quiz.length; i++) {
+					$('#solution_' + (i+1)).hide();
+				}
+				
+				$('#view_solution').click(function() {
+					for(i=0; i<quiz.length; i++) {
+						$('#solution_' + (i+1)).hide();
+					}
+						
+					$('#solution_' + (questionNumber + 1)).fadeToggle('slow');
+					$('.for_view_solution').fadeToggle('slow');
+					
+					if(solutionIsVisible) {
+						document.getElementById('view_solution').textContent = 'Hide Solution';
+						solutionIsVisible = false;
+					}else if(!solutionIsVisible){
+						document.getElementById('view_solution').textContent = 'View Solution';
+						solutionIsVisible = true;
+					}
+					
+				});
+
+				
+				// Image factory
+				var createImage = function(src, title, id) {
+				  var img   = new Image();
+				  img.src   = src;
+				  img.id = id;
+				  img.alt   = title;
+				  img.title = title;
+				  return img; 
+				};
+
+				// array of images dun dineclare sa main script para global
+				//var images = [];
+
+				// push two images to the array
+				//images.push(createImage("images/for_q_1.png", "pic01 title", "for_q_1"));
+				//images.push(createImage("images/for_q_2.png", "pic03 title", "for_q_2"));
+				
+				// mga nadagdag quiz with images
+				if((questionNumber+1) === 1) {
+					$('#question').after(images[0]);
+				} else if((questionNumber+1) === 2) {
+					$('#question').after(images[1]);
+				}
+				
+			});
+		</script>
+	
+	</head>
+	
+	<body>
+		<div data-role="panel" data-position="right" data-display="overlay" data-theme="a" id="panel">
+			<div class="nav_in_panel_container"> 
+				<ul data-role="listview" data-inset="true" data-theme="b" data-dividertheme="f">
+					<li data-icon="false"><a class="nav_in_panel" href="index.html" rel="external"><i class="fa fa-home" aria-hidden="true" ></i>  Home  </a> </li>
+					<li data-icon="false"><a class="nav_in_panel" href="about.html" rel="external"><i class="fa fa-user-o" aria-hidden="true" ></i>  About  </a> </li>
+					<li data-icon="false"><a class="nav_in_panel" href="references.html" rel="external"><i class="fa fa-book" aria-hidden="true" ></i>  References  </a>
+					<li data-icon="false"><a class="nav_in_panel" href="https://www.facebook.com/vilmar.empino?__nodl" rel="external" ><i class="fa fa-facebook-square" aria-hidden="true"></i>  Like us on facebook!  </a></li>
+				</ul>
+			</div>
+		</div>
+		<div id="header_container">
+			<figure class="logo" id="logo">
+				<a href="index.html" rel="external"><img src="images/logo.png" alt="image"/></a>
+			</figure>
+			<ul class="home_nav_quiz"> 
+				<a href="#panel" class="right_panel"> <i class="fa fa-bars" id="icon_for_right_panel" aria-hidden="true"></i> </a>
+				<div class="toBeHidden">
+				<li class="li"><a class="a" href="references.html" rel="external">References</a></li>
+				<li class="li"><a class="a" href="about.html" rel="external">About</a></li>
+				<!-- <li class="li" id="dropdown">
+					<a class="a" href="javascript:void(0)" class="dropbtn">MCQs <i class="fa fa-caret-down" aria-hidden="true"></i></a>
+					<div class="dropdown-content">
+					<a class="a" href="home-me.html" rel="external">Mechanical Engineering</a>
+					<a class="a" href="home-ece.html" rel="external">Electronics Engineering</a> 
+					</div>
+				</li> -->
+				<li class="li"><a class="a" href="index.html" rel="external">Home</a></li>
+				</div>
+			</ul>
+		</div>
+		<div id="body_container"> 
+			
+			<div id="for_contents_quiz">
+				
+				<div id="for_left_content_quiz">
+					<div id="for_title">
+						<strong class="for_h2">Power Plant Engineering - Test 11 Boiler (1-20)</strong> <!-- need to be updated per test -->
+					</div>
+					<br>
+					<div id="for_top_ads_quiz">
+						<span> FTA  </span>
+					</div>
+					<div id="for_left_navbar"> <!-- need to be updated per test -->
+						<div data-role="collapsible">
+							<h3>Problems</h3>
+							<ul data-role="listview" id="left_nav" data-inset="true" data-theme="c" data-dividertheme="f">
+								<li><a href="ppe01.html"  rel="external">Test 1</a></li>
+								<li><a href="ppe02.html"  rel="external">Test 2</a></li>
+								<li><a href="ppe03.html"  rel="external">Test 3</a></li>
+								<li><a href="ppe04.html"  rel="external">Test 4</a></li>
+								<li><a href="ppe05.html"  rel="external">Test 5</a></li>
+								<li><a href="ppe06.html"  rel="external">Test 6</a></li>
+								<li><a href="ppe07.html"  rel="external">Test 7</a></li>
+								<li><a href="ppe08.html"  rel="external">Test 8</a></li>
+								<li><a href="ppe09.html"  rel="external">Test 9</a></li>
+								<li><a href="ppe10.html"  rel="external">Test 10</a></li>
+								<li><a href="ppe11.html"  rel="external">Test 11</a></li>
+								<li><a href="ppe12.html"  rel="external">Test 12</a></li>
+								<li><a href="ppe13.html"  rel="external">Test 13</a></li>
+								<li><a href="ppe14.html"  rel="external">Test 14</a></li>
+								<li><a href="ppe15.html"  rel="external">Test 15</a></li>
+								<li><a href="ppe16.html"  rel="external">Test 16</a></li>
+								<li><a href="ppe17.html"  rel="external">Test 17</a></li>
+								<li><a href="ppe18.html"  rel="external">Test 18</a></li>
+								<li><a href="ppe19.html"  rel="external">Test 19</a></li>
+								<li><a href="ppe20.html"  rel="external">Test 20</a></li>
+								<li><a href="ppe21.html"  rel="external">Test 21</a></li>
+								<li><a href="ppe22.html"  rel="external">Test 22</a></li>
+								<li><a href="ppe23.html"  rel="external">Test 23</a></li>
+								<li><a href="ppe24.html"  rel="external">Test 24</a></li>
+								<li><a href="ppe25.html"  rel="external">Test 25</a></li>
+								<li><a href="ppe26.html"  rel="external">Test 26</a></li>
+								<li><a href="ppe27.html"  rel="external">Test 27</a></li>
+							</ul>
+						</div>
+					</div>
+					<div id="for_right_navbar"> <!-- need to be updated per test -->
+						<div data-role="collapsible">
+							<h3>Elements</h3>
+							<ul data-role="listview" id="right_nav" data-inset="true" data-theme="c" data-dividertheme="f">
+								<li><a href="#"  rel="external">Test I</a></li>
+								
+							</ul>
+						</div>
+					</div>
+					<br>
+					<div class="for_quiz">
+						<div id="content">
+							<strong id="timerContinue"><time>00:00:00</time></strong>
+							<strong id="score">Score: 0/50</strong> <br><br>
+							<div class="for_question"><span id="question"></span> </div> 
+							<div id="choices"></div> 
+							<button id="submit" class="button"> Submit Answer</button>
+						</div>
+					</div>
+					<br>
+					<!-- //mga nadagdag for view_solution -->
+					<!-- <div class="for_view_solution">
+						<p id="solution_1">
+							<span>Solution 1</span><br>Data: <br>
+							<span class="eq">$m_1 = 500 g_m$ $/frac{F}{A} \sqrt{\pi}$ </span><br>
+							<span class="eq">$m_2 = 800 g_f$ </span><br>
+							<span class="eq">$m_3 = 15 poundals$ </span><br>
+							<span class="eq">$m_4 = 3 lb_f$ </span><br>
+							<span class="eq">$m_5 = 0.10slug$ </span><br>
+							<span class="eq">$g = 30.5 ft/s^2$ </span><br>
+							Unknown: <br>
+							<span class="eq">a) Total mass, $m_T$ in $g_m$ </span><br>
+							<span class="eq">b) $m_T$ in $lb_m$ </span><br>
+							<span class="eq">c) $m_T$ in $slugs$ </span><br>
+							Solution: <br>
+							<span class="eq"> $m_T = m_1 + m_2 +$ $m_3 + m_4 + m_5 \longrightarrow (eq. 1)$</span> <br>
+							
+							<span class="eq"> </span> <br>
+						</p>
+						
+						<p id="solution_2"><span>Solution 2</span><br>Data: <br> 
+							<span class="eq"> $g_{sea} = 32.088 fps^2 $ </span> <br>
+							<span class="eq"> $\Delta g = -0.003 fps^2 $ per 1000 ft </span> <br>
+							Unknown: <br>
+							<span class="eq"> a) Height, $h$ if g is 30.504 $fps^2$ </span> <br>
+							<span class="eq"> b) $h$ if $F_g$ is 95% of original </span> <br>
+							<span class="eq"> c) $F_g$ if $h$ is 29,131 ft and $m$ is 180 $lb_m$</span> <br>
+							Solution: <br>
+							<span class="eq">a) $h = (30.504 - 32.088)fps^2$ x $\frac{1000ft}{-0.003 fps^2}$ $= 528,000ft$ $= \underline{100mi}$ </span> <br>
+							<span class="eq"> b) $h = (32.088)(0.95 - 1)$ $fps^2$ x $\frac{1000ft}{-0.003 fps^2}$ $= 534,800$ ft or $\underline{101.29 mi}$</span> <br>
+							<span class="eq"> c) $F_g = mg \longrightarrow (eq. 1)$ </span> <br>
+							But <br>
+							<span class="eq"> $m = 180 lb_m$ x $\frac{1 slug}{32.2 lb_m}$ $=5.59 slugs$ </span> <br>
+							<span class="eq"> $g = 29,131ft$ x $\frac{-0.003 fps^2}{1000 ft}$ $+ 32.088 fps^2$ $32.00 fps^2$</span> <br>
+							Then from $(eq. 1)$ <br>
+							<span class="eq"> $F_g = 5.59 slugs$ x $32.00 fps^2$ $=\underline{178.88 lb_f}$</span> <br>
+						</p> 
+						
+						<p id="solution_3"><span>Solution 3</span><br>Data: <br> 
+							<span class="eq"> $g_{sea} = 32.088 fps^2 $ </span> <br>
+							<span class="eq"> $\Delta g = -0.003 fps^2 $ per 1000 ft </span> <br>
+							Unknown: <br>
+							<span class="eq"> a) Height, $h$ if g is 30.504 $fps^2$ </span> <br>
+							<span class="eq"> b) $h$ if $F_g$ is 95% of original </span> <br>
+							<span class="eq"> c) $F_g$ if $h$ is 29,131 ft and $m$ is 180 $lb_m$</span> <br>
+							Solution: <br>
+							<span class="eq">a) $h = (30.504 - 32.088)fps^2$ x $\frac{1000ft}{-0.003 fps^2}$ $= 528,000ft$ $= \underline{100mi}$ </span> <br>
+							<span class="eq"> b) $h = (32.088)(0.95 - 1)$ $fps^2$ x $\frac{1000ft}{-0.003 fps^2}$ $= 534,800$ ft or $\underline{101.29 mi}$</span> <br>
+							<span class="eq"> c) $F_g = mg \longrightarrow (eq. 1)$ </span> <br>
+							But <br>
+							<span class="eq"> $m = 180 lb_m$ x $\frac{1 slug}{32.2 lb_m}$ $=5.59 slugs$ </span> <br>
+							<span class="eq"> $g = 29,131ft$ x $\frac{-0.003 fps^2}{1000 ft}$ $+ 32.088 fps^2$ $32.00 fps^2$</span> <br>
+							Then from $(eq. 1)$ <br>
+							<span class="eq"> $F_g = 5.59 slugs$ x $32.00 fps^2$ $=\underline{178.88 lb_f}$</span> <br>
+						</p>
+						
+						<p id="solution_4"><span>Solution 4</span><br>Data: <br> 
+							<span class="eq"> $g_{sea} = 32.088 fps^2 $ </span> <br>
+							<span class="eq"> $\Delta g = -0.003 fps^2 $ per 1000 ft </span> <br>
+							Unknown: <br>
+							<span class="eq"> a) Height, $h$ if g is 30.504 $fps^2$ </span> <br>
+							<span class="eq"> b) $h$ if $F_g$ is 95% of original </span> <br>
+							<span class="eq"> c) $F_g$ if $h$ is 29,131 ft and $m$ is 180 $lb_m$</span> <br>
+							Solution: <br>
+							<span class="eq">a) $h = (30.504 - 32.088)fps^2$ x $\frac{1000ft}{-0.003 fps^2}$ $= 528,000ft$ $= \underline{100mi}$ </span> <br>
+							<span class="eq"> b) $h = (32.088)(0.95 - 1)$ $fps^2$ x $\frac{1000ft}{-0.003 fps^2}$ $= 534,800$ ft or $\underline{101.29 mi}$</span> <br>
+							<span class="eq"> c) $F_g = mg \longrightarrow (eq. 1)$ </span> <br>
+							But <br>
+							<span class="eq"> $m = 180 lb_m$ x $\frac{1 slug}{32.2 lb_m}$ $=5.59 slugs$ </span> <br>
+							<span class="eq"> $g = 29,131ft$ x $\frac{-0.003 fps^2}{1000 ft}$ $+ 32.088 fps^2$ $32.00 fps^2$</span> <br>
+							Then from $(eq. 1)$ <br>
+							<span class="eq"> $F_g = 5.59 slugs$ x $32.00 fps^2$ $=\underline{178.88 lb_f}$</span> <br>
+						</p>
+					
+					</div> -->
+					
+					<button id="view_solution" class="button small"> View Solution</button>
+
+										
+				</div>
+				
+								
+				
+				<div class="for_right_ads_quiz">
+					<span> FRA   </span>
+				</div>
+			</div>
+		</div>
+			
+			<script>
+	
+ //star timer
+  var timeElapsed = "";
+	var h1 = document.getElementById('timerContinue'),
+		start = document.getElementById('start'),
+		stop = document.getElementById('stop'),
+		clear = document.getElementById('clear'),
+		seconds = 0, minutes = 0, hours = 0,
+		t;
+
+	function add() {
+		seconds++;
+		if (seconds >= 60) {
+			seconds = 0;
+			minutes++;
+			if (minutes >= 60) {
+				minutes = 0;
+				hours++;
+			}
+		}
+		
+		h1.textContent = (hours ? (hours > 9 ? hours : "0" + hours) : "00") + ":" + (minutes ? (minutes > 9 ? minutes : "0" + minutes) : "00") + ":" + (seconds > 9 ? seconds : "0" + seconds);
+		timeElapsed =(hours ? (hours > 9 ? hours : "0" + hours) : "00") + ":" +  (minutes ? (minutes > 9 ? minutes : "0" + minutes) : "00") + ":" + (seconds > 9 ? seconds : "0" + seconds);
+
+		timer();
+	}
+	function timer() {
+		t = setTimeout(add, 1000);
+	}
+	timer();
+
+	//end timer
+	
+var quiz = [{
+	"question": "A steam boiler on a test generates 885,000 lb of steam in a 4 hr period. The average steam pressure is 400 psia, the average steam temperature is 700˚F, and the average temperature of the feed water supplied to the boiler is 280˚F. If the boiler efficiency for the period is 82.5% and if the coal has a heating value of 13,850 Btu/lb as fired, find the average amount of coal burned in short tons per hour. Steam properties: At 400 psia and 700˚F, h = 1362.7 Btu/lb; At 280˚F, hf = 249.1 Btu/lb.",
+	"choices": ["9.84", "10.75", "12.05", "11.45"],
+	"correct": "10.75"
+}, {
+	"question": "A boiler operating at 11 kg/cm2 is required to generate a minimum of 50,000 kg/hr of saturated steam. Feedwater enters the boiler at 80˚C. The furnace is designed to fire coal at an average rate of 4,800 kg/hr and boiler efficiency is 85%. Compute the developed boiler horsepower. Steam properties: At 11 kg/cm2, hg = 2781 kJ/kg; At 80˚C, hf = 334.91 kJ/kg.",
+	"choices": ["3462.52", "4356.78", "5234.75", "2560.45"],
+	"correct": "3462.52"
+}, {
+	"question": "A water tube boiler evaporated 5.05 kg of water per second from a feedwater temperature of 104.44˚C to steam at 1241.1 kPa and quality of 0.97; weight of coal fuel per second 0.57 kg; higher heating value of coal as fired, 11800 Btu/lb. Determine the rate of heat absorption in kJ/s, the boiler horsepower, and the efficiency of steam generating units. Steam properties: At 104.44˚C, hf = 437.78 kJ/kg; At 1241.1 kPa, hf = 805.29 kJ/kg, hfg = 1980.6 kJ/kg. ",
+	"choices": ["11558, 1178, 84.35", "11558, 1178, 73.87", "11558, 1178, 67.45", "11558, 1178, 83.25"],
+	"correct": "11558, 1178, 73.87"
+}, {
+	"question": "A waste heat recovery boiler produces 4.8 MPa (dry saturated) steam from 104˚C feedwater. The boiler receives energy from 5 kg/s of 954˚C dry air. After passing through the waste heat boiler, the temperature of the air has been reduced to 343˚C. How much steam in kg is produced per second? Steam properties: At 4.8 MPa, hg = 2796 kJ/kg.",
+	"choices": ["1.3", "0.92", "2.1", "3.4"],
+	"correct": "1.3"
+}, {
+	"question": "A steam generating plant consisting of a boiler, an economizer and super heater generates superheated steam at the rate at 50 tons per hr. Feedwater enters the boiler at 5 MPa and 120˚C. Steam leaves the superheater at 4.5MPa and 320˚C. If the coal used has a heating value of 30000 kJ/kg, calcualte the no. of tons of coal fired per hr for a gross efficiency of 85%. Steam properties: At 4.5 MPa and 320˚C, h = 3000.6 kJ/kg; At 5 MPa and 120˚C, h = 507.09 kJ/kg.",
+	"choices": ["5.897", "3.267", "4.889", "2.675"],
+	"correct": "4.889"
+}, {
+	"question": "A water tube boiler has a capacity of 1000 kg/hr of steam. The factor of evaporation is 1.3, boiler rating is 200%, boiler efficiency is 65%, heating surface area is 0.91 m2 per bo. hp, and the heating value of fuel is 18,400 kcal/kg. The total coal available in the bunker is 50,000 kg. Determine the no. of hrs to consume the available fuel.",
+	"choices": ["853.36", "706.57", "979.46", "100.75"],
+	"correct": "853.36"
+}, {
+	"question": "Two boilers are operating steadily on 91,000 kg of coal contained in a bunker. One boiler is producing 1591 kg of steam per hour at 1.2 factor of evaporation and an efficiency of 65% and the another boiler produced 1364 kg of steam perhour at 1.15 factor of evaporation and an efficiency of 60%. How many hours will the coal in the bunker run the boilers if the heating value of coal is 7,590 kcal/kg?",
+	"choices": ["280.54", "230.80", "350.35", "300.54"],
+	"correct": "230.80"
+}, {
+	"question": "A coal has the following ultimate analysis by weight: C = 70.5%, H2 = 4.5%, O2 = 6.0%, N2 = 1.0%, S = 3.0%, Ash = 11%, Moisture = 4%. A stocker fired boiler of 175000 kg/hr steaming capacity uses this coal as fuel. Calculate the volume of air in m^3/hr with air at 60˚F and 14.7 psia pressure needed if boiler efficiency is 70%, excess is 30% and FE = 1.10. ",
+	"choices": ["122,345", "342,987", "212,830", "132,456"],
+	"correct": "212,830"
+}, {
+	"question": "Find the rated boiler horsepower of a HRT boiler 60 in. in diameter 16 ft long, and having seventy and 3 in. O.D. tubes with 0.109 in. wall.",
+	"choices": ["95.09", "78.09", "89.09", "93.05"],
+	"correct": "95.09"
+}, {
+	"question": "What is the heating surface area of a water tube boiler if the equivalent rated boiler horsepower is 200?",
+	"choices": ["450", "206", "182", "198"],
+	"correct": "182"
+}, {
+	"question": "The heating surface area of a fire tube boiler is 400 m^2. What is the equivalent rated boiler horsepower?",
+	"choices": ["135.72", "435.72", "256.78", "363.64"],
+	"correct": "363.64"
+}, {
+	"question": "What would be the percentage of the over-all efficiency of a steam generator obtaining an evaporation equivalent to 10.95 kg of water from and at 100˚C per kg of coal containing 34,064 kJ/kg heating value? Steam properties: At 100˚C,  hf = 419.04 kJ/kg, hg = 2676.1 kJ/kg. ",
+	"choices": ["73%", "74%", "82%", "70%"],
+	"correct": "73%"
+}, {
+	"question": "For a generation of dry and saturated steam at 1.0 MPa, what is the percentage gain in heat when the boiler feedwater is heated from 30˚C to 90˚C? Steam properties: At 1.0 MPa, hg = 2778.1 kJ/kg; At 90˚C, hf = 376.92 kJ/kg; At 30˚C, hf = 125.79 kJ/kg.",
+	"choices": ["8.47%", "8.97%", "9.47%", "5.47%"],
+	"correct": "9.47%"
+}, {
+	"question": "What is the percent rating of a water tube boiler if the heating surface area is 400 m^2 and the developed boiler horsepower is 750?",
+	"choices": ["170.625%", "140.675%", "130.625%", "120.765%"],
+	"correct": "170.625%"
+}, {
+	"question": "Coal with a higher heating value of 6700 kcal/kg is consumed at the rate of 600 kg/hr in a steam generator with a rated boiler horsepower of 200. The feedwater temperature is 82˚C and steam generated is at 10.2 kg/cm2 abs. saturated condition. The horsepower developed is equivalent to 305. What is the heating surface area? ",
+	"choices": ["123 m^3", "230 m^2", "182 m^2", "324 m^2"],
+	"correct": "182 m^2"
+}, {
+	"question": "Coal with a higher heating value of 6700 kcal/kg is consumed at the rate of 600 kg/hr in a steam generator with a rated boiler horsepower of 200. The feedwater temperature is 82˚C and steam generated is at 10.2 kg/cm2 abs. saturated condition. The horsepower developed is equivalent to 305. Calculate the rate of steam evaporated. Steam properties: At 10.2 kg/cm2, hg = 2778.1 kJ/kg; At 82˚C, hf = 343.30 kJ/kg.",
+	"choices": ["4424.68 kg/hr", "4567.75 kg/hr", "5579.78 kg/hr", "5678.45 kg/hr"],
+	"correct": "4424.68 kg/hr"
+}, {
+	"question": "Coal with a higher heating value of 6700 kcal/kg is consumed at the rate of 600 kg/hr in a steam generator with a rated boiler horsepower of 200. The feedwater temperature is 82˚C and steam generated is at 10.2 kg/cm2 abs. saturated condition. The horsepower developed is equivalent to 305. What is the percent rating developed?",
+	"choices": ["125.45%", "152.50%", "234.75%", "134.57%"],
+	"correct": "152.50%"
+}, {
+	"question": "Coal with a higher heating value of 6700 kcal/kg is consumed at the rate of 600 kg/hr in a steam generator with a rated boiler horsepower of 200. The feedwater temperature is 82˚C and steam generated is at 10.2 kg/cm2 abs. saturated condition. The horsepower developed is equivalent to 305. Determine the ASME evaporation unit in kBtu/hr. Steam properties: At 10.2 kg/cm2, hg = 2778.1 kJ/kg; At 82˚C, hf = 343.30 kJ/kg.",
+	"choices": ["10,511.76", "9,234.75", "10,211.57", "12,377.75"],
+	"correct": "10,211.57"
+}, {
+	"question": "Coal with a higher heating value of 6700 kcal/kg is consumed at the rate of 600 kg/hr in a steam generator with a rated boiler horsepower of 200. The feedwater temperature is 82˚C and steam generated is at 10.2 kg/cm2 abs. saturated condition. The horsepower developed is equivalent to 305. What is the factor of evaporation? Steam properties: At 10.2 kg/cm2, hg = 2778.1 kJ/kg; At 82˚C, hf = 343.30 kJ/kg.",
+	"choices": ["1.14", "1.52", "1.08", "1.45"],
+	"correct": "1.08"
+}, {
+	"question": "Coal with a higher heating value of 6700 kcal/kg is consumed at the rate of 600 kg/hr in a steam generator with a rated boiler horsepower of 200. The feedwater temperature is 82˚C and steam generated is at 10.2 kg/cm2 abs. saturated condition. The horsepower developed is equivalent to 305. Calculate the over-all thermal efficiency. Steam properties: At 10.2 kg/cm2, hg = 2778.1 kJ/kg; At 82˚C, hf = 343.30 kJ/kg.",
+	"choices": ["64.02%", "60.24%", "67.24%", "72.13%"],
+	"correct": "64.02%"
+}]; 
+
+
+
+	
+// mga nadagdag quiz with images
+// array of images  
+	var images = [];
+	var solutionIsVisible;
+
+// define elements
+var content = $("content"),
+  questionContainer = $("question"),
+  choicesContainer = $("choices"),
+  scoreContainer = $("score"), //nabago
+  submitBtn = $("submit");
+  
+  var resultPage = "";
+  
+// init vars
+var currentQuestion = 0,
+	score = 0,
+  askingQuestion = true,
+  questionNumber = 0,
+   maxQ = quiz.length, 
+  questionNumber;
+  
+  wrongAnswerQ = "",
+  wrongAnswerNo=0;
+  var yourAnswer = "You did not pick any answer.";
+  var choicesMistakesG = "";
+  if(maxQ > quiz.length) {
+	maxQ = quiz.length;
+  }
+  var isOnReviewWrongPage = false;
+  var duplicates  =[];
+
+function $(id) { // shortcut for document.getElementById
+  return document.getElementById(id);
+}
+
+function askQuestion() {
+  var choices = quiz[questionNumber].choices,
+    choicesHtml = "", choicesMistakes="" ;
+
+
+  // loop through choices, and create radio buttons
+  for (var i = 0; i < choices.length; i++) {
+  //alert(get_rand(nums));
+    choicesHtml += "<input type='radio' name='quiz" + questionNumber +
+      "' id='choice" + ( i + 1) +
+      "' value='" + choices[i] + "'>" +
+      " <label for='choice" + (i + 1) + "'>" + choices[i] + "</label> <br>";
+	  
+	  choicesMistakes += "<span name='quiz" + questionNumber +
+      "' id='choice" + (i + 1) +
+      "' value='" + choices[i] + "'>"+ (i+1) + ". " + choices[i] + "</span><br>";
+	   if(choices[i] === quiz[questionNumber].correct) {
+			correctAnswer = choices[i];
+			correctAnswerIndex = i;
+	  }
+	  
+	  choicesMistakesG = choicesMistakes;
+  }
+
+  
+  // load the question
+  questionContainer.textContent = (questionNumber + 1) + ". " +
+    quiz[questionNumber].question;
+	
+	
+  // load the choices
+  choicesContainer.innerHTML = choicesHtml;
+
+  // setup for the first time
+  if (questionNumber === 0) {
+  scoreContainer.textContent = "Score: " + score + "/" + maxQ; //nabago
+    submitBtn.textContent = "Submit Answer";
+	//alert(quiz.length);
+  }
+  
+	
+
+}
+
+function checkAnswer() {
+	var yourAnswer = "You did not pick any answer.";
+  // are we asking a question, or proceeding to next question?
+  if (askingQuestion) {
+	
+	//mga nadagdag for view_solution
+	if($('#solution_' + (questionNumber+1)).length > 0) {
+		$('#view_solution').css('visibility', 'visible');
+	}
+    submitBtn.textContent = "Next Question";
+    askingQuestion = false;
+
+    // determine which radio button they clicked
+    var userpick,
+      correctIndex,
+      radios = document.getElementsByName("quiz" + questionNumber);
+    for (var i = 0; i < radios.length; i++) {
+      if (radios[i].checked) { // if this radio button is checked
+        userpick = radios[i].value;
+		yourAnswer = userpick;
+      }
+
+      // get index of correct answer
+      if (radios[i].value == quiz[questionNumber].correct) {
+        correctIndex = i;
+      }
+    }
+
+    // setup if they got it right, or wrong
+    var labelStyle = document.getElementsByTagName("label")[correctIndex].style;
+    labelStyle.fontWeight = "bold";
+    if (userpick == quiz[questionNumber].correct) {
+      labelStyle.color = "green";
+	  score++; 
+    } else {
+		wrongAnswerNo++;
+      labelStyle.color = "red";
+	  wrongAnswerQ += "<br> <span id='question'> " + wrongAnswerNo+". " + quiz[questionNumber].question + "</span><br> " + "<div id='choices'>" + choicesMistakesG + " <strong>Your answer: "+ yourAnswer + "</strong><br> <strong id='answer'>" + "Correct answer: " + correctAnswer  + "</strong></div> ";//  + 
+
+    }
+	
+	
+  } else { // move to next question
+    // setting up so user can ask a question
+    askingQuestion = true;
+    // change button text back to "Submit Answer"
+    submitBtn.textContent = "Submit Answer";
+	scoreContainer.textContent = "Score: " + score + "/" + maxQ;; //nabago
+    // if we're not on last question, increase question number
+    if (questionNumber < maxQ - 1) {
+      //currentQuestion++;
+	  questionNumber++;
+      askQuestion();
+    } else {
+      clearTimeout(t);
+      showFinalResults();
+    }
+	
+	//mga nadagdag quiz with images
+	for(i=0; i<quiz.length; i++) { 
+		$('#for_q_' + (i+1)).hide();
+	}
+	
+	// mga nadagdag quiz with images
+	if((questionNumber+1) === 1) {
+		$('#question').after(images[0]);
+	} else if((questionNumber+1) === 2) {
+		$('#question').after(images[1]);
+	}
+	
+	//mga nadagdag for view_solution
+	for(i=0; i<quiz.length; i++) { 
+		$('#solution_' + (i+1)).hide();
+	}
+	
+	$('.for_view_solution').hide();
+	$('#view_solution').css('visibility', 'hidden');
+	
+	solutionIsVisible = false;
+	if(solutionIsVisible) {
+		document.getElementById('view_solution').textContent = 'Hide Solution';
+		solutionIsVisible = false;
+	}else if(!solutionIsVisible){
+		document.getElementById('view_solution').textContent = 'View Solution';
+		solutionIsVisible = true;
+	}
+  }
+}
+
+function showFinalResults() {
+	//resultPage = "<center><strong class='for_h'>You Passed!</strong></center>";
+	if(score/maxQ >= 0.7){
+		resultPage = "<center><strong class='for_h'>You Passed!</strong></center> <br> <center><strong>Score: " + score + " out of " + maxQ + " </strong></center><center><strong> Equivalent Percentage: " + Math.floor(score/maxQ*100) + "%</strong></center><center><strong>Total time: " + timeElapsed + "</strong></center> <br> <br><button id='restart' class='button fit' onclick='reloadCurrentPage();'> Restart the Test</button><button id='reviewMistakes' class='button fit' onclick='reviewMistakes();'> Review Mistakes</button> <button id='proceedToNext' class='button fit' onclick='proceedToNext();'> Proceed to next Test</button> ";
+	} else {
+		resultPage = "<center><strong class='for_h'>You Failed!</strong></center> <br> <center><strong>Score: " + score + " out of " + maxQ + " </strong></center><center><strong> Equivalent Percentage: " + Math.floor(score/maxQ*100) + "%</strong></center><center><strong>Total time: " + timeElapsed + "</strong></center> <br> <br><button id='restart' class='button fit' onclick='reloadCurrentPage();'> Restart the Test</button><button id='reviewMistakes' class='button fit' onclick='reviewMistakes();'> Review Mistakes</button> <button id='proceedToNext' class='button fit' onclick='proceedToNext();'> Proceed to next Test</button> ";
+	}
+	content.innerHTML = resultPage;
+}
+
+function reviewMistakes() {
+	content.innerHTML = wrongAnswerQ + " <br><br> <center><button id='restart' class='button fit' onclick='reloadCurrentPage();'> Restart the Test</button></center> <button id='proceedToNext' class='button fit' onclick='proceedToNext();'> Proceed to next Test</button>";
+}
+
+function proceedToNext() {
+	document.location.href = "ppe12.html"; //need to be updated per test 
+}
+
+function reloadCurrentPage() {
+	document.location.href = "ppe11.html"; //need to be updated per test 
+}
+
+window.addEventListener("load", askQuestion, false);
+submitBtn.addEventListener("click", checkAnswer, false);
+
+
+
+</script>
+
+
+
+
+			<!-- Scripts for Phantom -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+	</body>
+
+</html>

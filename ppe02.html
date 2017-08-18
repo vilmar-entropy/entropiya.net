@@ -1,0 +1,599 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+	
+		<title>Entropiya | Power Plant Engineering 2</title> <!-- need to be updated per test -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		
+		<link rel="stylesheet" href="css/index.css" />
+		<script src="js/index.js"></script>
+		<link rel="stylesheet" href="assets/css/main.css" />
+
+		<!-- FontAwesome, jQuery and jQuery Mobile -->
+		<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css">
+		<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+		<script type="text/javascript" src="jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script> 
+		
+		<!-- jqmath -->
+		<link rel="stylesheet" href="mathscribe/jqmath-0.4.3.css">
+		<script src="mathscribe/jquery-1.4.3.min.js"></script>
+		<script src="mathscribe/jqmath-etc-0.4.5.min.js" charset="utf-8"></script>
+		
+		<script>
+			$(document).ready(function() {
+				solutionIsVisible = true;
+				
+				//mga nadagdag for view_solution
+				
+				$('.for_view_solution').hide();
+				$('#view_solution').css('visibility', 'hidden');
+				
+				for(i=0; i<quiz.length; i++) {
+					$('#solution_' + (i+1)).hide();
+				}
+				
+				$('#view_solution').click(function() {
+					for(i=0; i<quiz.length; i++) {
+						$('#solution_' + (i+1)).hide();
+					}
+						
+					$('#solution_' + (questionNumber + 1)).fadeToggle('slow');
+					$('.for_view_solution').fadeToggle('slow');
+					
+					if(solutionIsVisible) {
+						document.getElementById('view_solution').textContent = 'Hide Solution';
+						solutionIsVisible = false;
+					}else if(!solutionIsVisible){
+						document.getElementById('view_solution').textContent = 'View Solution';
+						solutionIsVisible = true;
+					}
+					
+				});
+
+				
+				// Image factory
+				var createImage = function(src, title, id) {
+				  var img   = new Image();
+				  img.src   = src;
+				  img.id = id;
+				  img.alt   = title;
+				  img.title = title;
+				  return img; 
+				};
+
+				// array of images dun dineclare sa main script para global
+				//var images = [];
+
+				// push two images to the array
+				//images.push(createImage("images/for_q_1.png", "pic01 title", "for_q_1"));
+				//images.push(createImage("images/for_q_2.png", "pic03 title", "for_q_2"));
+				
+				// mga nadagdag quiz with images
+				if((questionNumber+1) === 1) {
+					$('#question').after(images[0]);
+				} else if((questionNumber+1) === 2) {
+					$('#question').after(images[1]);
+				}
+				
+			});
+		</script>
+	
+	</head>
+	
+	<body>
+		<div data-role="panel" data-position="right" data-display="overlay" data-theme="a" id="panel">
+			<div class="nav_in_panel_container"> 
+				<ul data-role="listview" data-inset="true" data-theme="b" data-dividertheme="f">
+					<li data-icon="false"><a class="nav_in_panel" href="index.html" rel="external"><i class="fa fa-home" aria-hidden="true" ></i>  Home  </a> </li>
+					<li data-icon="false"><a class="nav_in_panel" href="about.html" rel="external"><i class="fa fa-user-o" aria-hidden="true" ></i>  About  </a> </li>
+					<li data-icon="false"><a class="nav_in_panel" href="references.html" rel="external"><i class="fa fa-book" aria-hidden="true" ></i>  References  </a>
+					<li data-icon="false"><a class="nav_in_panel" href="https://www.facebook.com/vilmar.empino?__nodl" rel="external" ><i class="fa fa-facebook-square" aria-hidden="true"></i>  Like us on facebook!  </a></li>
+				</ul>
+			</div>
+		</div>
+		<div id="header_container">
+			<figure class="logo" id="logo">
+				<a href="index.html" rel="external"><img src="images/logo.png" alt="image"/></a>
+			</figure>
+			<ul class="home_nav_quiz"> 
+				<a href="#panel" class="right_panel"> <i class="fa fa-bars" id="icon_for_right_panel" aria-hidden="true"></i> </a>
+				<div class="toBeHidden">
+				<li class="li"><a class="a" href="references.html" rel="external">References</a></li>
+				<li class="li"><a class="a" href="about.html" rel="external">About</a></li>
+				<!-- <li class="li" id="dropdown">
+					<a class="a" href="javascript:void(0)" class="dropbtn">MCQs <i class="fa fa-caret-down" aria-hidden="true"></i></a>
+					<div class="dropdown-content">
+					<a class="a" href="home-me.html" rel="external">Mechanical Engineering</a>
+					<a class="a" href="home-ece.html" rel="external">Electronics Engineering</a> 
+					</div>
+				</li> -->
+				<li class="li"><a class="a" href="index.html" rel="external">Home</a></li>
+				</div>
+			</ul>
+		</div>
+		<div id="body_container"> 
+			
+			<div id="for_contents_quiz">
+				
+				<div id="for_left_content_quiz">
+					<div id="for_title">
+						<strong class="for_h2">Power Plant Engineering - Test 2 Internal Combustion Engines (21-40)</strong> <!-- need to be updated per test -->
+					</div>
+					<br>
+					<div id="for_top_ads_quiz">
+						<span> FTA  </span>
+					</div>
+					<div id="for_left_navbar"> <!-- need to be updated per test -->
+						<div data-role="collapsible">
+							<h3>Problems</h3>
+							<ul data-role="listview" id="left_nav" data-inset="true" data-theme="c" data-dividertheme="f">
+								<li><a href="ppe01.html"  rel="external">Test 1</a></li>
+								<li><a href="ppe02.html"  rel="external">Test 2</a></li>
+								<li><a href="ppe03.html"  rel="external">Test 3</a></li>
+								<li><a href="ppe04.html"  rel="external">Test 4</a></li>
+								<li><a href="ppe05.html"  rel="external">Test 5</a></li>
+								<li><a href="ppe06.html"  rel="external">Test 6</a></li>
+								<li><a href="ppe07.html"  rel="external">Test 7</a></li>
+								<li><a href="ppe08.html"  rel="external">Test 8</a></li>
+								<li><a href="ppe09.html"  rel="external">Test 9</a></li>
+								<li><a href="ppe10.html"  rel="external">Test 10</a></li>
+								<li><a href="ppe11.html"  rel="external">Test 11</a></li>
+								<li><a href="ppe12.html"  rel="external">Test 12</a></li>
+								<li><a href="ppe13.html"  rel="external">Test 13</a></li>
+								<li><a href="ppe14.html"  rel="external">Test 14</a></li>
+								<li><a href="ppe15.html"  rel="external">Test 15</a></li>
+								<li><a href="ppe16.html"  rel="external">Test 16</a></li>
+								<li><a href="ppe17.html"  rel="external">Test 17</a></li>
+								<li><a href="ppe18.html"  rel="external">Test 18</a></li>
+								<li><a href="ppe19.html"  rel="external">Test 19</a></li>
+								<li><a href="ppe20.html"  rel="external">Test 20</a></li>
+								<li><a href="ppe21.html"  rel="external">Test 21</a></li>
+								<li><a href="ppe22.html"  rel="external">Test 22</a></li>
+								<li><a href="ppe23.html"  rel="external">Test 23</a></li>
+								<li><a href="ppe24.html"  rel="external">Test 24</a></li>
+								<li><a href="ppe25.html"  rel="external">Test 25</a></li>
+								<li><a href="ppe26.html"  rel="external">Test 26</a></li>
+								<li><a href="ppe27.html"  rel="external">Test 27</a></li>
+							</ul>
+						</div>
+					</div>
+					<div id="for_right_navbar"> <!-- need to be updated per test -->
+						<div data-role="collapsible">
+							<h3>Elements</h3>
+							<ul data-role="listview" id="right_nav" data-inset="true" data-theme="c" data-dividertheme="f">
+								<li><a href="#"  rel="external">Test I</a></li>
+								
+							</ul>
+						</div>
+					</div>
+					<br>
+					<div class="for_quiz">
+						<div id="content">
+							<strong id="timerContinue"><time>00:00:00</time></strong>
+							<strong id="score">Score: 0/50</strong> <br><br>
+							<div class="for_question"><span id="question"></span> </div> 
+							<div id="choices"></div> 
+							<button id="submit" class="button"> Submit Answer</button>
+						</div>
+					</div>
+					<br>
+					<!-- //mga nadagdag for view_solution -->
+					<!-- <div class="for_view_solution">
+						<p id="solution_1">
+							<span>Solution 1</span><br>Data: <br>
+							<span class="eq">$m_1 = 500 g_m$ $/frac{F}{A} \sqrt{\pi}$ </span><br>
+							<span class="eq">$m_2 = 800 g_f$ </span><br>
+							<span class="eq">$m_3 = 15 poundals$ </span><br>
+							<span class="eq">$m_4 = 3 lb_f$ </span><br>
+							<span class="eq">$m_5 = 0.10slug$ </span><br>
+							<span class="eq">$g = 30.5 ft/s^2$ </span><br>
+							Unknown: <br>
+							<span class="eq">a) Total mass, $m_T$ in $g_m$ </span><br>
+							<span class="eq">b) $m_T$ in $lb_m$ </span><br>
+							<span class="eq">c) $m_T$ in $slugs$ </span><br>
+							Solution: <br>
+							<span class="eq"> $m_T = m_1 + m_2 +$ $m_3 + m_4 + m_5 \longrightarrow (eq. 1)$</span> <br>
+							
+							<span class="eq"> </span> <br>
+						</p>
+						
+						<p id="solution_2"><span>Solution 2</span><br>Data: <br> 
+							<span class="eq"> $g_{sea} = 32.088 fps^2 $ </span> <br>
+							<span class="eq"> $\Delta g = -0.003 fps^2 $ per 1000 ft </span> <br>
+							Unknown: <br>
+							<span class="eq"> a) Height, $h$ if g is 30.504 $fps^2$ </span> <br>
+							<span class="eq"> b) $h$ if $F_g$ is 95% of original </span> <br>
+							<span class="eq"> c) $F_g$ if $h$ is 29,131 ft and $m$ is 180 $lb_m$</span> <br>
+							Solution: <br>
+							<span class="eq">a) $h = (30.504 - 32.088)fps^2$ x $\frac{1000ft}{-0.003 fps^2}$ $= 528,000ft$ $= \underline{100mi}$ </span> <br>
+							<span class="eq"> b) $h = (32.088)(0.95 - 1)$ $fps^2$ x $\frac{1000ft}{-0.003 fps^2}$ $= 534,800$ ft or $\underline{101.29 mi}$</span> <br>
+							<span class="eq"> c) $F_g = mg \longrightarrow (eq. 1)$ </span> <br>
+							But <br>
+							<span class="eq"> $m = 180 lb_m$ x $\frac{1 slug}{32.2 lb_m}$ $=5.59 slugs$ </span> <br>
+							<span class="eq"> $g = 29,131ft$ x $\frac{-0.003 fps^2}{1000 ft}$ $+ 32.088 fps^2$ $32.00 fps^2$</span> <br>
+							Then from $(eq. 1)$ <br>
+							<span class="eq"> $F_g = 5.59 slugs$ x $32.00 fps^2$ $=\underline{178.88 lb_f}$</span> <br>
+						</p> 
+						
+						<p id="solution_3"><span>Solution 3</span><br>Data: <br> 
+							<span class="eq"> $g_{sea} = 32.088 fps^2 $ </span> <br>
+							<span class="eq"> $\Delta g = -0.003 fps^2 $ per 1000 ft </span> <br>
+							Unknown: <br>
+							<span class="eq"> a) Height, $h$ if g is 30.504 $fps^2$ </span> <br>
+							<span class="eq"> b) $h$ if $F_g$ is 95% of original </span> <br>
+							<span class="eq"> c) $F_g$ if $h$ is 29,131 ft and $m$ is 180 $lb_m$</span> <br>
+							Solution: <br>
+							<span class="eq">a) $h = (30.504 - 32.088)fps^2$ x $\frac{1000ft}{-0.003 fps^2}$ $= 528,000ft$ $= \underline{100mi}$ </span> <br>
+							<span class="eq"> b) $h = (32.088)(0.95 - 1)$ $fps^2$ x $\frac{1000ft}{-0.003 fps^2}$ $= 534,800$ ft or $\underline{101.29 mi}$</span> <br>
+							<span class="eq"> c) $F_g = mg \longrightarrow (eq. 1)$ </span> <br>
+							But <br>
+							<span class="eq"> $m = 180 lb_m$ x $\frac{1 slug}{32.2 lb_m}$ $=5.59 slugs$ </span> <br>
+							<span class="eq"> $g = 29,131ft$ x $\frac{-0.003 fps^2}{1000 ft}$ $+ 32.088 fps^2$ $32.00 fps^2$</span> <br>
+							Then from $(eq. 1)$ <br>
+							<span class="eq"> $F_g = 5.59 slugs$ x $32.00 fps^2$ $=\underline{178.88 lb_f}$</span> <br>
+						</p>
+						
+						<p id="solution_4"><span>Solution 4</span><br>Data: <br> 
+							<span class="eq"> $g_{sea} = 32.088 fps^2 $ </span> <br>
+							<span class="eq"> $\Delta g = -0.003 fps^2 $ per 1000 ft </span> <br>
+							Unknown: <br>
+							<span class="eq"> a) Height, $h$ if g is 30.504 $fps^2$ </span> <br>
+							<span class="eq"> b) $h$ if $F_g$ is 95% of original </span> <br>
+							<span class="eq"> c) $F_g$ if $h$ is 29,131 ft and $m$ is 180 $lb_m$</span> <br>
+							Solution: <br>
+							<span class="eq">a) $h = (30.504 - 32.088)fps^2$ x $\frac{1000ft}{-0.003 fps^2}$ $= 528,000ft$ $= \underline{100mi}$ </span> <br>
+							<span class="eq"> b) $h = (32.088)(0.95 - 1)$ $fps^2$ x $\frac{1000ft}{-0.003 fps^2}$ $= 534,800$ ft or $\underline{101.29 mi}$</span> <br>
+							<span class="eq"> c) $F_g = mg \longrightarrow (eq. 1)$ </span> <br>
+							But <br>
+							<span class="eq"> $m = 180 lb_m$ x $\frac{1 slug}{32.2 lb_m}$ $=5.59 slugs$ </span> <br>
+							<span class="eq"> $g = 29,131ft$ x $\frac{-0.003 fps^2}{1000 ft}$ $+ 32.088 fps^2$ $32.00 fps^2$</span> <br>
+							Then from $(eq. 1)$ <br>
+							<span class="eq"> $F_g = 5.59 slugs$ x $32.00 fps^2$ $=\underline{178.88 lb_f}$</span> <br>
+						</p>
+					
+					</div> -->
+					
+					<button id="view_solution" class="button small"> View Solution</button>
+
+										
+				</div>
+				
+								
+				
+				<div class="for_right_ads_quiz">
+					<span> FRA   </span>
+				</div>
+			</div>
+		</div>
+			
+			<script>
+	
+ //star timer
+  var timeElapsed = "";
+	var h1 = document.getElementById('timerContinue'),
+		start = document.getElementById('start'),
+		stop = document.getElementById('stop'),
+		clear = document.getElementById('clear'),
+		seconds = 0, minutes = 0, hours = 0,
+		t;
+
+	function add() {
+		seconds++;
+		if (seconds >= 60) {
+			seconds = 0;
+			minutes++;
+			if (minutes >= 60) {
+				minutes = 0;
+				hours++;
+			}
+		}
+		
+		h1.textContent = (hours ? (hours > 9 ? hours : "0" + hours) : "00") + ":" + (minutes ? (minutes > 9 ? minutes : "0" + minutes) : "00") + ":" + (seconds > 9 ? seconds : "0" + seconds);
+		timeElapsed =(hours ? (hours > 9 ? hours : "0" + hours) : "00") + ":" +  (minutes ? (minutes > 9 ? minutes : "0" + minutes) : "00") + ":" + (seconds > 9 ? seconds : "0" + seconds);
+
+		timer();
+	}
+	function timer() {
+		t = setTimeout(add, 1000);
+	}
+	timer();
+
+	//end timer
+	
+var quiz = [{
+	"question": "The stroke of a petrol engine is 87.5 mm and the clearance is equal to 12.5 mm. A compression plate is now fitted which has the effect of reducing the clearance to 10 mm. Assuming the compression period to be the whole stroke, the pressure at the beginning of compression as 98.29 kPa and the law of compression PV^1.35 = C, calculate the pressure at the end of compression before the compression plate is fitted. ",
+	"choices": ["1628.10 kPa", "1528.10 kPa", "1728.10 kPa", "1828.10 kPa"],
+	"correct": "1628.10 kPa"
+}, {
+	"question": "The compression ratio of a petrol engine working on the constant volume cycle is 8.5. The pressure and temperature at the beginning of compression are 101.325 kPa and 40˚C and the maximum pressure of the cycle is 3,141.08 kPa. Taking compression to follow the law PV^1.35 = C, calculate the temperature at the end of compression.",
+	"choices": ["388.97˚C", "288.97˚C", "355.65˚C", "255.65˚C"],
+	"correct": "388.97˚C"
+}, {
+	"question": "The stroke of an internal combustion engine is 75 mm, the diameter of the cylinder is 70 mm and the clearance volume at the end of compression is 36 cm^3. Assuming compression follows the law PV^1.37 = C, Calculate the pressure at the end of compression if the initial pressure is 98.29 kPa.",
+	"choices": ["1 MPa", "2 MPa", "3 MPa", "4 MPa"],
+	"correct": "2 MPa"
+}, {
+	"question": "A petrol engine working on the constant volume cycle has a compression ratio of 9 to 1. If the pressure and temperature of the petrol-vapor air mixture at the beginning of compression are 99.30 kPa and 38˚C respectively, calculate the temperature at the end of compression assuming it follows the law PV^1.34 = C. ",
+	"choices": ["383.45˚C", "728.45˚C", "899.30˚C", "883.48˚C"],
+	"correct": "383.45˚C"
+}, {
+	"question": "When the piston is moving up in a two-stroke diesel engine , the scavenge ports are closed, when the piston is 675 mm from the top of its stroke, the pressure and temperature of the air in the cylinder then being 13.80 kPag and 43˚C. The clearance is equal to 65 mm and the diameter of the cylinder is 650 mm. Calculate the mass of air compressed in the cylinder taking the atmospheric pressure as 101.325 kPa and R for air as 0.287 kJ/kg-K. ",
+	"choices": ["0.21 kg", "0.31 kg", "0.41 kg", "0.51 kg"],
+	"correct": "0.31 kg"
+}, {
+	"question": "The compression ratio of a compression-ignition engine is 14 to 1. The diameter of the cylinder is 500 mm and the stroke to bore ratio is 1.2 to 1. At the beginning of the compression the pressure and temperature of the air in the cylinder is 105 kPa and 51˚C, and the compression follows the law PV^n = C , where n = 1.35. Calculate the work done on the air during compression.",
+	"choices": ["-57.69 kJ", "-67.59 kJ", "-76.59 kJ", "-95.67 kJ"],
+	"correct": "-57.69 kJ"
+}, {
+	"question": "Gas initially at a pressure of 101.325 kPa and temperature of 60˚C undergoes the following cycle: 1-2 Adiabatic compression through pressure ratio of 4.5:1, 2-3 Heating at constant volume through a pressure ratio of 1.35:1, 3-4 Isentropic expansion to initial pressure, 4-1 Constant pressure cooling to inital volume. If cp = 1 kJ/kg-K and cv = 0.678 kJ/kg-K for the gas, determine the thermal efficiency of the cycle. ",
+	"choices": ["41.41%", "39.39%", "43.43%", "45.45%"],
+	"correct": "41.41%"
+}, {
+	"question": "One kilogram of air at pressure and temperature of 101.325 kPa and 15˚C initially, undergoes the following process in a cycle: 1-2 Isothermal compression to 202.65 kPa, 2-3 Polytropic compression from 202.65 kPa to 405.30 kPa, 3-1 Isentropic expansion from 405.30 to initial condition. Calculate the heat transfer for process 1 to 2. Use R = 0.287 kJ/kg-K and k = 1.4 for air.",
+	"choices": ["-57.29 kJ", "-30.21 kJ", "70.30 kJ", "100.50 kJ"],
+	"correct": "-57.29 kJ"
+}, {
+	"question": "The compression ratio of an engine working on the dual combustion cycle is 10.7. The pressure and temperature of the air at the beginning of compression is 101.325 kPa and 32˚C. The maximum pressure and temperature during the cycle is 4.154 MPa and 1593˚C. Assuming adiabatic compression and expansion, calculate the temperature at the end of compression.",
+	"choices": ["414.14˚C", "514.14˚C", "314.14˚C", "614.14˚C"],
+	"correct": "514.14˚C"
+}, {
+	"question": "In an Otto cycle if the compression ratio is 5.5, what is the percent clearance?",
+	"choices": ["22.22%", "31.11%", "19.64%", "25.34%"],
+	"correct": "22.22%"
+}, {
+	"question": "The efficiency of an Otto engine is 55% and the stroke volume is 35 liters. If the heat added at the beginning of the combustion is 12.6 kJ, calculate the mean effective pressure.",
+	"choices": ["194 kPa", "188 kPa", "198 kPa", "184 kPa"],
+	"correct": "198 kPa"
+}, {
+	"question": "Gas is compressed in an internal combustion engine according to the law PV^1.36 = C. If the initial and final temperatures of the gas are 30˚C and 382˚C respectively, calculate the compression ratio.",
+	"choices": ["5.51", "6.51", "7.51", "8.51"],
+	"correct": "8.51"
+}, {
+	"question": "If the volumes at the end of compression and at the beginning of expansion in an ideal Diesel engine are 0.015 m^3 and 0.040 m^3 respectively, what is the cut-off ratio?",
+	"choices": ["1.67", "2.67", "2.54", "1.54"],
+	"correct": "2.67"
+}, {
+	"question": "The pressure ratio during the constant volume portion of combustion in a dual combustion engine is 1.5. If the pressure at the end of the constant volume addition of heat is 4 MPa, what is the pressure at the beginning? ",
+	"choices": ["3.67 MPa", "6 MPa", "2.67 MPa", "7 MPa"],
+	"correct": "2.67 MPa"
+}, {
+	"question": "If the compression ratio and the cut-off ratio of a Diesel engine are 15 and 3  respectively, what is the expansion ratio?",
+	"choices": ["4", "5", "6", "7"],
+	"correct": "5"
+}, {
+	"question": "At the beginning of compression in an ideal dual combustion cycle, the  working fluid is 2 lbs of air at 14.7 psia and 85˚F. The compression ratio is 8.5, the pressure at the end of the constant volume addition of heat is 450 psia, and there are added 105 Btu during the constant pressure expansion. Find the pressure ratio and the percentage clearance.  ",
+	"choices": ["1.53, 13.33%", "1.31, 12.42%", "1.53, 12.42%", "1.31, 13.33%"],
+	"correct": "1.53, 13.33%"
+}, {
+	"question": "What is the efficiency of the Diesel Engine if the heat added during the constant pressure combustion is 19 Btu and the heat rejected is 9 Btu.",
+	"choices": ["42.63%", "52.63%", "55.66%", "45.66%"],
+	"correct": "52.63%"
+}, {
+	"question": "A Diesel cycle operates with a compression ratio of 14 and a cut-off occurring at 5% of the stroke. Find the cut-off ratio, if the initial volume is 1.5 ft^3. ",
+	"choices": ["1.65", "2.65", "3.65", "4.65"],
+	"correct": "1.65"
+}, {
+	"question": "The air is compressed to 1/5 of its original volume in an Otto cycle. What is the final temperature of the air if the initial temperature is 25˚C.",
+	"choices": ["294.29˚C", "388.58˚C", "255.66˚C", "355.66˚C"],
+	"correct": "294.29˚C"
+}, {
+	"question": "An Otto cycle operates 1 kg of air from 101.325 kPa and 25˚C at the beginning of compression. If the clearance is 15%, find the temperature at the end of compression.",
+	"choices": ["300˚C", "400˚C", "450.01˚C", "350.01˚C"],
+	"correct": "400˚C"
+}];
+
+
+	
+// mga nadagdag quiz with images
+// array of images  
+	var images = [];
+	var solutionIsVisible;
+
+// define elements
+var content = $("content"),
+  questionContainer = $("question"),
+  choicesContainer = $("choices"),
+  scoreContainer = $("score"), //nabago
+  submitBtn = $("submit");
+  
+  var resultPage = "";
+  
+// init vars
+var currentQuestion = 0,
+	score = 0,
+  askingQuestion = true,
+  questionNumber = 0,
+   maxQ = quiz.length, 
+  questionNumber;
+  
+  wrongAnswerQ = "",
+  wrongAnswerNo=0;
+  var yourAnswer = "You did not pick any answer.";
+  var choicesMistakesG = "";
+  if(maxQ > quiz.length) {
+	maxQ = quiz.length;
+  }
+  var isOnReviewWrongPage = false;
+  var duplicates  =[];
+
+function $(id) { // shortcut for document.getElementById
+  return document.getElementById(id);
+}
+
+function askQuestion() {
+  var choices = quiz[questionNumber].choices,
+    choicesHtml = "", choicesMistakes="" ;
+
+
+  // loop through choices, and create radio buttons
+  for (var i = 0; i < choices.length; i++) {
+  //alert(get_rand(nums));
+    choicesHtml += "<input type='radio' name='quiz" + questionNumber +
+      "' id='choice" + ( i + 1) +
+      "' value='" + choices[i] + "'>" +
+      " <label for='choice" + (i + 1) + "'>" + choices[i] + "</label> <br>";
+	  
+	  choicesMistakes += "<span name='quiz" + questionNumber +
+      "' id='choice" + (i + 1) +
+      "' value='" + choices[i] + "'>"+ (i+1) + ". " + choices[i] + "</span><br>";
+	   if(choices[i] === quiz[questionNumber].correct) {
+			correctAnswer = choices[i];
+			correctAnswerIndex = i;
+	  }
+	  
+	  choicesMistakesG = choicesMistakes;
+  }
+
+  
+  // load the question
+  questionContainer.textContent = (questionNumber + 1) + ". " +
+    quiz[questionNumber].question;
+	
+	
+  // load the choices
+  choicesContainer.innerHTML = choicesHtml;
+
+  // setup for the first time
+  if (questionNumber === 0) {
+  scoreContainer.textContent = "Score: " + score + "/" + maxQ; //nabago
+    submitBtn.textContent = "Submit Answer";
+	//alert(quiz.length);
+  }
+  
+	
+
+}
+
+function checkAnswer() {
+	var yourAnswer = "You did not pick any answer.";
+  // are we asking a question, or proceeding to next question?
+  if (askingQuestion) {
+	
+	//mga nadagdag for view_solution
+	if($('#solution_' + (questionNumber+1)).length > 0) {
+		$('#view_solution').css('visibility', 'visible');
+	}
+    submitBtn.textContent = "Next Question";
+    askingQuestion = false;
+
+    // determine which radio button they clicked
+    var userpick,
+      correctIndex,
+      radios = document.getElementsByName("quiz" + questionNumber);
+    for (var i = 0; i < radios.length; i++) {
+      if (radios[i].checked) { // if this radio button is checked
+        userpick = radios[i].value;
+		yourAnswer = userpick;
+      }
+
+      // get index of correct answer
+      if (radios[i].value == quiz[questionNumber].correct) {
+        correctIndex = i;
+      }
+    }
+
+    // setup if they got it right, or wrong
+    var labelStyle = document.getElementsByTagName("label")[correctIndex].style;
+    labelStyle.fontWeight = "bold";
+    if (userpick == quiz[questionNumber].correct) {
+      labelStyle.color = "green";
+	  score++; 
+    } else {
+		wrongAnswerNo++;
+      labelStyle.color = "red";
+	  wrongAnswerQ += "<br> <span id='question'> " + wrongAnswerNo+". " + quiz[questionNumber].question + "</span><br> " + "<div id='choices'>" + choicesMistakesG + " <strong>Your answer: "+ yourAnswer + "</strong><br> <strong id='answer'>" + "Correct answer: " + correctAnswer  + "</strong></div> ";//  + 
+
+    }
+	
+	
+  } else { // move to next question
+    // setting up so user can ask a question
+    askingQuestion = true;
+    // change button text back to "Submit Answer"
+    submitBtn.textContent = "Submit Answer";
+	scoreContainer.textContent = "Score: " + score + "/" + maxQ;; //nabago
+    // if we're not on last question, increase question number
+    if (questionNumber < maxQ - 1) {
+      //currentQuestion++;
+	  questionNumber++;
+      askQuestion();
+    } else {
+      clearTimeout(t);
+      showFinalResults();
+    }
+	
+	//mga nadagdag quiz with images
+	for(i=0; i<quiz.length; i++) { 
+		$('#for_q_' + (i+1)).hide();
+	}
+	
+	// mga nadagdag quiz with images
+	if((questionNumber+1) === 1) {
+		$('#question').after(images[0]);
+	} else if((questionNumber+1) === 2) {
+		$('#question').after(images[1]);
+	}
+	
+	//mga nadagdag for view_solution
+	for(i=0; i<quiz.length; i++) { 
+		$('#solution_' + (i+1)).hide();
+	}
+	
+	$('.for_view_solution').hide();
+	$('#view_solution').css('visibility', 'hidden');
+	
+	solutionIsVisible = false;
+	if(solutionIsVisible) {
+		document.getElementById('view_solution').textContent = 'Hide Solution';
+		solutionIsVisible = false;
+	}else if(!solutionIsVisible){
+		document.getElementById('view_solution').textContent = 'View Solution';
+		solutionIsVisible = true;
+	}
+  }
+}
+
+function showFinalResults() {
+	//resultPage = "<center><strong class='for_h'>You Passed!</strong></center>";
+	if(score/maxQ >= 0.7){
+		resultPage = "<center><strong class='for_h'>You Passed!</strong></center> <br> <center><strong>Score: " + score + " out of " + maxQ + " </strong></center><center><strong> Equivalent Percentage: " + Math.floor(score/maxQ*100) + "%</strong></center><center><strong>Total time: " + timeElapsed + "</strong></center> <br> <br><button id='restart' class='button fit' onclick='reloadCurrentPage();'> Restart the Test</button><button id='reviewMistakes' class='button fit' onclick='reviewMistakes();'> Review Mistakes</button> <button id='proceedToNext' class='button fit' onclick='proceedToNext();'> Proceed to next Test</button> ";
+	} else {
+		resultPage = "<center><strong class='for_h'>You Failed!</strong></center> <br> <center><strong>Score: " + score + " out of " + maxQ + " </strong></center><center><strong> Equivalent Percentage: " + Math.floor(score/maxQ*100) + "%</strong></center><center><strong>Total time: " + timeElapsed + "</strong></center> <br> <br><button id='restart' class='button fit' onclick='reloadCurrentPage();'> Restart the Test</button><button id='reviewMistakes' class='button fit' onclick='reviewMistakes();'> Review Mistakes</button> <button id='proceedToNext' class='button fit' onclick='proceedToNext();'> Proceed to next Test</button> ";
+	}
+	content.innerHTML = resultPage;
+}
+
+function reviewMistakes() {
+	content.innerHTML = wrongAnswerQ + " <br><br> <center><button id='restart' class='button fit' onclick='reloadCurrentPage();'> Restart the Test</button></center> <button id='proceedToNext' class='button fit' onclick='proceedToNext();'> Proceed to next Test</button>";
+}
+
+function proceedToNext() {
+	document.location.href = "ppe03.html"; //need to be updated per test 
+}
+
+function reloadCurrentPage() {
+	document.location.href = "ppe02.html"; //need to be updated per test 
+}
+
+window.addEventListener("load", askQuestion, false);
+submitBtn.addEventListener("click", checkAnswer, false);
+
+
+
+</script>
+
+
+
+
+			<!-- Scripts for Phantom -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+	</body>
+
+</html>

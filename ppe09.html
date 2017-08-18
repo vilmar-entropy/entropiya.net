@@ -1,0 +1,601 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+	
+		<title>Entropiya | Power Plant Engineering 9</title> <!-- need to be updated per test -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		
+		<link rel="stylesheet" href="css/index.css" />
+		<script src="js/index.js"></script>
+		<link rel="stylesheet" href="assets/css/main.css" />
+
+		<!-- FontAwesome, jQuery and jQuery Mobile -->
+		<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css">
+		<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+		<script type="text/javascript" src="jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script> 
+		
+		<!-- jqmath -->
+		<link rel="stylesheet" href="mathscribe/jqmath-0.4.3.css">
+		<script src="mathscribe/jquery-1.4.3.min.js"></script>
+		<script src="mathscribe/jqmath-etc-0.4.5.min.js" charset="utf-8"></script>
+		
+		<script>
+			$(document).ready(function() {
+				solutionIsVisible = true;
+				
+				//mga nadagdag for view_solution
+				
+				$('.for_view_solution').hide();
+				$('#view_solution').css('visibility', 'hidden');
+				
+				for(i=0; i<quiz.length; i++) {
+					$('#solution_' + (i+1)).hide();
+				}
+				
+				$('#view_solution').click(function() {
+					for(i=0; i<quiz.length; i++) {
+						$('#solution_' + (i+1)).hide();
+					}
+						
+					$('#solution_' + (questionNumber + 1)).fadeToggle('slow');
+					$('.for_view_solution').fadeToggle('slow');
+					
+					if(solutionIsVisible) {
+						document.getElementById('view_solution').textContent = 'Hide Solution';
+						solutionIsVisible = false;
+					}else if(!solutionIsVisible){
+						document.getElementById('view_solution').textContent = 'View Solution';
+						solutionIsVisible = true;
+					}
+					
+				});
+
+				
+				// Image factory
+				var createImage = function(src, title, id) {
+				  var img   = new Image();
+				  img.src   = src;
+				  img.id = id;
+				  img.alt   = title;
+				  img.title = title;
+				  return img; 
+				};
+
+				// array of images dun dineclare sa main script para global
+				//var images = [];
+
+				// push two images to the array
+				//images.push(createImage("images/for_q_1.png", "pic01 title", "for_q_1"));
+				//images.push(createImage("images/for_q_2.png", "pic03 title", "for_q_2"));
+				
+				// mga nadagdag quiz with images
+				if((questionNumber+1) === 1) {
+					$('#question').after(images[0]);
+				} else if((questionNumber+1) === 2) {
+					$('#question').after(images[1]);
+				}
+				
+			});
+		</script>
+	
+	</head>
+	
+	<body>
+		<div data-role="panel" data-position="right" data-display="overlay" data-theme="a" id="panel">
+			<div class="nav_in_panel_container"> 
+				<ul data-role="listview" data-inset="true" data-theme="b" data-dividertheme="f">
+					<li data-icon="false"><a class="nav_in_panel" href="index.html" rel="external"><i class="fa fa-home" aria-hidden="true" ></i>  Home  </a> </li>
+					<li data-icon="false"><a class="nav_in_panel" href="about.html" rel="external"><i class="fa fa-user-o" aria-hidden="true" ></i>  About  </a> </li>
+					<li data-icon="false"><a class="nav_in_panel" href="references.html" rel="external"><i class="fa fa-book" aria-hidden="true" ></i>  References  </a>
+					<li data-icon="false"><a class="nav_in_panel" href="https://www.facebook.com/vilmar.empino?__nodl" rel="external" ><i class="fa fa-facebook-square" aria-hidden="true"></i>  Like us on facebook!  </a></li>
+				</ul>
+			</div>
+		</div>
+		<div id="header_container">
+			<figure class="logo" id="logo">
+				<a href="index.html" rel="external"><img src="images/logo.png" alt="image"/></a>
+			</figure>
+			<ul class="home_nav_quiz"> 
+				<a href="#panel" class="right_panel"> <i class="fa fa-bars" id="icon_for_right_panel" aria-hidden="true"></i> </a>
+				<div class="toBeHidden">
+				<li class="li"><a class="a" href="references.html" rel="external">References</a></li>
+				<li class="li"><a class="a" href="about.html" rel="external">About</a></li>
+				<!-- <li class="li" id="dropdown">
+					<a class="a" href="javascript:void(0)" class="dropbtn">MCQs <i class="fa fa-caret-down" aria-hidden="true"></i></a>
+					<div class="dropdown-content">
+					<a class="a" href="home-me.html" rel="external">Mechanical Engineering</a>
+					<a class="a" href="home-ece.html" rel="external">Electronics Engineering</a> 
+					</div>
+				</li> -->
+				<li class="li"><a class="a" href="index.html" rel="external">Home</a></li>
+				</div>
+			</ul>
+		</div>
+		<div id="body_container"> 
+			
+			<div id="for_contents_quiz">
+				
+				<div id="for_left_content_quiz">
+					<div id="for_title">
+						<strong class="for_h2">Power Plant Engineering - Test 9 Steam Power Plant (1-20)</strong> <!-- need to be updated per test -->
+					</div>
+					<br>
+					<div id="for_top_ads_quiz">
+						<span> FTA  </span>
+					</div>
+					<div id="for_left_navbar"> <!-- need to be updated per test -->
+						<div data-role="collapsible">
+							<h3>Problems</h3>
+							<ul data-role="listview" id="left_nav" data-inset="true" data-theme="c" data-dividertheme="f">
+								<li><a href="ppe01.html"  rel="external">Test 1</a></li>
+								<li><a href="ppe02.html"  rel="external">Test 2</a></li>
+								<li><a href="ppe03.html"  rel="external">Test 3</a></li>
+								<li><a href="ppe04.html"  rel="external">Test 4</a></li>
+								<li><a href="ppe05.html"  rel="external">Test 5</a></li>
+								<li><a href="ppe06.html"  rel="external">Test 6</a></li>
+								<li><a href="ppe07.html"  rel="external">Test 7</a></li>
+								<li><a href="ppe08.html"  rel="external">Test 8</a></li>
+								<li><a href="ppe09.html"  rel="external">Test 9</a></li>
+								<li><a href="ppe10.html"  rel="external">Test 10</a></li>
+								<li><a href="ppe11.html"  rel="external">Test 11</a></li>
+								<li><a href="ppe12.html"  rel="external">Test 12</a></li>
+								<li><a href="ppe13.html"  rel="external">Test 13</a></li>
+								<li><a href="ppe14.html"  rel="external">Test 14</a></li>
+								<li><a href="ppe15.html"  rel="external">Test 15</a></li>
+								<li><a href="ppe16.html"  rel="external">Test 16</a></li>
+								<li><a href="ppe17.html"  rel="external">Test 17</a></li>
+								<li><a href="ppe18.html"  rel="external">Test 18</a></li>
+								<li><a href="ppe19.html"  rel="external">Test 19</a></li>
+								<li><a href="ppe20.html"  rel="external">Test 20</a></li>
+								<li><a href="ppe21.html"  rel="external">Test 21</a></li>
+								<li><a href="ppe22.html"  rel="external">Test 22</a></li>
+								<li><a href="ppe23.html"  rel="external">Test 23</a></li>
+								<li><a href="ppe24.html"  rel="external">Test 24</a></li>
+								<li><a href="ppe25.html"  rel="external">Test 25</a></li>
+								<li><a href="ppe26.html"  rel="external">Test 26</a></li>
+								<li><a href="ppe27.html"  rel="external">Test 27</a></li>
+							</ul>
+						</div>
+					</div>
+					<div id="for_right_navbar"> <!-- need to be updated per test -->
+						<div data-role="collapsible">
+							<h3>Elements</h3>
+							<ul data-role="listview" id="right_nav" data-inset="true" data-theme="c" data-dividertheme="f">
+								<li><a href="#"  rel="external">Test I</a></li>
+								
+							</ul>
+						</div>
+					</div>
+					<br>
+					<div class="for_quiz">
+						<div id="content">
+							<strong id="timerContinue"><time>00:00:00</time></strong>
+							<strong id="score">Score: 0/50</strong> <br><br>
+							<div class="for_question"><span id="question"></span> </div> 
+							<div id="choices"></div> 
+							<button id="submit" class="button"> Submit Answer</button>
+						</div>
+					</div>
+					<br>
+					<!-- //mga nadagdag for view_solution -->
+					<!-- <div class="for_view_solution">
+						<p id="solution_1">
+							<span>Solution 1</span><br>Data: <br>
+							<span class="eq">$m_1 = 500 g_m$ $/frac{F}{A} \sqrt{\pi}$ </span><br>
+							<span class="eq">$m_2 = 800 g_f$ </span><br>
+							<span class="eq">$m_3 = 15 poundals$ </span><br>
+							<span class="eq">$m_4 = 3 lb_f$ </span><br>
+							<span class="eq">$m_5 = 0.10slug$ </span><br>
+							<span class="eq">$g = 30.5 ft/s^2$ </span><br>
+							Unknown: <br>
+							<span class="eq">a) Total mass, $m_T$ in $g_m$ </span><br>
+							<span class="eq">b) $m_T$ in $lb_m$ </span><br>
+							<span class="eq">c) $m_T$ in $slugs$ </span><br>
+							Solution: <br>
+							<span class="eq"> $m_T = m_1 + m_2 +$ $m_3 + m_4 + m_5 \longrightarrow (eq. 1)$</span> <br>
+							
+							<span class="eq"> </span> <br>
+						</p>
+						
+						<p id="solution_2"><span>Solution 2</span><br>Data: <br> 
+							<span class="eq"> $g_{sea} = 32.088 fps^2 $ </span> <br>
+							<span class="eq"> $\Delta g = -0.003 fps^2 $ per 1000 ft </span> <br>
+							Unknown: <br>
+							<span class="eq"> a) Height, $h$ if g is 30.504 $fps^2$ </span> <br>
+							<span class="eq"> b) $h$ if $F_g$ is 95% of original </span> <br>
+							<span class="eq"> c) $F_g$ if $h$ is 29,131 ft and $m$ is 180 $lb_m$</span> <br>
+							Solution: <br>
+							<span class="eq">a) $h = (30.504 - 32.088)fps^2$ x $\frac{1000ft}{-0.003 fps^2}$ $= 528,000ft$ $= \underline{100mi}$ </span> <br>
+							<span class="eq"> b) $h = (32.088)(0.95 - 1)$ $fps^2$ x $\frac{1000ft}{-0.003 fps^2}$ $= 534,800$ ft or $\underline{101.29 mi}$</span> <br>
+							<span class="eq"> c) $F_g = mg \longrightarrow (eq. 1)$ </span> <br>
+							But <br>
+							<span class="eq"> $m = 180 lb_m$ x $\frac{1 slug}{32.2 lb_m}$ $=5.59 slugs$ </span> <br>
+							<span class="eq"> $g = 29,131ft$ x $\frac{-0.003 fps^2}{1000 ft}$ $+ 32.088 fps^2$ $32.00 fps^2$</span> <br>
+							Then from $(eq. 1)$ <br>
+							<span class="eq"> $F_g = 5.59 slugs$ x $32.00 fps^2$ $=\underline{178.88 lb_f}$</span> <br>
+						</p> 
+						
+						<p id="solution_3"><span>Solution 3</span><br>Data: <br> 
+							<span class="eq"> $g_{sea} = 32.088 fps^2 $ </span> <br>
+							<span class="eq"> $\Delta g = -0.003 fps^2 $ per 1000 ft </span> <br>
+							Unknown: <br>
+							<span class="eq"> a) Height, $h$ if g is 30.504 $fps^2$ </span> <br>
+							<span class="eq"> b) $h$ if $F_g$ is 95% of original </span> <br>
+							<span class="eq"> c) $F_g$ if $h$ is 29,131 ft and $m$ is 180 $lb_m$</span> <br>
+							Solution: <br>
+							<span class="eq">a) $h = (30.504 - 32.088)fps^2$ x $\frac{1000ft}{-0.003 fps^2}$ $= 528,000ft$ $= \underline{100mi}$ </span> <br>
+							<span class="eq"> b) $h = (32.088)(0.95 - 1)$ $fps^2$ x $\frac{1000ft}{-0.003 fps^2}$ $= 534,800$ ft or $\underline{101.29 mi}$</span> <br>
+							<span class="eq"> c) $F_g = mg \longrightarrow (eq. 1)$ </span> <br>
+							But <br>
+							<span class="eq"> $m = 180 lb_m$ x $\frac{1 slug}{32.2 lb_m}$ $=5.59 slugs$ </span> <br>
+							<span class="eq"> $g = 29,131ft$ x $\frac{-0.003 fps^2}{1000 ft}$ $+ 32.088 fps^2$ $32.00 fps^2$</span> <br>
+							Then from $(eq. 1)$ <br>
+							<span class="eq"> $F_g = 5.59 slugs$ x $32.00 fps^2$ $=\underline{178.88 lb_f}$</span> <br>
+						</p>
+						
+						<p id="solution_4"><span>Solution 4</span><br>Data: <br> 
+							<span class="eq"> $g_{sea} = 32.088 fps^2 $ </span> <br>
+							<span class="eq"> $\Delta g = -0.003 fps^2 $ per 1000 ft </span> <br>
+							Unknown: <br>
+							<span class="eq"> a) Height, $h$ if g is 30.504 $fps^2$ </span> <br>
+							<span class="eq"> b) $h$ if $F_g$ is 95% of original </span> <br>
+							<span class="eq"> c) $F_g$ if $h$ is 29,131 ft and $m$ is 180 $lb_m$</span> <br>
+							Solution: <br>
+							<span class="eq">a) $h = (30.504 - 32.088)fps^2$ x $\frac{1000ft}{-0.003 fps^2}$ $= 528,000ft$ $= \underline{100mi}$ </span> <br>
+							<span class="eq"> b) $h = (32.088)(0.95 - 1)$ $fps^2$ x $\frac{1000ft}{-0.003 fps^2}$ $= 534,800$ ft or $\underline{101.29 mi}$</span> <br>
+							<span class="eq"> c) $F_g = mg \longrightarrow (eq. 1)$ </span> <br>
+							But <br>
+							<span class="eq"> $m = 180 lb_m$ x $\frac{1 slug}{32.2 lb_m}$ $=5.59 slugs$ </span> <br>
+							<span class="eq"> $g = 29,131ft$ x $\frac{-0.003 fps^2}{1000 ft}$ $+ 32.088 fps^2$ $32.00 fps^2$</span> <br>
+							Then from $(eq. 1)$ <br>
+							<span class="eq"> $F_g = 5.59 slugs$ x $32.00 fps^2$ $=\underline{178.88 lb_f}$</span> <br>
+						</p>
+					
+					</div> -->
+					
+					<button id="view_solution" class="button small"> View Solution</button>
+
+										
+				</div>
+				
+								
+				
+				<div class="for_right_ads_quiz">
+					<span> FRA   </span>
+				</div>
+			</div>
+		</div>
+			
+			<script>
+	
+ //star timer
+  var timeElapsed = "";
+	var h1 = document.getElementById('timerContinue'),
+		start = document.getElementById('start'),
+		stop = document.getElementById('stop'),
+		clear = document.getElementById('clear'),
+		seconds = 0, minutes = 0, hours = 0,
+		t;
+
+	function add() {
+		seconds++;
+		if (seconds >= 60) {
+			seconds = 0;
+			minutes++;
+			if (minutes >= 60) {
+				minutes = 0;
+				hours++;
+			}
+		}
+		
+		h1.textContent = (hours ? (hours > 9 ? hours : "0" + hours) : "00") + ":" + (minutes ? (minutes > 9 ? minutes : "0" + minutes) : "00") + ":" + (seconds > 9 ? seconds : "0" + seconds);
+		timeElapsed =(hours ? (hours > 9 ? hours : "0" + hours) : "00") + ":" +  (minutes ? (minutes > 9 ? minutes : "0" + minutes) : "00") + ":" + (seconds > 9 ? seconds : "0" + seconds);
+
+		timer();
+	}
+	function timer() {
+		t = setTimeout(add, 1000);
+	}
+	timer();
+
+	//end timer
+	
+var quiz = [{
+	"question": "In a Rankine cycle, steam enters the turbine at 2.5 MPa and condenser at 50 kPa. What is the thermal efficiency of the cycle? Steam properties: At 2.5 MPa, hg = 2803.1 kJ/kg, sg = 6.2575 kJ/kg-K and at 50 kPa, hfg = 2305.4 kJ/kg, vf = 0.0010300 m^3/kg.",
+	"choices": ["25.55%", "28.87%", "30.12%", "31.79%"],
+	"correct": "25.55%"
+}, {
+	"question": "A superheat steam Rankine cycle has turbine inlet conditions of 17.5 MPa and 530˚C expands in a turbine to 0.007 MPa. The turbine and pump polytropic efficiencies are 0.9 and 0.7 respectively. Pressure lose between pump and turbine inlet is 1.5 MPa. What should be the pump work in kJ/kg?",
+	"choices": ["32.47 kJ/kg", "27.13 kJ/kg", "29.87 kJ/kg", "33.25 kJ/kg"],
+	"correct": "27.13 kJ/kg"
+}, {
+	"question": "Steam enters the superheater of a boiler at a pressure of 25 bar and dryness of 0.98 and leaves at the same pressure at a temperature of 370˚C. Calculate the heat energy supplied per kg of steam supplied in the superheater. Steam properties: At 25 bar and 370˚C, h = 3171.8 kJ/kg; At 25 bar, hf = 962.11 kJ/kg, hfg = 1841.0 kJ/kg. ",
+	"choices": ["405.51 kJ/kg", "504.15 kJ/kg", "154.15 kJ/kg", "245.25 kJ/kg"],
+	"correct": "405.51 kJ/kg"
+}, {
+	"question": "A back pressure steam turbine of 100,000 kW serves as a prime mover in a cogeneration system. The boiler admits the return water at a temperature of 66˚C and produces the steam at 6.5 MPa and 455˚C. Steam then enters a back pressure turbine and expands to the pressure of the process, which is 0.52 MPa. Assuming a boiler efficiency of 80% and neglecting the effect of pumping and the pressure drops at various locations, what is the incremental heat rate for electric? The following enthalpies have been found: turbine entrance = 3306.8 kJ/kg, exit = 2700.8 kJ/kg: boiler entrance = 276.23 kJ/kg, exit = 3306.8 kJ/kg.",
+	"choices": ["22403.23 kJ/kW-hr", "22504.23 kJ/kW-hr", "12435.72 kJ/kW-hr", "32234.82 kJ/kW-hr"],
+	"correct": "22504.23 kJ/kW-hr"
+}, {
+	"question": "Steam expands adiabatically in a turbine from 2000 kPa, 400˚C to 400 kPa, 250˚C. What is the effectiveness of the process in percent assuming an atmospheric temperature of 15˚C. Neglect changes in kinetic and potential energy. Steam properties: At 2000 kPa and 400˚C, h = 3247.6 kJ/kg, s = 7.1271 kJ/kg-K; At 400 kPa and 250˚C, h = 2964.2 kJ/kg, s = 7.3789 kJ/kg-K.",
+	"choices": ["70.12", "84.52", "79.62", "82.45"],
+	"correct": "79.62"
+}, {
+	"question": "In an open feedwater heater for a steam power plant, saturated steam at 7 bar is mixed with subcooled liquid at 7 bar and 25˚C. Just enough steam is supplied to ensure that the mixed steam leaving the heater will be saturated liquid at 7 bar when heater efficiency is 90%. Calculate the mass flow rate of subcooled liquid if steam flow rate is 0.865 kg per second. Steam properties: At 7 bar, saturated vapor, hg = 2763.5 kJ/kg; At 7 bar and 25˚C, h = 105.5 kJ/kg; At 7 bar, saturated liquid, hf = 697.22 kJ/kg.",
+	"choices": ["3.356", "2.286", "3.948", "2.725"],
+	"correct": "2.725"
+}, {
+	"question": "A steam plant operaties with an initial pressure of 1.70 MPa and 370˚C temperature and exhaust to a heating system at 0.17 MPa. The condensate from the heating system is returned to the boiler at 65.5˚C and the heating system utilizes from its intended purpose 90% of the energy transferred from the steam it receives. The turbine efficiency is 70%. If the boiler efficiency is 80%, what is the cogeneration efficiency of the system in percent? Neglect pumpwork. Steam properties: At 1.7 Ma and 370˚C, h = 3187.1 kJ/kg, s = 7.1081 kJ/kg; At 65˚C, hf = 274.14 kJ/kg; At 1.70 MPa, hf = 483.20 kJ/kg, hfg = 2216.0 kJ/kg, sf = 1.4752 kJ/kg, sfg = 5.7062 kJ/kg-K.",
+	"choices": ["78", "102.1", "91.24", "69"],
+	"correct": "69"
+}, {
+	"question": "In a cogeneration plant, steam enters the turbine at 4 MPa and 400˚C. One fourth of the steam is extracted from the turbine at 600 kPa pressure for process heating. The remaining steam continues to expand to 10 kPa. The extracted steam is then condensed and mixed with feedwater at constant pressure and the mixture is pumped to the boiler pressure of 4 MPa. The mass flow rate of the steam through the boiler is 30 kg/s. Disregarding any pressure drops and heat losses in the piping, and assuming the turbine and pump to be isentropic, how much process heat is required in kW? Steam properties: At 4 MPa and 400˚C, h = 3213.6 kJ/kg, s = 6.769 kJ/kg-K; At 600 kPa, hf = 670.56 kJ/kg, hfg = 2086.3 kJ/kg, sf = 1.9312 kJ/kg-K, sfg = 4.8288 kJ/kg-K.",
+	"choices": ["2468", "3578", "1026", "15648"],
+	"correct": ""
+}, {
+	"question": "A 23.5 kg of steam per second at 5 MPa and 400˚C is produced by a steam generator. The feedwater enters the economizer at 145˚C and leaves at 205˚C.  The steam leaves the boiler drum with a quality of 98%. The unit consumes a 2.75 kg of coal per second as received having a heating value of 25,102 kJ/kg. What would be the over-all efficiency of the unit in percent? Steam properties: At 5 MPa and 400˚C, h = 3195.7 kJ/kg; At 5 MPa, hf = 1154.23 kJ/kg, hfg = 1640.1 kJ/kg; At 205˚C, hf = 875.04 kJ/kg; At 145˚C, hf = 610.63 kJ/kg.",
+	"choices": ["65", "95", "88", "78"],
+	"correct": "88"
+}, {
+	"question": "A coal-fired power plant has a turbine-generator rated at 1000 MW gross. The plant required about 9% of this power for internal operations. It uses 9800 tons (1 ton = 907kg) of coal per day. The coal has a heating value of 6388.9 kcal/kg, and the steam generator efficiency is 86%. What is the net station efficiency of the plant in percent? ",
+	"choices": ["33.07", "40.01", "36.74", "30.12"],
+	"correct": "33.07"
+}, {
+	"question": "Steam enters the turbine of a cogeneration plant at 7.0 MPa and 500˚C. Steam at a flow rate of 7.6 kg/s is extracted from the turbine at 600 kPa pressure for process heating. The remaining steam continues to expand to 10 kPa. The recovered condensates are pump back to the boiler. The mass flow rate of steam that enters the turbine is 30 kg/s. Calculate the cogeneration efficiency in percent. Steam properties: At 7 MPa and 500˚C, h = 3410.3 kJ/kg, s = 6.7975 kJ/kg-K; At 600 kPa, hf = 676.56 kJ/kg, hfg = 2086.3 kJ/kg, sf = 1.9312 kJ/kg-K, sfg = 7.50146 kJ/kg-K.",
+	"choices": ["60", "50", "65", "55"],
+	"correct": "55"
+}, {
+	"question": "A 60 MW turbine generator running at 3600 rpm receives steam at 4.0 MPa and 450˚C with a back pressure of 10 kPa. Engine efficiency is 78% and the combined mechanical and electrical efficiency is 95%. What would be the exhaust enthalpy of the steam in kJ/kg?",
+	"choices": ["28124", "2400", "20432", "30101"],
+	"correct": "2400"
+}, {
+	"question": "Steam enters a throttling calorimeter at a pressure of 1.03 MPa. The calorimeter downstream pressure and temperature are respectively 0.100 MPa and 125˚C. What is the percentage moisture of the supply steam? Properties of steam: At 1.03 MPa, hfg = 2010.7 kJ/kg, hg = 2779.25 kJ/kg; At 0.100 MPa and 125˚C, h = 2726.6 kJ/kg.",
+	"choices": ["2.62", "5.21", "3.15", "1.98"],
+	"correct": "2.62"
+}, {
+	"question": "A drum containing steam with 2.5 m in diameter is 7.5 m long. Of the total volume, 1/3 contains saturated steam  at 800 kPa and the other 2/3 contains saturated water. If this tank should explode, how much water would evaporate? Consider the process to be of constant enthalpy. Steam properties: At 800 kPa, vf = 0.0011148 m3/kg, vg = 0.2404 m3/kg, hf = 721.11 kJ/kg, hfg = 2048 kJ/kg, hg = 2769.1 kJ/kg; At 101.3 kPa, hf = 419 kJ/kg, hfg = 2257 kJ/kg, hg = 2676 kJ/kg, vf = 0.0010435 m3/kg, vg = 1.6729 m3/kg.",
+	"choices": ["2948 kg", "2424 kg", "2651 kg", "2123 kg"],
+	"correct": "2948 kg"
+}, {
+	"question": "A Batangas base industrial company operates a steam-power plant with reheat and regeneration. The steam enters a turbine at 300 bar and 900 K and expands to 1 bar. Steam leaves the first stage at 30 bar and part of it entering a closed heater while the rest reheated to 800 K. Both section of the turbine have adiabatic efficiency of 93%. A condensate pump exist between the main condenser and the heater. Another pump lies between the heater and condensate outlet line from the heater (condensed extracted steam). Compute for the extracted fraction of the total mass flow to the heater. Steam properties: At 300 bar and 900 K, h = 3528 kJ/kg, s = 6.332 kJ/kg-K; At 30 bar and s = 6.332 kJ/kg-K, h = 2883; At 30 bar, hf = 1008.4 kJ/kg; At 1 bar, hf = 417.46 kJ/kg, vf = 0.0010432 m3/kg.",
+	"choices": ["0.543", "0.765", "0.234", "0.485"],
+	"correct": "0.234"
+}, {
+	"question": "In a Rankine cycle, saturated liquid water at 1 bar is compressed isentropically to 150 bar. First by heating in a boiler and then by superheating at constant pressure of 150 bar, the water substance is brought to 750 K. After adiabatic reversible expansion in a turbine to 1 bar, it is then cooled in a condenser to a saturated liquid. How much work is generated in the turbine? Steam properties: At 150 bar and 750 K, h = 3240.5 kJ/kg, s = 6.2549 kJ/kg-K; At 1 bar, hf = 417.46 kJ/kg, hfg = 2258 kJ/kg, 1.3026 kJ/kg-K, sfg = 6.0568 kJ/kg-K.",
+	"choices": ["967.9 kJ/kg", "976.9 kJ/kg", "796.9 kJ/kg", "769.9 kJ/kg"],
+	"correct": "976.9 kJ/kg"
+}, {
+	"question": "A reheat steam has 13,850 kPa throttle pressure at the turbine inlet and a 2800 kPa reheat pressure, the throttle and reheat temperature of the steam is 540˚C, condenser pressure is 3.4 kPa, engine efficiency of high pressure and low pressure is 75%. Find the cycle thermal thermal efficiency. Steam Properties: At 13.8 MPa and 540˚C, h = 3434.1 kJ/kg, s = 6.5386 kJ/kg-K; At 2.80 MPa and s = 6.5386 kJ/kg-K, h = 2974.9 kJ/kg; At 2.80 MPa and and 540˚C, h = 3548.5 kJ/kg, s = 7.3827 kJ/kg-K; At 3.4 kPa and s = 7.3827 kJ/kg-K; At 3.4 kPa, vf = 0.0010032 m3/kg. ",
+	"choices": ["34.46", "35.56", "36.66", "37.76"],
+	"correct": "34.46"
+}, {
+	"question": "A simple steam engine plant has boiler feedwater at 95.6˚C. Steam is supplied to the engine at 7.03 kg/cm2, 97% dry. Atmospheric exhaust. Steam rate 9.3 kg per ihp-hr, em = 87%. Generator of 91.5% efficiency is directly connected to the engine. Determine the Rankine cycle efficiency. Steam Properties: At 7.03 kg/cm2 and 97% quality, hf = 697.43 kJ/kg, hfg = 2066.2 kJ/kg, s = 6.57 kJ/kg-K; At 101.325 kPa and s = 6.57 kJ/kg-K, h = 2436 kJ/kg; At 101.325 kPa, hf = 419 kJ/kg.   ",
+	"choices": ["9.88%", "12.47%", "11.63%", "10.55%"],
+	"correct": "11.63%"
+}, {
+	"question": "A 75 W turbine generator has a steam of 12.7 kg/kW-hr. Steam at 12.3 kg/cm2 gauge 55.6˚C superheat. Exhaust 50.8 mm Hg abs. Find the combined thermal efficiency of a simple vapor cycle incorporating this unit. Steam properties: At 12.3 kg/cm2 and 55.6˚SH, h = 2927 kJ/kg; At 50.8 mm Hg abs, hf = 160.5 kJ/kg.",
+	"choices": ["9.67", "12.15", "11.64", "10.25"],
+	"correct": "10.25"
+}, {
+	"question": "A thermal power plant generates 4000 kW and 400 kW for auxiliaries. Determine the net thermal efficiency if the heat generated by fuel is 15000 kW.",
+	"choices": ["28%", "26%", "24%", "30%"],
+	"correct": "24%"
+}]; 
+
+
+
+
+	
+// mga nadagdag quiz with images
+// array of images  
+	var images = [];
+	var solutionIsVisible;
+
+// define elements
+var content = $("content"),
+  questionContainer = $("question"),
+  choicesContainer = $("choices"),
+  scoreContainer = $("score"), //nabago
+  submitBtn = $("submit");
+  
+  var resultPage = "";
+  
+// init vars
+var currentQuestion = 0,
+	score = 0,
+  askingQuestion = true,
+  questionNumber = 0,
+   maxQ = quiz.length, 
+  questionNumber;
+  
+  wrongAnswerQ = "",
+  wrongAnswerNo=0;
+  var yourAnswer = "You did not pick any answer.";
+  var choicesMistakesG = "";
+  if(maxQ > quiz.length) {
+	maxQ = quiz.length;
+  }
+  var isOnReviewWrongPage = false;
+  var duplicates  =[];
+
+function $(id) { // shortcut for document.getElementById
+  return document.getElementById(id);
+}
+
+function askQuestion() {
+  var choices = quiz[questionNumber].choices,
+    choicesHtml = "", choicesMistakes="" ;
+
+
+  // loop through choices, and create radio buttons
+  for (var i = 0; i < choices.length; i++) {
+  //alert(get_rand(nums));
+    choicesHtml += "<input type='radio' name='quiz" + questionNumber +
+      "' id='choice" + ( i + 1) +
+      "' value='" + choices[i] + "'>" +
+      " <label for='choice" + (i + 1) + "'>" + choices[i] + "</label> <br>";
+	  
+	  choicesMistakes += "<span name='quiz" + questionNumber +
+      "' id='choice" + (i + 1) +
+      "' value='" + choices[i] + "'>"+ (i+1) + ". " + choices[i] + "</span><br>";
+	   if(choices[i] === quiz[questionNumber].correct) {
+			correctAnswer = choices[i];
+			correctAnswerIndex = i;
+	  }
+	  
+	  choicesMistakesG = choicesMistakes;
+  }
+
+  
+  // load the question
+  questionContainer.textContent = (questionNumber + 1) + ". " +
+    quiz[questionNumber].question;
+	
+	
+  // load the choices
+  choicesContainer.innerHTML = choicesHtml;
+
+  // setup for the first time
+  if (questionNumber === 0) {
+  scoreContainer.textContent = "Score: " + score + "/" + maxQ; //nabago
+    submitBtn.textContent = "Submit Answer";
+	//alert(quiz.length);
+  }
+  
+	
+
+}
+
+function checkAnswer() {
+	var yourAnswer = "You did not pick any answer.";
+  // are we asking a question, or proceeding to next question?
+  if (askingQuestion) {
+	
+	//mga nadagdag for view_solution
+	if($('#solution_' + (questionNumber+1)).length > 0) {
+		$('#view_solution').css('visibility', 'visible');
+	}
+    submitBtn.textContent = "Next Question";
+    askingQuestion = false;
+
+    // determine which radio button they clicked
+    var userpick,
+      correctIndex,
+      radios = document.getElementsByName("quiz" + questionNumber);
+    for (var i = 0; i < radios.length; i++) {
+      if (radios[i].checked) { // if this radio button is checked
+        userpick = radios[i].value;
+		yourAnswer = userpick;
+      }
+
+      // get index of correct answer
+      if (radios[i].value == quiz[questionNumber].correct) {
+        correctIndex = i;
+      }
+    }
+
+    // setup if they got it right, or wrong
+    var labelStyle = document.getElementsByTagName("label")[correctIndex].style;
+    labelStyle.fontWeight = "bold";
+    if (userpick == quiz[questionNumber].correct) {
+      labelStyle.color = "green";
+	  score++; 
+    } else {
+		wrongAnswerNo++;
+      labelStyle.color = "red";
+	  wrongAnswerQ += "<br> <span id='question'> " + wrongAnswerNo+". " + quiz[questionNumber].question + "</span><br> " + "<div id='choices'>" + choicesMistakesG + " <strong>Your answer: "+ yourAnswer + "</strong><br> <strong id='answer'>" + "Correct answer: " + correctAnswer  + "</strong></div> ";//  + 
+
+    }
+	
+	
+  } else { // move to next question
+    // setting up so user can ask a question
+    askingQuestion = true;
+    // change button text back to "Submit Answer"
+    submitBtn.textContent = "Submit Answer";
+	scoreContainer.textContent = "Score: " + score + "/" + maxQ;; //nabago
+    // if we're not on last question, increase question number
+    if (questionNumber < maxQ - 1) {
+      //currentQuestion++;
+	  questionNumber++;
+      askQuestion();
+    } else {
+      clearTimeout(t);
+      showFinalResults();
+    }
+	
+	//mga nadagdag quiz with images
+	for(i=0; i<quiz.length; i++) { 
+		$('#for_q_' + (i+1)).hide();
+	}
+	
+	// mga nadagdag quiz with images
+	if((questionNumber+1) === 1) {
+		$('#question').after(images[0]);
+	} else if((questionNumber+1) === 2) {
+		$('#question').after(images[1]);
+	}
+	
+	//mga nadagdag for view_solution
+	for(i=0; i<quiz.length; i++) { 
+		$('#solution_' + (i+1)).hide();
+	}
+	
+	$('.for_view_solution').hide();
+	$('#view_solution').css('visibility', 'hidden');
+	
+	solutionIsVisible = false;
+	if(solutionIsVisible) {
+		document.getElementById('view_solution').textContent = 'Hide Solution';
+		solutionIsVisible = false;
+	}else if(!solutionIsVisible){
+		document.getElementById('view_solution').textContent = 'View Solution';
+		solutionIsVisible = true;
+	}
+  }
+}
+
+function showFinalResults() {
+	//resultPage = "<center><strong class='for_h'>You Passed!</strong></center>";
+	if(score/maxQ >= 0.7){
+		resultPage = "<center><strong class='for_h'>You Passed!</strong></center> <br> <center><strong>Score: " + score + " out of " + maxQ + " </strong></center><center><strong> Equivalent Percentage: " + Math.floor(score/maxQ*100) + "%</strong></center><center><strong>Total time: " + timeElapsed + "</strong></center> <br> <br><button id='restart' class='button fit' onclick='reloadCurrentPage();'> Restart the Test</button><button id='reviewMistakes' class='button fit' onclick='reviewMistakes();'> Review Mistakes</button> <button id='proceedToNext' class='button fit' onclick='proceedToNext();'> Proceed to next Test</button> ";
+	} else {
+		resultPage = "<center><strong class='for_h'>You Failed!</strong></center> <br> <center><strong>Score: " + score + " out of " + maxQ + " </strong></center><center><strong> Equivalent Percentage: " + Math.floor(score/maxQ*100) + "%</strong></center><center><strong>Total time: " + timeElapsed + "</strong></center> <br> <br><button id='restart' class='button fit' onclick='reloadCurrentPage();'> Restart the Test</button><button id='reviewMistakes' class='button fit' onclick='reviewMistakes();'> Review Mistakes</button> <button id='proceedToNext' class='button fit' onclick='proceedToNext();'> Proceed to next Test</button> ";
+	}
+	content.innerHTML = resultPage;
+}
+
+function reviewMistakes() {
+	content.innerHTML = wrongAnswerQ + " <br><br> <center><button id='restart' class='button fit' onclick='reloadCurrentPage();'> Restart the Test</button></center> <button id='proceedToNext' class='button fit' onclick='proceedToNext();'> Proceed to next Test</button>";
+}
+
+function proceedToNext() {
+	document.location.href = "ppe10.html"; //need to be updated per test 
+}
+
+function reloadCurrentPage() {
+	document.location.href = "ppe09.html"; //need to be updated per test 
+}
+
+window.addEventListener("load", askQuestion, false);
+submitBtn.addEventListener("click", checkAnswer, false);
+
+
+
+</script>
+
+
+
+
+			<!-- Scripts for Phantom -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+	</body>
+
+</html>

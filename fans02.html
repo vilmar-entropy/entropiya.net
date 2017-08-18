@@ -1,0 +1,593 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+	
+		<title>Entropiya | Fans & Blowers 2</title> <!-- need to be updated per test -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		
+		<link rel="stylesheet" href="css/index.css" />
+		<script src="js/index.js"></script>
+		<link rel="stylesheet" href="assets/css/main.css" />
+
+		<!-- FontAwesome, jQuery and jQuery Mobile -->
+		<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css">
+		<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+		<script type="text/javascript" src="jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script> 
+		
+		<!-- jqmath -->
+		<link rel="stylesheet" href="mathscribe/jqmath-0.4.3.css">
+		<script src="mathscribe/jquery-1.4.3.min.js"></script>
+		<script src="mathscribe/jqmath-etc-0.4.5.min.js" charset="utf-8"></script>
+		
+		<script>
+			$(document).ready(function() {
+				solutionIsVisible = true;
+				
+				//mga nadagdag for view_solution
+				
+				$('.for_view_solution').hide();
+				$('#view_solution').css('visibility', 'hidden');
+				
+				for(i=0; i<quiz.length; i++) {
+					$('#solution_' + (i+1)).hide();
+				}
+				
+				$('#view_solution').click(function() {
+					for(i=0; i<quiz.length; i++) {
+						$('#solution_' + (i+1)).hide();
+					}
+						
+					$('#solution_' + (questionNumber + 1)).fadeToggle('slow');
+					$('.for_view_solution').fadeToggle('slow');
+					
+					if(solutionIsVisible) {
+						document.getElementById('view_solution').textContent = 'Hide Solution';
+						solutionIsVisible = false;
+					}else if(!solutionIsVisible){
+						document.getElementById('view_solution').textContent = 'View Solution';
+						solutionIsVisible = true;
+					}
+					
+				});
+
+				
+				// Image factory
+				var createImage = function(src, title, id) {
+				  var img   = new Image();
+				  img.src   = src;
+				  img.id = id;
+				  img.alt   = title;
+				  img.title = title;
+				  return img; 
+				};
+
+				// array of images dun dineclare sa main script para global
+				//var images = [];
+
+				// push two images to the array
+				//images.push(createImage("images/for_q_1.png", "pic01 title", "for_q_1"));
+				//images.push(createImage("images/for_q_2.png", "pic03 title", "for_q_2"));
+				
+				// mga nadagdag quiz with images
+				if((questionNumber+1) === 1) {
+					$('#question').after(images[0]);
+				} else if((questionNumber+1) === 2) {
+					$('#question').after(images[1]);
+				}
+				
+			});
+		</script>
+	
+	</head>
+	
+	<body>
+		<div data-role="panel" data-position="right" data-display="overlay" data-theme="a" id="panel">
+			<div class="nav_in_panel_container"> 
+				<ul data-role="listview" data-inset="true" data-theme="b" data-dividertheme="f">
+					<li data-icon="false"><a class="nav_in_panel" href="index.html" rel="external"><i class="fa fa-home" aria-hidden="true" ></i>  Home  </a> </li>
+					<li data-icon="false"><a class="nav_in_panel" href="about.html" rel="external"><i class="fa fa-user-o" aria-hidden="true" ></i>  About  </a> </li>
+					<li data-icon="false"><a class="nav_in_panel" href="references.html" rel="external"><i class="fa fa-book" aria-hidden="true" ></i>  References  </a>
+					<li data-icon="false"><a class="nav_in_panel" href="https://www.facebook.com/vilmar.empino?__nodl" rel="external" ><i class="fa fa-facebook-square" aria-hidden="true"></i>  Like us on facebook!  </a></li>
+				</ul>
+			</div>
+		</div>
+		<div id="header_container">
+			<figure class="logo" id="logo">
+				<a href="index.html" rel="external"><img src="images/logo.png" alt="image"/></a>
+			</figure>
+			<ul class="home_nav_quiz"> 
+				<a href="#panel" class="right_panel"> <i class="fa fa-bars" id="icon_for_right_panel" aria-hidden="true"></i> </a>
+				<div class="toBeHidden">
+				<li class="li"><a class="a" href="references.html" rel="external">References</a></li>
+				<li class="li"><a class="a" href="about.html" rel="external">About</a></li>
+				<!-- <li class="li" id="dropdown">
+					<a class="a" href="javascript:void(0)" class="dropbtn">MCQs <i class="fa fa-caret-down" aria-hidden="true"></i></a>
+					<div class="dropdown-content">
+					<a class="a" href="home-me.html" rel="external">Mechanical Engineering</a>
+					<a class="a" href="home-ece.html" rel="external">Electronics Engineering</a> 
+					</div>
+				</li> -->
+				<li class="li"><a class="a" href="index.html" rel="external">Home</a></li>
+				</div>
+			</ul>
+		</div>
+		<div id="body_container"> 
+			
+			<div id="for_contents_quiz">
+				
+				<div id="for_left_content_quiz">
+					<div id="for_title">
+						<strong class="for_h2">Fans & Blowers - Test 2 (21-40)</strong> <!-- need to be updated per test -->
+					</div>
+					<br>
+					<div id="for_top_ads_quiz">
+						<span> FTA  </span>
+					</div>
+					<div id="for_left_navbar"> <!-- need to be updated per test -->
+						<div data-role="collapsible">
+							<h3>Problems</h3>
+							<ul data-role="listview" id="left_nav" data-inset="true" data-theme="c" data-dividertheme="f">
+								<li><a href="fans01.html"  rel="external">Test 1</a></li>
+								<li><a href="fans02.html"  rel="external">Test 2</a></li>
+								<li><a href="fans03.html"  rel="external">Test 3</a></li>
+							</ul>
+						</div>
+					</div>
+					<div id="for_right_navbar"> <!-- need to be updated per test -->
+						<div data-role="collapsible">
+							<h3>Elements</h3>
+							<ul data-role="listview" id="right_nav" data-inset="true" data-theme="c" data-dividertheme="f">
+								<li><a href="#"  rel="external">Test I</a></li>
+								
+							</ul>
+						</div>
+					</div>
+					<br>
+					<div class="for_quiz">
+						<div id="content">
+							<strong id="timerContinue"><time>00:00:00</time></strong>
+							<strong id="score">Score: 0/50</strong> <br><br>
+							<div class="for_question"><span id="question"></span> </div> 
+							<div id="choices"></div> 
+							<button id="submit" class="button"> Submit Answer</button>
+						</div>
+					</div>
+					<br>
+					<!-- //mga nadagdag for view_solution -->
+					<!-- <div class="for_view_solution">
+						<p id="solution_1">
+							<span>Solution 1</span><br>Data: <br>
+							<span class="eq">$m_1 = 500 g_m$ $/frac{F}{A} \sqrt{\pi}$ </span><br>
+							<span class="eq">$m_2 = 800 g_f$ </span><br>
+							<span class="eq">$m_3 = 15 poundals$ </span><br>
+							<span class="eq">$m_4 = 3 lb_f$ </span><br>
+							<span class="eq">$m_5 = 0.10slug$ </span><br>
+							<span class="eq">$g = 30.5 ft/s^2$ </span><br>
+							Unknown: <br>
+							<span class="eq">a) Total mass, $m_T$ in $g_m$ </span><br>
+							<span class="eq">b) $m_T$ in $lb_m$ </span><br>
+							<span class="eq">c) $m_T$ in $slugs$ </span><br>
+							Solution: <br>
+							<span class="eq"> $m_T = m_1 + m_2 +$ $m_3 + m_4 + m_5 \longrightarrow (eq. 1)$</span> <br>
+							
+							<span class="eq"> </span> <br>
+						</p>
+						
+						<p id="solution_2"><span>Solution 2</span><br>Data: <br> 
+							<span class="eq"> $g_{sea} = 32.088 fps^2 $ </span> <br>
+							<span class="eq"> $\Delta g = -0.003 fps^2 $ per 1000 ft </span> <br>
+							Unknown: <br>
+							<span class="eq"> a) Height, $h$ if g is 30.504 $fps^2$ </span> <br>
+							<span class="eq"> b) $h$ if $F_g$ is 95% of original </span> <br>
+							<span class="eq"> c) $F_g$ if $h$ is 29,131 ft and $m$ is 180 $lb_m$</span> <br>
+							Solution: <br>
+							<span class="eq">a) $h = (30.504 - 32.088)fps^2$ x $\frac{1000ft}{-0.003 fps^2}$ $= 528,000ft$ $= \underline{100mi}$ </span> <br>
+							<span class="eq"> b) $h = (32.088)(0.95 - 1)$ $fps^2$ x $\frac{1000ft}{-0.003 fps^2}$ $= 534,800$ ft or $\underline{101.29 mi}$</span> <br>
+							<span class="eq"> c) $F_g = mg \longrightarrow (eq. 1)$ </span> <br>
+							But <br>
+							<span class="eq"> $m = 180 lb_m$ x $\frac{1 slug}{32.2 lb_m}$ $=5.59 slugs$ </span> <br>
+							<span class="eq"> $g = 29,131ft$ x $\frac{-0.003 fps^2}{1000 ft}$ $+ 32.088 fps^2$ $32.00 fps^2$</span> <br>
+							Then from $(eq. 1)$ <br>
+							<span class="eq"> $F_g = 5.59 slugs$ x $32.00 fps^2$ $=\underline{178.88 lb_f}$</span> <br>
+						</p> 
+						
+						<p id="solution_3"><span>Solution 3</span><br>Data: <br> 
+							<span class="eq"> $g_{sea} = 32.088 fps^2 $ </span> <br>
+							<span class="eq"> $\Delta g = -0.003 fps^2 $ per 1000 ft </span> <br>
+							Unknown: <br>
+							<span class="eq"> a) Height, $h$ if g is 30.504 $fps^2$ </span> <br>
+							<span class="eq"> b) $h$ if $F_g$ is 95% of original </span> <br>
+							<span class="eq"> c) $F_g$ if $h$ is 29,131 ft and $m$ is 180 $lb_m$</span> <br>
+							Solution: <br>
+							<span class="eq">a) $h = (30.504 - 32.088)fps^2$ x $\frac{1000ft}{-0.003 fps^2}$ $= 528,000ft$ $= \underline{100mi}$ </span> <br>
+							<span class="eq"> b) $h = (32.088)(0.95 - 1)$ $fps^2$ x $\frac{1000ft}{-0.003 fps^2}$ $= 534,800$ ft or $\underline{101.29 mi}$</span> <br>
+							<span class="eq"> c) $F_g = mg \longrightarrow (eq. 1)$ </span> <br>
+							But <br>
+							<span class="eq"> $m = 180 lb_m$ x $\frac{1 slug}{32.2 lb_m}$ $=5.59 slugs$ </span> <br>
+							<span class="eq"> $g = 29,131ft$ x $\frac{-0.003 fps^2}{1000 ft}$ $+ 32.088 fps^2$ $32.00 fps^2$</span> <br>
+							Then from $(eq. 1)$ <br>
+							<span class="eq"> $F_g = 5.59 slugs$ x $32.00 fps^2$ $=\underline{178.88 lb_f}$</span> <br>
+						</p>
+						
+						<p id="solution_4"><span>Solution 4</span><br>Data: <br> 
+							<span class="eq"> $g_{sea} = 32.088 fps^2 $ </span> <br>
+							<span class="eq"> $\Delta g = -0.003 fps^2 $ per 1000 ft </span> <br>
+							Unknown: <br>
+							<span class="eq"> a) Height, $h$ if g is 30.504 $fps^2$ </span> <br>
+							<span class="eq"> b) $h$ if $F_g$ is 95% of original </span> <br>
+							<span class="eq"> c) $F_g$ if $h$ is 29,131 ft and $m$ is 180 $lb_m$</span> <br>
+							Solution: <br>
+							<span class="eq">a) $h = (30.504 - 32.088)fps^2$ x $\frac{1000ft}{-0.003 fps^2}$ $= 528,000ft$ $= \underline{100mi}$ </span> <br>
+							<span class="eq"> b) $h = (32.088)(0.95 - 1)$ $fps^2$ x $\frac{1000ft}{-0.003 fps^2}$ $= 534,800$ ft or $\underline{101.29 mi}$</span> <br>
+							<span class="eq"> c) $F_g = mg \longrightarrow (eq. 1)$ </span> <br>
+							But <br>
+							<span class="eq"> $m = 180 lb_m$ x $\frac{1 slug}{32.2 lb_m}$ $=5.59 slugs$ </span> <br>
+							<span class="eq"> $g = 29,131ft$ x $\frac{-0.003 fps^2}{1000 ft}$ $+ 32.088 fps^2$ $32.00 fps^2$</span> <br>
+							Then from $(eq. 1)$ <br>
+							<span class="eq"> $F_g = 5.59 slugs$ x $32.00 fps^2$ $=\underline{178.88 lb_f}$</span> <br>
+						</p>
+					
+					</div> -->
+					
+					<button id="view_solution" class="button small"> View Solution</button>
+
+										
+				</div>
+				
+								
+				
+				<div class="for_right_ads_quiz">
+					<span> FRA   </span>
+				</div>
+			</div>
+		</div>
+			
+			<script>
+	
+ //star timer
+  var timeElapsed = "";
+	var h1 = document.getElementById('timerContinue'),
+		start = document.getElementById('start'),
+		stop = document.getElementById('stop'),
+		clear = document.getElementById('clear'),
+		seconds = 0, minutes = 0, hours = 0,
+		t;
+
+	function add() {
+		seconds++;
+		if (seconds >= 60) {
+			seconds = 0;
+			minutes++;
+			if (minutes >= 60) {
+				minutes = 0;
+				hours++;
+			}
+		}
+		
+		h1.textContent = (hours ? (hours > 9 ? hours : "0" + hours) : "00") + ":" + (minutes ? (minutes > 9 ? minutes : "0" + minutes) : "00") + ":" + (seconds > 9 ? seconds : "0" + seconds);
+		timeElapsed =(hours ? (hours > 9 ? hours : "0" + hours) : "00") + ":" +  (minutes ? (minutes > 9 ? minutes : "0" + minutes) : "00") + ":" + (seconds > 9 ? seconds : "0" + seconds);
+
+		timer();
+	}
+	function timer() {
+		t = setTimeout(add, 1000);
+	}
+	timer();
+
+	//end timer
+	
+var quiz = [{
+	"question": "A fan can developed a static pressure head of 350 mm water gage through standard air condition. What is the new static pressure head if fan will operate at 95 ºC and 729 mm of Hg?",
+	"choices": ["265 mm WG", "270 mm WG", "274 mm WG", "263 mm WG"],
+	"correct": "265 mm WG"
+},{
+	"question": "A two-stage radial type airplane supercharger is designed to deliver 4535 kg of air per hour at a pressure of 800 mm Hg abs when operating at an altitude of 4570 m where the temperature is   -15 ºC and the pressure is 429 mm Hg abs. It rotates at 18,000 rpm and is to have an adiabatic over-all efficiency of 72 percent. It is to be tested at sea level (762 mm Hg abs & 26.67 ºC) at a speed of 14,000 rpm. Considering that the efficiency at the design point does not change, determine for the design point under test conditions the volume of air taken in m^3/s",
+	"choices": ["2.27 m^3/s", "2.12 m^3/s", "1.17 m^3/s", "1.12 m^3/s"],
+	"correct": "2.27 m^3/s"
+},{
+	"question": "The fan has  total head of 190 m and a static pressure of 20 cm WG. If the air density is 1.2 kg/m^3, what is the velocity of air flowing?",
+	"choices": ["16.21 m/s", "17.21 m/s", "16.66 m/s", "17.766 m/s"],
+	"correct": "17.766 m/s"
+},{
+	"question": "A sewerage aeration blower rotating at 3500 rpm is designed to deliver 567 m^3/min of air from 20 ºC and 1 atm to a discharge of 158 kPa abs. with an adiabatic efficiency of 65%. During summer the atmospheric temperature rises to 43 ºC but the barometric pressure does not change. It is desired to vary the blower speed to maintain the same discharge pressure. Determine the discharge volume of standard air with the new speed.",
+	"choices": ["8.20 m^3/s", "9.10 m^3/s", "8.64 m^3/s", "9.74 m^3/s"],
+	"correct": "9.10 m^3/s"
+},{
+	"question": "A 40 in. diameter fan rated at 160,00 cfm standard air at 16 in. pressure is operating at 1200 rpm. Solve for the specific speed.",
+	"choices": ["368,845.18 rpm", "380,125.20 rpm", "384,845.18 rpm", "392,865.28 rpm"],
+	"correct": "368,845.18 rpm"
+},{
+	"question": "A boiler requires 75,000 m^3/hr of standard air. What is the motor power if fan can deliver a total pressure of 145 mm pf water gage. The mechanical efficiency of fan is 64%",
+	"choices": ["40.30 kW", "46.30 kW", "42.45 kW", "43.69 kW"],
+	"correct": "40.30 kW"
+},{
+	"question": "Calculate the required motor capacity needed to drive a forced-draft fan serving  a stoker forced boiler using coal as fuel. Combustion data includes the following: Atmospheric Air	- 101.3 kPa; 20 ºC; Weight of fuel burned per hour - 10 tons; Ultimate Analysis of fuel: C= 78%, S= 1%, H= 3%, A= 8%, O= 3%, M= 7%; Excess Air, 30%; Fuel bed and air heater resistance 	18 cm WG; Fan efficiency, 60%.",
+	"choices": ["87.84 kW", "82.87 kW", "84.87 kW", "88.72 kW"],
+	"correct": "87.84 kW"
+},{
+	"question": "The motor power needed to drive the fan is 75 kW and the volume flow of air delivered by fan is 23 m^3/s and 20 cm water gage. The density of air is 1.2 kg/m^3. What is the fan efficiency?",
+	"choices": ["60%", "62%", "64%", "65%"],
+	"correct": "60%"
+},{
+	"question": "In  a certain installation, a fan when driven by a 7.5 Hp motor at a speed of 600 rpm delivers 510 m^3 of air per minute at a total pressure of 5 cm WC. If in the same installation, 6.5 cm WC pressure is required. What power and motor speed will the fan be driven?",
+	"choices": ["564.11 rpm, 11.12 Hp", "684.11 rpm, 10.12 Hp", "684.11 rpm, 11.12 Hp", "584.11 rpm, 10.12 Hp"],
+	"correct": "684.11 rpm, 11.12 Hp"
+},{
+	"question": "A fan supplying forced draft into a boiler has the following specifications on its name plate: Capacity - 280 m^3/min; Air Temp - 25 ºC; Total Pressure - 4 cm WC; Motor Rating - 5 Hp; 1200 rpm. A tabular air heater is installed in line with the boiler , and the dan is now required to supply heated air for combustion at 90 ºC. What drive power is required and the new total pressure that this fan will operate if it is going to deliver the same  volume of heated air at 1200 rpm?",
+	"choices": ["3.28 cm WC, 4.10 Hp", "3.95 cm WC, 5.5 Hp", "3.28 cm WC, 5.50 Hp", "3.95 cm WC, 4.10 Hp"],
+	"correct": "3.28 cm WC, 4.10 Hp"
+},{
+	"question": "A fan has a suction pressure of 5 cm water vacuum with air velocity of 5 m/s. The discharge has 20 cm WG and discharge velocity of 10 m/s. Find the total head of fan",
+	"choices": ["198.61 m", "189.61 m", "212. 15 m", "200 m"],
+	"correct": "212.15"
+},{
+	"question": "An air handling unit for an air conditioning system has a centrifugal fan with backward curved blades mounted on a scroll housing driven by a motor at 750 rpm. The fan delivers 2000 cfm of air against 3 in. WC static pressure and 0.80 in WC velocity pressure. Calculate the tip speed of the wheel",
+	"choices": ["3100 fpm", "3000 fpm", "3586 fpm", "3500 fpm"],
+	"correct": "3586 fpm"
+},{
+	"question": "A steam generator supplies 180,000 kg of steam per hour at 5.5 MPa abs and 540 ºC with feed water at 176 ºC. At this output, the thermal efficiency is 85% when burning 42,456 kJ/kg fuel oil at 15% excess air. The products of combustion with an average molecular weight of 30 are removed from the unit by a pair of duplicate induced-draft fans operating in parallel and the flue gas temperature at each fan suction is 150 ºC. Estimate the capacity of each fan using the following rule “ 7.5 kg of air required for perfect combustion for each 23,200 kJ per kg heat value of oil. The fan differential pressure is 190 mm WC.",
+	"choices": ["69.57 kW", "89.75 kW", "59.75 kW", "76.57 kW"],
+	"correct": "69.57 kW"
+},{
+	"question": "A fan listed as having the following performance with standard air: Volume discharge=  120 m^3/s; Speed= 7 rps; Static Pressure= 310 mm water gage; Brake Power= 620 kW. The system duct will remain the same and the fan will discharge the same volume of 120 m^3/s of air at 93 ºC and a barometric pressure of 735 mm Hg when its speed is 7 rps. Find the brake power input and the static pressure required.",
+	"choices": ["482 kW, 241 mm WG", "492 kW, 241 mm WG", "482 kW, 256 mm WG", "492 kW, 256 mm WG"],
+	"correct": "482 kW, 241 mm WG"
+},{
+	"question": "Local coal with higher heating value of 5,500 kCal/kg is burned in a pulverized coal fired boiler with 25% excess air at the rate of 25.9 M.T per hour when the steam generated is 220 M.T per hour. This boiler is served by 2 forced- draft fans of equal capacity delivering the air at 305 mm of water to the furnace. Calculate the capacity of each fan in m^3/hr if fan capacity is to be 110 per cent of the maximum requirement. Ambient air is 100 kPa and 30 ºC.",
+	"choices": ["31.75 m^3/s", "63.50 m^3/s", "28.87 m^3/s", "57.73 m^3/s"],
+	"correct": "31.75 m^3/s"
+},{
+	"question": "Find the motor size needed to provide the forced-draft service to boiler that burns coal at the rate of 10 ton per hour. The air requirements are 59,000 cfm, air is being provided under 6 in. water gage by the fan which has mechanical efficiency of 60 %. Assume fan to deliver at to deliver at total pressure of 6 in WG",
+	"choices": ["90 Hp", "93 Hp", "97 Hp", "99 Hp"],
+	"correct": "90 Hp"
+},{
+	"question": "A blower with the inlet open to the atmosphere delivers 3000 cfm of air at a pressure of 2 in. WG through a duct 11 in. in diameter, the manometer being attached to the discharge duct at the blower. Air. Temperature is 70 degree F, and the barometer pressure is 30.2 in Hg. Calculate the horsepower.",
+	"choices": ["1.54 Hp", "2.54 Hp", "3.54 Hp", "0.75 Hp"],
+	"correct": "1.54 Hp"
+},{
+	"question": "A certain fan delivers 12,000 cfm at a static pressure of 1 in. WG when operating at a speed of 400 rpm and requires an input of 4 Hp. If the same installation 15,000 cfm are desired, what will be the new speed and the new power needs?",
+	"choices": ["450 rpm, 6.81 Hp", "500 rpm, 7.81 Hp", "500 rpm,6.81 Hp", "450 rpm, 7.81 Hp"],
+	"correct": "500 rpm, 7.81 Hp"
+},{
+	"question": "A certain fan delivers 12,000 cfm at 70 degree F and normal barometric pressure at a static pressure of 1 in. WG when operating at 400 rpm and requires 4 Hp. If the air temperature is increased to 200 degree F ( density 0.06018 lb/ft^3) and the speed of the fan remains the same, what will be the new static pressure and power?",
+	"choices": ["0.81 in WG, 3.21 Hp", "0.81 in WG, 2.24 Hp", "0.71 in WG, 3.24 Hp", "0.71 in WG, 2.24 Hp"],
+	"correct": "0.81 in WG, 3.21 Hp"
+},{
+	"question": "IF the speed of the fan in problem 39 is increased so as to produce a static pressure of 1 in WG at 200 degree F. What will be the new speed and capacity?",
+	"choices": ["446.54 rpm, 13,396.33 cfm", "545.34 rpm, 15,345.17 cfm", "457.45 rpm, 12,457.45 cfm", "745.54 rpm, 11,345.34 cfm"],
+	"correct": "446.54 rpm, 13,396.33 cfm"
+},{
+	"question": "If the speed of the fan of the previous samples (probs 39-40) is increased so as to deliver the same weight of air at 200 degree F as at 70 degree F. What will be the new speed, capacity, static pressure and power?",
+	"choices": ["498.50 rpm, 14,955.14 cfm, 1.25 in WG, 6.21 Hp", "646.54 rpm, 15,396.33 cfm, 2.25 in WG, 7.21 Hp", "464.54 rpm, 15,396.33 cfm, 3.25 in WG, 5.21 Hp", "564. 54 rpm, 12,396.33 cfm, 4.25 in WG, 4.21 Hp"],
+	"correct": "498.50 rpm, 14,955.14 cfm, 1.25 in WG, 6.21 Hp"
+},{
+	"question": "A fan discharges 10,000 cfm of air through a duct 2 ft by 2 fy against a static pressure of 0.90 in of water. The gage fluid density is 62 lb/ft^3. Air temperature is 85 degree F and the barometric pressure is 28.7 in Hg. If the power input to the fan is measures as 3.6 Hp, what is the over-all mechanical efficiency of the fan?",
+	"choices": ["50%", "56%", "60%", "65%"],
+	"correct": "50%"
+},{
+	"question": "A ventilation system includes a fan with a mechanical efficiency of 45% against a static pressure of 30 cm WG. If the total pressure created by fan is 300 m of air, what is the static efficiency?",
+	"choices": ["37.5%", "35%", "40.5%", "45%"],
+	"correct": "37.5%"
+},{
+	"question": "It requires 55 Hp to compress 1000 cfm of air at 60 degree F and 14.7 psi to a pressure of 10 psig. The temperature of the air leaving the blower is 184 degree F. what is the flow in cfm from the blower discharge?",
+	"choices": ["852.64 cfm", "801.62 cfm", "737.06 cfm", "700.91 cfm"],
+	"correct": "852.64 cfm"
+},{
+	"question": "A blower draws 3000 cfm of air through a duct 12 in. in diameter with suction of 3 in of water. The air is discharged through a duct 10 in. in  diameter against a pressure of 2 in. of water. The air is measured at 70 degree F and 30.2 in. Hg. Calculate the air horsepower. Use specific weight of 62.34   lb/ft^3",
+	"choices": ["2.82 Hp", "2.87 Hp", "2.90 Hp", "2.79 Hp"],
+	"correct": "2.82 Hp"
+}];
+
+// mga nadagdag quiz with images
+// array of images  
+	var images = [];
+	var solutionIsVisible;
+
+// define elements
+var content = $("content"),
+  questionContainer = $("question"),
+  choicesContainer = $("choices"),
+  scoreContainer = $("score"), //nabago
+  submitBtn = $("submit");
+  
+  var resultPage = "";
+  
+// init vars
+var currentQuestion = 0,
+	score = 0,
+  askingQuestion = true,
+  questionNumber = 0,
+   maxQ = quiz.length, 
+  questionNumber;
+  
+  wrongAnswerQ = "",
+  wrongAnswerNo=0;
+  var yourAnswer = "You did not pick any answer.";
+  var choicesMistakesG = "";
+  if(maxQ > quiz.length) {
+	maxQ = quiz.length;
+  }
+  var isOnReviewWrongPage = false;
+  var duplicates  =[];
+
+function $(id) { // shortcut for document.getElementById
+  return document.getElementById(id);
+}
+
+function askQuestion() {
+  var choices = quiz[questionNumber].choices,
+    choicesHtml = "", choicesMistakes="" ;
+
+
+  // loop through choices, and create radio buttons
+  for (var i = 0; i < choices.length; i++) {
+  //alert(get_rand(nums));
+    choicesHtml += "<input type='radio' name='quiz" + questionNumber +
+      "' id='choice" + ( i + 1) +
+      "' value='" + choices[i] + "'>" +
+      " <label for='choice" + (i + 1) + "'>" + choices[i] + "</label> <br>";
+	  
+	  choicesMistakes += "<span name='quiz" + questionNumber +
+      "' id='choice" + (i + 1) +
+      "' value='" + choices[i] + "'>"+ (i+1) + ". " + choices[i] + "</span><br>";
+	   if(choices[i] === quiz[questionNumber].correct) {
+			correctAnswer = choices[i];
+			correctAnswerIndex = i;
+	  }
+	  
+	  choicesMistakesG = choicesMistakes;
+  }
+
+  
+  // load the question
+  questionContainer.textContent = (questionNumber + 1) + ". " +
+    quiz[questionNumber].question;
+	
+	
+  // load the choices
+  choicesContainer.innerHTML = choicesHtml;
+
+  // setup for the first time
+  if (questionNumber === 0) {
+  scoreContainer.textContent = "Score: " + score + "/" + maxQ; //nabago
+    submitBtn.textContent = "Submit Answer";
+	//alert(quiz.length);
+  }
+  
+	
+
+}
+
+function checkAnswer() {
+	var yourAnswer = "You did not pick any answer.";
+  // are we asking a question, or proceeding to next question?
+  if (askingQuestion) {
+	
+	//mga nadagdag for view_solution
+	if($('#solution_' + (questionNumber+1)).length > 0) {
+		$('#view_solution').css('visibility', 'visible');
+	}
+    submitBtn.textContent = "Next Question";
+    askingQuestion = false;
+
+    // determine which radio button they clicked
+    var userpick,
+      correctIndex,
+      radios = document.getElementsByName("quiz" + questionNumber);
+    for (var i = 0; i < radios.length; i++) {
+      if (radios[i].checked) { // if this radio button is checked
+        userpick = radios[i].value;
+		yourAnswer = userpick;
+      }
+
+      // get index of correct answer
+      if (radios[i].value == quiz[questionNumber].correct) {
+        correctIndex = i;
+      }
+    }
+
+    // setup if they got it right, or wrong
+    var labelStyle = document.getElementsByTagName("label")[correctIndex].style;
+    labelStyle.fontWeight = "bold";
+    if (userpick == quiz[questionNumber].correct) {
+      labelStyle.color = "green";
+	  score++; 
+    } else {
+		wrongAnswerNo++;
+      labelStyle.color = "red";
+	  wrongAnswerQ += "<br> <span id='question'> " + wrongAnswerNo+". " + quiz[questionNumber].question + "</span><br> " + "<div id='choices'>" + choicesMistakesG + " <strong>Your answer: "+ yourAnswer + "</strong><br> <strong id='answer'>" + "Correct answer: " + correctAnswer  + "</strong></div> ";//  + 
+
+    }
+	
+	
+  } else { // move to next question
+    // setting up so user can ask a question
+    askingQuestion = true;
+    // change button text back to "Submit Answer"
+    submitBtn.textContent = "Submit Answer";
+	scoreContainer.textContent = "Score: " + score + "/" + maxQ;; //nabago
+    // if we're not on last question, increase question number
+    if (questionNumber < maxQ - 1) {
+      //currentQuestion++;
+	  questionNumber++;
+      askQuestion();
+    } else {
+      clearTimeout(t);
+      showFinalResults();
+    }
+	
+	//mga nadagdag quiz with images
+	for(i=0; i<quiz.length; i++) { 
+		$('#for_q_' + (i+1)).hide();
+	}
+	
+	// mga nadagdag quiz with images
+	if((questionNumber+1) === 1) {
+		$('#question').after(images[0]);
+	} else if((questionNumber+1) === 2) {
+		$('#question').after(images[1]);
+	}
+	
+	//mga nadagdag for view_solution
+	for(i=0; i<quiz.length; i++) { 
+		$('#solution_' + (i+1)).hide();
+	}
+	
+	$('.for_view_solution').hide();
+	$('#view_solution').css('visibility', 'hidden');
+	
+	solutionIsVisible = false;
+	if(solutionIsVisible) {
+		document.getElementById('view_solution').textContent = 'Hide Solution';
+		solutionIsVisible = false;
+	}else if(!solutionIsVisible){
+		document.getElementById('view_solution').textContent = 'View Solution';
+		solutionIsVisible = true;
+	}
+  }
+}
+
+function showFinalResults() {
+	//resultPage = "<center><strong class='for_h'>You Passed!</strong></center>";
+	if(score/maxQ >= 0.7){
+		resultPage = "<center><strong class='for_h'>You Passed!</strong></center> <br> <center><strong>Score: " + score + " out of " + maxQ + " </strong></center><center><strong> Equivalent Percentage: " + Math.floor(score/maxQ*100) + "%</strong></center><center><strong>Total time: " + timeElapsed + "</strong></center> <br> <br><button id='restart' class='button fit' onclick='reloadCurrentPage();'> Restart the Test</button><button id='reviewMistakes' class='button fit' onclick='reviewMistakes();'> Review Mistakes</button> <button id='proceedToNext' class='button fit' onclick='proceedToNext();'> Proceed to next Test</button> ";
+	} else {
+		resultPage = "<center><strong class='for_h'>You Failed!</strong></center> <br> <center><strong>Score: " + score + " out of " + maxQ + " </strong></center><center><strong> Equivalent Percentage: " + Math.floor(score/maxQ*100) + "%</strong></center><center><strong>Total time: " + timeElapsed + "</strong></center> <br> <br><button id='restart' class='button fit' onclick='reloadCurrentPage();'> Restart the Test</button><button id='reviewMistakes' class='button fit' onclick='reviewMistakes();'> Review Mistakes</button> <button id='proceedToNext' class='button fit' onclick='proceedToNext();'> Proceed to next Test</button> ";
+	}
+	content.innerHTML = resultPage;
+}
+
+function reviewMistakes() {
+	content.innerHTML = wrongAnswerQ + " <br><br> <center><button id='restart' class='button fit' onclick='reloadCurrentPage();'> Restart the Test</button></center> <button id='proceedToNext' class='button fit' onclick='proceedToNext();'> Proceed to next Test</button>";
+}
+
+function proceedToNext() {
+	document.location.href = "fans03.html"; //need to be updated per test 
+}
+
+function reloadCurrentPage() {
+	document.location.href = "fans02.html"; //need to be updated per test 
+}
+
+window.addEventListener("load", askQuestion, false);
+submitBtn.addEventListener("click", checkAnswer, false);
+
+
+
+</script>
+
+
+
+
+			<!-- Scripts for Phantom -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+	</body>
+
+</html>
