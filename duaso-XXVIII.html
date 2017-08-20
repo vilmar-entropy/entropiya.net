@@ -1,0 +1,767 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+	
+		<title>Entropiya | Machine Shop Practice VIII</title> <!-- need to be updated per test -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		
+		<link rel="stylesheet" href="css/index.css" />
+		<script src="js/index.js"></script>
+		<link rel="stylesheet" href="assets/css/main.css" />
+
+		<!-- FontAwesome, jQuery and jQuery Mobile -->
+		<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css">
+		<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+		<script type="text/javascript" src="jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script> 
+		
+		<!-- jqmath -->
+		<link rel="stylesheet" href="mathscribe/jqmath-0.4.3.css">
+		<script src="mathscribe/jquery-1.4.3.min.js"></script>
+		<script src="mathscribe/jqmath-etc-0.4.5.min.js" charset="utf-8"></script>
+		
+		<script>
+			$(document).ready(function() {
+				solutionIsVisible = true;
+				
+				//mga nadagdag for view_solution
+				
+				$('.for_view_solution').hide();
+				$('#view_solution').css('visibility', 'hidden');
+				
+				for(i=0; i<quiz.length; i++) {
+					$('#solution_' + (i+1)).hide();
+				}
+				
+				$('#view_solution').click(function() {
+					for(i=0; i<quiz.length; i++) {
+						$('#solution_' + (i+1)).hide();
+					}
+						
+					$('#solution_' + (questionNumber + 1)).fadeToggle('slow');
+					$('.for_view_solution').fadeToggle('slow');
+					
+					if(solutionIsVisible) {
+						document.getElementById('view_solution').textContent = 'Hide Solution';
+						solutionIsVisible = false;
+					}else if(!solutionIsVisible){
+						document.getElementById('view_solution').textContent = 'View Solution';
+						solutionIsVisible = true;
+					}
+					
+				});
+
+				
+				// Image factory
+				var createImage = function(src, title, id) {
+				  var img   = new Image();
+				  img.src   = src;
+				  img.id = id;
+				  img.alt   = title;
+				  img.title = title;
+				  return img; 
+				};
+
+				// array of images dun dineclare sa main script para global
+				//var images = [];
+
+				// push two images to the array
+				//images.push(createImage("images/for_q_1.png", "pic01 title", "for_q_1"));
+				//images.push(createImage("images/for_q_2.png", "pic03 title", "for_q_2"));
+				
+				// mga nadagdag quiz with images
+				if((questionNumber+1) === 1) {
+					$('#question').after(images[0]);
+				} else if((questionNumber+1) === 2) {
+					$('#question').after(images[1]);
+				}
+				
+			});
+		</script>
+	
+	</head>
+	
+	<body>
+		<div data-role="panel" data-position="right" data-display="overlay" data-theme="a" id="panel">
+			<div class="nav_in_panel_container"> 
+				<ul data-role="listview" data-inset="true" data-theme="b" data-dividertheme="f">
+					<li data-icon="false"><a class="nav_in_panel" href="index.html" rel="external"><i class="fa fa-home" aria-hidden="true" ></i>  Home  </a> </li>
+					<li data-icon="false"><a class="nav_in_panel" href="about.html" rel="external"><i class="fa fa-user-o" aria-hidden="true" ></i>  About  </a> </li>
+					<li data-icon="false"><a class="nav_in_panel" href="references.html" rel="external"><i class="fa fa-book" aria-hidden="true" ></i>  References  </a>
+					<li data-icon="false"><a class="nav_in_panel" href="https://www.facebook.com/vilmar.empino?__nodl" rel="external" ><i class="fa fa-facebook-square" aria-hidden="true"></i>  Like us on facebook!  </a></li>
+				</ul>
+			</div>
+		</div>
+		<div id="header_container">
+			<figure class="logo" id="logo">
+				<a href="index.html" rel="external"><img src="images/logo.png" alt="image"/></a>
+			</figure>
+			<ul class="home_nav_quiz"> 
+				<a href="#panel" class="right_panel"> <i class="fa fa-bars" id="icon_for_right_panel" aria-hidden="true"></i> </a>
+				<div class="toBeHidden">
+				<li class="li"><a class="a" href="references.html" rel="external">References</a></li>
+				<li class="li"><a class="a" href="about.html" rel="external">About</a></li>
+				<!-- <li class="li" id="dropdown">
+					<a class="a" href="javascript:void(0)" class="dropbtn">MCQs <i class="fa fa-caret-down" aria-hidden="true"></i></a>
+					<div class="dropdown-content">
+					<a class="a" href="home-me.html" rel="external">Mechanical Engineering</a>
+					<a class="a" href="home-ece.html" rel="external">Electronics Engineering</a> 
+					</div>
+				</li> -->
+				<li class="li"><a class="a" href="index.html" rel="external">Home</a></li>
+				</div>
+			</ul>
+		</div>
+		<div id="body_container"> 
+			
+			<div id="for_contents_quiz">
+				
+				<div id="for_left_content_quiz">
+					<div id="for_title">
+						<strong class="for_h2">Machine Shop Practice - Test VIII (351-400)</strong> <!-- need to be updated per test -->
+					</div>
+					<br>
+					<div id="for_top_ads_quiz">
+						<span> FTA  </span>
+					</div>
+					<div id="for_left_navbar"> <!-- need to be updated per test -->
+						<div data-role="collapsible">
+							<h3>Problems</h3>
+							<ul data-role="listview" id="left_nav" data-inset="true" data-theme="c" data-dividertheme="f">
+								<li><a href="tordillo-01.html"  rel="external">Test 1</a></li>
+								<li><a href="tordillo-02.html"  rel="external">Test 2</a></li>
+								<li><a href="tordillo-03.html"  rel="external">Test 3</a></li>
+								<li><a href="tordillo-04.html"  rel="external">Test 4</a></li>
+								<li><a href="tordillo-05.html"  rel="external">Test 5</a></li>
+								<li><a href="tordillo-06.html"  rel="external">Test 6</a></li>
+								<li><a href="tordillo-07.html"  rel="external">Test 7</a></li>
+								<li><a href="tordillo-08.html"  rel="external">Test 8</a></li>
+								<li><a href="tordillo-09.html"  rel="external">Test 9</a></li>
+								<li><a href="tordillo-10.html"  rel="external">Test 10</a></li>
+								<li><a href="tordillo-11.html"  rel="external">Test 11</a></li>
+								<li><a href="tordillo-12.html"  rel="external">Test 12</a></li>
+								<li><a href="tordillo-13.html"  rel="external">Test 13</a></li>
+								<li><a href="tordillo-14.html"  rel="external">Test 14</a></li>
+								<li><a href="tordillo-15.html"  rel="external">Test 15</a></li>
+								<li><a href="tordillo-16.html"  rel="external">Test 16</a></li>
+								<li><a href="tordillo-17.html"  rel="external">Test 17</a></li>
+								<li><a href="tordillo-18.html"  rel="external">Test 18</a></li>
+								<li><a href="tordillo-19.html"  rel="external">Test 19</a></li>
+								<li><a href="tordillo-20.html"  rel="external">Test 20</a></li>
+								<li><a href="tordillo-21.html"  rel="external">Test 21</a></li>
+								<li><a href="tordillo-22.html"  rel="external">Test 22</a></li>
+								<li><a href="tordillo-23.html"  rel="external">Test 23</a></li>
+								<li><a href="tordillo-24.html"  rel="external">Test 24</a></li>
+								<li><a href="tordillo-25.html"  rel="external">Test 25</a></li>
+								<li><a href="tordillo-26.html"  rel="external">Test 26</a></li>
+								<li><a href="tordillo-27.html"  rel="external">Test 27</a></li>
+								<li><a href="tordillo-28.html"  rel="external">Test 28</a></li>
+								<li><a href="tordillo-29.html"  rel="external">Test 29</a></li>
+								<li><a href="tordillo-30.html"  rel="external">Test 30</a></li>
+								<li><a href="tordillo-31.html"  rel="external">Test 31</a></li>
+								<li><a href="tordillo-32.html"  rel="external">Test 32</a></li>
+								<li><a href="tordillo-33.html"  rel="external">Test 33</a></li>
+								<li><a href="tordillo-34.html"  rel="external">Test 34</a></li>
+								<li><a href="tordillo-35.html"  rel="external">Test 35</a></li>
+								<li><a href="tordillo-36.html"  rel="external">Test 36</a></li>
+								<li><a href="tordillo-37.html"  rel="external">Test 37</a></li>
+								<li><a href="tordillo-38.html"  rel="external">Test 38</a></li>
+								<li><a href="tordillo-39.html"  rel="external">Test 39</a></li>
+								<li><a href="tordillo-40.html"  rel="external">Test 40</a></li>
+								<li><a href="tordillo-41.html"  rel="external">Test 41</a></li>
+								<li><a href="tordillo-42.html"  rel="external">Test 42</a></li>
+								<li><a href="tordillo-43.html"  rel="external">Test 43</a></li>
+								<li><a href="tordillo-44.html"  rel="external">Test 44</a></li>
+								<li><a href="tordillo-45.html"  rel="external">Test 45</a></li>
+								<li><a href="tordillo-46.html"  rel="external">Test 46</a></li>
+								<li><a href="tordillo-47.html"  rel="external">Test 47</a></li>
+								<li><a href="tordillo-48.html"  rel="external">Test 48</a></li>
+								<li><a href="tordillo-49.html"  rel="external">Test 49</a></li>
+								<li><a href="tordillo-50.html"  rel="external">Test 50</a></li>
+								<li><a href="tordillo-51.html"  rel="external">Test 51</a></li>
+								<li><a href="tordillo-52.html"  rel="external">Test 52</a></li>
+								<li><a href="tordillo-53.html"  rel="external">Test 53</a></li>
+								<li><a href="tordillo-54.html"  rel="external">Test 54</a></li>
+								<li><a href="tordillo-55.html"  rel="external">Test 55</a></li>
+								<li><a href="tordillo-56.html"  rel="external">Test 56</a></li>
+								<li><a href="tordillo-57.html"  rel="external">Test 57</a></li>
+								<li><a href="tordillo-58.html"  rel="external">Test 58</a></li>
+								<li><a href="tordillo-59.html"  rel="external">Test 59</a></li>
+								<li><a href="tordillo-60.html"  rel="external">Test 60</a></li>
+								<li><a href="tordillo-61.html"  rel="external">Test 61</a></li>
+								<li><a href="tordillo-62.html"  rel="external">Test 62</a></li>
+								<li><a href="tordillo-63.html"  rel="external">Test 63</a></li>
+								<li><a href="tordillo-64.html"  rel="external">Test 64</a></li>
+							</ul>
+						</div>
+					</div>
+					<div id="for_right_navbar"> <!-- need to be updated per test -->
+						<div data-role="collapsible">
+							<h3>Elements</h3>
+							<ul data-role="listview" id="right_nav" data-inset="true" data-theme="c" data-dividertheme="f">
+								<li><a href="duaso-XXI.html"  rel="external">TestI</a></li>
+								<li><a href="duaso-XXII.html"  rel="external">Test II</a></li>
+								<li><a href="duaso-XXIII.html"  rel="external">Test III</a></li>
+								<li><a href="duaso-XXIV.html"  rel="external">Test IV</a></li>
+								<li><a href="duaso-XXV.html"  rel="external">Test V</a></li>
+								<li><a href="duaso-XXVI.html"  rel="external">Test VI</a></li>
+								<li><a href="duaso-XXVII.html"  rel="external">Test VII</a></li>
+								<li><a href="duaso-XXVIII.html"  rel="external">Test VIII</a></li>
+								<li><a href="duaso-XXIX.html"  rel="external">Test IX</a></li>
+								<li><a href="duaso-XXX.html"  rel="external">Test X</a></li>
+								<li><a href="duaso-XXXI.html"  rel="external">Test XI</a></li>
+								<li><a href="duaso-XXXII.html"  rel="external">Test XII</a></li>
+								<li><a href="duaso-XXXIII.html"  rel="external">Test XIII</a></li>
+								<li><a href="duaso-XXXIV.html"  rel="external">Test XIV</a></li>
+							</ul>
+						</div>
+					</div>
+					<br>
+					<div class="for_quiz">
+						<div id="content">
+							<strong id="timerContinue"><time>00:00:00</time></strong>
+							<strong id="score">Score: 0/50</strong> <br><br>
+							<div class="for_question"><span id="question"></span> </div> 
+							<div id="choices"></div> 
+							<button id="submit" class="button"> Submit Answer</button>
+						</div>
+					</div>
+					<br>
+					<!-- //mga nadagdag for view_solution -->
+					<!-- <div class="for_view_solution">
+						<p id="solution_1">
+							<span>Solution 1</span><br>Data: <br>
+							<span class="eq">$m_1 = 500 g_m$ $/frac{F}{A} \sqrt{\pi}$ </span><br>
+							<span class="eq">$m_2 = 800 g_f$ </span><br>
+							<span class="eq">$m_3 = 15 poundals$ </span><br>
+							<span class="eq">$m_4 = 3 lb_f$ </span><br>
+							<span class="eq">$m_5 = 0.10slug$ </span><br>
+							<span class="eq">$g = 30.5 ft/s^2$ </span><br>
+							Unknown: <br>
+							<span class="eq">a) Total mass, $m_T$ in $g_m$ </span><br>
+							<span class="eq">b) $m_T$ in $lb_m$ </span><br>
+							<span class="eq">c) $m_T$ in $slugs$ </span><br>
+							Solution: <br>
+							<span class="eq"> $m_T = m_1 + m_2 +$ $m_3 + m_4 + m_5 \longrightarrow (eq. 1)$</span> <br>
+							
+							<span class="eq"> </span> <br>
+						</p>
+						
+						<p id="solution_2"><span>Solution 2</span><br>Data: <br> 
+							<span class="eq"> $g_{sea} = 32.088 fps^2 $ </span> <br>
+							<span class="eq"> $\Delta g = -0.003 fps^2 $ per 1000 ft </span> <br>
+							Unknown: <br>
+							<span class="eq"> a) Height, $h$ if g is 30.504 $fps^2$ </span> <br>
+							<span class="eq"> b) $h$ if $F_g$ is 95% of original </span> <br>
+							<span class="eq"> c) $F_g$ if $h$ is 29,131 ft and $m$ is 180 $lb_m$</span> <br>
+							Solution: <br>
+							<span class="eq">a) $h = (30.504 - 32.088)fps^2$ x $\frac{1000ft}{-0.003 fps^2}$ $= 528,000ft$ $= \underline{100mi}$ </span> <br>
+							<span class="eq"> b) $h = (32.088)(0.95 - 1)$ $fps^2$ x $\frac{1000ft}{-0.003 fps^2}$ $= 534,800$ ft or $\underline{101.29 mi}$</span> <br>
+							<span class="eq"> c) $F_g = mg \longrightarrow (eq. 1)$ </span> <br>
+							But <br>
+							<span class="eq"> $m = 180 lb_m$ x $\frac{1 slug}{32.2 lb_m}$ $=5.59 slugs$ </span> <br>
+							<span class="eq"> $g = 29,131ft$ x $\frac{-0.003 fps^2}{1000 ft}$ $+ 32.088 fps^2$ $32.00 fps^2$</span> <br>
+							Then from $(eq. 1)$ <br>
+							<span class="eq"> $F_g = 5.59 slugs$ x $32.00 fps^2$ $=\underline{178.88 lb_f}$</span> <br>
+						</p> 
+						
+						<p id="solution_3"><span>Solution 3</span><br>Data: <br> 
+							<span class="eq"> $g_{sea} = 32.088 fps^2 $ </span> <br>
+							<span class="eq"> $\Delta g = -0.003 fps^2 $ per 1000 ft </span> <br>
+							Unknown: <br>
+							<span class="eq"> a) Height, $h$ if g is 30.504 $fps^2$ </span> <br>
+							<span class="eq"> b) $h$ if $F_g$ is 95% of original </span> <br>
+							<span class="eq"> c) $F_g$ if $h$ is 29,131 ft and $m$ is 180 $lb_m$</span> <br>
+							Solution: <br>
+							<span class="eq">a) $h = (30.504 - 32.088)fps^2$ x $\frac{1000ft}{-0.003 fps^2}$ $= 528,000ft$ $= \underline{100mi}$ </span> <br>
+							<span class="eq"> b) $h = (32.088)(0.95 - 1)$ $fps^2$ x $\frac{1000ft}{-0.003 fps^2}$ $= 534,800$ ft or $\underline{101.29 mi}$</span> <br>
+							<span class="eq"> c) $F_g = mg \longrightarrow (eq. 1)$ </span> <br>
+							But <br>
+							<span class="eq"> $m = 180 lb_m$ x $\frac{1 slug}{32.2 lb_m}$ $=5.59 slugs$ </span> <br>
+							<span class="eq"> $g = 29,131ft$ x $\frac{-0.003 fps^2}{1000 ft}$ $+ 32.088 fps^2$ $32.00 fps^2$</span> <br>
+							Then from $(eq. 1)$ <br>
+							<span class="eq"> $F_g = 5.59 slugs$ x $32.00 fps^2$ $=\underline{178.88 lb_f}$</span> <br>
+						</p>
+						
+						<p id="solution_4"><span>Solution 4</span><br>Data: <br> 
+							<span class="eq"> $g_{sea} = 32.088 fps^2 $ </span> <br>
+							<span class="eq"> $\Delta g = -0.003 fps^2 $ per 1000 ft </span> <br>
+							Unknown: <br>
+							<span class="eq"> a) Height, $h$ if g is 30.504 $fps^2$ </span> <br>
+							<span class="eq"> b) $h$ if $F_g$ is 95% of original </span> <br>
+							<span class="eq"> c) $F_g$ if $h$ is 29,131 ft and $m$ is 180 $lb_m$</span> <br>
+							Solution: <br>
+							<span class="eq">a) $h = (30.504 - 32.088)fps^2$ x $\frac{1000ft}{-0.003 fps^2}$ $= 528,000ft$ $= \underline{100mi}$ </span> <br>
+							<span class="eq"> b) $h = (32.088)(0.95 - 1)$ $fps^2$ x $\frac{1000ft}{-0.003 fps^2}$ $= 534,800$ ft or $\underline{101.29 mi}$</span> <br>
+							<span class="eq"> c) $F_g = mg \longrightarrow (eq. 1)$ </span> <br>
+							But <br>
+							<span class="eq"> $m = 180 lb_m$ x $\frac{1 slug}{32.2 lb_m}$ $=5.59 slugs$ </span> <br>
+							<span class="eq"> $g = 29,131ft$ x $\frac{-0.003 fps^2}{1000 ft}$ $+ 32.088 fps^2$ $32.00 fps^2$</span> <br>
+							Then from $(eq. 1)$ <br>
+							<span class="eq"> $F_g = 5.59 slugs$ x $32.00 fps^2$ $=\underline{178.88 lb_f}$</span> <br>
+						</p>
+					
+					</div> -->
+					
+					<button id="view_solution" class="button small"> View Solution</button>
+
+										
+				</div>
+				
+								
+				
+				<div class="for_right_ads_quiz">
+					<span> FRA   </span>
+				</div>
+			</div>
+		</div>
+			
+			<script>
+	
+ //star timer
+  var timeElapsed = "";
+	var h1 = document.getElementById('timerContinue'),
+		start = document.getElementById('start'),
+		stop = document.getElementById('stop'),
+		clear = document.getElementById('clear'),
+		seconds = 0, minutes = 0, hours = 0,
+		t;
+
+	function add() {
+		seconds++;
+		if (seconds >= 60) {
+			seconds = 0;
+			minutes++;
+			if (minutes >= 60) {
+				minutes = 0;
+				hours++;
+			}
+		}
+		
+		h1.textContent = (hours ? (hours > 9 ? hours : "0" + hours) : "00") + ":" + (minutes ? (minutes > 9 ? minutes : "0" + minutes) : "00") + ":" + (seconds > 9 ? seconds : "0" + seconds);
+		timeElapsed =(hours ? (hours > 9 ? hours : "0" + hours) : "00") + ":" +  (minutes ? (minutes > 9 ? minutes : "0" + minutes) : "00") + ":" + (seconds > 9 ? seconds : "0" + seconds);
+
+		timer();
+	}
+	function timer() {
+		t = setTimeout(add, 1000);
+	}
+	timer();
+
+	//end timer
+
+	var quiz = [{
+  "question": "A planer which has a cutting action in on both strokes.",
+  "choices": ["Open side planer", "Pit planer", "Double housing planer", "Universal planer"],
+  "correct": "Universal planer"
+}, {
+  "question": "The straddle milling is done by means of two _____.",
+  "choices": ["Side milling cutters  ", "Face milling cutters", "Plane milling cutters", "Form cutters"],
+  "correct": "Side milling cutters  "
+}, {
+  "question": "In a standard dividing had, the ratio between the worm wheel and the worm is",
+  "choices": ["10:1", "20:1", "30:1", "40:1"],
+  "correct": "40:1"
+}, {
+  "question": "In a standard dividing head, 3 holes in 27 holes circle will index ________. ",
+  "choices": ["1 degree", "2 degrees", "4 degrees", "6 degrees"],
+  "correct": "1 degree"
+}, {
+  "question": "There are two different movements of the crank in which type of indexing?",
+  "choices": ["Angular", "Compound    ", "Differential", "Simple"],
+  "correct": "Compound    "
+}, {
+  "question": "In a vertical milling machne, the spindle is situated ______ to the work table.",
+  "choices": ["At certain angle", "Horizontal", "Vertical ", "Adjacent"],
+  "correct": "Vertical "
+}, {
+  "question": "Planner type milling machine is built up for ______ work.",
+  "choices": ["Heavy duty  ", "Light duty", "Medium duty", "Ordinary"],
+  "correct": "Heavy duty  "
+}, {
+  "question": "In astraddle milling operation, how many cutters are used to mill yhe work?",
+  "choices": ["One", "Two ", "Three", "More than three"],
+  "correct": "Two "
+}, {
+  "question": "For gear cutting, which of the following cutters is used?",
+  "choices": ["End mill cutter", "Form relieve cutter", "Plain milling cutter", "All of the above"],
+  "correct": "Form relieve cutter"
+}, {
+  "question": "In a slotter, the table gets ____ different feeds.",
+  "choices": ["Four", "Two", "Three", "Five"],
+  "correct": "Three"
+}, {
+  "question": "If the clearance of a cutting edge is 5 degrees, the lip angle is 75 degrees, the rake angle will be ",
+  "choices": ["10 degrees ", "70 degrees", "80 degrees ", "60 degrees"],
+  "correct": "10 degrees "
+}, {
+  "question": "The approximate hardness of high speed steel and mill cutter is:",
+  "choices": ["45 HRC", "52 HRC", "62 HRC   ", "72 HRC"],
+  "correct": "62 HRC   "
+}, {
+  "question": "The over arm of a milling machine is used to support",
+  "choices": ["Arbor", "Column", "Spindle", "Table"],
+  "correct": "Arbor"
+}, {
+  "question": "	Where does the feed motion take place in aslotting machine?",
+  "choices": ["During the cutting motion", "After each forward stroke", "At the end of return motion", "After each double stroke   "],
+  "correct": "After each double stroke   "
+}, {
+  "question": "Which of the following conditions may cause error during knurling?",
+  "choices": ["Clamped length of tool too short", "Surface speed too low", "Too much longitudinal feed ", "Unnecessary support with tail stock center"],
+  "correct": "Too much longitudinal feed "
+}, {
+  "question": "Mark the milling method during which the formation of chatter marks is very likely",
+  "choices": ["During down cut milling with a straight too cutter", "During face milling with a straight tooth cutter", "During up cut milling with a straight tooth cutter  ", "While using spiral tooth cutter"],
+  "correct": "During up cut milling with a straight tooth cutter  "
+}, {
+  "question": "Taps are resharpened by grindings",
+  "choices": ["Diameter", "Flutes  ", "Relief", "Threads"],
+  "correct": "Flutes  "
+}, {
+  "question": "Grinding fluids are used",
+  "choices": ["Reduce the friction between the wheel fac and th job", "Wash away chips", "Prevent loading of wheel", "All of the above "],
+  "correct": "All of the above "
+}, {
+  "question": "Balancing of grinding wheel is done to",
+  "choices": ["Make the outside diameter concentric with the above", "Make the sides of wheel parallel", "Equalize the weight in every portion of the wheel ", "None of the above"],
+  "correct": "Equalize the weight in every portion of the wheel "
+}, {
+  "question": "A grinding wheel, which has got the making ?C? , is made with what abrasive?",
+  "choices": ["	Aluminum oxide", "Silicon carbide   ", "Combination of A and B", "	Corundum"],
+  "correct": "Silicon carbide   "
+}, {
+  "question": "Which bond is suitable for wet grinding?",
+  "choices": ["Rubber", "Shellac", "Silicate  ", "None of the above"],
+  "correct": "Silicate  "
+}, {
+  "question": "Which kind of bond is commonly used?",
+  "choices": ["Vitrified", "Rubber", "Shellac", "Silicon"],
+  "correct": "Vitrified"
+}, {
+  "question": "The grade of grinding wheel depends upon",
+  "choices": ["Grain size", "Hardness of bond  ", "	Kind of abrasive", "Structure"],
+  "correct": "Hardness of bond  "
+}, {
+  "question": "One of the causes of grinding wheel glazing",
+  "choices": ["Grain size is too fine", "Wheel is hard", "Wheel speed is too fast", "A and B both  "],
+  "correct": "A and B both  "
+}, {
+  "question": "Which of the following is used to clean the gage blocks before and after use?",
+  "choices": ["Brush", "Chamois leather or linen cloth ", "Cotton waste", "None of the above"],
+  "correct": "Chamois leather or linen cloth "
+}, {
+  "question": "Internal and external type on cylindrical jobs are ground in",
+  "choices": ["Plain cylindrical grinding machine", "Universal cylindrical grinding machine", "Internal grinding machine", "Center less grinding machine"],
+  "correct": "Universal cylindrical grinding machine"
+}, {
+  "question": "Mark the cutter which works simultaneously with the up cut and down cut process",
+  "choices": ["Semi-circular milling cutter", "Shell and milling cutter", "Side milling cutter", "Plain milling cutter"],
+  "correct": "Shell and milling cutter"
+}, {
+  "question": "What happens if the job is loosely fitted between centers in cylindrical grindings?",
+  "choices": ["The job will be out of round ", "The job will be thrown out", "The job will be oversize", "The job will not rotate"],
+  "correct": "The job will be out of round "
+}, {
+  "question": "Where does the relieved cutters area reground?",
+  "choices": ["On the circumstances", "Relieved cutters are not reground", "On the flank", "On the side faces"],
+  "correct": "On the flank"
+}, {
+  "question": "Used for scribing large radius of circles and arcs",
+  "choices": ["Compass", "Protractor", "	Ruler", "Trammel"],
+  "correct": "Trammel"
+}, {
+  "question": "Which of the following has its angle 30 degrees and is used for giving sharp impression on soft metals?",
+  "choices": ["Center punch", "Dot punch", "Prick punch  ", "Hollow punch"],
+  "correct": "Prick punch  "
+}, {
+  "question": "Which of the following has its angle 60 degrees and is used for dotting after marking lines on general works?",
+  "choices": ["Center punch", "Dot punch ", "Hollow punch", "Prick punch"],
+  "correct": "Dot punch "
+}, {
+  "question": "Which of the following has its angle 90 degrees and is used to give deep marks for the location of drill?",
+  "choices": ["Center punch ", "Dot punch", "Hollow punch", "Prick punch"],
+  "correct": "Center punch "
+}, {
+  "question": "	It is used on soft metals and non-metals for making holes.",
+  "choices": ["Center punch", "Dot punch", "Hollow punch  ", "Prick punch"],
+  "correct": "Hollow punch  "
+}, {
+  "question": "Reason why cast iron is selected for the manufacture of surface plate.",
+  "choices": ["It is easy for machinery", "It is cheaper ", "It has less wear and tear", "All of the above "],
+  "correct": "All of the above "
+}, {
+  "question": "The common measuring tools are",
+  "choices": ["Steel rule", "Vernier caliper", "Micrometer", "All of the above "],
+  "correct": "All of the above "
+}, {
+  "question": "It is an operation of stretching or spreading over the metal by means of the plane of the hammer.",
+  "choices": ["Peening ", "Swaging", "	Bending", "Upsetting"],
+  "correct": "Peening "
+}, {
+  "question": "The good quality of measuring tool",
+  "choices": ["Should be easy to handle", "Should be easy to read ", "Should be wear resistance", "All of the above "],
+  "correct": "All of the above "
+}, {
+  "question": "The flatness of surface can be checked",
+  "choices": ["	By using straight edge", "By using surface plate", "By using dial test indicator", " All of the above "],
+  "correct": " All of the above "
+}, {
+  "question": "It is an operation in which round rod is placed between the top and bottom swages and hammered to remove the bends marks.",
+  "choices": ["Bending", "Peening", "Swaging ", "Upsetting"],
+  "correct": "Swaging "
+}, {
+  "question": "A holding device, which is used to hold  or grip work piece, while filling, chipping or any other bench work or while machining or drilling them.",
+  "choices": ["Vise  ", "Clamp", "Grip", "Pressed"],
+  "correct": "Vise  "
+}, {
+  "question": "A multi pointed hand anything tool used to remove material from metallic and non-metallic work pieces to match with drawing, shape, and size.",
+  "choices": ["Cold chisel", "File", "	Hacksaw", "None of the above"],
+  "correct": "File"
+}, {
+  "question": "A side cutting tool used for accurately finishing the straight or tapered holes already drilled or bored.",
+  "choices": ["Reamer ", "Swaging", "Peening", "Tapping"],
+  "correct": "Reamer "
+}, {
+  "question": "A device used to fix two or more parts.",
+  "choices": ["Jigs    ", "Fixtures", "Fastener", "Clamp"],
+  "correct": "Fastener"
+}, {
+  "question": "A machine element inserted parallel to the axis of a shaft.",
+  "choices": ["Fastener", "Cotter", "Key  ", "None of the above"],
+  "correct": "Key  "
+}, {
+  "question": "A machine element inserted at right angle to the axis of shaft is known as",
+  "choices": ["Fastener", "Cotter", "Key", "Clamp"],
+  "correct": "Cotter"
+}, {
+  "question": "The process of extracting iron in a blast furnace is called",
+  "choices": ["Sintering", "Smelting ", "Casting", "Manufacturing"],
+  "correct": "Smelting "
+}, {
+  "question": "Which of the following is a product of blast furnace?",
+  "choices": ["Wrought iron", "Cast iron", "	Pig iron ", "Gray iron"],
+  "correct": "	Pig iron "
+}, {
+  "question": "A type of iron, which contains 3 to 3.5% carbon either in, combined form or in free state.",
+  "choices": ["Wrought iron", "Cast iron ", "Pig iron", "Gray iron"],
+  "correct": "Cast iron "
+}, {
+  "question": "Which of the following furnace used for manufacture of cast iron?",
+  "choices": ["Cupola furnace", "Crucible furnace", "Electric furnace", "All of the above"],
+  "correct": "All of the above"
+}];
+
+	
+// mga nadagdag quiz with images
+// array of images  
+	var images = [];
+	var solutionIsVisible;
+
+// define elements
+var content = $("content"),
+  questionContainer = $("question"),
+  choicesContainer = $("choices"),
+  scoreContainer = $("score"), //nabago
+  submitBtn = $("submit");
+  
+  var resultPage = "";
+  
+// init vars
+var currentQuestion = 0,
+	score = 0,
+  askingQuestion = true,
+  questionNumber = 0,
+   maxQ = quiz.length, 
+  questionNumber;
+  
+  wrongAnswerQ = "",
+  wrongAnswerNo=0;
+  var yourAnswer = "You did not pick any answer.";
+  var choicesMistakesG = "";
+  if(maxQ > quiz.length) {
+	maxQ = quiz.length;
+  }
+  var isOnReviewWrongPage = false;
+  var duplicates  =[];
+
+function $(id) { // shortcut for document.getElementById
+  return document.getElementById(id);
+}
+
+function askQuestion() {
+  var choices = quiz[questionNumber].choices,
+    choicesHtml = "", choicesMistakes="" ;
+
+
+  // loop through choices, and create radio buttons
+  for (var i = 0; i < choices.length; i++) {
+  //alert(get_rand(nums));
+    choicesHtml += "<input type='radio' name='quiz" + questionNumber +
+      "' id='choice" + ( i + 1) +
+      "' value='" + choices[i] + "'>" +
+      " <label for='choice" + (i + 1) + "'>" + choices[i] + "</label> <br>";
+	  
+	  choicesMistakes += "<span name='quiz" + questionNumber +
+      "' id='choice" + (i + 1) +
+      "' value='" + choices[i] + "'>"+ (i+1) + ". " + choices[i] + "</span><br>";
+	   if(choices[i] === quiz[questionNumber].correct) {
+			correctAnswer = choices[i];
+			correctAnswerIndex = i;
+	  }
+	  
+	  choicesMistakesG = choicesMistakes;
+  }
+
+  
+  // load the question
+  questionContainer.textContent = (questionNumber + 1) + ". " +
+    quiz[questionNumber].question;
+	
+	
+  // load the choices
+  choicesContainer.innerHTML = choicesHtml;
+
+  // setup for the first time
+  if (questionNumber === 0) {
+  scoreContainer.textContent = "Score: " + score + "/" + maxQ; //nabago
+    submitBtn.textContent = "Submit Answer";
+	//alert(quiz.length);
+  }
+  
+	
+
+}
+
+function checkAnswer() {
+	var yourAnswer = "You did not pick any answer.";
+  // are we asking a question, or proceeding to next question?
+  if (askingQuestion) {
+	
+	//mga nadagdag for view_solution
+	if($('#solution_' + (questionNumber+1)).length > 0) {
+		$('#view_solution').css('visibility', 'visible');
+	}
+    submitBtn.textContent = "Next Question";
+    askingQuestion = false;
+
+    // determine which radio button they clicked
+    var userpick,
+      correctIndex,
+      radios = document.getElementsByName("quiz" + questionNumber);
+    for (var i = 0; i < radios.length; i++) {
+      if (radios[i].checked) { // if this radio button is checked
+        userpick = radios[i].value;
+		yourAnswer = userpick;
+      }
+
+      // get index of correct answer
+      if (radios[i].value == quiz[questionNumber].correct) {
+        correctIndex = i;
+      }
+    }
+
+    // setup if they got it right, or wrong
+    var labelStyle = document.getElementsByTagName("label")[correctIndex].style;
+    labelStyle.fontWeight = "bold";
+    if (userpick == quiz[questionNumber].correct) {
+      labelStyle.color = "green";
+	  score++; 
+    } else {
+		wrongAnswerNo++;
+      labelStyle.color = "red";
+	  wrongAnswerQ += "<br> <span id='question'> " + wrongAnswerNo+". " + quiz[questionNumber].question + "</span><br> " + "<div id='choices'>" + choicesMistakesG + " <strong>Your answer: "+ yourAnswer + "</strong><br> <strong id='answer'>" + "Correct answer: " + correctAnswer  + "</strong></div> ";//  + 
+
+    }
+	
+	
+  } else { // move to next question
+    // setting up so user can ask a question
+    askingQuestion = true;
+    // change button text back to "Submit Answer"
+    submitBtn.textContent = "Submit Answer";
+	scoreContainer.textContent = "Score: " + score + "/" + maxQ;; //nabago
+    // if we're not on last question, increase question number
+    if (questionNumber < maxQ - 1) {
+      //currentQuestion++;
+	  questionNumber++;
+      askQuestion();
+    } else {
+      clearTimeout(t);
+      showFinalResults();
+    }
+	
+	//mga nadagdag quiz with images
+	for(i=0; i<quiz.length; i++) { 
+		$('#for_q_' + (i+1)).hide();
+	}
+	
+	// mga nadagdag quiz with images
+	if((questionNumber+1) === 1) {
+		$('#question').after(images[0]);
+	} else if((questionNumber+1) === 2) {
+		$('#question').after(images[1]);
+	}
+	
+	//mga nadagdag for view_solution
+	for(i=0; i<quiz.length; i++) { 
+		$('#solution_' + (i+1)).hide();
+	}
+	
+	$('.for_view_solution').hide();
+	$('#view_solution').css('visibility', 'hidden');
+	
+	solutionIsVisible = false;
+	if(solutionIsVisible) {
+		document.getElementById('view_solution').textContent = 'Hide Solution';
+		solutionIsVisible = false;
+	}else if(!solutionIsVisible){
+		document.getElementById('view_solution').textContent = 'View Solution';
+		solutionIsVisible = true;
+	}
+  }
+}
+
+function showFinalResults() {
+	//resultPage = "<center><strong class='for_h'>You Passed!</strong></center>";
+	if(score/maxQ >= 0.7){
+		resultPage = "<center><strong class='for_h'>You Passed!</strong></center> <br> <center><strong>Score: " + score + " out of " + maxQ + " </strong></center><center><strong> Equivalent Percentage: " + Math.floor(score/maxQ*100) + "%</strong></center><center><strong>Total time: " + timeElapsed + "</strong></center> <br> <br><button id='restart' class='button fit' onclick='reloadCurrentPage();'> Restart the Test</button><button id='reviewMistakes' class='button fit' onclick='reviewMistakes();'> Review Mistakes</button> <button id='proceedToNext' class='button fit' onclick='proceedToNext();'> Proceed to next Test</button> ";
+	} else {
+		resultPage = "<center><strong class='for_h'>You Failed!</strong></center> <br> <center><strong>Score: " + score + " out of " + maxQ + " </strong></center><center><strong> Equivalent Percentage: " + Math.floor(score/maxQ*100) + "%</strong></center><center><strong>Total time: " + timeElapsed + "</strong></center> <br> <br><button id='restart' class='button fit' onclick='reloadCurrentPage();'> Restart the Test</button><button id='reviewMistakes' class='button fit' onclick='reviewMistakes();'> Review Mistakes</button> <button id='proceedToNext' class='button fit' onclick='proceedToNext();'> Proceed to next Test</button> ";
+	}
+	content.innerHTML = resultPage;
+}
+
+function reviewMistakes() {
+	content.innerHTML = wrongAnswerQ + " <br><br> <center><button id='restart' class='button fit' onclick='reloadCurrentPage();'> Restart the Test</button></center> <button id='proceedToNext' class='button fit' onclick='proceedToNext();'> Proceed to next Test</button>";
+}
+
+function proceedToNext() {
+	document.location.href = "duaso-XXIX.html"; //need to be updated per test 
+}
+
+function reloadCurrentPage() {
+	document.location.href = "duaso-XXVIII.html"; //need to be updated per test 
+}
+
+window.addEventListener("load", askQuestion, false);
+submitBtn.addEventListener("click", checkAnswer, false);
+
+
+
+</script>
+
+
+
+
+			<!-- Scripts for Phantom -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+	</body>
+
+</html>
