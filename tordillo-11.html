@@ -1,0 +1,653 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+	
+		<title>Entropiya | Machine Design 11</title> <!-- need to be updated per test -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		
+		<link rel="stylesheet" href="css/index.css" />
+		<script src="js/index.js"></script>
+		<link rel="stylesheet" href="assets/css/main.css" />
+
+		<!-- FontAwesome, jQuery and jQuery Mobile -->
+		<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css">
+		<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+		<script type="text/javascript" src="jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script> 
+		
+		<!-- jqmath -->
+		<link rel="stylesheet" href="mathscribe/jqmath-0.4.3.css">
+		<script src="mathscribe/jquery-1.4.3.min.js"></script>
+		<script src="mathscribe/jqmath-etc-0.4.5.min.js" charset="utf-8"></script>
+		
+		<script>
+			$(document).ready(function() {
+				solutionIsVisible = true;
+				
+				//mga nadagdag for view_solution
+				
+				$('.for_view_solution').hide();
+				$('#view_solution').css('visibility', 'hidden');
+				
+				for(i=0; i<quiz.length; i++) {
+					$('#solution_' + (i+1)).hide();
+				}
+				
+				$('#view_solution').click(function() {
+					for(i=0; i<quiz.length; i++) {
+						$('#solution_' + (i+1)).hide();
+					}
+						
+					$('#solution_' + (questionNumber + 1)).fadeToggle('slow');
+					$('.for_view_solution').fadeToggle('slow');
+					
+					if(solutionIsVisible) {
+						document.getElementById('view_solution').textContent = 'Hide Solution';
+						solutionIsVisible = false;
+					}else if(!solutionIsVisible){
+						document.getElementById('view_solution').textContent = 'View Solution';
+						solutionIsVisible = true;
+					}
+					
+				});
+
+				
+				// Image factory
+				var createImage = function(src, title, id) {
+				  var img   = new Image();
+				  img.src   = src;
+				  img.id = id;
+				  img.alt   = title;
+				  img.title = title;
+				  return img; 
+				};
+
+				// array of images dun dineclare sa main script para global
+				//var images = [];
+
+				// push two images to the array
+				//images.push(createImage("images/for_q_1.png", "pic01 title", "for_q_1"));
+				//images.push(createImage("images/for_q_2.png", "pic03 title", "for_q_2"));
+				
+				// mga nadagdag quiz with images
+				if((questionNumber+1) === 1) {
+					$('#question').after(images[0]);
+				} else if((questionNumber+1) === 2) {
+					$('#question').after(images[1]);
+				}
+				
+			});
+		</script>
+	
+	</head>
+	
+	<body>
+		<div data-role="panel" data-position="right" data-display="overlay" data-theme="a" id="panel">
+			<div class="nav_in_panel_container"> 
+				<ul data-role="listview" data-inset="true" data-theme="b" data-dividertheme="f">
+					<li data-icon="false"><a class="nav_in_panel" href="index.html" rel="external"><i class="fa fa-home" aria-hidden="true" ></i>  Home  </a> </li>
+					<li data-icon="false"><a class="nav_in_panel" href="about.html" rel="external"><i class="fa fa-user-o" aria-hidden="true" ></i>  About  </a> </li>
+					<li data-icon="false"><a class="nav_in_panel" href="references.html" rel="external"><i class="fa fa-book" aria-hidden="true" ></i>  References  </a>
+					<li data-icon="false"><a class="nav_in_panel" href="https://www.facebook.com/Entropiyanet-260555674463023/" rel="external" ><i class="fa fa-facebook-square" aria-hidden="true"></i>  Like us on facebook!  </a></li>
+				</ul>
+			</div>
+		</div>
+		<div id="header_container">
+			<figure class="logo" id="logo">
+				<a href="index.html" rel="external"><img src="images/logo.png" alt="image"/></a>
+			</figure>
+			<ul class="home_nav_quiz"> 
+				<a href="#panel" class="right_panel"> <i class="fa fa-bars" id="icon_for_right_panel" aria-hidden="true"></i> </a>
+				<div class="toBeHidden">
+				<li class="li"><a class="a" href="references.html" rel="external">References</a></li>
+				<li class="li"><a class="a" href="about.html" rel="external">About</a></li>
+				<!-- <li class="li" id="dropdown">
+					<a class="a" href="javascript:void(0)" class="dropbtn">MCQs <i class="fa fa-caret-down" aria-hidden="true"></i></a>
+					<div class="dropdown-content">
+					<a class="a" href="home-me.html" rel="external">Mechanical Engineering</a>
+					<a class="a" href="home-ece.html" rel="external">Electronics Engineering</a> 
+					</div>
+				</li> -->
+				<li class="li"><a class="a" href="index.html" rel="external">Home</a></li>
+				</div>
+			</ul>
+		</div>
+		<div id="body_container"> 
+			
+			<div id="for_contents_quiz">
+				
+				<div id="for_left_content_quiz">
+					<div id="for_title">
+						<strong class="for_h2">Machine Design - Test 11 Pressure Vessels (61-80)</strong> <!-- need to be updated per test -->
+					</div>
+					<br>
+					<div id="for_top_ads_quiz">
+						<span> FTA  </span>
+					</div>
+					<div id="for_left_navbar"> <!-- need to be updated per test -->
+						<div data-role="collapsible">
+							<h3>Problems</h3>
+							<ul data-role="listview" id="left_nav" data-inset="true" data-theme="c" data-dividertheme="f">
+								<li><a href="tordillo-01.html"  rel="external">Test 1</a></li>
+								<li><a href="tordillo-02.html"  rel="external">Test 2</a></li>
+								<li><a href="tordillo-03.html"  rel="external">Test 3</a></li>
+								<li><a href="tordillo-04.html"  rel="external">Test 4</a></li>
+								<li><a href="tordillo-05.html"  rel="external">Test 5</a></li>
+								<li><a href="tordillo-06.html"  rel="external">Test 6</a></li>
+								<li><a href="tordillo-07.html"  rel="external">Test 7</a></li>
+								<li><a href="tordillo-08.html"  rel="external">Test 8</a></li>
+								<li><a href="tordillo-09.html"  rel="external">Test 9</a></li>
+								<li><a href="tordillo-10.html"  rel="external">Test 10</a></li>
+								<li><a href="tordillo-11.html"  rel="external">Test 11</a></li>
+								<li><a href="tordillo-12.html"  rel="external">Test 12</a></li>
+								<li><a href="tordillo-13.html"  rel="external">Test 13</a></li>
+								<li><a href="tordillo-14.html"  rel="external">Test 14</a></li>
+								<li><a href="tordillo-15.html"  rel="external">Test 15</a></li>
+								<li><a href="tordillo-16.html"  rel="external">Test 16</a></li>
+								<li><a href="tordillo-17.html"  rel="external">Test 17</a></li>
+								<li><a href="tordillo-18.html"  rel="external">Test 18</a></li>
+								<li><a href="tordillo-19.html"  rel="external">Test 19</a></li>
+								<li><a href="tordillo-20.html"  rel="external">Test 20</a></li>
+								<li><a href="tordillo-21.html"  rel="external">Test 21</a></li>
+								<li><a href="tordillo-22.html"  rel="external">Test 22</a></li>
+								<li><a href="tordillo-23.html"  rel="external">Test 23</a></li>
+								<li><a href="tordillo-24.html"  rel="external">Test 24</a></li>
+								<li><a href="tordillo-25.html"  rel="external">Test 25</a></li>
+								<li><a href="tordillo-26.html"  rel="external">Test 26</a></li>
+								<li><a href="tordillo-27.html"  rel="external">Test 27</a></li>
+								<li><a href="tordillo-28.html"  rel="external">Test 28</a></li>
+								<li><a href="tordillo-29.html"  rel="external">Test 29</a></li>
+								<li><a href="tordillo-30.html"  rel="external">Test 30</a></li>
+								<li><a href="tordillo-31.html"  rel="external">Test 31</a></li>
+								<li><a href="tordillo-32.html"  rel="external">Test 32</a></li>
+								<li><a href="tordillo-33.html"  rel="external">Test 33</a></li>
+								<li><a href="tordillo-34.html"  rel="external">Test 34</a></li>
+								<li><a href="tordillo-35.html"  rel="external">Test 35</a></li>
+								<li><a href="tordillo-36.html"  rel="external">Test 36</a></li>
+								<li><a href="tordillo-37.html"  rel="external">Test 37</a></li>
+								<li><a href="tordillo-38.html"  rel="external">Test 38</a></li>
+								<li><a href="tordillo-39.html"  rel="external">Test 39</a></li>
+								<li><a href="tordillo-40.html"  rel="external">Test 40</a></li>
+								<li><a href="tordillo-41.html"  rel="external">Test 41</a></li>
+								<li><a href="tordillo-42.html"  rel="external">Test 42</a></li>
+								<li><a href="tordillo-43.html"  rel="external">Test 43</a></li>
+								<li><a href="tordillo-44.html"  rel="external">Test 44</a></li>
+								<li><a href="tordillo-45.html"  rel="external">Test 45</a></li>
+								<li><a href="tordillo-46.html"  rel="external">Test 46</a></li>
+								<li><a href="tordillo-47.html"  rel="external">Test 47</a></li>
+								<li><a href="tordillo-48.html"  rel="external">Test 48</a></li>
+								<li><a href="tordillo-49.html"  rel="external">Test 49</a></li>
+								<li><a href="tordillo-50.html"  rel="external">Test 50</a></li>
+								<li><a href="tordillo-51.html"  rel="external">Test 51</a></li>
+								<li><a href="tordillo-52.html"  rel="external">Test 52</a></li>
+								<li><a href="tordillo-53.html"  rel="external">Test 53</a></li>
+								<li><a href="tordillo-54.html"  rel="external">Test 54</a></li>
+								<li><a href="tordillo-55.html"  rel="external">Test 55</a></li>
+								<li><a href="tordillo-56.html"  rel="external">Test 56</a></li>
+								<li><a href="tordillo-57.html"  rel="external">Test 57</a></li>
+								<li><a href="tordillo-58.html"  rel="external">Test 58</a></li>
+								<li><a href="tordillo-59.html"  rel="external">Test 59</a></li>
+								<li><a href="tordillo-60.html"  rel="external">Test 60</a></li>
+								<li><a href="tordillo-61.html"  rel="external">Test 61</a></li>
+								<li><a href="tordillo-62.html"  rel="external">Test 62</a></li>
+								<li><a href="tordillo-63.html"  rel="external">Test 63</a></li>
+								<li><a href="tordillo-64.html"  rel="external">Test 64</a></li>
+							</ul>
+						</div>
+					</div>
+					<div id="for_right_navbar"> <!-- need to be updated per test -->
+						<div data-role="collapsible">
+							<h3>Elements</h3>
+							<ul data-role="listview" id="right_nav" data-inset="true" data-theme="c" data-dividertheme="f">
+								<li><a href="duaso-I.html"  rel="external">Test I</a></li>
+								<li><a href="duaso-II.html"  rel="external">Test II</a></li>
+								<li><a href="duaso-III.html"  rel="external">Test III</a></li>
+								<li><a href="duaso-IV.html"  rel="external">Test IV</a></li>
+								<li><a href="duaso-V.html"  rel="external">Test V</a></li>
+								<li><a href="duaso-VI.html"  rel="external">Test VI</a></li>
+								<li><a href="duaso-VII.html"  rel="external">Test VII</a></li>
+								<li><a href="duaso-VIII.html"  rel="external">Test VIII</a></li>
+								<li><a href="duaso-IX.html"  rel="external">Test IX</a></li>
+								<li><a href="duaso-X.html"  rel="external">Test X</a></li>
+								<li><a href="duaso-XI.html"  rel="external">Test XI</a></li>
+								<li><a href="duaso-XII.html"  rel="external">Test XII</a></li>
+								<li><a href="duaso-XIII.html"  rel="external">Test XIII</a></li>
+								<li><a href="duaso-XIV.html"  rel="external">Test XIV</a></li>
+								<li><a href="duaso-XV.html"  rel="external">Test XV</a></li>
+								<li><a href="duaso-XVI.html"  rel="external">Test XVI</a></li>
+								<li><a href="duaso-XVII.html"  rel="external">Test XVII</a></li>
+								<li><a href="duaso-XVIII.html"  rel="external">Test XVIII</a></li>
+								<li><a href="duaso-XIX.html"  rel="external">Test XIX</a></li>
+								<li><a href="duaso-XX.html"  rel="external">Test XX</a></li> 
+							</ul>
+						</div>
+					</div>
+					<br>
+					<div class="for_quiz">
+						<div id="content">
+							<strong id="timerContinue"><time>00:00:00</time></strong>
+							<strong id="score">Score: 0/50</strong> <br><br>
+							<div class="for_question"><span id="question"></span> </div> 
+							<div id="choices"></div> 
+							<button id="submit" class="button"> Submit Answer</button>
+						</div>
+					</div>
+					<br>
+					<!-- //mga nadagdag for view_solution -->
+					<!-- <div class="for_view_solution">
+						<p id="solution_1">
+							<span>Solution 1</span><br>Data: <br>
+							<span class="eq">$m_1 = 500 g_m$ $/frac{F}{A} \sqrt{\pi}$ </span><br>
+							<span class="eq">$m_2 = 800 g_f$ </span><br>
+							<span class="eq">$m_3 = 15 poundals$ </span><br>
+							<span class="eq">$m_4 = 3 lb_f$ </span><br>
+							<span class="eq">$m_5 = 0.10slug$ </span><br>
+							<span class="eq">$g = 30.5 ft/s^2$ </span><br>
+							Unknown: <br>
+							<span class="eq">a) Total mass, $m_T$ in $g_m$ </span><br>
+							<span class="eq">b) $m_T$ in $lb_m$ </span><br>
+							<span class="eq">c) $m_T$ in $slugs$ </span><br>
+							Solution: <br>
+							<span class="eq"> $m_T = m_1 + m_2 +$ $m_3 + m_4 + m_5 \longrightarrow (eq. 1)$</span> <br>
+							
+							<span class="eq"> </span> <br>
+						</p>
+						
+						<p id="solution_2"><span>Solution 2</span><br>Data: <br> 
+							<span class="eq"> $g_{sea} = 32.088 fps^2 $ </span> <br>
+							<span class="eq"> $\Delta g = -0.003 fps^2 $ per 1000 ft </span> <br>
+							Unknown: <br>
+							<span class="eq"> a) Height, $h$ if g is 30.504 $fps^2$ </span> <br>
+							<span class="eq"> b) $h$ if $F_g$ is 95% of original </span> <br>
+							<span class="eq"> c) $F_g$ if $h$ is 29,131 ft and $m$ is 180 $lb_m$</span> <br>
+							Solution: <br>
+							<span class="eq">a) $h = (30.504 - 32.088)fps^2$ x $\frac{1000ft}{-0.003 fps^2}$ $= 528,000ft$ $= \underline{100mi}$ </span> <br>
+							<span class="eq"> b) $h = (32.088)(0.95 - 1)$ $fps^2$ x $\frac{1000ft}{-0.003 fps^2}$ $= 534,800$ ft or $\underline{101.29 mi}$</span> <br>
+							<span class="eq"> c) $F_g = mg \longrightarrow (eq. 1)$ </span> <br>
+							But <br>
+							<span class="eq"> $m = 180 lb_m$ x $\frac{1 slug}{32.2 lb_m}$ $=5.59 slugs$ </span> <br>
+							<span class="eq"> $g = 29,131ft$ x $\frac{-0.003 fps^2}{1000 ft}$ $+ 32.088 fps^2$ $32.00 fps^2$</span> <br>
+							Then from $(eq. 1)$ <br>
+							<span class="eq"> $F_g = 5.59 slugs$ x $32.00 fps^2$ $=\underline{178.88 lb_f}$</span> <br>
+						</p> 
+						
+						<p id="solution_3"><span>Solution 3</span><br>Data: <br> 
+							<span class="eq"> $g_{sea} = 32.088 fps^2 $ </span> <br>
+							<span class="eq"> $\Delta g = -0.003 fps^2 $ per 1000 ft </span> <br>
+							Unknown: <br>
+							<span class="eq"> a) Height, $h$ if g is 30.504 $fps^2$ </span> <br>
+							<span class="eq"> b) $h$ if $F_g$ is 95% of original </span> <br>
+							<span class="eq"> c) $F_g$ if $h$ is 29,131 ft and $m$ is 180 $lb_m$</span> <br>
+							Solution: <br>
+							<span class="eq">a) $h = (30.504 - 32.088)fps^2$ x $\frac{1000ft}{-0.003 fps^2}$ $= 528,000ft$ $= \underline{100mi}$ </span> <br>
+							<span class="eq"> b) $h = (32.088)(0.95 - 1)$ $fps^2$ x $\frac{1000ft}{-0.003 fps^2}$ $= 534,800$ ft or $\underline{101.29 mi}$</span> <br>
+							<span class="eq"> c) $F_g = mg \longrightarrow (eq. 1)$ </span> <br>
+							But <br>
+							<span class="eq"> $m = 180 lb_m$ x $\frac{1 slug}{32.2 lb_m}$ $=5.59 slugs$ </span> <br>
+							<span class="eq"> $g = 29,131ft$ x $\frac{-0.003 fps^2}{1000 ft}$ $+ 32.088 fps^2$ $32.00 fps^2$</span> <br>
+							Then from $(eq. 1)$ <br>
+							<span class="eq"> $F_g = 5.59 slugs$ x $32.00 fps^2$ $=\underline{178.88 lb_f}$</span> <br>
+						</p>
+						
+						<p id="solution_4"><span>Solution 4</span><br>Data: <br> 
+							<span class="eq"> $g_{sea} = 32.088 fps^2 $ </span> <br>
+							<span class="eq"> $\Delta g = -0.003 fps^2 $ per 1000 ft </span> <br>
+							Unknown: <br>
+							<span class="eq"> a) Height, $h$ if g is 30.504 $fps^2$ </span> <br>
+							<span class="eq"> b) $h$ if $F_g$ is 95% of original </span> <br>
+							<span class="eq"> c) $F_g$ if $h$ is 29,131 ft and $m$ is 180 $lb_m$</span> <br>
+							Solution: <br>
+							<span class="eq">a) $h = (30.504 - 32.088)fps^2$ x $\frac{1000ft}{-0.003 fps^2}$ $= 528,000ft$ $= \underline{100mi}$ </span> <br>
+							<span class="eq"> b) $h = (32.088)(0.95 - 1)$ $fps^2$ x $\frac{1000ft}{-0.003 fps^2}$ $= 534,800$ ft or $\underline{101.29 mi}$</span> <br>
+							<span class="eq"> c) $F_g = mg \longrightarrow (eq. 1)$ </span> <br>
+							But <br>
+							<span class="eq"> $m = 180 lb_m$ x $\frac{1 slug}{32.2 lb_m}$ $=5.59 slugs$ </span> <br>
+							<span class="eq"> $g = 29,131ft$ x $\frac{-0.003 fps^2}{1000 ft}$ $+ 32.088 fps^2$ $32.00 fps^2$</span> <br>
+							Then from $(eq. 1)$ <br>
+							<span class="eq"> $F_g = 5.59 slugs$ x $32.00 fps^2$ $=\underline{178.88 lb_f}$</span> <br>
+						</p>
+					
+					</div> -->
+					
+					<button id="view_solution" class="button small"> View Solution</button>
+
+										
+				</div>
+				
+								
+				
+				<div class="for_right_ads_quiz">
+					<span> FRA   </span>
+				</div>
+			</div>
+		</div>
+			
+			<script>
+	
+ //star timer
+  var timeElapsed = "";
+	var h1 = document.getElementById('timerContinue'),
+		start = document.getElementById('start'),
+		stop = document.getElementById('stop'),
+		clear = document.getElementById('clear'),
+		seconds = 0, minutes = 0, hours = 0,
+		t;
+
+	function add() {
+		seconds++;
+		if (seconds >= 60) {
+			seconds = 0;
+			minutes++;
+			if (minutes >= 60) {
+				minutes = 0;
+				hours++;
+			}
+		}
+		
+		h1.textContent = (hours ? (hours > 9 ? hours : "0" + hours) : "00") + ":" + (minutes ? (minutes > 9 ? minutes : "0" + minutes) : "00") + ":" + (seconds > 9 ? seconds : "0" + seconds);
+		timeElapsed =(hours ? (hours > 9 ? hours : "0" + hours) : "00") + ":" +  (minutes ? (minutes > 9 ? minutes : "0" + minutes) : "00") + ":" + (seconds > 9 ? seconds : "0" + seconds);
+
+		timer();
+	}
+	function timer() {
+		t = setTimeout(add, 1000);
+	}
+	timer();
+
+	//end timer
+	
+
+var quiz = [{
+	"question": "A storage tank of air 30 inches in diameter, is to withstand an internal pressure of 220 psi with a design factor of 4.5 based on Su. The steel has the strength equivalent of C1020 annealed and the welded joints should have a relative strength(efficiency) of 80%. Determine the suitable plate thickness.",
+	"choices": ["", "", "0.32565 inch", ""],
+	"correct": "0.32565 inch"
+},{
+	"question": "A storage tank of air 30 inches in diameter, is to withstand an internal pressure of 220 psi with a design factor of 4.5 based on Su. The steel has the strength equivalent of C1020 annealed and the welded joints should have a relative strength(efficiency) of 80%. Compute the stress on a diamtetral section.",
+	"choices": ["", "", "", "5066.79 psi"],
+	"correct": "5066.79 psi"
+},{
+	"question": "A storage tank of air 30 inches in diameter, is to withstand an internal pressure of 220 psi with a design factor of 4.5 based on Su. The steel has the strength equivalent of C1020 annealed and the welded joints should have a relative strength(efficiency) of 80%. Compare the longitudinal stress.",
+	"choices": ["10,133.57 psi", "", "", ""],
+	"correct": "10,133.57 psi"
+},{
+	"question": "Find the thickness of a metal needed is the semi-spherical end of cylindrical vessel 0.75 meter in diameter subjected to an internal pressure of 2.9 N/mm^2. The material is mild carbon steel and tensile stress is 72 N/mm^2",
+	"choices": ["7.55 mm", "", "", ""],
+	"correct": "7.55 mm"
+},{
+	"question": "A pipe with an outside diameter of 550 mm and a wall thickness of 12 mm carries steam at 4.2 MPa. A gasket is inserted between the flange at one end of the pipe and a flat plate used to cap the end. Determine the number of 30-mm diameter bolts to be used to hold the cap on if the allowable tensile stress of the bolts is 90 MPa, of which 60 MPa is the initial stress.",
+	"choices": ["", "", "43 bolts", ""],
+	"correct": "43 bolts"
+},{
+	"question": "A pipe with an outside diameter of 550 mm and a wall thickness of 12 mm carries steam at 4.2 MPa. A gasket is inserted between the flange at one end of the pipe and a flat plate used to cap the end. What tangential stress is developed in the pipe?",
+	"choices": ["", "92.05 MPa", "", ""],
+	"correct": "92.05 MPa"
+},{
+	"question": "Compute the safe wall thickness of a 72 cm diameter steel tank. the tank is subjected to 8.5 MPa pressure and the steel material has a yield stress of 220 MPa. The factor of safety to use is 3.",
+	"choices": ["4.172 cm", "", "", ""],
+	"correct": "4.172 cm"
+},{
+	"question": "A cylinder having an internal diameter of 20 in. and an external diameter of 32 in. is subjected to an internal pressure of 12,000 psi and an external pressure of 2,500 psi. Determine the hoop stress at the inner and outer surface of the cylinder.",
+	"choices": ["", "", "", "19,179.48 psi and 9,679.48 psi"],
+	"correct": "19,179.48 psi and 9,679.48 psi"
+},{
+	"question": "A cylindrical pressure vessel is fabricated from 18 mm steel plates. The vessel has an internal diameter of 450 mm and a length of 3m. What would be the maximum internal pressure in the vessel if the stress in the steel is limited to 180 MPa.",
+	"choices": ["", "14.4 MPa", "", ""],
+	"correct": "14.4 MPa"
+},{
+	"question": "Determine the limiting peripheral velocity of a rotating steel ring if the allowable stress is 160 MPa and the mass density of the material is 7600 kg/m^3",
+	"choices": ["", "", "", "145.1 m/s"],
+	"correct": "145.1 m/s"
+},{
+	"question": "The allowable stress of a rotating steel ring is 160 MPa and the mass density of the material is 7600 kg/m^3. At what angular velocity will the stress reach 200 MPa if the mean radius is 220 mm?",
+	"choices": ["772.48 rad/sec", "", "", ""],
+	"correct": "772.48 rad/sec"
+},{
+	"question": "An upright cyliindrical tank 12 m in diameter and 12m high is completely filled with water. Determine the minimum thickness of the tank plating if the stress is limited to 35 Mpa.",
+	"choices": ["", "20.18 mm", "", ""],
+	"correct": "20.18 mm"
+},{
+	"question": "Find the minimum thickness in inches of steel  sphere to contain 2200 psi. The diameter of the sphere is 56 in and the allowable maximum normal stress is 38,000 psi?",
+	"choices": ["", "", "", "0.81 in"],
+	"correct": "0.81 in"
+},{
+	"question": "A spiral-revited penstock 1.5 m in diameter is made of steel plate 10 mm thick. The pitch of the spiral or helix is 3 m. A single-revited lap joint using 20-mm diameter rivets is the spiral seam. With shearing stress equal to 90 MPa and the bearing stress 160 Mpa, determine the spacing of the rivets along the seam if water pressure is 1.5 MPa.",
+	"choices": ["", "", "46.74 mm", ""],
+	"correct": "46.74 mm"
+},{
+	"question": "A spiral-revited penstock 1.5 m in diameter is made of steel plate 10 mm thick. The pitch of the spiral or helix is 3 m. A single-revited lap joint using 20-mm diameter rivets is the spiral seam. With shearing stress equal to 90 MPa and the bearing stress 160 Mpa, what is the tangential stress?",
+	"choices": ["112.50 MPa", "", "", ""],
+	"correct": "112.50 MPa"
+},{
+	"question": "A cylindrical pressure vessel is fabricated from steel plates which have a  thickness of 25 mm. The diameter of the pressure vessel is 500 mm and its length is 3 m. Determine the maximum internal pressure which can be applied if the stress in the steel is limited to 130 MPa.",
+	"choices": ["", "", "", "13 MPa"],
+	"correct": "13 MPa"
+},{
+	"question": "A pipe carrying steam at 4.0 MPa has an outside diameter of 550 mm and wall thickness of 15 mm. A gasket is inserted between the flange at one end of the pipe and a flat plate using used to cap the end. How many 35-mm diameter bolts must be used to hold the cap on if the allowable stress in the bolts is 100 MPa, of which 70 MPa is the internal stress.",
+	"choices": ["30 bolts", "", "", ""],
+	"correct": "30 bolts"
+},{
+	"question": "A pipe carrying steam at 4.0 MPa has an outside diameter of 550 mm and wall thickness of 15 mm. A gasket is inserted between the flange at one end of the pipe and a flat plate using used to cap the end. What circumferential stress is developed in the pipe?",
+	"choices": ["", "", "", "69.33 MPa"],
+	"correct": "69.33 MPa"
+},{
+	"question": "A compressed cylinder for industry use ordinarily carries approximately 25 Mpa pressure at the time of delivery. The outside diameter of such cylinder is 280 mm. If the steel has a yield point of 230 MPa and a safety factor of 3.0 is used, calculate the required wall thickness.",
+	"choices": ["", "", "", "34.42 mm"],
+	"correct": "34.42 mm"
+},{
+	"question": "A submersible cylinder used in research has a cylindrical pressure hull of outside diameter 4.0 m and a wall thickness of 150 mm. It is constructed of an aluminum alloy, having a yield point of 450 MPa. Determine the circumference stress in the cylindrical portion of the pressure hull when the vehicle is at its operating depth of 6000 m below the surface of the sea. Consider sea water to have a weight density of 10^4 N/m^3.",
+	"choices": ["", "740 MPa", "", ""],
+	"correct": "740 MPa"
+}];
+
+// mga nadagdag quiz with images
+// array of images  
+	var images = [];
+	var solutionIsVisible;
+
+// define elements
+var content = $("content"),
+  questionContainer = $("question"),
+  choicesContainer = $("choices"),
+  scoreContainer = $("score"), //nabago
+  submitBtn = $("submit");
+  
+  var resultPage = "";
+  
+// init vars
+var currentQuestion = 0,
+	score = 0,
+  askingQuestion = true,
+  questionNumber = 0,
+   maxQ = quiz.length, 
+  questionNumber;
+  
+  wrongAnswerQ = "",
+  wrongAnswerNo=0;
+  var yourAnswer = "You did not pick any answer.";
+  var choicesMistakesG = "";
+  if(maxQ > quiz.length) {
+	maxQ = quiz.length;
+  }
+  var isOnReviewWrongPage = false;
+  var duplicates  =[];
+
+function $(id) { // shortcut for document.getElementById
+  return document.getElementById(id);
+}
+
+function askQuestion() {
+  var choices = quiz[questionNumber].choices,
+    choicesHtml = "", choicesMistakes="" ;
+
+
+  // loop through choices, and create radio buttons
+  for (var i = 0; i < choices.length; i++) {
+  //alert(get_rand(nums));
+    choicesHtml += "<input type='radio' name='quiz" + questionNumber +
+      "' id='choice" + ( i + 1) +
+      "' value='" + choices[i] + "'>" +
+      " <label for='choice" + (i + 1) + "'>" + choices[i] + "</label> <br>";
+	  
+	  choicesMistakes += "<span name='quiz" + questionNumber +
+      "' id='choice" + (i + 1) +
+      "' value='" + choices[i] + "'>"+ (i+1) + ". " + choices[i] + "</span><br>";
+	   if(choices[i] === quiz[questionNumber].correct) {
+			correctAnswer = choices[i];
+			correctAnswerIndex = i;
+	  }
+	  
+	  choicesMistakesG = choicesMistakes;
+  }
+
+  
+  // load the question
+  questionContainer.textContent = (questionNumber + 1) + ". " +
+    quiz[questionNumber].question;
+	
+	
+  // load the choices
+  choicesContainer.innerHTML = choicesHtml;
+
+  // setup for the first time
+  if (questionNumber === 0) {
+  scoreContainer.textContent = "Score: " + score + "/" + maxQ; //nabago
+    submitBtn.textContent = "Submit Answer";
+	//alert(quiz.length);
+  }
+  
+	
+
+}
+
+function checkAnswer() {
+	var yourAnswer = "You did not pick any answer.";
+  // are we asking a question, or proceeding to next question?
+  if (askingQuestion) {
+	
+	//mga nadagdag for view_solution
+	if($('#solution_' + (questionNumber+1)).length > 0) {
+		$('#view_solution').css('visibility', 'visible');
+	}
+    submitBtn.textContent = "Next Question";
+    askingQuestion = false;
+
+    // determine which radio button they clicked
+    var userpick,
+      correctIndex,
+      radios = document.getElementsByName("quiz" + questionNumber);
+    for (var i = 0; i < radios.length; i++) {
+      if (radios[i].checked) { // if this radio button is checked
+        userpick = radios[i].value;
+		yourAnswer = userpick;
+      }
+
+      // get index of correct answer
+      if (radios[i].value == quiz[questionNumber].correct) {
+        correctIndex = i;
+      }
+    }
+
+    // setup if they got it right, or wrong
+    var labelStyle = document.getElementsByTagName("label")[correctIndex].style;
+    labelStyle.fontWeight = "bold";
+    if (userpick == quiz[questionNumber].correct) {
+      labelStyle.color = "green";
+	  score++; 
+    } else {
+		wrongAnswerNo++;
+      labelStyle.color = "red";
+	  wrongAnswerQ += "<br> <span id='question'> " + wrongAnswerNo+". " + quiz[questionNumber].question + "</span><br> " + "<div id='choices'>" + choicesMistakesG + " <strong>Your answer: "+ yourAnswer + "</strong><br> <strong id='answer'>" + "Correct answer: " + correctAnswer  + "</strong></div> ";//  + 
+
+    }
+	
+	
+  } else { // move to next question
+    // setting up so user can ask a question
+    askingQuestion = true;
+    // change button text back to "Submit Answer"
+    submitBtn.textContent = "Submit Answer";
+	scoreContainer.textContent = "Score: " + score + "/" + maxQ;; //nabago
+    // if we're not on last question, increase question number
+    if (questionNumber < maxQ - 1) {
+      //currentQuestion++;
+	  questionNumber++;
+      askQuestion();
+    } else {
+      clearTimeout(t);
+      showFinalResults();
+    }
+	
+	//mga nadagdag quiz with images
+	for(i=0; i<quiz.length; i++) { 
+		$('#for_q_' + (i+1)).hide();
+	}
+	
+	// mga nadagdag quiz with images
+	if((questionNumber+1) === 1) {
+		$('#question').after(images[0]);
+	} else if((questionNumber+1) === 2) {
+		$('#question').after(images[1]);
+	}
+	
+	//mga nadagdag for view_solution
+	for(i=0; i<quiz.length; i++) { 
+		$('#solution_' + (i+1)).hide();
+	}
+	
+	$('.for_view_solution').hide();
+	$('#view_solution').css('visibility', 'hidden');
+	
+	solutionIsVisible = false;
+	if(solutionIsVisible) {
+		document.getElementById('view_solution').textContent = 'Hide Solution';
+		solutionIsVisible = false;
+	}else if(!solutionIsVisible){
+		document.getElementById('view_solution').textContent = 'View Solution';
+		solutionIsVisible = true;
+	}
+  }
+}
+
+function showFinalResults() {
+	//resultPage = "<center><strong class='for_h'>You Passed!</strong></center>";
+	if(score/maxQ >= 0.7){
+		resultPage = "<center><strong class='for_h'>You Passed!</strong></center> <br> <center><strong>Score: " + score + " out of " + maxQ + " </strong></center><center><strong> Equivalent Percentage: " + Math.floor(score/maxQ*100) + "%</strong></center><center><strong>Total time: " + timeElapsed + "</strong></center> <br> <br><button id='restart' class='button fit' onclick='reloadCurrentPage();'> Restart the Test</button><button id='reviewMistakes' class='button fit' onclick='reviewMistakes();'> Review Mistakes</button> <button id='proceedToNext' class='button fit' onclick='proceedToNext();'> Proceed to next Test</button> ";
+	} else {
+		resultPage = "<center><strong class='for_h'>You Failed!</strong></center> <br> <center><strong>Score: " + score + " out of " + maxQ + " </strong></center><center><strong> Equivalent Percentage: " + Math.floor(score/maxQ*100) + "%</strong></center><center><strong>Total time: " + timeElapsed + "</strong></center> <br> <br><button id='restart' class='button fit' onclick='reloadCurrentPage();'> Restart the Test</button><button id='reviewMistakes' class='button fit' onclick='reviewMistakes();'> Review Mistakes</button> <button id='proceedToNext' class='button fit' onclick='proceedToNext();'> Proceed to next Test</button> ";
+	}
+	content.innerHTML = resultPage;
+}
+
+function reviewMistakes() {
+	content.innerHTML = wrongAnswerQ + " <br><br> <center><button id='restart' class='button fit' onclick='reloadCurrentPage();'> Restart the Test</button></center> <button id='proceedToNext' class='button fit' onclick='proceedToNext();'> Proceed to next Test</button>";
+}
+
+function proceedToNext() {
+	document.location.href = "tordillo-12.html"; //need to be updated per test 
+}
+
+function reloadCurrentPage() {
+	document.location.href = "tordillo-11.html"; //need to be updated per test 
+}
+
+window.addEventListener("load", askQuestion, false);
+submitBtn.addEventListener("click", checkAnswer, false);
+
+
+
+</script>
+
+
+
+
+			<!-- Scripts for Phantom -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+	</body>
+
+</html>
