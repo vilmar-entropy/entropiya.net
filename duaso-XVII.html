@@ -1,0 +1,772 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+	
+		<title>Entropiya | Machine Design XVII</title> <!-- need to be updated per test -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		
+		<link rel="stylesheet" href="css/index.css" />
+		<script src="js/index.js"></script>
+		<link rel="stylesheet" href="assets/css/main.css" />
+
+		<!-- FontAwesome, jQuery and jQuery Mobile -->
+		<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css">
+		<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+		<script type="text/javascript" src="jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script> 
+		
+		<!-- jqmath -->
+		<link rel="stylesheet" href="mathscribe/jqmath-0.4.3.css">
+		<script src="mathscribe/jquery-1.4.3.min.js"></script>
+		<script src="mathscribe/jqmath-etc-0.4.5.min.js" charset="utf-8"></script>
+		
+		<script>
+			$(document).ready(function() {
+				solutionIsVisible = true;
+				
+				//mga nadagdag for view_solution
+				
+				$('.for_view_solution').hide();
+				$('#view_solution').css('visibility', 'hidden');
+				
+				for(i=0; i<quiz.length; i++) {
+					$('#solution_' + (i+1)).hide();
+				}
+				
+				$('#view_solution').click(function() {
+					for(i=0; i<quiz.length; i++) {
+						$('#solution_' + (i+1)).hide();
+					}
+						
+					$('#solution_' + (questionNumber + 1)).fadeToggle('slow');
+					$('.for_view_solution').fadeToggle('slow');
+					
+					if(solutionIsVisible) {
+						document.getElementById('view_solution').textContent = 'Hide Solution';
+						solutionIsVisible = false;
+					}else if(!solutionIsVisible){
+						document.getElementById('view_solution').textContent = 'View Solution';
+						solutionIsVisible = true;
+					}
+					
+				});
+
+				
+				// Image factory
+				var createImage = function(src, title, id) {
+				  var img   = new Image();
+				  img.src   = src;
+				  img.id = id;
+				  img.alt   = title;
+				  img.title = title;
+				  return img; 
+				};
+
+				// array of images dun dineclare sa main script para global
+				//var images = [];
+
+				// push two images to the array
+				//images.push(createImage("images/for_q_1.png", "pic01 title", "for_q_1"));
+				//images.push(createImage("images/for_q_2.png", "pic03 title", "for_q_2"));
+				
+				// mga nadagdag quiz with images
+				if((questionNumber+1) === 1) {
+					$('#question').after(images[0]);
+				} else if((questionNumber+1) === 2) {
+					$('#question').after(images[1]);
+				}
+				
+			});
+		</script>
+	
+	</head>
+	
+	<body>
+		<div data-role="panel" data-position="right" data-display="overlay" data-theme="a" id="panel">
+			<div class="nav_in_panel_container"> 
+				<ul data-role="listview" data-inset="true" data-theme="b" data-dividertheme="f">
+					<li data-icon="false"><a class="nav_in_panel" href="index.html" rel="external"><i class="fa fa-home" aria-hidden="true" ></i>  Home  </a> </li>
+					<li data-icon="false"><a class="nav_in_panel" href="about.html" rel="external"><i class="fa fa-user-o" aria-hidden="true" ></i>  About  </a> </li>
+					<li data-icon="false"><a class="nav_in_panel" href="references.html" rel="external"><i class="fa fa-book" aria-hidden="true" ></i>  References  </a>
+					<li data-icon="false"><a class="nav_in_panel" href="https://www.facebook.com/vilmar.empino?__nodl" rel="external" ><i class="fa fa-facebook-square" aria-hidden="true"></i>  Like us on facebook!  </a></li>
+				</ul>
+			</div>
+		</div>
+		<div id="header_container">
+			<figure class="logo" id="logo">
+				<a href="index.html" rel="external"><img src="images/logo.png" alt="image"/></a>
+			</figure>
+			<ul class="home_nav_quiz"> 
+				<a href="#panel" class="right_panel"> <i class="fa fa-bars" id="icon_for_right_panel" aria-hidden="true"></i> </a>
+				<div class="toBeHidden">
+				<li class="li"><a class="a" href="references.html" rel="external">References</a></li>
+				<li class="li"><a class="a" href="about.html" rel="external">About</a></li>
+				<!-- <li class="li" id="dropdown">
+					<a class="a" href="javascript:void(0)" class="dropbtn">MCQs <i class="fa fa-caret-down" aria-hidden="true"></i></a>
+					<div class="dropdown-content">
+					<a class="a" href="home-me.html" rel="external">Mechanical Engineering</a>
+					<a class="a" href="home-ece.html" rel="external">Electronics Engineering</a> 
+					</div>
+				</li> -->
+				<li class="li"><a class="a" href="index.html" rel="external">Home</a></li>
+				</div>
+			</ul>
+		</div>
+		<div id="body_container"> 
+			
+			<div id="for_contents_quiz">
+				
+				<div id="for_left_content_quiz">
+					<div id="for_title">
+						<strong class="for_h2">Machine Design - Test XVII Gears (801-850)</strong> <!-- need to be updated per test -->
+					</div>
+					<br>
+					<div id="for_top_ads_quiz">
+						<span> FTA  </span>
+					</div>
+					<div id="for_left_navbar"> <!-- need to be updated per test -->
+						<div data-role="collapsible">
+							<h3>Problems</h3>
+							<ul data-role="listview" id="left_nav" data-inset="true" data-theme="c" data-dividertheme="f">
+								<li><a href="tordillo-01.html"  rel="external">Test 1</a></li>
+								<li><a href="tordillo-02.html"  rel="external">Test 2</a></li>
+								<li><a href="tordillo-03.html"  rel="external">Test 3</a></li>
+								<li><a href="tordillo-04.html"  rel="external">Test 4</a></li>
+								<li><a href="tordillo-05.html"  rel="external">Test 5</a></li>
+								<li><a href="tordillo-06.html"  rel="external">Test 6</a></li>
+								<li><a href="tordillo-07.html"  rel="external">Test 7</a></li>
+								<li><a href="tordillo-08.html"  rel="external">Test 8</a></li>
+								<li><a href="tordillo-09.html"  rel="external">Test 9</a></li>
+								<li><a href="tordillo-10.html"  rel="external">Test 10</a></li>
+								<li><a href="tordillo-11.html"  rel="external">Test 11</a></li>
+								<li><a href="tordillo-12.html"  rel="external">Test 12</a></li>
+								<li><a href="tordillo-13.html"  rel="external">Test 13</a></li>
+								<li><a href="tordillo-14.html"  rel="external">Test 14</a></li>
+								<li><a href="tordillo-15.html"  rel="external">Test 15</a></li>
+								<li><a href="tordillo-16.html"  rel="external">Test 16</a></li>
+								<li><a href="tordillo-17.html"  rel="external">Test 17</a></li>
+								<li><a href="tordillo-18.html"  rel="external">Test 18</a></li>
+								<li><a href="tordillo-19.html"  rel="external">Test 19</a></li>
+								<li><a href="tordillo-20.html"  rel="external">Test 20</a></li>
+								<li><a href="tordillo-21.html"  rel="external">Test 21</a></li>
+								<li><a href="tordillo-22.html"  rel="external">Test 22</a></li>
+								<li><a href="tordillo-23.html"  rel="external">Test 23</a></li>
+								<li><a href="tordillo-24.html"  rel="external">Test 24</a></li>
+								<li><a href="tordillo-25.html"  rel="external">Test 25</a></li>
+								<li><a href="tordillo-26.html"  rel="external">Test 26</a></li>
+								<li><a href="tordillo-27.html"  rel="external">Test 27</a></li>
+								<li><a href="tordillo-28.html"  rel="external">Test 28</a></li>
+								<li><a href="tordillo-29.html"  rel="external">Test 29</a></li>
+								<li><a href="tordillo-30.html"  rel="external">Test 30</a></li>
+								<li><a href="tordillo-31.html"  rel="external">Test 31</a></li>
+								<li><a href="tordillo-32.html"  rel="external">Test 32</a></li>
+								<li><a href="tordillo-33.html"  rel="external">Test 33</a></li>
+								<li><a href="tordillo-34.html"  rel="external">Test 34</a></li>
+								<li><a href="tordillo-35.html"  rel="external">Test 35</a></li>
+								<li><a href="tordillo-36.html"  rel="external">Test 36</a></li>
+								<li><a href="tordillo-37.html"  rel="external">Test 37</a></li>
+								<li><a href="tordillo-38.html"  rel="external">Test 38</a></li>
+								<li><a href="tordillo-39.html"  rel="external">Test 39</a></li>
+								<li><a href="tordillo-40.html"  rel="external">Test 40</a></li>
+								<li><a href="tordillo-41.html"  rel="external">Test 41</a></li>
+								<li><a href="tordillo-42.html"  rel="external">Test 42</a></li>
+								<li><a href="tordillo-43.html"  rel="external">Test 43</a></li>
+								<li><a href="tordillo-44.html"  rel="external">Test 44</a></li>
+								<li><a href="tordillo-45.html"  rel="external">Test 45</a></li>
+								<li><a href="tordillo-46.html"  rel="external">Test 46</a></li>
+								<li><a href="tordillo-47.html"  rel="external">Test 47</a></li>
+								<li><a href="tordillo-48.html"  rel="external">Test 48</a></li>
+								<li><a href="tordillo-49.html"  rel="external">Test 49</a></li>
+								<li><a href="tordillo-50.html"  rel="external">Test 50</a></li>
+								<li><a href="tordillo-51.html"  rel="external">Test 51</a></li>
+								<li><a href="tordillo-52.html"  rel="external">Test 52</a></li>
+								<li><a href="tordillo-53.html"  rel="external">Test 53</a></li>
+								<li><a href="tordillo-54.html"  rel="external">Test 54</a></li>
+								<li><a href="tordillo-55.html"  rel="external">Test 55</a></li>
+								<li><a href="tordillo-56.html"  rel="external">Test 56</a></li>
+								<li><a href="tordillo-57.html"  rel="external">Test 57</a></li>
+								<li><a href="tordillo-58.html"  rel="external">Test 58</a></li>
+								<li><a href="tordillo-59.html"  rel="external">Test 59</a></li>
+								<li><a href="tordillo-60.html"  rel="external">Test 60</a></li>
+								<li><a href="tordillo-61.html"  rel="external">Test 61</a></li>
+								<li><a href="tordillo-62.html"  rel="external">Test 62</a></li>
+								<li><a href="tordillo-63.html"  rel="external">Test 63</a></li>
+								<li><a href="tordillo-64.html"  rel="external">Test 64</a></li>
+							</ul>
+						</div>
+					</div>
+					<div id="for_right_navbar"> <!-- need to be updated per test -->
+						<div data-role="collapsible">
+							<h3>Elements</h3>
+							<ul data-role="listview" id="right_nav" data-inset="true" data-theme="c" data-dividertheme="f">
+								<li><a href="duaso-I.html"  rel="external">Test I</a></li>
+								<li><a href="duaso-II.html"  rel="external">Test II</a></li>
+								<li><a href="duaso-III.html"  rel="external">Test III</a></li>
+								<li><a href="duaso-IV.html"  rel="external">Test IV</a></li>
+								<li><a href="duaso-V.html"  rel="external">Test V</a></li>
+								<li><a href="duaso-VI.html"  rel="external">Test VI</a></li>
+								<li><a href="duaso-VII.html"  rel="external">Test VII</a></li>
+								<li><a href="duaso-VIII.html"  rel="external">Test VIII</a></li>
+								<li><a href="duaso-IX.html"  rel="external">Test IX</a></li>
+								<li><a href="duaso-X.html"  rel="external">Test X</a></li>
+								<li><a href="duaso-XI.html"  rel="external">Test XI</a></li>
+								<li><a href="duaso-XII.html"  rel="external">Test XII</a></li>
+								<li><a href="duaso-XIII.html"  rel="external">Test XIII</a></li>
+								<li><a href="duaso-XIV.html"  rel="external">Test XIV</a></li>
+								<li><a href="duaso-XV.html"  rel="external">Test XV</a></li>
+								<li><a href="duaso-XVI.html"  rel="external">Test XVI</a></li>
+								<li><a href="duaso-XVII.html"  rel="external">Test XVII</a></li>
+								<li><a href="duaso-XVIII.html"  rel="external">Test XVIII</a></li>
+								<li><a href="duaso-XIX.html"  rel="external">Test XIX</a></li>
+								<li><a href="duaso-XX.html"  rel="external">Test XX</a></li> 
+							</ul>
+						</div>
+					</div>
+					<br>
+					<div class="for_quiz">
+						<div id="content">
+							<strong id="timerContinue"><time>00:00:00</time></strong>
+							<strong id="score">Score: 0/50</strong> <br><br>
+							<div class="for_question"><span id="question"></span> </div> 
+							<div id="choices"></div> 
+							<button id="submit" class="button"> Submit Answer</button>
+						</div>
+					</div>
+					<br>
+					<!-- //mga nadagdag for view_solution -->
+					<!-- <div class="for_view_solution">
+						<p id="solution_1">
+							<span>Solution 1</span><br>Data: <br>
+							<span class="eq">$m_1 = 500 g_m$ $/frac{F}{A} \sqrt{\pi}$ </span><br>
+							<span class="eq">$m_2 = 800 g_f$ </span><br>
+							<span class="eq">$m_3 = 15 poundals$ </span><br>
+							<span class="eq">$m_4 = 3 lb_f$ </span><br>
+							<span class="eq">$m_5 = 0.10slug$ </span><br>
+							<span class="eq">$g = 30.5 ft/s^2$ </span><br>
+							Unknown: <br>
+							<span class="eq">a) Total mass, $m_T$ in $g_m$ </span><br>
+							<span class="eq">b) $m_T$ in $lb_m$ </span><br>
+							<span class="eq">c) $m_T$ in $slugs$ </span><br>
+							Solution: <br>
+							<span class="eq"> $m_T = m_1 + m_2 +$ $m_3 + m_4 + m_5 \longrightarrow (eq. 1)$</span> <br>
+							
+							<span class="eq"> </span> <br>
+						</p>
+						
+						<p id="solution_2"><span>Solution 2</span><br>Data: <br> 
+							<span class="eq"> $g_{sea} = 32.088 fps^2 $ </span> <br>
+							<span class="eq"> $\Delta g = -0.003 fps^2 $ per 1000 ft </span> <br>
+							Unknown: <br>
+							<span class="eq"> a) Height, $h$ if g is 30.504 $fps^2$ </span> <br>
+							<span class="eq"> b) $h$ if $F_g$ is 95% of original </span> <br>
+							<span class="eq"> c) $F_g$ if $h$ is 29,131 ft and $m$ is 180 $lb_m$</span> <br>
+							Solution: <br>
+							<span class="eq">a) $h = (30.504 - 32.088)fps^2$ x $\frac{1000ft}{-0.003 fps^2}$ $= 528,000ft$ $= \underline{100mi}$ </span> <br>
+							<span class="eq"> b) $h = (32.088)(0.95 - 1)$ $fps^2$ x $\frac{1000ft}{-0.003 fps^2}$ $= 534,800$ ft or $\underline{101.29 mi}$</span> <br>
+							<span class="eq"> c) $F_g = mg \longrightarrow (eq. 1)$ </span> <br>
+							But <br>
+							<span class="eq"> $m = 180 lb_m$ x $\frac{1 slug}{32.2 lb_m}$ $=5.59 slugs$ </span> <br>
+							<span class="eq"> $g = 29,131ft$ x $\frac{-0.003 fps^2}{1000 ft}$ $+ 32.088 fps^2$ $32.00 fps^2$</span> <br>
+							Then from $(eq. 1)$ <br>
+							<span class="eq"> $F_g = 5.59 slugs$ x $32.00 fps^2$ $=\underline{178.88 lb_f}$</span> <br>
+						</p> 
+						
+						<p id="solution_3"><span>Solution 3</span><br>Data: <br> 
+							<span class="eq"> $g_{sea} = 32.088 fps^2 $ </span> <br>
+							<span class="eq"> $\Delta g = -0.003 fps^2 $ per 1000 ft </span> <br>
+							Unknown: <br>
+							<span class="eq"> a) Height, $h$ if g is 30.504 $fps^2$ </span> <br>
+							<span class="eq"> b) $h$ if $F_g$ is 95% of original </span> <br>
+							<span class="eq"> c) $F_g$ if $h$ is 29,131 ft and $m$ is 180 $lb_m$</span> <br>
+							Solution: <br>
+							<span class="eq">a) $h = (30.504 - 32.088)fps^2$ x $\frac{1000ft}{-0.003 fps^2}$ $= 528,000ft$ $= \underline{100mi}$ </span> <br>
+							<span class="eq"> b) $h = (32.088)(0.95 - 1)$ $fps^2$ x $\frac{1000ft}{-0.003 fps^2}$ $= 534,800$ ft or $\underline{101.29 mi}$</span> <br>
+							<span class="eq"> c) $F_g = mg \longrightarrow (eq. 1)$ </span> <br>
+							But <br>
+							<span class="eq"> $m = 180 lb_m$ x $\frac{1 slug}{32.2 lb_m}$ $=5.59 slugs$ </span> <br>
+							<span class="eq"> $g = 29,131ft$ x $\frac{-0.003 fps^2}{1000 ft}$ $+ 32.088 fps^2$ $32.00 fps^2$</span> <br>
+							Then from $(eq. 1)$ <br>
+							<span class="eq"> $F_g = 5.59 slugs$ x $32.00 fps^2$ $=\underline{178.88 lb_f}$</span> <br>
+						</p>
+						
+						<p id="solution_4"><span>Solution 4</span><br>Data: <br> 
+							<span class="eq"> $g_{sea} = 32.088 fps^2 $ </span> <br>
+							<span class="eq"> $\Delta g = -0.003 fps^2 $ per 1000 ft </span> <br>
+							Unknown: <br>
+							<span class="eq"> a) Height, $h$ if g is 30.504 $fps^2$ </span> <br>
+							<span class="eq"> b) $h$ if $F_g$ is 95% of original </span> <br>
+							<span class="eq"> c) $F_g$ if $h$ is 29,131 ft and $m$ is 180 $lb_m$</span> <br>
+							Solution: <br>
+							<span class="eq">a) $h = (30.504 - 32.088)fps^2$ x $\frac{1000ft}{-0.003 fps^2}$ $= 528,000ft$ $= \underline{100mi}$ </span> <br>
+							<span class="eq"> b) $h = (32.088)(0.95 - 1)$ $fps^2$ x $\frac{1000ft}{-0.003 fps^2}$ $= 534,800$ ft or $\underline{101.29 mi}$</span> <br>
+							<span class="eq"> c) $F_g = mg \longrightarrow (eq. 1)$ </span> <br>
+							But <br>
+							<span class="eq"> $m = 180 lb_m$ x $\frac{1 slug}{32.2 lb_m}$ $=5.59 slugs$ </span> <br>
+							<span class="eq"> $g = 29,131ft$ x $\frac{-0.003 fps^2}{1000 ft}$ $+ 32.088 fps^2$ $32.00 fps^2$</span> <br>
+							Then from $(eq. 1)$ <br>
+							<span class="eq"> $F_g = 5.59 slugs$ x $32.00 fps^2$ $=\underline{178.88 lb_f}$</span> <br>
+						</p>
+					
+					</div> -->
+					
+					<button id="view_solution" class="button small"> View Solution</button>
+
+										
+				</div>
+				
+								
+				
+				<div class="for_right_ads_quiz">
+					<span> FRA   </span>
+				</div>
+			</div>
+		</div>
+			
+			<script>
+	
+ //star timer
+  var timeElapsed = "";
+	var h1 = document.getElementById('timerContinue'),
+		start = document.getElementById('start'),
+		stop = document.getElementById('stop'),
+		clear = document.getElementById('clear'),
+		seconds = 0, minutes = 0, hours = 0,
+		t;
+
+	function add() {
+		seconds++;
+		if (seconds >= 60) {
+			seconds = 0;
+			minutes++;
+			if (minutes >= 60) {
+				minutes = 0;
+				hours++;
+			}
+		}
+		
+		h1.textContent = (hours ? (hours > 9 ? hours : "0" + hours) : "00") + ":" + (minutes ? (minutes > 9 ? minutes : "0" + minutes) : "00") + ":" + (seconds > 9 ? seconds : "0" + seconds);
+		timeElapsed =(hours ? (hours > 9 ? hours : "0" + hours) : "00") + ":" +  (minutes ? (minutes > 9 ? minutes : "0" + minutes) : "00") + ":" + (seconds > 9 ? seconds : "0" + seconds);
+
+		timer();
+	}
+	function timer() {
+		t = setTimeout(add, 1000);
+	}
+	timer();
+
+	//end timer
+	
+var quiz = [{
+	"question": "Helical gears mounted on non-parallel shafts are called ______.",
+	"choices": ["pen gear", "Crossed helical gear", "Closed helical gear", "Herringbone gear"],
+	"correct": "Crossed helical gear"
+},{
+	"question": "_______ is used to connect intersecting shafts, usually but not necessarily at 90 degrees.",
+	"choices": ["Bevel gear", "Helical gear", "Spur gear", "Worm gear"],
+	"correct": "Bevel gear"
+},{
+	"question": "Bevel gear teeth are built with respect to a _____ rather than to a pitch cylinders as in spur gears.",
+	"choices": ["Pitch pedal", "Pitch profile", "Pitch cone", "Cylinder"],
+	"correct": "Pitch cone"
+},{
+	"question": "Refers to the length of pitch cone in a bevel gear.",
+	"choices": ["Cone center", "Lead", "Center distance", "Pitch"],
+	"correct": "Cone center"
+},{
+	"question": "Refers to the cone that is formed by the elements of the top lands.",
+	"choices": ["Face cone", "Root face", "Dial face", "Pitch face"],
+	"correct": "Face cone"
+},{
+	"question": "The cone formed by the elements of bottom lands.",
+	"choices": ["Face cone", "Root cone", "Back cone", "Rake cone"],
+	"correct": "Root cone"
+},{
+	"question": "An imaginary cone whose elements are perpendicular to the pitch cone elements at the large end of the tooth.",
+	"choices": ["Front cone", "Side cone", "Rear cone", "Back cone"],
+	"correct": "Back cone"
+},{
+	"question": "_____ is one whose tooth profiles consist of straight elements that coverage to a point at the cone center.",
+	"choices": ["Circular bevel gear", "Straight bevel gear", "Path bevel gear", "Herringbone gear"],
+	"correct": "Straight bevel gear"
+},{
+	"question": "The desired quality in gears is",
+	"choices": ["Quietness", "Durability", "Strength", "All of these"],
+	"correct": "All of these"
+},{
+	"question": "Straight and zero bevel gears should not be used when the pitch line velocity is greater than",
+	"choices": ["800 rpm", "850 rpm", "875 rpm", "900 rpm"],
+	"correct": "900 rpm"
+},{
+	"question": "The spiral bevel gears are recommended when the pitch line seed exceeds",
+	"choices": ["1000 fpm", "1100 fpm", "1500 fpm", "2000 fpm"],
+	"correct": "1000 fpm"
+},{
+	"question": "When the pitch line speed is above 8000 fpm the teeth should be",
+	"choices": ["Ground after hardening", "Should be cooled in air", "Should be quenched after", "None of these"],
+	"correct": "Ground after hardening"
+},{
+	"question": "_____ have curved teeth as in spiral bevels, but with zero spiral angle.",
+	"choices": ["Spiral gears", "Zerol bevel gears", "Zero bevel gears", "Straight bevel gears"],
+	"correct": "Zerol bevel gears"
+},{
+	"question": "_____ is a gear that has an advantage of smoother tooth engagement quietness of operation greater strength and higher permissible speeds.",
+	"choices": ["Zerol bevel gear", "Straight bevel gear", "Hypoid bevel gear", "Spiral bevel gear"],
+	"correct": "Spiral bevel gear"
+},{
+	"question": "When the pair of bevel gears of the same size is on shafts intersecting at right angle, they are called ______.",
+	"choices": ["Mold gear", "Helix angle", "Miter gear", "Tangent gear"],
+	"correct": "Miter gear"
+},{
+	"question": "The use of gear box provides",
+	"choices": ["Gear leverage", "More torque", "More speed", "None of these"],
+	"correct": "More torque"
+},{
+	"question": "For equalizing the rotation of two gears, a gearbox employs",
+	"choices": ["Dog and clutch", "Crown gear", "Star pinion", "None of these"],
+	"correct": "None of these"
+},{
+	"question": "In a constant mesh gearbox, all the speed gears remain",
+	"choices": ["Separate", "Joined to their couples", "Of the same measurements", "None of these	"],
+	"correct": "Joined to their couples"
+},{
+	"question": "If a big gear is moved by a small gear then the big gear",
+	"choices": ["Will not rotate", "Will rotate in reverse direction", "Will rotate fastly", "None of these"],
+	"correct": "Will rotate in reverse direction"
+},{
+	"question": "______ are bevel gears mounted on intersecting shafts at angle of other that 90 degrees.",
+	"choices": ["Right angle gears", "Half gears", "Inclined gears", "Angular gears"],
+	"correct": "Angular gears"
+},{
+	"question": "The pitch angle is 90 degrees that is, the pitch cone has become a plane.",
+	"choices": ["Atten gear", "Crown gear", "Cool gear", "Hiphap gear"],
+	"correct": "Crown gear"
+},{
+	"question": "______ is used to  transmit power between non-intersecting shafts, nearly always right angle to each other.",
+	"choices": ["Spur gear", "Ordinary gear", "Bevel gear", "Worm gear"],
+	"correct": "Worm gear"
+},{
+	"question": "What are the two types of construction worm?",
+	"choices": ["Shell and cylindrical", "Shell and zigzag", "Shell and integral", "Tube and integral"],
+	"correct": "Shell and integral"
+},{
+	"question": "The standard pressure angle for fine pitch gears is _____ degrees and is recommended for most applications.",
+	"choices": ["14.5 degrees", "16 degrees", "20 degrees", "21 degrees"],
+	"correct": "20 degrees"
+},{
+	"question": "The contact ratio of a pair of mating spur gears must be well over _____ to insure a smooth transfer of load from one pair to teeth to the next pair.",
+	"choices": ["1.0", "2.0", "3.0", "4.0"],
+	"correct": "1.0"
+},{
+	"question": "As general rule contact ratio should not be less than",
+	"choices": ["1.1", "1.2", "1.3", "1.4"],
+	"correct": "1.4"
+},{
+	"question": "Surface roughness on active profile surfaces on gear is about _____ pitch.",
+	"choices": ["30", "32", "34", "36"],
+	"correct": "32"
+},{
+	"question": "Tooth breakage on gear is usually",
+	"choices": ["A tensile fatigue", "A contact stress", "A crack", "None of these"],
+	"correct": "A tensile fatigue"
+},{
+	"question": "AGMA means",
+	"choices": ["American German Manufacturer Association", "Athletic Gear Main Association", "American Gear Metal Association", "American Gear Manufacturers Association"],
+	"correct": "American Gear Manufacturers Association"
+},{
+	"question": "Which of the following does not belong to the group?",
+	"choices": ["Tooth scoring", "Tooth breakage", "Pitting", "Toughing"],
+	"correct": "Toughing"
+},{
+	"question": "Well proportion commercial gears with a pitch line velocity of less than ______ will normally not score if they have a reasonably good surface finish and are properly lubricated.",
+	"choices": ["6000 fpm", "6500 fpm", "7000 fpm", "8000 fpm"],
+	"correct": "7000 fpm"
+},{
+	"question": "Experimental data from actual gear unit measurements are seldom repeatable within a plus or minus _____ band.",
+	"choices": ["5%", "10%", "15%", "20%"],
+	"correct": "15%"
+},{
+	"question": "Pitting is a function of the Hertzian contact stresses between two cylinders and is proportioned to the square root of the ______.",
+	"choices": ["Applied load", "The contact stress", "The stress", "Impact load"],
+	"correct": "Applied load"
+},{
+	"question": "When an excitation frequency coincides with a natural frequency, this is known to be",
+	"choices": ["Unity", "Resonance", "Oblique", "Sinusoidal"],
+	"correct": "Resonance"
+},{
+	"question": "The average tooth stiffness constant of face is usually",
+	"choices": ["1.5 to 2 psi", "3 to 6 psi", "3 to 4 psi", "7.5 to 10 psi"],
+	"correct": "1.5 to 2 psi"
+},{
+	"question": "When the number of teeth in a pair of meshing gears such that they do not have a common divisor ______.",
+	"choices": ["Dummy", "LCD", "Add it", "Hunting"],
+	"correct": "Hunting"
+},{
+	"question": "For internal gears having a 20 degree pressure angle and full depth teeth, the difference between the number of teeth in a gear and pinion should be less that ______.",
+	"choices": ["10", "12", "14", "16"],
+	"correct": "12"
+},{
+	"question": "Zerol bevel gears of 20 degree angle should have a pinion either no less than",
+	"choices": ["15 teeth", "16 teeth", "17 teeth", "18 teeth"],
+	"correct": "17 teeth"
+},{
+	"question": "______ are machine elements that transmit motion by means of successively engaging teeth.",
+	"choices": ["Sprockets", "Gears", "Tooth belt", "Annular"],
+	"correct": "Gears"
+},{
+	"question": "Arc of the pitch circle through which a tooth travels from the first point of contact with the mating tooth to the pitch point is called:",
+	"choices": ["Arc of contact", "Arc of approach", "Arc of recess", "Arc of action"],
+	"correct": "Arc of action"
+},{
+	"question": "Height of tooth above pitch circle of the distance between the pitch circle and the top of the tooth is called:",
+	"choices": ["Dedendum", "Addendum", "Working depth", "Total depth"],
+	"correct": "Addendum"
+},{
+	"question": "The circle that bounds the outer ends of the teeth.",
+	"choices": ["Addendum circle", "Dedendum circle", "Pitch circle", "Root circle"],
+	"correct": "Addendum circle"
+},{
+	"question": "The angle through which the gear turns from the time a given pair of teeth are in contact at the pitch point until they pass out the mech.",
+	"choices": ["Pressure angle", "Angle of action", "Angle of approach", "Angle of recess"],
+	"correct": "Angle of action"
+},{
+	"question": "The angle through which the gear turns from the time a particular pair of teeth comes into in contact until they go out the contact.",
+	"choices": ["Pressures angle", "Angle of action", "Angle of approach", "Angle of recess"],
+	"correct": "Angle of action"
+},{
+	"question": "The angle through which the gear turns from the time a particular pair of teeth come into in contact until they are in contact at the pitch point.",
+	"choices": ["Pressure angle", "Angle of action", "Angle of approach", "Angle of recess"],
+	"correct": "Angle of approach"
+},{
+	"question": "Arc of the circle through which a tooth travels from the point of contact with the mating tooth to the pitch point is called:",
+	"choices": ["Arc of contact", "Arc of approach", "Arc of recess", "Arc of action"],
+	"correct": "Arc of approach"
+},{
+	"question": "The ratio of the arc approach to the arc of action.",
+	"choices": ["Approach ratio", "Action ratio", "Recess ratio", "Contact ratio"],
+	"correct": "Approach ratio"
+},{
+	"question": "In a pair of gear, it is the plane that contain the two axes in a  simple gear, it may be any plane containing the axes and the given point.",
+	"choices": ["Axial plane", "Central plane", "Normal plane", "Transverse plane"],
+	"correct": "Axial plane"
+},{
+	"question": "Arc of the pitch circle through which a tooth travels from its contact with the mating tooth at the pitch point to the point where the contact ceases is called:",
+	"choices": ["Arc of contact", "Arc of approach", "Arc of recess", "Arc of action"],
+	"correct": "Arc of recess"
+},{
+	"question": "The amount by which the width of the tooth space exceeds the thickness of the engaging tooth on the pitch circles.",
+	"choices": ["Clearance", "Tolerance", "Allowance", "Backlash"],
+	"correct": "Backlash"
+}];
+
+// mga nadagdag quiz with images
+// array of images  
+	var images = [];
+	var solutionIsVisible;
+
+// define elements
+var content = $("content"),
+  questionContainer = $("question"),
+  choicesContainer = $("choices"),
+  scoreContainer = $("score"), //nabago
+  submitBtn = $("submit");
+  
+  var resultPage = "";
+  
+// init vars
+var currentQuestion = 0,
+	score = 0,
+  askingQuestion = true,
+  questionNumber = 0,
+   maxQ = quiz.length, 
+  questionNumber;
+  
+  wrongAnswerQ = "",
+  wrongAnswerNo=0;
+  var yourAnswer = "You did not pick any answer.";
+  var choicesMistakesG = "";
+  if(maxQ > quiz.length) {
+	maxQ = quiz.length;
+  }
+  var isOnReviewWrongPage = false;
+  var duplicates  =[];
+
+function $(id) { // shortcut for document.getElementById
+  return document.getElementById(id);
+}
+
+function askQuestion() {
+  var choices = quiz[questionNumber].choices,
+    choicesHtml = "", choicesMistakes="" ;
+
+
+  // loop through choices, and create radio buttons
+  for (var i = 0; i < choices.length; i++) {
+  //alert(get_rand(nums));
+    choicesHtml += "<input type='radio' name='quiz" + questionNumber +
+      "' id='choice" + ( i + 1) +
+      "' value='" + choices[i] + "'>" +
+      " <label for='choice" + (i + 1) + "'>" + choices[i] + "</label> <br>";
+	  
+	  choicesMistakes += "<span name='quiz" + questionNumber +
+      "' id='choice" + (i + 1) +
+      "' value='" + choices[i] + "'>"+ (i+1) + ". " + choices[i] + "</span><br>";
+	   if(choices[i] === quiz[questionNumber].correct) {
+			correctAnswer = choices[i];
+			correctAnswerIndex = i;
+	  }
+	  
+	  choicesMistakesG = choicesMistakes;
+  }
+
+  
+  // load the question
+  questionContainer.textContent = (questionNumber + 1) + ". " +
+    quiz[questionNumber].question;
+	
+	
+  // load the choices
+  choicesContainer.innerHTML = choicesHtml;
+
+  // setup for the first time
+  if (questionNumber === 0) {
+  scoreContainer.textContent = "Score: " + score + "/" + maxQ; //nabago
+    submitBtn.textContent = "Submit Answer";
+	//alert(quiz.length);
+  }
+  
+	
+
+}
+
+function checkAnswer() {
+	var yourAnswer = "You did not pick any answer.";
+  // are we asking a question, or proceeding to next question?
+  if (askingQuestion) {
+	
+	//mga nadagdag for view_solution
+	if($('#solution_' + (questionNumber+1)).length > 0) {
+		$('#view_solution').css('visibility', 'visible');
+	}
+    submitBtn.textContent = "Next Question";
+    askingQuestion = false;
+
+    // determine which radio button they clicked
+    var userpick,
+      correctIndex,
+      radios = document.getElementsByName("quiz" + questionNumber);
+    for (var i = 0; i < radios.length; i++) {
+      if (radios[i].checked) { // if this radio button is checked
+        userpick = radios[i].value;
+		yourAnswer = userpick;
+      }
+
+      // get index of correct answer
+      if (radios[i].value == quiz[questionNumber].correct) {
+        correctIndex = i;
+      }
+    }
+
+    // setup if they got it right, or wrong
+    var labelStyle = document.getElementsByTagName("label")[correctIndex].style;
+    labelStyle.fontWeight = "bold";
+    if (userpick == quiz[questionNumber].correct) {
+      labelStyle.color = "green";
+	  score++; 
+    } else {
+		wrongAnswerNo++;
+      labelStyle.color = "red";
+	  wrongAnswerQ += "<br> <span id='question'> " + wrongAnswerNo+". " + quiz[questionNumber].question + "</span><br> " + "<div id='choices'>" + choicesMistakesG + " <strong>Your answer: "+ yourAnswer + "</strong><br> <strong id='answer'>" + "Correct answer: " + correctAnswer  + "</strong></div> ";//  + 
+
+    }
+	
+	
+  } else { // move to next question
+    // setting up so user can ask a question
+    askingQuestion = true;
+    // change button text back to "Submit Answer"
+    submitBtn.textContent = "Submit Answer";
+	scoreContainer.textContent = "Score: " + score + "/" + maxQ;; //nabago
+    // if we're not on last question, increase question number
+    if (questionNumber < maxQ - 1) {
+      //currentQuestion++;
+	  questionNumber++;
+      askQuestion();
+    } else {
+      clearTimeout(t);
+      showFinalResults();
+    }
+	
+	//mga nadagdag quiz with images
+	for(i=0; i<quiz.length; i++) { 
+		$('#for_q_' + (i+1)).hide();
+	}
+	
+	// mga nadagdag quiz with images
+	if((questionNumber+1) === 1) {
+		$('#question').after(images[0]);
+	} else if((questionNumber+1) === 2) {
+		$('#question').after(images[1]);
+	}
+	
+	//mga nadagdag for view_solution
+	for(i=0; i<quiz.length; i++) { 
+		$('#solution_' + (i+1)).hide();
+	}
+	
+	$('.for_view_solution').hide();
+	$('#view_solution').css('visibility', 'hidden');
+	
+	solutionIsVisible = false;
+	if(solutionIsVisible) {
+		document.getElementById('view_solution').textContent = 'Hide Solution';
+		solutionIsVisible = false;
+	}else if(!solutionIsVisible){
+		document.getElementById('view_solution').textContent = 'View Solution';
+		solutionIsVisible = true;
+	}
+  }
+}
+
+function showFinalResults() {
+	//resultPage = "<center><strong class='for_h'>You Passed!</strong></center>";
+	if(score/maxQ >= 0.7){
+		resultPage = "<center><strong class='for_h'>You Passed!</strong></center> <br> <center><strong>Score: " + score + " out of " + maxQ + " </strong></center><center><strong> Equivalent Percentage: " + Math.floor(score/maxQ*100) + "%</strong></center><center><strong>Total time: " + timeElapsed + "</strong></center> <br> <br><button id='restart' class='button fit' onclick='reloadCurrentPage();'> Restart the Test</button><button id='reviewMistakes' class='button fit' onclick='reviewMistakes();'> Review Mistakes</button> <button id='proceedToNext' class='button fit' onclick='proceedToNext();'> Proceed to next Test</button> ";
+	} else {
+		resultPage = "<center><strong class='for_h'>You Failed!</strong></center> <br> <center><strong>Score: " + score + " out of " + maxQ + " </strong></center><center><strong> Equivalent Percentage: " + Math.floor(score/maxQ*100) + "%</strong></center><center><strong>Total time: " + timeElapsed + "</strong></center> <br> <br><button id='restart' class='button fit' onclick='reloadCurrentPage();'> Restart the Test</button><button id='reviewMistakes' class='button fit' onclick='reviewMistakes();'> Review Mistakes</button> <button id='proceedToNext' class='button fit' onclick='proceedToNext();'> Proceed to next Test</button> ";
+	}
+	content.innerHTML = resultPage;
+}
+
+function reviewMistakes() {
+	content.innerHTML = wrongAnswerQ + " <br><br> <center><button id='restart' class='button fit' onclick='reloadCurrentPage();'> Restart the Test</button></center> <button id='proceedToNext' class='button fit' onclick='proceedToNext();'> Proceed to next Test</button>";
+}
+
+function proceedToNext() {
+	document.location.href = "duaso-XVIII.html"; //need to be updated per test 
+}
+
+function reloadCurrentPage() {
+	document.location.href = "duaso-XVII.html"; //need to be updated per test 
+}
+
+window.addEventListener("load", askQuestion, false);
+submitBtn.addEventListener("click", checkAnswer, false);
+
+
+
+</script>
+
+
+
+
+			<!-- Scripts for Phantom -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+	</body>
+
+</html>
