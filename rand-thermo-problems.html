@@ -1,0 +1,907 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+	
+		<title>Entropiya - Power & Industrial Plant Engineering</title> <!-- need to be updated per test -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		
+		<link rel="stylesheet" href="css/index.css" />
+		<script src="js/index.js"></script>
+		<link rel="stylesheet" href="assets/css/main.css" />
+
+		<!-- FontAwesome, jQuery and jQuery Mobile -->
+		<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css">
+		<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+		<script type="text/javascript" src="jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script> 
+		
+		<script>
+			$(document).ready(function() {
+				$('#content').hide();
+				
+				$("#maxQ").keyup(function(){
+					maxQ = this.value;
+				});
+				
+				$("#input_timeTotal").keyup(function(){
+					timeTotal = this.value*60;
+				});
+				
+				
+			});
+		</script>
+		
+	</head>
+	
+	<body>
+		<div data-role="panel" data-position="right" data-display="overlay" data-theme="a" id="panel">
+			<div class="nav_in_panel_container"> 
+				<a class="nav_in_panel" href="index.html" rel="external"><i class="fa fa-home" aria-hidden="true"></i> Home  </a> 
+				<br> <hr>
+				<a class="nav_in_panel" href="about.html" rel="external"><i class="fa fa-user-o" aria-hidden="true"></i> About  </a> 
+				<br> <hr>
+				<a class="nav_in_panel" href="references.html" rel="external"><i class="fa fa-book" aria-hidden="true"></i> References  </a>
+			</div>
+		</div>
+		<div id="header_container">
+			<figure class="logo" id="logo">
+				<a href="index.html" rel="external"><img src="images/logo.gif" alt="image"/></a>
+			</figure>
+			<ul class="home_nav_quiz"> 
+				<a href="#panel" class="right_panel"> <i class="fa fa-bars" id="icon_for_right_panel" aria-hidden="true"></i> </a>
+				<div class="toBeHidden">
+				<li class="li"><a class="a" href="references.html" rel="external">References</a></li>
+				<li class="li"><a class="a" href="about.html" rel="external">About</a></li>
+				<!-- <li class="li" id="dropdown">
+					<a class="a" href="javascript:void(0)" class="dropbtn">MCQs <i class="fa fa-caret-down" aria-hidden="true"></i></a>
+					<div class="dropdown-content">
+					<a class="a" href="home-me.html" rel="external">Mechanical Engineering</a>
+					<a class="a" href="home-ece.html" rel="external">Electronics Engineering</a> 
+					</div>
+				</li> -->
+				<li class="li"><a class="a" href="index.html" rel="external">Home</a></li>
+				</div>
+			</ul>
+		</div>
+		<div id="body_container"> 
+			
+			<div id="for_contents_quiz">
+				
+				<div id="for_left_content_quiz">
+					<div id="for_title">
+						<strong class="for_h">MCQs in Power & Industrial Plant Engineering - Random Test (305 Problems)</strong> <!-- need to be updated per test -->
+					</div>
+					<br>
+					<div id="for_top_ads_quiz">
+						<span> For top ads For top ads For top ads For top ads For top ads For top ads For top ads  </span>
+					</div><br>
+					
+					<div data-role="collapsible">
+						<h3>Power & Industrial Plant Engg</h3>
+						<ul data-role="listview" id="left_nav" data-inset="true" data-theme="c" data-dividertheme="f">
+							<li><a href="random-pipe01.html"  rel="external">Problems</a></li>
+							<li><a href="random-pipe02.html"  rel="external">Elements</a></li>
+							<li><a href="random-pipe03.html"  rel="external">Mixed</a></li>
+						</ul>
+					</div>
+					
+					<div class="for_quiz">
+						<div id="content">
+							<strong id="timerContinue"><time>00:00:00</time></strong>
+							<strong id="score">Score: 0</strong> <br><br>
+							<span id="question"></span>
+							<div id="choices"></div> 
+							<button id="submit" class="button"> Submit Answer</button>
+						</div>
+						
+						
+						<div id="home">
+							
+							<div class="for_text_input" >
+								<center><strong class="title">PIPE Problems</strong></center>
+								<div class="left_text_input">
+									<div class="ui-field-contain">
+										<label for="maxQ">Number of Questions:</label>
+										<input type="text" data-clear-btn="true" name="maxQ" id="maxQ" placeholder="Default is 50."  value="" data-mini="true">
+										
+									</div>
+									<div class="ui-field-contain">
+										<label for="input_timeTotal">Total Time: </label>
+										<input type="text" data-clear-btn="true" name="input_timeTotal" id="input_timeTotal" placeholder="Default is 150 minutes."  value="" data-mini="true">
+										
+									</div>
+									<button id="submit" onclick="submit();"> Start the Test </button>
+								</div>
+							</div>
+						</div>
+		
+					</div>
+					<br>
+										
+				</div>
+				
+								
+				
+				<div class="for_right_ads_quiz">
+					<span> For right Ads   </span>
+				</div>
+			</div>
+		</div>
+			
+			<script>
+			
+			var timeTotal = 150*60;
+			var timeInitial = timeTotal;
+	
+ //star timer
+  var timeElapsed = "";
+	var h1 = document.getElementById('timerContinue'),
+		start = document.getElementById('start'),
+		stop = document.getElementById('stop'),
+		clear = document.getElementById('clear'),
+		seconds = 0, minutes = 0, hours = 0,
+		t;
+		
+		
+	//seconds = timeTotal;
+
+	
+	function add() {
+		timeTotal--;
+		seconds = timeTotal % 60;
+		if(timeTotal/60 > 60) {
+			minutes = Math.floor(timeTotal / 60 % 60);
+		} else {
+			minutes = Math.floor(timeTotal / 60);
+		}
+		
+		hours = Math.floor(timeTotal / 60 / 60);
+		
+		
+		/*
+		if (seconds >= 60) {
+			seconds = 0;
+			minutes++;
+			if (minutes >= 60) {
+				minutes = 0;
+				hours++;
+			}
+		} */
+		
+		h1.textContent = (hours ? (hours > 9 ? hours : "0" + hours) : "00") + ":" + (minutes ? (minutes > 9 ? minutes : "0" + minutes) : "00") + ":" + (seconds > 9 ? seconds : "0" + seconds);
+		
+		if(timeElapsed === timeInitial) {
+			timeElapsed =(hours ? (hours > 9 ? hours : "0" + hours) : "00") + ":" +  (minutes ? (minutes > 9 ? minutes : "0" + minutes) : "00") + ":" + (seconds > 9 ? seconds : "0" + seconds);
+		}
+		
+		if(timeTotal === 0) {
+			showFinalResults();
+		}
+		
+		timer();
+	}
+	function timer() {
+		t = setTimeout(add, 1000);
+	}
+	//timer();
+
+	//end timer
+	
+	//start method 2
+
+
+//How to use the apply the function
+//var duplicates  =[];
+
+for (var i = 1; i <= 6 ; i++) { 
+   // document.write(getRandomIntNoDuplicates(1,10,duplicates));
+}
+
+//end 
+/*
+ //start method 1 to get random no. with no dupe
+ var nums = [0,1,2];
+ var gen_nums = [];
+
+ function in_array(array, el) {
+ for(var i = 0 ; i < array.length; i++) 
+ if(array[i] == el) return true;
+ return false;
+ }
+
+ function get_rand(array) {
+ var rand = array[Math.floor(Math.random()*array.length)];
+ if(!in_array(gen_nums, rand)) {
+ gen_nums.push(rand); 
+ return rand;
+ }
+ return get_rand(array);
+ }
+ */
+for(var i = 0; i < 0; i++) {
+    //document.write(get_rand(nums));
+    //alert(get_rand(nums));
+}
+//end
+
+var quiz = [
+
+//start of thermo difficult
+{
+	"question": "An air bubble rises from the bottom of well where the temperature is 25˚C, to the surface where the temperature is 27˚C. Find the percent increase in the volume of the bubble if the depth of the well is 5 m. Atmospheric pressure is 101,528 Pascals.",
+	"choices": ["49.3", "56.7", "41.3", "38.6"],
+	"correct": "49.3"
+},{
+	"question": "An ideal gas, 45 psig and 80˚F is heated in a closed container to 130˚F. What is the final pressure? ",
+	"choices": ["54 psia", "65 psia", "75 psia", "43 psia"],
+	"correct": "65 psia"
+},{
+	"question": "A large mining company was provided with a 3000 cm^3 of compressed air tank. Air pressure in the tank drops from 700 kPa to 180 kPa while the temperature remains unchanged at 28˚C. What percentage has the mass of air in the tank been reduced?",
+	"choices": ["74", "72", "76", "78"],
+	"correct": "74"
+},{
+	"question": "How much work is necessary to compress air in an insulated cylnder from 0.20 m^3 to 0.01 m^3? Use T1 = 20˚C and P1 = 100 kPa.",
+	"choices": ["113.4 kJ", "121.4 kJ", "110.1 kJ", "-115.7 kJ"],
+	"correct": "-115.7 kJ"
+},{
+	"question": "A heat engine is operated between temperature limits of 1370˚C and 260˚C. Engine is supplied with 14,142 kJ/kwh. Find the Carnot cycle efficiency in percent. ",
+	"choices": ["70.10", "65.05", "67.56", "69.32"],
+	"correct": "67.56"
+},{
+	"question": "A closed vessel contains air at pressure of 160 kN/m^2 gauge and temperature of 30˚C. The air is heated at constant volume to 60˚C with the atmospheric pressure of 759 mm Hg. What is the final gauge pressure?",
+	"choices": ["174", "186", "167", "172"],
+	"correct": "186"
+},{
+	"question": "What is the temperature in ˚C of 2 liters of water at 30˚C after 500 calories of heat have been added?",
+	"choices": ["35.70", "30.25", "38", "39.75"],
+	"correct": "30.25"
+},{
+	"question": "A volume of 450 cm^3 of air is measured at a pressure of 740 mm Hg absolute and a temperature of 20˚C. What is the volume in cm^3 at 760 mm Hg absolute and 0˚C?",
+	"choices": ["516.12", "408.25", "620.76", "375.85"],
+	"correct": "408.25"
+},{
+	"question": "Assuming compression is according to the law PV = constant. Calculate the initial volume of gas at a pressure of 2 bar which will occupy a volume of 6 m^3 when it is compressed to a pressure of 42 bar.",
+	"choices": ["126 m^3", "120 m^3", "130 m^3", "136 m^3"],
+	"correct": "126 m^3"
+},{
+	"question": "A steam condenser receives 10 kg per second of steam with an enthalpy of 2,570 kJ/kg. Steam condenses into liquid and leaves with an enthalpy of 160 kJ/kg. Cooling water passes through the condenser with temperature increases from 13˚C to 24˚C. Calculate the cooling water flowrate in kg/s.",
+	"choices": ["533", "518", "523", "528"],
+	"correct": "523"
+},{
+	"question": "A steam expands adiabatically in a turbine from 2000 kPa, 400˚C to 400 kPa, 250˚C. What is the effectiveness of the process in percent assuming an atmospheric temperature of 15˚C. Neglect changes in kinetic and potential energy. Properties of steam: At 2000 kPa and 400˚C (h = 3247.6 kJ/kg, s = 7.1271 kJ/kg-K) and at 400kPa and 250˚C (h = 2964.2 kJ/kg, s = 7.3789 kJ/kg-K)",
+	"choices": ["82", "84", "80", "86"],
+	"correct": "80"
+},{
+	"question": "Steam enters the superheaters of a boiler at a pressure of 25 bar and dryness of 0.98 and leaves at the same pressure at a temperature of 370˚C. Calculate the heat energy supplied in the superheaters. Properties of Steam: At 25 bar and 370˚C (h = 3171.8 kJ/kg) and at 25 bar and 0.98 dryness (hf = 962.11 kJ/kg, hfg = 1841.01 kJ/kg)",
+	"choices": ["407.46", "408.57", "405.51", "406.54"],
+	"correct": "405.51"
+},{
+	"question": "The thermal efficiency of a particular engine operating on an ideal cycle is 35%. Calculate the heat supplied per 1200 watt-hr of work developed in kJ.",
+	"choices": ["12343", "10216", "14218", "11108"],
+	"correct": "12343"
+},{
+	"question": "Determine the average cp value in kJ/kg-K of a gas if 522 kJ of heat is necessary to raise the temperature from 300 K to 800 K making the pressure constant?",
+	"choices": ["1.440", "1.044", "1.038", "1.026"],
+	"correct": "1.044"
+},{
+	"question": "Three pounds mass of air are contained at 25 psia and 100˚F. Given that R = 53.35 ft-lbf/lbm. What is the volume of the container?",
+	"choices": ["10.7 ft^3", "15 ft^3", "20.6 ft^3", "24.9 ft^3"],
+	"correct": "24.9 ft^3"
+},{
+	"question": "Ammonia weighing 22 kg is confined inside a cylinder equipped with a piston has an initial pressure of 413 kPa at 38˚C. If 2900 kJ of heat is added to the ammonia until its pressure and temperature are 413 kPa and 100˚C, respectively, What is the amount of work done by the fluid in kJ?",
+	"choices": ["667", "304", "420", "502"],
+	"correct": "667"
+},{
+	"question": "What is the total required heating energy in raising the temperature of a given amount of water when the energy supplied is 1000 kwh with heat losses of 25%?",
+	"choices": ["1000", "1500", "1333", "1250"],
+	"correct": "1333"
+},{
+	"question": "A vessel of 0.058 m^3 capacity is well insulated and is divided equally by rigid conducting diaphragm. Initially both halves contain air at pressure 137.8 kPa and 413.4 kPa and a temperature of 27˚C and 177˚C respectively. What is the increase of entropy of the system in kJ/˚C?",
+	"choices": ["1.002", "0.5080", "0.00173", "0.1080"],
+	"correct": "0.00173"
+},{
+	"question": "A certain gas at 101.325 kPa and 16˚C whose volume is 2.83 m^3 are compressed into a storage vessel of 0.31 m^3 capacity. Before admission, the stroge vessel contained gas at a pressure and temperature of 137.8 kPa and 24˚C. After admission, the pressure has increased to 1171.8 kPa. What should be the final temperature of the gas in the vessel in Kelvin?",
+	"choices": ["298", "319", "180", "420"],
+	"correct": "319"
+},{
+	"question": "Steam enters a throttling calorimeter at a pressure of 1.03 MPa. The calorimeter downstream pressure and temperature are respectively 0.100 MPa and 125˚C. What is the percentage moisture of the supply steam? Properties of Steam: At P = 1.03 MPa (hg = 2779.25 kJ/jg, hfg = 2010.7 kJ/kg), at 0.100 MPa and 125˚C (h = 2726.6 kJ/kg)",
+	"choices": ["2.62", "5.21", "3.15", "1.98"],
+	"correct": "2.62"
+}, {
+	"question": "What pressure is column of water 100 cm high equivalent to ?",
+	"choices": ["9807 dynes/cm^2", "9807 N/m^2", "0.10 bar", "98100 N/m^2"],
+	"correct": "9807 N/m^2"
+},{
+	"question": "A water temperature rise of 18˚F in the water cooled condenser is equivalent in ˚C to:",
+	"choices": ["-9.44˚C", "263.56K", "10˚C", "7.78˚C"],
+	"correct": "10˚C"
+},{
+	"question": "Steam flows into a turbine at the rate of 10 kg/s and 10 kW of heat are lost from the turbine. Ignoring elevation and kinetic energy effects, calculate the power output from the turbine. Note: h1 = 2739 kJ/kg and h2 = 2300.5 kJ/kg",
+	"choices": ["4605 kW", "4973 kW", "4375 kW", "4000 kW"],
+	"correct": "4375 kW"
+},{
+	"question": "The enthalpy of air is increased by 139.586 kJ/kg in a compressor. The rate of air flow is 16.42 kg/min. The power input is 48.2 kW. Which of the following values most nearly equals the heat loss from the compressor in kW?",
+	"choices": ["-10", "10.2", "-9.95", "9.95"],
+	"correct": "-10"
+},{
+	"question": "A Carnot engine requires 35 kJ/s from the hot source. The engine produces 15 kW of power and the temperature of the sink is 26˚C. What is the temperature of the hot source in ˚C?",
+	"choices": ["245.57", "210.10", "250.25", "260.68"],
+	"correct": "250.25"
+},{
+	"question": "The maximum thermal efficiency possible for a power cycle operating between 1200˚F and 225˚F is: ",
+	"choices": ["58%", "8.73%", "58.73%", "57.40%"],
+	"correct": "58.73%"
+},{
+	"question": "A Carnot engine receives 130 Btu of heat from a hot reservoir at 700˚F and rejects 49 Btu of heat. Calculate the temperature of the cold reservoir.",
+	"choices": ["-21.9˚F", "-24.2˚F", "-20.8˚F", "-22.7˚F"],
+	"correct": "-22.7˚F"
+},{
+	"question": "A tank contains 80 ft^3 of air at a pressure of 350 psi. If the air is cooled until its pressure and temperature decrease to 200 psi and 70˚F respectively, what is the decrease in internal energy?",
+	"choices": ["4575", "-5552", "5552", "0"],
+	"correct": "-5552"
+},{
+	"question": "If 10 lbs of water evaporated at atmospheric pressure until volume of 288.5 ft^3 is occupied, how much work is done?",
+	"choices": ["610358 ft-lb", "0", "-610358 ft-lb", "550000 ft-lb"],
+	"correct": "610358 ft-lb"
+},{
+	"question": "A reverse Carnot cycle requires 3 hp and extracts energy from a lake to heat a house. If the house is kept  at 70˚F and requires 2000 Btu per minute, what is the temperature of the lake?",
+	"choices": ["35˚F", "36˚F", "39˚F", "40˚F"],
+	"correct": "36˚F"
+},{
+	"question": "A pressure gage registers 50 psig in a region where the barometer is 14.25 psia. Find the absolute pressure in psia.",
+	"choices": ["64.25", "443", "151.325", "35.75"],
+	"correct": "64.25"
+},{
+	"question": "A pump discharges 50 tons of water per hour to a height of 8 m, the overall efficiency of the pumping system being 69%. Calculate the output and input power.",
+	"choices": ["1.09 kW & 1.58 kW", "2.09 kW & 2.58 kW", "1.09 kW & 2.58 kW", "2.09 kW & 1.58 kW"],
+	"correct": "1.09 kW & 1.58 kW"
+},{
+	"question": "A condenser vacuum gauge reads 715 mm Hg when the barometer stands at 757 mm Hg. What is the absolute pressure in the condenser in kPa?",
+	"choices": ["196.25 kPa", "100.92 kPa", "5.60 kPa", "95.33 kPa"],
+	"correct": "5.60 kPa"
+},{
+	"question": "Oil flows full bore at a velocity of 2 m/s through a nest of 16 tubes in a single pass cooler. The internal diameter of the tubes is 30 mm and the density of the oil is 0.85 kg/L. Find the volume flow in liters per second.",
+	"choices": ["20", "21", "22", "23"],
+	"correct": "23"
+},{
+	"question": "Calculate the quantity of heat to be transferred to 2.25 kg of brass to raise its temperature from 20˚C to 240˚C taking the specific heat of the brass as 0.394 kJ/kg-K.",
+	"choices": ["519.03 kJ", "159.03 kJ", "195.03 kJ", "591.03 kJ"],
+	"correct": "195.03 kJ"
+},{
+	"question": "Three cubic meters of air at a pressure of 20 kPag is compressed at constant temperature to a pressure of 425 kPag. Calculate the final volume of the air.",
+	"choices": ["0.80 m^3", "0.69 m^3", "0.92 m^3", "0.96 m^3"],
+	"correct": "0.69 m^3"
+},{
+	"question": "The pressure of the air in a starting air vessel is 40 bar and the temperature is 24˚C. If a fire in the vicinity causes the temperature to rise to 65˚C, find the pressure of the air. Neglect any increase in volume of the vessel.",
+	"choices": ["45.52 bar", "54.52 bar", "45.55 bar", "44.55 bar"],
+	"correct": "45.52 bar"
+},{
+	"question": "One cubic meter of a perfect gas at a pressure of 1 bar and temperature of 17˚C are compressed to a volume of 0.50 m^3 and the final pressure is 6 bar. Calculate the final temperature.",
+	"choices": ["870˚C", "560˚C", "597˚C", "860˚C"],
+	"correct": "597˚C"
+},{
+	"question": "An air compressor delivers 0.20 m^3 of air at a pressure of 850 kPa and 31˚C into an air reservoir. Taking the gas constant of air as 0.287 kJ/kg-K, calculate the mass of air delivered.",
+	"choices": ["1.59 kg", "1.95 kg", "5.91 kg", "5.19 kg"],
+	"correct": "1.95 kg"
+},{
+	"question": "An oxygen cylinder of volume 2.3 ft^3 has a pressure of 2200 psig and is at 70˚F. Determine the mass of oxygen in the cylinder.",
+	"choices": ["26.66 lbs", "26.86 lbs", "28.66 lbs", "28.88 lbs"],
+	"correct": "28.66 lbs"
+}, {
+	"question": "What is the power of a steam jet 15 mm diameter moving at 750 m/s? Steam condition, 1.4 kg/cm^2, dry and saturated (v = 1.256 m^3/kg).",
+	"choices": ["29.67 kW", "39.67 kW", "19.67 kW", "49.67 kW"],
+	"correct": "29.67 kW"
+},{
+	"question": "How much power is there in the kinetic energy of the atmosphere (density = 1.217 kg/m^3) at 56 kph wind velocity? Consider the section that passes through a 3 m diameter circular area normal to the velocity. ",
+	"choices": ["10.21 kW", "15.21 kW", "16.21 kW", "17.21 kW"],
+	"correct": "16.21 kW"
+},{
+	"question": "An electric heater is to heat 11 kg of oil per min. from 4.5˚C to 65.5˚C. Specific heat of the oil is 2.1 J/gm-˚C. How many watts should this heater consume?",
+	"choices": ["20 448 W", "33 448 W", "20 400 W", "23 485 W"],
+	"correct": "23 485 W"
+},{
+	"question": "Find the enthalpy of 1 kg of wet saturated steam at a pressure of 0.20 bar and dryness fraction of 0.85. At 0.20 bar, hf = 251 kJ/kg, hfg = 2358 kJ/kg",
+	"choices": ["2200 kJ/kg", "2525.30 kJ/kg", "2255.30 kJ/kg", "2000 kJ/kg"],
+	"correct": "2255.30 kJ/kg"
+},{
+	"question": "If the enthalpy of wet saturated steam at a pressure of 11 bar is 2681 kJ/kg, find its dryness fraction. At 11 bar, hf = 781 kJ/kg & hfg = 2000 kJ/kg.",
+	"choices": ["0.75", "0.85", "0.95", "0.65"],
+	"correct": "0.95"
+},{
+	"question": "Find the heat transfer required to convert 5 kg of water at a pressure of 20 bar and temperature of 21˚C into steam of dryness fraction 0.90 at the same pressure. Properties of Steam: P = 20 bar; hf = 909 kJ/kg; hfg = 1890 kJ/kg. Note: for water at 21˚C, h = 88 kJ/kg",
+	"choices": ["10 610 kJ", "11 610 kJ", "12 610 kJ", "15 610 kJ"],
+	"correct": "12 610 kJ"
+},{
+	"question": "A closed vessel contains air at a pressure of 140 kPag and temperature of 20˚C. Find the final gauge pressure if the air is heated at constant volume to 40˚C. Take the atmospheric pressure as 759 mm Hg.  ",
+	"choices": ["156.46", "146.46", "136.46", "126.46"],
+	"correct": "156.46"
+},{
+	"question": "Water substance at 70 bar and 65˚C enters a boiler tube of constant inside diameter of 25 mm. The water leaves the boiler tube at 50 bar and 700K at velocity of 100 m/s. Calculate the inlet volume flow in L/s. At 70 bar & 65˚C, v1 = 0.001017 m^3/kg, at 50 bar & 700 K, v2 = 0.06081 m^3/kg.",
+	"choices": ["0.75", "0.64", "0.82", "0.96"],
+	"correct": "0.82"
+},{
+	"question": "A group of 50 persons attend a secret meeting in room which is 12 m wide by 10 m long and a ceiling height of 3 m. The room is completely sealed off and insulated. Each person gives off 150 kcal per hour of heat and occupies a volume of 0.20 m^3. The room has an initial pressure of 101.3 kPa and temperature of 16˚C. Calculate the room temperature after 10 mins. Use R = 0.287 kJ/kg-K and cv = 0.171 kcal/kg-K.",
+	"choices": ["33.1˚C", "37.7˚C", "38.7˚C", "31.7˚C"],
+	"correct": "33.1˚C"
+},{
+	"question": "Steam at 1000 lb/ft^2 pressure and 300˚R has specific volume of 6.5 ft^3/lb and a specific enthalpy of 9800 ft-lbf/lbm. Find the internal energy per pound mass of steam. ",
+	"choices": ["2500 ft-lbf/lbm", "3300 ft-lbf/lbm", "5400 ft-lbf/lbm", "6900 ft-lbf/lbm"],
+	"correct": "3300 ft-lbf/lbm"
+}, {
+	"question": "Determine the average constant pressure specific heat of a steam at 10 kPa and 45.8˚C. Note: From steam table, at 47.7˚C, h = 2588.1 kJ/kg and at 43.8˚C, h = 2581.1 kJ/kg.",
+	"choices": ["1.79 kJ/kg˚C", "10.28 kJ/kg˚C", "30.57 kJ/kg˚C", "100.1 kJ/kg˚C"],
+	"correct": "1.79 kJ/kg˚C"
+}, {
+	"question": "A 10 m^3 vessel initially contains 5 m^3 of liquid water and 5 m^3 of saturated vapor at 100 kPa. Calculate the internal energy of the system. Properties of liquid water and saturated vapor: (AT 100 kPa, vf = 0.001043 m^3/kg; vg = 1.6940 m^3/kg; uf = 417.3 kJ/kg; ug = 2506.1 kJ/kg) ",
+	"choices": ["2.0 x 10^6 kJ", "1.0 x 10^6 kJ", "3.0 x 10^6 kJ", "5.0 x 10^6 kJ"],
+	"correct": "2.0 x 10^6 kJ"
+}, {
+	"question": "A vessel with a volume of 1 m3 contains liquid water and water vapor in equilibrium at 600 kPa. The liquid water has a mass of 1 kg. Calculate the mass of the water vapor. Properties of liquid water and water vapor at 600 kPa : Vf = 0.001101 m3/kg Vg = O.3157m3/kg ",
+	"choices": ["1.57 kg", "1.89kg", "2.54 kg", "3.16kg"],
+	"correct": "3.16kg"
+}, {
+	"question": "If 6 liters of a gas at a pressure of 100 kPaa are compressed reversibly according to PV^2 = C, until the volume becomes 2 liters, find the final pressure.",
+	"choices": ["600 kPaa", "800 kPa", "900 kPa", "1000 kPa"],
+	"correct": "900 kPa"
+}, {
+	"question": "The flow energy of 124 liters per minute of a fluid passing a boundary to system is 108.5 kJ/min. Determine the pressure at this point. ",
+	"choices": ["975 kPa", "675 kPa", "875 kPa", "575 kPa"],
+	"correct": "875 kPa"
+}, {
+	"question": "Work is done by a substance in reversible nonflow manner in accordance with V = 100/P ft^3, where P is in psia. Evaluate the work done on or by the substance as the pressure increases from 10 psia to 100 psia. ",
+	"choices": ["33 157.22 ft-lb", "-33 157.22 ft-lb", "43 157.22 ft-lb", "-43 157.22 ft-lb"],
+	"correct": "-33 157.22 ft-lb"
+}, {
+	"question": "A closed gaseous system undergoes a reversible process during which 25 Btu are rejected, the volume changing from 5 ft^3 to 2 ft^3, and the pressure remains constant at 50 psia. Find the change of internal energy.",
+	"choices": ["-52.76 Btu", "-2.76 Btu", "2.76 Btu", "52.76 Btu"],
+	"correct": "2.76 Btu"
+}, {
+	"question": "Assume 8 lb of a substance receive 240 Btu of heat at constant volume and undergo a temperature change of 150˚F. Determine the average specific heat of the substance during the process.",
+	"choices": ["0.5 Btu/lb˚F", "0.3 Btu/lb˚F", "0.4 Btu/lb˚F", "0.2 Btu/lb˚F"],
+	"correct": "0.2 Btu/lb˚F"
+}, {
+	"question": "The following expressions relate to a particular gaseous mass: PV = 95T, h = 120 + 0.60T where these units obtain in psf, V in ft3/lb, T in ˚R and h in Btu/lb. If the specific heats are temperature dependent only, find cp and cv.",
+	"choices": ["0.6 Btu/lb˚F, 0.48 Btu/lb˚F", "0.5 Btu/lb˚F, 0.50 Btu/lb˚F", "0.60 Btu/lb˚F, 0.7 Btu/lb˚F", "0.50 Btu/lb˚F, 0.48 Btu/lb˚F"],
+	"correct": "0.6 Btu/lb˚F, 0.48 Btu/lb˚F"
+}, {
+	"question": "Calculate the entropy of steam at 60 psia with a quality of 0.60. Properties of steam at 60 psia: sf = 0.4274 Btu/lb˚R & sfg = 1.2172 Btu/lb˚R.",
+	"choices": ["0.4247 Btu/lb˚R", "1.1577 Btu/lb˚R", "0.7303 Btu/lb˚R", "0.896 Btu/lb˚R"],
+	"correct": "1.1577 Btu/lb˚R"
+}, {
+	"question": "Find the change in internal energy of 5 lbm of oxygen when the temperature changes from 100˚F to 120˚F, cv = 0.157 Btu/lbm˚R.",
+	"choices": ["14.7 Btu", "15.7 Btu", "16.8 Btu", "147 Btu"],
+	"correct": "15.7 Btu"
+}, {
+	"question": "Water (cv = 4.2 kJ/kg-K) is being heated by 1500-W heater. What is the rate of change in temperature of 1 kg of water?" ,
+	"choices": ["0.043 K/s", "0.179 K/s", "0.357 K/s", "1.50 K/s"],
+	"correct": "0.357 K/s"
+}, {
+	"question": "One kilogram of water (cv = 4.2 kJ/kg-K) is heated by 300 Btu of energy. What is the change in temperature in K?",
+	"choices": ["75.36 K", "125.2 K", "73.8 K", "17.96 K"],
+	"correct": "75.36 K"
+}, {
+	"question": "Determine the change in enthaply per lb mass of nitrogen gas as its temperature changes from 500˚F to 200˚F. (cp = 0.2483 Btu/lbm˚R).",
+	"choices": ["-74.49 Btu/lb", "-72.68 Btu/lb", "-68.47 Btu/lb", "-63.78 Btu/lb"],
+	"correct": "-74.49 Btu/lb"
+}, {
+	"question": "Calculate the change in enthaply as 1 kg of nitrogen is heated from 1000 K to 1500 K, assuming the nirogen is an ideal gas at a constant pressure. The temperature dependent specific heat of nirogen is cp = 39.06 - 512.79T^-1.5 + 1072.7T^-2 - 820.4T^-3 where cp is in kJ/kg-mol, and T is in K.",
+	"choices": ["600 kJ", "697.27 kJ", "800 kJ", "897.27 kJ"],
+	"correct": "697.27 kJ"
+}, {
+	"question": "What is the resulting pressure when one pound of air at 15 psia and 200˚F is heated at constant volume to 800˚F?",
+	"choices": ["15 psia", "28.6 psia", "36.4 psia", "52.1 psia"],
+	"correct": "28.6 psia"
+}, {
+	"question": "The temperature of an ideal gas remains constant while the absolute pressure changes from 103.4 kPaa to 827.2 kpaa. If the initial volume is 80 liters, what is the final volume?",
+	"choices": ["5 L", "10 L", "15 L", "20 L"],
+	"correct": "10 L"
+}, {
+	"question": "For a certain ideal gas, R = 0.277 kJ/kg-K and k = 1.384. What are the values of cp and cv?",
+	"choices": ["0.9984 kJ/kg-K, 0.7213 kJ/kg-K", "1 kJ/kg-K, 0.8124 kJ/kg-K", "0.7124 kJ/kg-K, 0.8124 kJ/kg-K", "0.9984 kJ/kg-K, 0.6124 kJ/kg-K"],
+	"correct": "0.9984 kJ/kg-K, 0.7213 kJ/kg-K"
+}, {
+	"question": "A mixture is formed at 689.48 kPaa, 37.8˚C by bringing together these gases each volume before mixing measured at 689.48 kPaa, 37.8˚C; 3 mol CO2, 2 mol N2, 4.5 mol O2. Find the partial pressure of CO2 before mixing. ",
+	"choices": ["217.73 kPaa", "145.15 kPaa", "326.6 kPaa", "445.15 kPaa"],
+	"correct": "217.73 kPaa"
+}, {
+	"question": "An air with mass of 0.454 kg and unkown mass of CO2 occupy an 85-L tank at 2068.44 kPaa. If the partial pressure of the CO2 is 344.74 kPaa, determine its mass.",
+	"choices": ["0.138 kg", "0.238 kg", "0.183 kg", "0.283 kg"],
+	"correct": "0.138 kg"
+}, {
+	"question": "After series of state changes, the pressure and volume of 2.286 kg of N are each doubled. What is the change in entropy? Note: k for N is 1.4.",
+	"choices": ["2.807 kJ/kg-K", "2.268 kJ/kg-K", "2.987 kJ/kg-K", "3.407 kJ/kg-K"],
+	"correct": "2.807 kJ/kg-K"
+}, {
+	"question": "The temperature of 4.82 lb of Oxygen occupying 8 ft^3 is changed from 110˚F to 200˚F while pressure remains constant at 115 psia. Determine the final volume.",
+	"choices": ["7.26 ft^3", "8.26 ft^3", "9.26 ft^3", "10.26 ft^3"],
+	"correct": "9.26 ft^3"
+}, {
+	"question": "Twenty grams of oxygen gas are compressed at a constant temperature of 30˚C to 5% of their original volume. What work is done on the system? Use R of 0.0619 cal/gm-K",
+	"choices": ["824 cal", "924 cal", "944 cal", "-1124 cal"],
+	"correct": "-1124 cal"
+}, {
+	"question": "Helium (R = 0.4968 Btu/lb˚R) is compressed isothermally from 14.7 psia and 68˚F. The compression ratio is 4. Calculate the work done on the gas.",
+	"choices": ["-364 Btu/lb", "-145 Btu/lb", "-187 Btu/lb", "-46.7 Btu/lb"],
+	"correct": "-364 Btu/lb"
+}, {
+	"question": "Gas is enclosed in a cylinder with a weighted piston as the top boundary. The gas is heated and expands from a volume of 0.04 m^3 to 0.10 m^3 at a constant pressure of 200 kPa. Calculate the work done by the system. ",
+	"choices": ["8 kJ", "10 kJ", "12 kJ", "14 kJ"],
+	"correct": "12 kJ"
+}, {
+	"question": "If the ˚F scale is twice the ˚C scale, what is the reading in the Fahrenheit scale?",
+	"choices": ["160˚", "320˚", "140˚", "280˚"],
+	"correct": "320˚"
+}, {
+	"question": "Water enters the condenser at 30˚C and leaves at 60˚C. What is the temperature difference in ˚F?",
+	"choices": ["16.67", "48.67", "54", "22"],
+	"correct": "54"
+}, {
+	"question": "A cylinder and piston arrangement contains saturated water vapor at 110˚C. The vapor is compressed in a reversible adiabatic process until the pressure is 1.6 MPa. Determine the work done by the system per kg of water. At 110˚C, s1 = 7.2387 kJ/kg-K, u1 = 2518.1 kJ/kg and at 1.6 MPa, s2 = 7.2387 kJ/kg-K, u2 = 2950.1 kJ/kg, T2 = 400˚C.",
+	"choices": ["-500 kJ/kg", "-432 kJ/kg", "-632 kJ/kg", "-700 kJ/kg"],
+	"correct": "-432 kJ/kg"
+}, {
+	"question": "Helium is compressed isothermally from 14.7 psia and 68˚F. The compression ratio is 4. Calculate the change in entropy of the gas given that R of helium is 0.4961 Btu/lb˚R. ",
+	"choices": ["-0.688 Btu/lb˚R", "-2.76 Btu/lb˚R", "0.658 Btu/lb˚R", "2.76 Btu/lb˚R"],
+	"correct": "-0.688 Btu/lb˚R"
+}, {
+	"question": "Steam at a pressure of 9 bar (hf = 743 kJ/kg, hfg = 2031 kJ/kg) is generated in an exhaust gas boiler from feedwater at 80˚C (h = 334.9 kJ/kg). If the dryness fraction of the steam is 0.96, determine the heat transfer per kilogram of steam. ",
+	"choices": ["2357.86", "3357.86", "1357.86", "5357.86"],
+	"correct": "2357.86"
+}, {
+	"question": "If wet saturated steam at 8 bar (hfg = 2048 kJ/kg) requires 82 kJ of heat per kg of steam to completely dry it, what is the dryness fraction of the steam?",
+	"choices": ["0.76", "0.86", "0.96", "0.66"],
+	"correct": "0.96"
+}, {
+	"question": "Wet saturated steam at 17 bar (hf = 872 kJ/kg, hfg = 1923 kJ/kg) dryness 0.97 is produced from feedwater at 85˚C (h = 355.9 kJ/kg). Find the heat energy supplied per kg.",
+	"choices": ["4381.41 kJ/kg", "1381.41 kJ/kg", "2381.41 kJ/kg", "3381.41 kJ/kg"],
+	"correct": "2381.41 kJ/kg"
+}, {
+	"question": "A turbo-generator is supplied with superheated steam at a pressure of 30 bar and temperature 350˚C (h = 3117 kJ/kg). The pressure of the exhaust steam from the turbine is 0.06 bar (hf = 152 kJ/kg, hfg = 2415 kJ/kg) with a dryness fraction of 0.88. If the turbine uses 0.25 kg per second, calculate the power equivalent of the total enthalpy drop.",
+	"choices": ["109.95 kW", "209.95 kW", "309.95 kW", "409.95 kW"],
+	"correct": "209.95 kW"
+}, {
+	"question": "Steam enters the superheaters of a boiler at a pressure of 20 bar (hf = 909 kJ/kg, hfg = 1890 kJ/kg, vg = 0.09957 m^3/kg) and dryness 0.98 and leaves at the same pressure at a temperature of 350˚C (h = 3138 kJ/kg, v = 0.1386 m^3/kg). Find the percentage increase in volume due to drying and superheating.",
+	"choices": ["12.04", "22.04", "32.04", "42.04"],
+	"correct": "42.04"
+}, {
+	"question": "Steam at the rate of 500 kg/hr is produced by a steady flow system boiler from feedwater entering at 40˚C. Find the rate which heat is transformed in kcal/hr if enthalpy of steam is 600 kcal/kg and of feedwater 50 kcal/kg.",
+	"choices": ["275,000 kcal/hr", "175,00 kcal/hr", "375,000 kcal/hr", "475,000 kcal/hr"],
+	"correct": "275,000 kcal/hr"
+}, {
+	"question": "Steam leaves an industrial boiler at 827.4 kPa and 171.6˚C (hf = 727.25 kJ/kg, hfg = 2043.2 kJ/kg). A portion of the steam is passed through a throttling calorimeter and is exhausted to the atmosphere when the calorimeter pressure is 101.4 kPa and a temperature of 115.6˚C (h = 2707.6 kJ/kg). How much moisture does the steam leaving the boiler contain?",
+	"choices": ["2.08%", "3.08%", "4.08%", "5.08%"],
+	"correct": "3.08%"
+}, {
+	"question": "During the polytropic process of an ideal gas, the state changes from 138 kPa and 5˚C to 827 kPa and 171˚C. Find the value of n.",
+	"choices": ["1.345", "1.253", "1.354", "1.234"],
+	"correct": "1.354"
+}, {
+	"question": "For an ideal gas, what is the specific molar entropy change during an isothermal process in which the pressure changes from 200 kPa to 150 kPa?",
+	"choices": ["2.39 J/mol-K", "1.39 J/mol-K", "3.39 J/mol-K", "4.39 J/mol-K"],
+	"correct": "2.39 J/mol-K"
+}, {
+	"question": "Water enters the heater at 25˚C and leaves at 80˚C. What is the temperature change in F˚?",
+	"choices": ["55", "99", "11", "65"],
+	"correct": "99"
+}, {
+	"question": "The suction pressure of a pump reads 600 mm Hg vacuum. What is the absolute pressure in kPa?",
+	"choices": ["11.33", "31.33", "21.33", "41.33"],
+	"correct": "21.33"
+}, {
+	"question": "One kilogram of wet steam at a pressure of 8 bar (vg = 0.2404 m^3 kg, vf = 0.001148 m^3/kg) and dryness 0.94 is expanded until the pressure is 4 bar (vg = 0.4625 m^3/kg, vf = 0.0010836 m^3/kg). If expansion follows the law PV^n = C, where n = 1.12, find the dryness fraction of the steam at the lower pressure.",
+	"choices": ["0.9072", "0.4197", "0.2260", "0.2404"],
+	"correct": "0.9072"
+}, {
+	"question": "2.5 liters of superheated steam at 25 bar and 400˚C (v = 0.1252 m^3/kg) is expanded in an engine to a pressure of 0.1 bar (vg = 14.674 m^3/kg, vf = 0.0010102) when its dryness fraction is 0.9. Find the final volume of the steam. ",
+	"choices": ["163.74 L", "263.74 L", "373.74 L", "463.74 L"],
+	"correct": "263.74 L"
+}, {
+	"question": "A 1.5 kg of wet steam at a pressure of 5 bar (hf = 640 kJ/kg, hfg = 2109 kJ/kg) dryness 0.95 is blown into 70 liters of water of 12˚C (50.4 kJ/kg). Find the final enthalpy of the mixture. ",
+	"choices": ["74.80 kJ/kg", "84.80 kJ/kg", "94.80 kJ/kg", "104.80 kJ/kg"],
+	"correct": "104.80 kJ/kg"
+}, {
+	"question": "Wet saturated steam at 16 bar (hf = 859 kJ/kg, hfg = 1935 kJ/kg, x = 0.98) is throttled to a pressure of 8 bar (hf = 721 kJ/kg, hfg = 2048 kJ/kg). Find the dryness fraction of the reduced pressure steam.",
+	"choices": ["0.8833", "0.7733", "0.9933", "0.6633"],
+	"correct": "0.9933"
+}, {
+	"question": "A vessel of volume 8.7 m^3 contains air and dry saturated steam at a total pressure of 0.06 bar and temperature 29˚C (Psat = 0.04 bar, v = 34.80 m^3/kg). Taking R for air as 287 J/kg-K, calculate the mass of steam and the mass of air in the vessel.",
+	"choices": ["0.25 kg, 0.204 kg", "0.35 kg, 0.204 kg", "0.25 kg, 350 kg", "0.35 kg, 0.45 kg"],
+	"correct": "0.25 kg, 0.204 kg"
+}, {
+	"question": "A piston-cylinder system contains a gas which expands under a constant pressure of 1200 lb/ft^2. If the piston is displaced 1 ft during the process, and the piston diameter is 2 ft, what is the work done by the gas on the piston?",
+	"choices": ["1768 ft-lb", "2387 ft-lb", "3768 ft-lb", "4000 ft-lb"],
+	"correct": "3768 ft-lb"
+}, {
+	"question": "Gas is enclosed in a cylinder with a weighted piston as the top boundary. The gas is heated and expands from a volume of 0.04 m^3 to 0.10 m^3. The pressure varies such that PV = constant and the inital pressure is 200 kPa. Calculate the work done by the system.",
+	"choices": ["6.80 kJ", "7.33 kJ", "9.59 kJ", "12 kJ"],
+	"correct": "7.33 kJ"
+}, {
+	"question": "In an isentropic process, p1 = 200 psi, p2 = 300 psi and T1 = 700˚R. Find T2 using k = 1.4.",
+	"choices": ["576˚R", "680˚R", "786˚R", "590˚R"],
+	"correct": "786˚R"
+}, {
+	"question": "Nitrogen (k = 1.4) is expanded isentropically. Its temperature changes from 620˚F to 60˚F. Find the pressure ratio (P1/P2)",
+	"choices": ["0.08", "12.91", "26.2", "35.47"],
+	"correct": "12.91"
+}, {
+	"question": "Nitrogen is expanded isentropically. Its temperature changes from 620˚F to 60˚F. The volumetric ratio is (V2/V1) = 6.22 and the value of R for nitrogen is 0.0787 Btu/lb˚R. What is the work done by the gas?",
+	"choices": ["-110.18 Btu/lb", "120.27 Btu/lb", "110.18 Btu/lb", "-120.27 Btu/lb"],
+		"correct": "110.18 Btu/lb"
+}, 
+//end of thermo difficult
+
+];
+
+//end of random
+
+//random-pipe01.html updates
+/*
+Thermodynamics	------------ 100
+Fluid Mechanics ------------ 50
+Heat Transfer -------------- 100
+Refrigeration Systems ------ 0
+Airconditioning ------------ 0
+Compressors ---------------- 0
+Fans & Blowers ------------- 0
+Pumps ---------------------- 0
+PPE ICE -------------------- 55
+PPE Fuels & Combustion ----- 0
+PPE Diesel Power Plant ----- 0
+PPE Gas Turbine Power Plant- 0
+PPE Steam Power Plant ------ 0
+PPE Steam Generators ------- 0
+PPE Steam Engine ----------- 0
+PPE Nozzles ---------------- 0
+PPE Steam Turbines --------- 0
+PPE Steam Condenser -------- 0
+PPE Gas & Feedwater Loop --- 0
+PPE Geothermal Power Plant - 0
+PPE Hydroelectric Power Plant-0
+PPE Non-Conventional PP -----0
+PPE Nuclear Power Plant -----0
+PPE Machine Foundation ------0
+PPE Chimney -----------------0
+PPE Variable Load Problems --0
+PPE Piping System -----------0
+PPE Miscellaneous Problems --0
+*/
+
+
+
+
+
+// define elements
+var content = $("content"),
+  questionContainer = $("question"),
+  choicesContainer = $("choices"),
+  scoreContainer = $("score"), //nabago
+  submitBtn = $("submit");
+  
+  var resultPage = "";
+	
+
+
+// init vars
+var currentQuestion = 0,
+	score = 0,
+  askingQuestion = true,
+  questionNumber = 0,
+  maxQ = 50, 
+  gCurrentQuestion;
+  
+  //maxQ = prompt("How many items do you like?");
+  wrongAnswerQ = "",
+  wrongAnswerNo=0;
+  var yourAnswer = "You did not pick any answer.";
+  var choicesMistakesG = "";
+  if(maxQ > quiz.length) {
+	maxQ = quiz.length;
+  }
+  var isOnReviewWrongPage = false;
+  var duplicates  =[];
+  
+function $(id) { // shortcut for document.getElementById
+  return document.getElementById(id);
+}
+
+function askQuestion() {
+//start method 1 to get random no. with no dupe
+
+  var nums = [0,1,2,3];
+var gen_nums = [];
+
+function in_array(array, el) {
+   for(var i = 0 ; i < array.length; i++) 
+       if(array[i] == el) return true;
+   return false;
+}
+
+function get_rand(array) {
+    var rand = array[Math.floor(Math.random()*array.length)];
+    if(!in_array(gen_nums, rand)) {
+       gen_nums.push(rand); 
+       return rand;
+    }
+    return get_rand(array);
+}
+
+
+
+function inArray(arr, el) {
+    for(var i = 0 ; i < arr.length; i++) 
+            if(arr[i] == el) return true;
+    return false;
+}
+
+function getRandomIntNoDuplicates(min, max, DuplicateArr) {
+    var RandomInt = Math.floor(Math.random() * (max - min + 1)) + min;
+    if (DuplicateArr.length > (max-min) ) return false;  // break endless recursion
+    if(!inArray(DuplicateArr, RandomInt)) {
+       DuplicateArr.push(RandomInt); 
+       return RandomInt;
+    }
+    return getRandomIntNoDuplicates(min, max, DuplicateArr); //recurse
+}
+
+//tempCurrentQuestion = get_rand(numsQuestion);
+ gCurrentQuestion = getRandomIntNoDuplicates(0,quiz.length-1,duplicates);
+ //alert(gCurrentQuestion);
+
+  var choices = quiz[gCurrentQuestion].choices,
+    choicesHtml = "", choicesMistakes="" ;
+	var tempi;
+	
+	
+
+
+  // loop through choices, and create radio buttons
+  for (var i = 0; i < choices.length; i++) {
+  //alert(get_rand(nums));
+   tempi = get_rand(nums);
+    choicesHtml += "<input type='radio' name='quiz" + gCurrentQuestion +
+      "' id='choice" + ( tempi + 1) +
+      "' value='" + choices[tempi] + "'>" +
+      " <label for='choice" + (tempi + 1) + "'>" + choices[tempi] + "</label> <br>";
+	  
+	  choicesMistakes += "<span name='quiz" + gCurrentQuestion +
+      "' id='choice" + (tempi + 1) +
+      "' value='" + choices[tempi] + "'>"+ (i+1) + ". " + choices[tempi] + "</span><br>";
+	   if(choices[tempi] === quiz[gCurrentQuestion].correct) {
+			correctAnswer = choices[tempi];
+			correctAnswerIndex = tempi;
+	  }
+	  
+	  choicesMistakesG = choicesMistakes;
+  }
+
+  // load the question
+  questionContainer.textContent = (questionNumber + 1) + ". " +
+    quiz[gCurrentQuestion].question;
+
+  // load the choices
+  choicesContainer.innerHTML = choicesHtml;
+
+  // setup for the first time
+  if (questionNumber === 0) {
+  scoreContainer.textContent = "Score: "+score; //nabago
+    submitBtn.textContent = "Submit Answer";
+	//alert(quiz.length);
+  }
+  
+	
+
+}
+
+function checkAnswer() {
+	var yourAnswer = "You did not pick any answer.";
+  // are we asking a question, or proceeding to next question?
+  if (askingQuestion) {
+    submitBtn.textContent = "Next Question";
+    askingQuestion = false;
+
+    // determine which radio button they clicked
+    var userpick,
+      correctIndex,
+      radios = document.getElementsByName("quiz" + gCurrentQuestion);
+    for (var i = 0; i < radios.length; i++) {
+      if (radios[i].checked) { // if this radio button is checked
+        userpick = radios[i].value;
+		yourAnswer = userpick;
+      }
+
+      // get index of correct answer
+      if (radios[i].value == quiz[gCurrentQuestion].correct) {
+        correctIndex = i;
+      }
+    }
+
+    // setup if they got it right, or wrong
+    var labelStyle = document.getElementsByTagName("label")[correctIndex].style;
+    labelStyle.fontWeight = "bold";
+    if (userpick == quiz[gCurrentQuestion].correct) {
+      labelStyle.color = "green";
+	  score++; 
+    } else {
+		wrongAnswerNo++;
+      labelStyle.color = "red";
+	  wrongAnswerQ += "<br> <span id='question'> " + wrongAnswerNo+". " + quiz[gCurrentQuestion].question + "</span><br> " + "<div id='choices'>" + choicesMistakesG + " <strong>Your answer: "+ yourAnswer + "</strong><br> <strong id='answer'>" + "Correct answer: " + correctAnswer  + "</strong></div> ";//  + 
+
+    }
+
+ 
+  } else { // move to next question
+    // setting up so user can ask a question
+    askingQuestion = true;
+    // change button text back to "Submit Answer"
+    submitBtn.textContent = "Submit Answer";
+	scoreContainer.textContent = "Score: "+score; //nabago
+    // if we're not on last question, increase question number
+    if (questionNumber < maxQ - 1) {
+      //currentQuestion++;
+	  questionNumber++;
+      askQuestion();
+    } else {
+      clearTimeout(t);
+      showFinalResults();
+    }
+	
+  }
+}
+
+
+function showFinalResults() {
+	//resultPage = "<center><strong class='for_h1'>You Passed!</strong></center>";
+	if(score/maxQ >= 0.7){
+		resultPage = "<center><strong class='for_h'>You Passed!</strong></center> <br> <center><strong>Score: " + score + " out of " + maxQ + " </strong></center><center><strong> Equivalent Percentage: " + Math.floor(score/maxQ*100) + "%</strong></center> <br><button id='restart' class='button fit' onclick='reloadCurrentPage();'> Restart the Test</button><button id='reviewMistakes' class='button fit' onclick='reviewMistakes();'> Review Mistakes</button> ";
+	} else {
+		resultPage = "<center><strong class='for_h'>You Failed!</strong></center> <br> <center><strong>Score: " + score + " out of " + maxQ + " </strong></center><center><strong> Equivalent Percentage: " + Math.floor(score/maxQ*100) + "%</strong></center> <br><button id='restart' class='button fit' onclick='reloadCurrentPage();'> Restart the Test</button><button id='reviewMistakes' class='button fit' onclick='reviewMistakes();'> Review Mistakes</button> ";
+	}
+	content.innerHTML = resultPage;
+}
+
+function reviewMistakes() {
+	content.innerHTML = wrongAnswerQ + " <br><br> <center><button id='restart' class='button fit' onclick='reloadCurrentPage();'> Restart the Test</button></center>";
+}
+
+function reloadCurrentPage() {
+	document.location.href = "random-pipe01.html"; //need to be updated per test 
+}
+
+function submit() {
+	
+	if(maxQ > quiz.length) {
+		maxQ = quiz.length;
+	}
+	seconds = 0;
+	
+	scoreContainer.textContent = "Question "+(questionNumber + 1)+"/" + maxQ; //nabago
+	//alert(timeTotal);
+	$("#home").hide();
+	$('#content').show();
+	timer();
+
+	
+}
+//alert(timeTotal);
+window.addEventListener("load", askQuestion, false);
+submitBtn.addEventListener("click", checkAnswer, false);
+$("reloadCurrentPage").addEventListener("click", reloadCurrentPage, false);
+$("exitTest").addEventListener("click", exitTest, false);
+
+
+
+</script>
+
+
+
+			<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+	</body>
+
+</html>
