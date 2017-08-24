@@ -776,7 +776,7 @@ function getRandomIntNoDuplicates(min, max, DuplicateArr) {
 
   // setup for the first time
   if (questionNumber === 0) {
-  scoreContainer.textContent = "Score: "+score; //nabago
+  scoreContainer.textContent = "Score: "+score+"/"+maxQ; //nabago
     submitBtn.textContent = "Submit Answer";
 	//alert(quiz.length);
   }
@@ -827,7 +827,7 @@ function checkAnswer() {
     askingQuestion = true;
     // change button text back to "Submit Answer"
     submitBtn.textContent = "Submit Answer";
-	scoreContainer.textContent = "Score: "+score; //nabago
+	scoreContainer.textContent = "Score: "+score+"/"+maxQ; //nabago
     // if we're not on last question, increase question number
     if (questionNumber < maxQ - 1) {
       //currentQuestion++;
@@ -867,7 +867,7 @@ function submit() {
 	}
 	seconds = 0;
 	
-	scoreContainer.textContent = "Question "+(questionNumber + 1)+"/" + maxQ; //nabago
+	scoreContainer.textContent = "Score: "+score+"/"+maxQ; //nabago
 	//alert(timeTotal);
 	$("#home").hide();
 	$('#content').show();
